@@ -10,5 +10,3 @@ int main()
     A.deplacement();
     A.afficher();
 }
-
-//hello

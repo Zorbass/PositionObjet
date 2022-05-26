@@ -26,5 +26,3 @@ class Boule
 };
 
 #endif
-
-//Hello
