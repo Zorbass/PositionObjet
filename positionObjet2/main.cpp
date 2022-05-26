@@ -10,4 +10,4 @@ int main()
     A.deplacement();
     A.afficher();
 }
-//ivan
+
