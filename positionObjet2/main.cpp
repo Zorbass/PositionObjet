@@ -11,4 +11,3 @@ int main()
     A.afficher();
 }
 
-//efee
