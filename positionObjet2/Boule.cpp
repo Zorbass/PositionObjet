@@ -28,8 +28,11 @@ void Boule::deplacement()
     m_y = m_y + m_vy * m_t;
 }
 
+<<<<<<< Updated upstream
 
 
+=======
+>>>>>>> Stashed changes
 /*
 x = x + vx * t;
     y = y + vy * t;
