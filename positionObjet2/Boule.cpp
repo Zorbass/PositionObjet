@@ -28,8 +28,6 @@ void Boule::deplacement()
     m_y = m_y + m_vy * m_t;
 }
 
-
-
 /*
 x = x + vx * t;
     y = y + vy * t;
