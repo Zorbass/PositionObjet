@@ -10,3 +10,4 @@ int main()
     A.deplacement();
     A.afficher();
 }
+//ecrit un truc dan main .cpp
