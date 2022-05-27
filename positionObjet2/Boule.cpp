@@ -2,30 +2,31 @@
 
 using namespace std;
 
-Boule::Boule() : m_nom("A"), m_x(0), m_y(0)
+
+Boule::Boule(string nom, double x, double y) : m_nom(nom), m_x(x), m_y(y)
 {
 }
 
-Boule::Boule(string nom, int x, int y) : m_nom(nom), m_x(x), m_y(y)
-{
-}
 
 void Boule::afficher()
 {
+
     cout << "Boule : " << m_nom << " (Position : " << m_x << ";" << m_y <<")" << endl;
+
 }
 
 void Boule::deplacement()
 {
     cout << "Vitesse x ??" << endl;
-    cin >> m_vx;
+    cin >> m_vix;
     cout << "Vitesse y ??" << endl;
-    cin >> m_vy;
-    cout << "Pendant combien de temps ??" << endl;
-    cin >> m_t;
+    cin >> m_viy;
 
-    m_x = m_x + m_vx * m_t;
-    m_y = m_y + m_vy * m_t;
+
+
+
+    m_x = m_x + (m_vix*m_vix) / (2*m_mu);
+    m_y = m_y + (m_viy*m_viy) / (2*m_mu);
 }
 
 /*
