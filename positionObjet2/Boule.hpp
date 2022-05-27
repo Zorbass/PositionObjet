@@ -9,7 +9,7 @@ class Boule
     public:
 
     Boule();
-    Boule(std::string nom, int x, int y);
+    Boule(std::string nom, double x, double y);
 
     void afficher();
 
@@ -18,12 +18,17 @@ class Boule
     private:
 
     std::string m_nom;
-    int m_x;
-    int m_y;
-    int m_vx;
-    int m_vy;
-    int m_t;
+    double m_x;
+    double m_y;
+    double m_vx;
+    double m_vy;
+    double m_t;
+    double m_ax;
+    double m_ay;
+    double m_m = 0.162;
+    double m_g = 9.81;
+    double m_f = 0.3;
+    double m_v;
 };
 
 #endif
-//test v2
