@@ -5,7 +5,7 @@ using namespace std;
 
 int main()
 {
-    Boule A("A", 10, 10);
+    Boule A("A", 10, 20);
     A.afficher();
     A.deplacement();
     A.afficher();
