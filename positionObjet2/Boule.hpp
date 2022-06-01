@@ -24,10 +24,13 @@ class Boule
     double m_vx;
     double m_vy;
 
+    double m_a = 2.943;
+
     double m_ax;
     double m_ay;
 
-    double m_t;
+    double m_tx;
+    double m_ty;
     double m_m = 0.162;
     double m_c = 0.5;
     double m_g = 9.81;
