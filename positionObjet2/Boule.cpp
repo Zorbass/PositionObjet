@@ -26,19 +26,27 @@ void Boule::deplacement()
     cout << "Pendant combien de temps ??" << endl;
     cin >> m_t;
 
-    m_x = m_x + m_vx * m_t;
-    m_y = m_y + m_vy * m_t;
-
-    double f = 10;
+    double f = 1;
     double n = m_t*1000/f;
-    double i;
+    double i = 0;
 
     double t;
-    while(m_t > f*i)
+
+
+    cout << clock() << endl;
+    while(n > i)
     {
-        t = clock();
-        t = clock() - t;
-        if(t)
+        double u = clock();
+
+        while(t-u < f)
+        {
+            t = clock();
+        }
+
+        m_x = m_x + m_vx * m_t/n;
+        m_y = m_y + m_vy * m_t/n;
 
         i++;
     }
+    cout << clock() << endl;
+}
