@@ -43,8 +43,11 @@ void Boule::deplacement()
             t = clock();
         }
 
-        m_x = m_x + m_vx * m_t/n;
-        m_y = m_y + m_vy * m_t/n;
+        m_x = m_x + (m_vx*m_vx) / (2*m_g*m_f) / n;
+        m_y = m_y + (m_vy*m_vy) / (2*m_g*m_f) / n;
+
+        /*m_x = m_x + m_vx * m_t/n;
+        m_y = m_y + m_vy * m_t/n;*/
 
         i++;
     }
