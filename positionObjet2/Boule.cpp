@@ -1,5 +1,6 @@
 #include "Boule.hpp"
 #include <ctime>
+#include <cmath>
 
 using namespace std;
 
@@ -27,15 +28,28 @@ void Boule::deplacement()
     m_tx = m_vx/m_a;
     m_ty = m_vy/m_a;
 
+    double k = m_vy/m_vx;
+    m_ax = m_a / sqrt(k*k+1);
+    m_ay = k * m_ax;
+
+    double op = sqrt(m_ax*m_ax + m_ay*m_ay);
+    cout << op << endl;
+
+    m_v = sqrt(m_vx*m_vx + m_vy*m_vy);
+    m_t = m_v/m_a; //sqrt(m_tx*m_tx + m_ty*m_ty);
+
+    double px = m_x + m_vx*m_tx - m_a*m_tx*m_tx/2;
+    cout << px << endl;
+
     double f = 1;
-    double nx = m_tx*1000/f;
+    double n = m_t*1000/f;
     double i = 0;
 
     double t;
 
 
     cout << clock() << endl;
-    while(nx > i)
+    while(n > i)
     {
         double u = clock();
         t = clock();
@@ -45,9 +59,13 @@ void Boule::deplacement()
             t = clock();
         }
 
-        m_vx = m_vx - m_a*f/1000;
-        m_x = m_x + m_a*1/2*f/1000*f/1000 + m_vx*f/1000;
 
+
+        m_vx = m_vx - m_ax*f/1000;
+        m_x = m_x - m_ax*0.5*f*f/1000000 + m_vx*f/1000;
+
+        m_vy = m_vy - m_ay*f/1000;
+        m_y = m_y - m_ay*0.5*f*f/1000000 + m_vy*f/1000;
 
         /*m_x = m_x + m_vx * m_t/n;
         m_y = m_y + m_vy * m_t/n;*/
