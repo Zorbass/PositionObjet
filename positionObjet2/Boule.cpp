@@ -38,7 +38,7 @@ void Boule::deplacement()
     m_v = sqrt(m_vx*m_vx + m_vy*m_vy);
     m_t = m_v/m_a; //sqrt(m_tx*m_tx + m_ty*m_ty);
 
-    double px = m_x + m_vx*m_tx - m_a*m_tx*m_tx/2;
+    double px = m_x + m_vx*m_tx - m_ax*m_t*m_t/2;
     cout << px << endl;
 
     double f = 1;
