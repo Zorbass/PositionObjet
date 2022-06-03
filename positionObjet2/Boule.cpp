@@ -38,8 +38,11 @@ void Boule::deplacement()
     m_v = sqrt(m_vx*m_vx + m_vy*m_vy);
     m_t = m_v/m_a; //sqrt(m_tx*m_tx + m_ty*m_ty);
 
-    double px = m_x + m_vx*m_tx - m_ax*m_t*m_t/2;
+    double px = m_x + m_vx*m_tx - m_a*m_tx*m_tx/2;
     cout << px << endl;
+
+    double px2 = m_x + m_v*m_tx*m_tx/m_t - m_a*m_tx*m_tx*m_tx/m_t/2;
+    cout << px2 << endl;
 
     double f = 1;
     double n = m_t*1000/f;
@@ -59,13 +62,13 @@ void Boule::deplacement()
             t = clock();
         }
 
+        m_v = m_v - m_a*f/1000;
 
+        //m_vx = m_vx - m_a*f*m_tx/1000/m_t;
+        m_x = m_x - m_a*0.5*f*f*m_tx*m_tx*m_tx/1000000/m_t/m_t/m_t + m_v*f*m_tx*m_tx/1000/m_t/m_t;
 
-        m_vx = m_vx - m_ax*f/1000;
-        m_x = m_x - m_ax*0.5*f*f/1000000 + m_vx*f/1000;
-
-        m_vy = m_vy - m_ay*f/1000;
-        m_y = m_y - m_ay*0.5*f*f/1000000 + m_vy*f/1000;
+        //m_vy = m_vy - m_ay*f/1000;
+        m_y = m_y - m_a*0.5*f*f*m_ty*m_ty*m_ty/1000000/m_t/m_t/m_t + m_v*f*m_ty*m_ty/1000/m_t/m_t;
 
         /*m_x = m_x + m_vx * m_t/n;
         m_y = m_y + m_vy * m_t/n;*/
