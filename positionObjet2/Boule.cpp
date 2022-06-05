@@ -84,7 +84,7 @@ void Boule::deplacement()
             m_ay = - m_ay;
         }
         //calcule de la vitesse et acceleration si la bille touche la bande haute ou basse
-         if(m_y+m_r >= 6 )
+        if(m_y+m_r >= 6 )
         {
 
             m_vy = - m_vy;
