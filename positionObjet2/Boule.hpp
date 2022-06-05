@@ -25,6 +25,9 @@ class Boule
     double m_t;
     double m_v;
     double m_a = 2.943;
+    double m_ax;
+    double m_ay;
+    double m_r = 0.0254;
 };
 
 #endif
