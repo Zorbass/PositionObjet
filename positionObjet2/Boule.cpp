@@ -25,8 +25,8 @@ void Boule::deplacement()
     cout << "Vitesse y ??" << endl;
     cin >> m_vy;
 
-    m_tx = m_vx/m_a;
-    m_ty = m_vy/m_a;
+    /*m_tx = m_vx/m_a;
+    m_ty = m_vy/m_a;*/
 
     double k = m_vy/m_vx;
     m_ax = m_a / sqrt(k*k+1);
@@ -62,7 +62,7 @@ void Boule::deplacement()
             t = clock();
         }
 
-        m_v = m_v - m_a*f/1000;
+       wedwdwd m_v = m_v - m_a*f*m_tx/1000/m_t;
 
         //m_vx = m_vx - m_a*f*m_tx/1000/m_t;
         m_x = m_x - m_a*0.5*f*f*m_tx*m_tx*m_tx/1000000/m_t/m_t/m_t + m_v*f*m_tx*m_tx/1000/m_t/m_t;
