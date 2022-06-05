@@ -23,25 +23,23 @@ void Boule::deplacement()
     cin >> m_vx;
     cout << "Vitesse y ??" << endl;
     cin >> m_vy;
-    /*cout << "Temps ??" << endl;
-    cin >> m_t;*/
 
-    m_v = sqrt(m_vx*m_vx + m_vy*m_vy);
+    m_v = sqrt(m_vx*m_vx + m_vy*m_vy); //pythagore
 
     m_t = m_v/m_a;
 
-    double kx = m_vx/m_v;
-    double ky = m_vy/m_v;
+    double kx = m_vx/m_v; //relation entre la resultante et l'axe x
+    double ky = m_vy/m_v; //relation entre la resultante et l'axe y
 
     m_ax = kx*m_a;
     m_ay = ky*m_a;
 
-    double f = 1;
-    double n = m_t*1000/f;
-    double i = 0;
+    double f = 1; //frequence de rafraichissement
+    double n = m_t*1000/f; //nombre de rafraichissement a faire
+    double i = 0; //nombre de refraichissements effectues
 
-    double t;
-    double u;
+    double t; //temps a chaque instant
+    double u; //temps au debut de la boucle
 
     cout << clock() << endl;
     while(n > i)
@@ -49,20 +47,20 @@ void Boule::deplacement()
         u = clock();
         t = clock();
 
+        //tant que le temps ecoule entre le debut de la boucle et mtn est < que la freq de refraichissement : on fait la boucle
         while(t-u < f)
         {
             t = clock();
         }
 
-        m_vx = m_vx - m_ax*f/1000;
-        m_x = m_x - m_ax*0.5*f*f/1000000 + m_vx*f/1000;
+        m_vx = m_vx - m_ax*f/1000; //calcule de la vitesse en x a chaque rafraichissement
+        m_x = m_x - m_ax*0.5*f*f/1000000 + m_vx*f/1000; //calcule de la position en x a chaque rafraichissement
 
-        m_vy = m_vy - m_ay*f/1000;
-        m_y = m_y - m_ay*0.5*f*f/1000000 + m_vy*f/1000;
+        m_vy = m_vy - m_ay*f/1000; //calcule de la vitesse en y a chaque rafraichissement
+        m_y = m_y - m_ay*0.5*f*f/1000000 + m_vy*f/1000; //calcule de la position en y a chaque rafraichissement
 
-        /*m_x = m_x + m_vx*f/1000;
-        m_y = m_y + m_vy*f/1000;*/
 
+        //calcule de la vitesse et acceleration si la bille touche un coin
         if(m_x+m_r >= 11 and m_y+m_r >= 6 or m_x+m_r >= 11 and m_y+m_r <= 0 or m_x+m_r <= 0 and m_y+m_r >= 6 or m_x+m_r <= 0 and m_y+m_r <= 0)
         {
             m_vx = - m_vx;
@@ -71,12 +69,15 @@ void Boule::deplacement()
             m_ay = - m_ay;
         }
 
+        //calcule de la vitesse et acceleration si la bille touche la bande droit ou gauche
         else if(m_x+m_r >= 11 or m_x+m_r <= 0)
         {
             m_vx = - m_vx;
             m_ax = - m_ax;
         }
 
+
+        //calcule de la vitesse et acceleration si la bille touche la bande haute ou basse
         else if(m_y+m_r >= 6 or m_y+m_r <= 0)
         {
             m_vy = - m_vy;
