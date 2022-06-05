@@ -10,14 +10,16 @@
 	<iostream>
 	"Boule.hpp"
 
-1653650928 source:c:\users\ivanu\onedrive\documents\github\positionobjet\positionobjet2\boule.cpp
+1654449179 source:c:\users\ivanu\onedrive\documents\github\positionobjet\positionobjet2\boule.cpp
 	"Boule.hpp"
+	<ctime>
+	<cmath>
 
-1653650716 c:\users\ivanu\onedrive\documents\github\positionobjet\positionobjet2\boule.hpp
+1654444938 c:\users\ivanu\onedrive\documents\github\positionobjet\positionobjet2\boule.hpp
 	<iostream>
 	<string>
 
-1653650446 source:c:\users\ivanu\onedrive\documents\github\positionobjet\positionobjet2\main.cpp
+1654449249 source:c:\users\ivanu\onedrive\documents\github\positionobjet\positionobjet2\main.cpp
 	<iostream>
 	"Boule.hpp"
 

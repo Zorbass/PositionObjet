@@ -1,47 +1,24 @@
 #include "Boule.hpp"
 #include <ctime>
 #include <cmath>
+#include "Table.hpp"
 
 using namespace std;
 
-Boule::Boule() : m_nom("A"), m_x(0), m_y(0)
+Table::Table(): m_xt(0), m_xy(0), m_xt2(11), m_yt2(6)
+{
+
+}
+Table::Table(int x , int y,  int x2, int y2) : m_xt(x), m_xy(y), m_xt2(x2), m_yt2(y2)
 {
 }
 
-Boule::Boule(string nom, int x, int y) : m_nom(nom), m_x(x), m_y(y)
+void Table::collision()
 {
-}
 
-void Boule::afficher()
-{
-    cout << "Boule : " << m_nom << " (Position : " << m_x << ";" << m_y <<")" << endl;
-}
 
-void Boule::deplacement()
-{
-    cout << "Vitesse x ??" << endl;
-    cin >> m_vx;
-    cout << "Vitesse y ??" << endl;
-    cin >> m_vy;
-
-    m_v = sqrt(m_vx*m_vx + m_vy*m_vy); //pythagore
-
-    m_t = m_v/m_a;
-
-    double kx = m_vx/m_v; //relation entre la resultante et l'axe x
-    double ky = m_vy/m_v; //relation entre la resultante et l'axe y
-
-    m_ax = kx*m_a;
-    m_ay = ky*m_a;
-
-    double f = 1; //frequence de rafraichissement
     double n = m_t*1000/f; //nombre de rafraichissement a faire
     double i = 0; //nombre de refraichissements effectues
-
-    double t; //temps a chaque instant
-    double u; //temps au debut de la boucle
-
-    cout << clock() << endl;
     while(n > i)
     {
         u = clock();
@@ -53,19 +30,16 @@ void Boule::deplacement()
             t = clock();
         }
 
-        m_vx = m_vx - m_ax*f/1000; //calcule de la vitesse en x a chaque rafraichissement
-        m_x = m_x - m_ax*0.5*f*f/1000000 + m_vx*f/1000; //calcule de la position en x a chaque rafraichissement
 
-        m_vy = m_vy - m_ay*f/1000; //calcule de la vitesse en y a chaque rafraichissement
-        m_y = m_y - m_ay*0.5*f*f/1000000 + m_vy*f/1000; //calcule de la position en y a chaque rafraichissement
 
 
 
         //calcule de la vitesse et acceleration si la bille touche un coin
-        if(m_x-m_r <= 0 )
+        if(m_x-m_r <= m_xt )
         {
             m_vx = - m_vx;
             m_ax = - m_ax;
+            cout<<"test"
 
         }
 
@@ -95,4 +69,7 @@ void Boule::deplacement()
     }
     cout << clock() << endl;
 
-    }
+
+
+
+}
