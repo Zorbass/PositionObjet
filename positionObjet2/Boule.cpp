@@ -1,4 +1,6 @@
 #include "Boule.hpp"
+#include <ctime>
+#include <cmath>
 
 using namespace std;
 
@@ -21,38 +23,14 @@ void Boule::deplacement()
     cin >> m_vx;
     cout << "Vitesse y ??" << endl;
     cin >> m_vy;
-    cout << "Pendant combien de temps ??" << endl;
-    cin >> m_t;
 
-    m_x = m_x + m_vx * m_t;
-    m_y = m_y + m_vy * m_t;
-}
+    m_v = sqrt(m_vx*m_vx + m_vy*m_vy)
 
-/*
-x = x + vx * t;
-    y = y + vy * t;
+    m_t = m_v/m_a;
 
+    double kx = m_vx/m_v;
+    double ky = m_vy/m_v;
 
-Arme::Arme() : m_nom("Epée rouillée"), m_degats(10)
-{
-}
+    cout << m_v*kx << endl;
 
-Arme::Arme(string nom, int degats) : m_nom(nom), m_degats(degats)
-{
-}
-
-void Arme::changer(string nom, int degats)
-{
-    m_nom = nom;
-    m_degats = degats;
-}
-
-void Arme::afficher()
-{
-    cout << "Arme : " << m_nom << " (Dégâts : " << m_degats << ")" << endl;
-}
-
-int Arme::getDegats() const
-{
-    return m_degats;
-}*/
+    }
