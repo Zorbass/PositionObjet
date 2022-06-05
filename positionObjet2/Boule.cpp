@@ -61,7 +61,7 @@ void Boule::deplacement()
 
 
         //calcule de la vitesse et acceleration si la bille touche un coin
-        if(m_x+m_r >= 11 and m_y+m_r >= 6 or m_x+m_r >= 11 and m_y+m_r <= 0 or m_x+m_r <= 0 and m_y+m_r >= 6 or m_x+m_r <= 0 and m_y+m_r <= 0)
+        if(0 >= m_x+m_r >= 11 and 0 >= m_y+m_r >= 6)
         {
             m_vx = - m_vx;
             m_vy = - m_vy;
