@@ -1,8 +1,10 @@
 # depslib dependency file v1.0
-1653583752 source:c:\users\zorbas\documents\tm\apprentissage programme\testcode\positionobjet3\positionobjet\positionobjet2\boule.cpp
+1654417286 source:c:\users\zorbas\documents\tm\apprentissage programme\testcode\positionobjet3\positionobjet\positionobjet2\boule.cpp
 	"Boule.hpp"
+	<ctime>
+	<cmath>
 
-1654416880 c:\users\zorbas\documents\tm\apprentissage programme\testcode\positionobjet3\positionobjet\positionobjet2\boule.hpp
+1654417351 c:\users\zorbas\documents\tm\apprentissage programme\testcode\positionobjet3\positionobjet\positionobjet2\boule.hpp
 	<iostream>
 	<string>
 

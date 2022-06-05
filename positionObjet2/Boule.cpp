@@ -24,13 +24,12 @@ void Boule::deplacement()
     cout << "Vitesse y ??" << endl;
     cin >> m_vy;
 
-    m_v = sqrt(m_vx*m_vx + m_vy*m_vy)
+    m_v = sqrt(m_vx*m_vx + m_vy*m_vy);
 
     m_t = m_v/m_a;
 
     double kx = m_vx/m_v;
     double ky = m_vy/m_v;
 
-    cout << m_v*kx << endl;
 
     }

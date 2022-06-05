@@ -18,11 +18,13 @@ class Boule
     private:
 
     std::string m_nom;
-    int m_x;
-    int m_y;
-    int m_vx;
-    int m_vy;
-    int m_t;
+    double m_x;
+    double m_y;
+    double m_vx;
+    double m_vy;
+    double m_t;
+    double m_v;
+    double m_a = 2.943;
 };
 
 #endif
