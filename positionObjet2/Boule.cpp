@@ -37,9 +37,9 @@ void Boule::collision(Boule &cible)
 {
     m_v = sqrt(m_vx*m_vx + m_vy*m_vy); //pythagore
 
-    m_t = 1;
+    //m_t = 1;
 
-    //m_t = m_v/m_a;
+    m_t = m_v/m_a;
 
     double kx = m_vx/m_v; //relation entre la resultante et l'axe x
     double ky = m_vy/m_v; //relation entre la resultante et l'axe y
@@ -65,18 +65,18 @@ void Boule::collision(Boule &cible)
             t = clock();
         }
 
-        /*
-
         m_vx = m_vx - m_ax*f/1000; //calcule de la vitesse en x a chaque rafraichissement
         m_x = m_x - m_ax*0.5*f*f/1000000 + m_vx*f/1000; //calcule de la position en x a chaque rafraichissement
 
         m_vy = m_vy - m_ay*f/1000; //calcule de la vitesse en y a chaque rafraichissement
         m_y = m_y - m_ay*0.5*f*f/1000000 + m_vy*f/1000; //calcule de la position en y a chaque rafraichissement
 
-        */
+        /*
 
         m_x = m_x + m_vx*f/1000;
         m_y = m_y + m_vy*f/1000;
+
+        */
 
 
         if(m_x - cible.positionX() < 0.01 and m_x - cible.positionX() > -0.01)
