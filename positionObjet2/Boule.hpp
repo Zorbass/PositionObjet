@@ -23,8 +23,6 @@ class Boule
 
     void shoot();
 
-    void deplacement();
-
     private:
 
     std::string m_nom;

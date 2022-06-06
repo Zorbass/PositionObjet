@@ -4,11 +4,11 @@
 
 using namespace std;
 
-Boule::Boule() : m_nom("A"), m_x(0), m_y(0)
+Boule::Boule() : m_nom("A"), m_x(0), m_y(0), m_vx(0), m_vy(0)
 {
 }
 
-Boule::Boule(string nom, int x, int y) : m_nom(nom), m_x(x), m_y(y)
+Boule::Boule(string nom, int x, int y) : m_nom(nom), m_x(x), m_y(y), m_vx(0), m_vy(0)
 {
 }
 
@@ -79,7 +79,7 @@ void Boule::collision(Boule &cible)
         */
 
 
-        if(m_x - cible.positionX() < 0.01 and m_x - cible.positionX() > -0.01)
+        if(m_x - cible.positionX() < 0.0001 and m_x - cible.positionX() > -0.0001 and m_y - cible.positionY() < 0.0001 and m_y - cible.positionY() > -0.0001)
         {
             cible.changerVitesse(m_vx, m_vy);
             m_vx = 0;
@@ -112,7 +112,10 @@ void Boule::collision(Boule &cible)
 
         i++;
     }
+
     cout << "fini collisions" << endl;
+    m_vx = 0;
+    m_vy = 0;
 }
 
 void Boule::shoot()
@@ -121,12 +124,4 @@ void Boule::shoot()
     cin >> m_vx;
     cout << "Vitesse y ??" << endl;
     cin >> m_vy;
-    cout << "Temps ??" << endl;
-    cin >> m_t;
-
-}
-
-void Boule::deplacement()
-{
-
 }
