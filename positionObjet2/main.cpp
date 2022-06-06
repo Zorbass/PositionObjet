@@ -12,6 +12,7 @@ int main()
     B.afficher();
 
     A.deplacement();
+    A.collision();
 
     A.afficher();
     B.afficher();
