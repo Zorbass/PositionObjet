@@ -37,6 +37,8 @@ void Boule::collision(Boule &cible)
 {
     m_v = sqrt(m_vx*m_vx + m_vy*m_vy); //pythagore
 
+    m_t = 1;
+
     //m_t = m_v/m_a;
 
     double kx = m_vx/m_v; //relation entre la resultante et l'axe x
@@ -51,8 +53,6 @@ void Boule::collision(Boule &cible)
 
     double t; //temps a chaque instant
     double u; //temps au debut de la boucle
-
-    cout << clock() << endl;
 
     while(n > i)
     {
@@ -78,13 +78,13 @@ void Boule::collision(Boule &cible)
         m_x = m_x + m_vx*f/1000;
         m_y = m_y + m_vy*f/1000;
 
-        cout << clock() << endl;
 
-        if(m_x - cible.positionX() < 0.05 and m_x - cible.positionX() > -0.05)
+        if(m_x - cible.positionX() < 0.01 and m_x - cible.positionX() > -0.01)
         {
             cible.changerVitesse(m_vx, m_vy);
             m_vx = 0;
             m_vy = 0;
+            i=n;
         }
 
         if(0 >= m_x+m_r >= 11 and 0 >= m_y+m_r >= 6)
@@ -112,7 +112,7 @@ void Boule::collision(Boule &cible)
 
         i++;
     }
-
+    cout << "fini collisions" << endl;
 }
 
 void Boule::shoot()
