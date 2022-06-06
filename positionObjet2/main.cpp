@@ -11,8 +11,10 @@ int main()
     A.afficher();
     B.afficher();
 
-    A.deplacement();
-    A.collision();
+    A.shoot();
+    A.collision(B);
+
+    B.collision(A);
 
     A.afficher();
     B.afficher();

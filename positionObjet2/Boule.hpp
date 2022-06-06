@@ -19,7 +19,9 @@ class Boule
 
     void changerVitesse(int x, int y);
 
-    void collisionBoule(Boule &cible);
+    void collision(Boule &cible);
+
+    void shoot();
 
     void deplacement();
 

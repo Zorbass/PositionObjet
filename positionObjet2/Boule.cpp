@@ -33,25 +33,8 @@ void Boule::changerVitesse(int x, int y)
     m_vy = y;
 }
 
-void Boule::collisionBoule(Boule &cible)
+void Boule::collision(Boule &cible)
 {
-    if(m_x - cible.positionX() < 0.05 and m_x - cible.positionX() > -0.05)
-    {
-        cible.changerVitesse(m_vx, m_vy);
-        m_vx = 0;
-        m_vy = 0;
-    }
-}
-
-void Boule::deplacement()
-{
-    cout << "Vitesse x ??" << endl;
-    cin >> m_vx;
-    cout << "Vitesse y ??" << endl;
-    cin >> m_vy;
-    cout << "Temps ??" << endl;
-    cin >> m_t;
-
     m_v = sqrt(m_vx*m_vx + m_vy*m_vy); //pythagore
 
     //m_t = m_v/m_a;
@@ -70,6 +53,7 @@ void Boule::deplacement()
     double u; //temps au debut de la boucle
 
     cout << clock() << endl;
+
     while(n > i)
     {
         u = clock();
@@ -94,8 +78,15 @@ void Boule::deplacement()
         m_x = m_x + m_vx*f/1000;
         m_y = m_y + m_vy*f/1000;
 
+        cout << clock() << endl;
 
-        //calcule de la vitesse et acceleration si la bille touche un coin
+        if(m_x - cible.positionX() < 0.05 and m_x - cible.positionX() > -0.05)
+        {
+            cible.changerVitesse(m_vx, m_vy);
+            m_vx = 0;
+            m_vy = 0;
+        }
+
         if(0 >= m_x+m_r >= 11 and 0 >= m_y+m_r >= 6)
         {
             m_vx = - m_vx;
@@ -119,10 +110,23 @@ void Boule::deplacement()
             m_ay = - m_ay;
         }
 
-        A.collisionBoule(B);
-
         i++;
     }
-    cout << clock() << endl;
 
-    }
+}
+
+void Boule::shoot()
+{
+    cout << "Vitesse x ??" << endl;
+    cin >> m_vx;
+    cout << "Vitesse y ??" << endl;
+    cin >> m_vy;
+    cout << "Temps ??" << endl;
+    cin >> m_t;
+
+}
+
+void Boule::deplacement()
+{
+
+}
