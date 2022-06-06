@@ -17,16 +17,44 @@ void Boule::afficher()
     cout << "Boule : " << m_nom << " (Position : " << m_x << ";" << m_y <<")" << endl;
 }
 
+double Boule::positionX()
+{
+    return m_x;
+}
+
+double Boule::positionY()
+{
+    return m_y;
+}
+
+void Boule::changerVitesse(int x, int y)
+{
+    m_vx = x;
+    m_vy = y;
+}
+
+void Boule::collisionBoule(Boule &cible)
+{
+    if(m_x - cible.positionX < 0.05 and m_x - cible.positionX > -0.05)
+    {
+        cible.changerVitesse(m_vx, m_vy);
+        m_vx = 0;
+        m_vy = 0;
+    }
+}
+
 void Boule::deplacement()
 {
     cout << "Vitesse x ??" << endl;
     cin >> m_vx;
     cout << "Vitesse y ??" << endl;
     cin >> m_vy;
+    cout << "Temps ??" << endl;
+    cin >> m_t;
 
     m_v = sqrt(m_vx*m_vx + m_vy*m_vy); //pythagore
 
-    m_t = m_v/m_a;
+    //m_t = m_v/m_a;
 
     double kx = m_vx/m_v; //relation entre la resultante et l'axe x
     double ky = m_vy/m_v; //relation entre la resultante et l'axe y
@@ -53,11 +81,18 @@ void Boule::deplacement()
             t = clock();
         }
 
+        /*
+
         m_vx = m_vx - m_ax*f/1000; //calcule de la vitesse en x a chaque rafraichissement
         m_x = m_x - m_ax*0.5*f*f/1000000 + m_vx*f/1000; //calcule de la position en x a chaque rafraichissement
 
         m_vy = m_vy - m_ay*f/1000; //calcule de la vitesse en y a chaque rafraichissement
         m_y = m_y - m_ay*0.5*f*f/1000000 + m_vy*f/1000; //calcule de la position en y a chaque rafraichissement
+
+        */
+
+        m_x = m_x + m_vx*f/1000;
+        m_y = m_y + m_vy*f/1000;
 
 
         //calcule de la vitesse et acceleration si la bille touche un coin
@@ -83,6 +118,7 @@ void Boule::deplacement()
             m_vy = - m_vy;
             m_ay = - m_ay;
         }
+
 
         i++;
     }
