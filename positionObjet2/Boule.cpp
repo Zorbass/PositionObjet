@@ -14,7 +14,7 @@ Boule::Boule(string nom, int x, int y) : m_nom(nom), m_x(x), m_y(y)
 
 void Boule::afficher()
 {
-    cout << "Boule : " << m_nom << " (Position : " << m_x << ";" << m_y <<")" << endl;
+    cout << "Boule : " << m_nom << " (Position : " << m_x << ";" << m_y << ")" << endl << "vitesse : " << m_vx << "; " << m_vy << endl;
 }
 
 double Boule::positionX()
@@ -35,7 +35,7 @@ void Boule::changerVitesse(int x, int y)
 
 void Boule::collisionBoule(Boule &cible)
 {
-    if(m_x - cible.positionX < 0.05 and m_x - cible.positionX > -0.05)
+    if(m_x - cible.positionX() < 0.05 and m_x - cible.positionX() > -0.05)
     {
         cible.changerVitesse(m_vx, m_vy);
         m_vx = 0;
@@ -119,6 +119,7 @@ void Boule::deplacement()
             m_ay = - m_ay;
         }
 
+        A.collisionBoule(B);
 
         i++;
     }
