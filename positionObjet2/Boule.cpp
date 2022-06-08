@@ -4,35 +4,42 @@
 
 using namespace std;
 
+//constructeur basique
 Boule::Boule() : m_nom("A"), m_x(0), m_y(0), m_vx(0), m_vy(0)
 {
 }
 
+//constructeur personalisable
 Boule::Boule(string nom, int x, int y) : m_nom(nom), m_x(x), m_y(y), m_vx(0), m_vy(0)
 {
 }
 
+//affiche le nom, la vitesse et la position de la bille.
 void Boule::afficher()
 {
     cout << "Boule : " << m_nom << " (Position : " << m_x << ";" << m_y << ")" << endl << "vitesse : " << m_vx << "; " << m_vy << endl;
 }
 
+//retourne la position de la bille en x
 double Boule::positionX()
 {
     return m_x;
 }
 
+//retourne la position de la bille en y
 double Boule::positionY()
 {
     return m_y;
 }
 
+//modifie la vitesse de la bille
 void Boule::changerVitesse(int x, int y)
 {
     m_vx = x;
     m_vy = y;
 }
 
+//fait avancer la bille et effectue les contacts si il y en a.
 void Boule::collision(Boule &cible)
 {
     m_v = sqrt(m_vx*m_vx + m_vy*m_vy); //pythagore
@@ -118,6 +125,7 @@ void Boule::collision(Boule &cible)
     m_vy = 0;
 }
 
+//permet de shooter la première bille
 void Boule::shoot()
 {
     cout << "Vitesse x ??" << endl;
