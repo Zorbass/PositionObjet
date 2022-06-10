@@ -86,7 +86,7 @@ void Boule::collision(Boule &cible)
         */
 
 
-        if(m_x - cible.positionX() < 0.0001 and m_x - cible.positionX() > -0.0001 and m_y - cible.positionY() < 0.0001 and m_y - cible.positionY() > -0.0001)
+        if(m_x - cible.positionX() < 0.001 and m_x - cible.positionX() > -0.001 and m_y - cible.positionY() < 0.001 and m_y - cible.positionY() > -0.001)
         {
             cible.changerVitesse(m_vx, m_vy);
             m_vx = 0;
