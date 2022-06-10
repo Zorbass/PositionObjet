@@ -13,7 +13,17 @@ class Boule
 
     void afficher();
 
+    double positionX();
+
+    double positionY();
+
     void deplacement();
+
+    void changerVitesse(int x, int y);
+
+    void collision(Boule &cible);
+
+    void shoot();
 
     private:
 

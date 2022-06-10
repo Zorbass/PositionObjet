@@ -4,27 +4,47 @@
 
 using namespace std;
 
-Boule::Boule() : m_nom("A"), m_x(0), m_y(0)
+//constructeur basique
+Boule::Boule() : m_nom("A"), m_x(0), m_y(0), m_vx(0), m_vy(0)
 {
 }
 
-Boule::Boule(string nom, int x, int y) : m_nom(nom), m_x(x), m_y(y)
+//constructeur personalisable
+Boule::Boule(string nom, int x, int y) : m_nom(nom), m_x(x), m_y(y), m_vx(0), m_vy(0)
 {
 }
 
+//affiche le nom, la vitesse et la position de la bille.
 void Boule::afficher()
 {
-    cout << "Boule : " << m_nom << " (Position : " << m_x << ";" << m_y <<")" << endl;
+    cout << "Boule : " << m_nom << " (Position : " << m_x << ";" << m_y << ")" << endl << "vitesse : " << m_vx << "; " << m_vy << endl;
 }
 
-void Boule::deplacement()
+//retourne la position de la bille en x
+double Boule::positionX()
 {
-    cout << "Vitesse x ??" << endl;
-    cin >> m_vx;
-    cout << "Vitesse y ??" << endl;
-    cin >> m_vy;
+    return m_x;
+}
 
+//retourne la position de la bille en y
+double Boule::positionY()
+{
+    return m_y;
+}
+
+//modifie la vitesse de la bille
+void Boule::changerVitesse(int x, int y)
+{
+    m_vx = x;
+    m_vy = y;
+}
+
+//fait avancer la bille et effectue les contacts si il y en a.
+void Boule::collision(Boule &cible)
+{
     m_v = sqrt(m_vx*m_vx + m_vy*m_vy); //pythagore
+
+    //m_t = 1;
 
     m_t = m_v/m_a;
 
@@ -41,7 +61,6 @@ void Boule::deplacement()
     double t; //temps a chaque instant
     double u; //temps au debut de la boucle
 
-    cout << clock() << endl;
     while(n > i)
     {
         u = clock();
@@ -59,40 +78,54 @@ void Boule::deplacement()
         m_vy = m_vy - m_ay*f/1000; //calcule de la vitesse en y a chaque rafraichissement
         m_y = m_y - m_ay*0.5*f*f/1000000 + m_vy*f/1000; //calcule de la position en y a chaque rafraichissement
 
+        /*
+        m_x = m_x + m_vx*f/1000;
+        m_y = m_y + m_vy*f/1000;
+        */
 
 
-        //calcule de la vitesse et acceleration si la bille touche un coin
-        if(m_x-m_r <= 0 )
+
+        if(m_x - cible.positionX() < 0.001 and m_x - cible.positionX() > -0.001 and m_y - cible.positionY() < 0.001 and m_y - cible.positionY() > -0.001)//collision entre 2 boules
+        {
+            cible.changerVitesse(m_vx, m_vy);
+            cout<<"il y a collision entre boules"<<endl;
+            m_vx = 0;
+            m_vy = 0;
+            i = n;
+        }
+
+
+
+        //calcule de la vitesse et acceleration si la bille touche la bande droite ou gauche
+        else if(m_x+m_r >= 11 or m_x-m_r <= 0)
         {
             m_vx = - m_vx;
             m_ax = - m_ax;
-
-        }
-
-        //calcule de la vitesse et acceleration si la bille touche la bande droit ou gauche
-        if(m_x+m_r >= 11)
-        {
-            m_vx = - m_vx;
-            m_ax = - m_ax;
+            cout<<"collision avec bande droite ou gauche"<<endl;
         }
 
 
-         //calcule de la vitesse et acceleration si la bille touche la bande haute ou basse
-        if(m_y-m_r <= 0 )
-        {
-            m_vy = - m_vy;
-            m_ay = - m_ay;
-        }
         //calcule de la vitesse et acceleration si la bille touche la bande haute ou basse
-        if(m_y+m_r >= 6 )
+        else if(m_y+m_r >= 6 or m_y-m_r <= 0)
         {
-
             m_vy = - m_vy;
             m_ay = - m_ay;
+            cout<<"collision avec bande haute ou basse"<<endl;
         }
 
         i++;
     }
-    cout << clock() << endl;
 
-    }
+    cout << "fini collisions" << endl;
+    m_vx = 0;
+    m_vy = 0;
+}
+
+//permet de shooter la première bille
+void Boule::shoot()
+{
+    cout << "Vitesse x ??" << endl;
+    cin >> m_vx;
+    cout << "Vitesse y ??" << endl;
+    cin >> m_vy;
+}

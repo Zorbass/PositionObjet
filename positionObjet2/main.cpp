@@ -1,14 +1,22 @@
 #include <iostream>
 #include "Boule.hpp"
-#include "Table.cpp"
 
 using namespace std;
 
 int main()
 {
-    Boule A("A", 2, 2); // ne pas mettre 0,0 sinon sa beug (le programme change son sens a l'infini)
-    Table T(0,0,11,6);
+    Boule A("A", 10, 1);
+    Boule B("B", 1, 5);
+
     A.afficher();
-    A.deplacement();
+    B.afficher();
+
+    A.shoot();
+    A.collision(B);
+
+
+
     A.afficher();
+    B.afficher();
+
 }
