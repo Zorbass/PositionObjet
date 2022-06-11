@@ -86,24 +86,17 @@ void Boule::collision(Boule &cible)
         */
 
 
-        if(m_x - cible.positionX() < 0.001 and m_x - cible.positionX() > -0.001 and m_y - cible.positionY() < 0.001 and m_y - cible.positionY() > -0.001)
+        if(sqrt((m_x-cible.positionX()) * (m_x-cible.positionX()) + (m_y-cible.positionY())*(m_y-cible.positionY()))<= 2*m_r)
         {
             cible.changerVitesse(m_vx, m_vy);
             m_vx = 0;
             m_vy = 0;
             i=n;
-        }
-
-        if(0 >= m_x+m_r >= 11 and 0 >= m_y+m_r >= 6)
-        {
-            m_vx = - m_vx;
-            m_vy = - m_vy;
-            m_ax = - m_ax;
-            m_ay = - m_ay;
+            cible.afficher();
         }
 
         //calcule de la vitesse et acceleration si la bille touche la bande droit ou gauche
-        else if(m_x+m_r >= 11 or m_x+m_r <= 0)
+        if(m_x+m_r >= 11 or m_x+m_r <= 0)
         {
             m_vx = - m_vx;
             m_ax = - m_ax;
@@ -111,7 +104,7 @@ void Boule::collision(Boule &cible)
 
 
         //calcule de la vitesse et acceleration si la bille touche la bande haute ou basse
-        else if(m_y+m_r >= 6 or m_y+m_r <= 0)
+        if(m_y+m_r >= 6 or m_y+m_r <= 0)
         {
             m_vy = - m_vy;
             m_ay = - m_ay;
