@@ -9,7 +9,7 @@ Table::Table(): m_xt(0), m_xy(0), m_xt2(11), m_yt2(6)
 {
 
 }
-Table::Table(int x , int y,  int x2, int y2) : m_xt(x), m_xy(y), m_xt2(x2), m_yt2(y2)
+Table::Table(int x , int y,  int x2, int y2) : m_xt(x), m_yt(y), m_xt2(x2), m_yt2(y2)
 {
 }
 
@@ -34,33 +34,17 @@ void Table::collision()
 
 
 
-        //calcule de la vitesse et acceleration si la bille touche un coin
-        if(m_x-m_r <= m_xt )
-        {
-            m_vx = - m_vx;
-            m_ax = - m_ax;
-            cout<<"test"
-
-        }
-
         //calcule de la vitesse et acceleration si la bille touche la bande droit ou gauche
-        if(m_x+m_r >= 11)
+        if(m_x+m_r >m_xt2 or m_x+m_r <= m_xt)
         {
             m_vx = - m_vx;
             m_ax = - m_ax;
         }
 
 
-         //calcule de la vitesse et acceleration si la bille touche la bande haute ou basse
-        if(m_y-m_r <= 0 )
-        {
-            m_vy = - m_vy;
-            m_ay = - m_ay;
-        }
         //calcule de la vitesse et acceleration si la bille touche la bande haute ou basse
-         if(m_y+m_r >= 6 )
+        if(m_y+m_r >= m_yt2 or m_y+m_r <= m_yt)
         {
-
             m_vy = - m_vy;
             m_ay = - m_ay;
         }

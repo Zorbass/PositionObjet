@@ -1,10 +1,12 @@
 #include <iostream>
 #include "Boule.hpp"
+#include "Table.hpp"
 
 using namespace std;
 
 int main()
 {
+
     Boule A("A", 10, 1);
     Boule B("B", 1, 5);
 

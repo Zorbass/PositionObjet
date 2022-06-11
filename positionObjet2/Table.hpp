@@ -15,11 +15,11 @@ class Table()
 
     private:
 
-    m_elastic = 1
-    m_xt =
-    m_xy =
-    m_xt2 =
-    m_yt2 =
+    double m_elastic = 1;
+    int m_xt;
+    int m_yt;
+    int m_xt2;
+    int m_yt2;
 
 };
 

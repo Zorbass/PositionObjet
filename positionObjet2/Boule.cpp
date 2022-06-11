@@ -4,6 +4,7 @@
 
 using namespace std;
 
+
 //constructeur basique
 Boule::Boule() : m_nom("A"), m_x(0), m_y(0), m_vx(0), m_vy(0)
 {
@@ -84,33 +85,28 @@ void Boule::collision(Boule &cible)
         */
 
 
-
-        if(m_x - cible.positionX() < 0.001 and m_x - cible.positionX() > -0.001 and m_y - cible.positionY() < 0.001 and m_y - cible.positionY() > -0.001)//collision entre 2 boules
+        if(sqrt((m_x-cible.positionX()) * (m_x-cible.positionX()) + (m_y-cible.positionY())*(m_y-cible.positionY()))<= 2*m_r)
         {
             cible.changerVitesse(m_vx, m_vy);
-            cout<<"il y a collision entre boules"<<endl;
             m_vx = 0;
             m_vy = 0;
-            i = n;
+            i=n;
+            cible.afficher();
         }
 
-
-
-        //calcule de la vitesse et acceleration si la bille touche la bande droite ou gauche
-        else if(m_x+m_r >= 11 or m_x-m_r <= 0)
+        //calcule de la vitesse et acceleration si la bille touche la bande droit ou gauche
+        if(m_x+m_r >= 11 or m_x-m_r <= 0)
         {
             m_vx = - m_vx;
             m_ax = - m_ax;
-            cout<<"collision avec bande droite ou gauche"<<endl;
         }
 
 
         //calcule de la vitesse et acceleration si la bille touche la bande haute ou basse
-        else if(m_y+m_r >= 6 or m_y-m_r <= 0)
+        if(m_y+m_r >= 6 or m_y-m_r <= 0)
         {
             m_vy = - m_vy;
             m_ay = - m_ay;
-            cout<<"collision avec bande haute ou basse"<<endl;
         }
 
         i++;
