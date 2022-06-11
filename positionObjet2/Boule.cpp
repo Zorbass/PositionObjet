@@ -44,15 +44,13 @@ void Boule::collision(Boule &cible)
 {
     m_v = sqrt(m_vx*m_vx + m_vy*m_vy); //pythagore
 
-    //m_t = 1;
-
     m_t = m_v/m_a;
 
     double kx = m_vx/m_v; //relation entre la resultante et l'axe x
     double ky = m_vy/m_v; //relation entre la resultante et l'axe y
 
-    m_ax = kx*m_a;
-    m_ay = ky*m_a;
+    m_ax = kx*m_a; //calcule de l'accélération de la bille sur l'axe x
+    m_ay = ky*m_a; //calcule de l'accélération de la bille sur l'axe y
 
     double f = 1; //frequence de rafraichissement
     double n = m_t*1000/f; //nombre de rafraichissement a faire
@@ -77,14 +75,6 @@ void Boule::collision(Boule &cible)
 
         m_vy = m_vy - m_ay*f/1000; //calcule de la vitesse en y a chaque rafraichissement
         m_y = m_y - m_ay*0.5*f*f/1000000 + m_vy*f/1000; //calcule de la position en y a chaque rafraichissement
-
-        /*
-
-        m_x = m_x + m_vx*f/1000;
-        m_y = m_y + m_vy*f/1000;
-
-        */
-
 
         if(sqrt((m_x-cible.positionX()) * (m_x-cible.positionX()) + (m_y-cible.positionY())*(m_y-cible.positionY()))<= 2*m_r)
         {
