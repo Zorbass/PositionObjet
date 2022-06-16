@@ -17,7 +17,7 @@ Vecteur& Vecteur::operator+=(const Vecteur &vecteur2)
 
 void Vecteur::afficher() const
 {
-    cout <<"composante x: "<< m_x <<" composante y : " << m_y << endl;
+    cout << "(" << m_x << ";" << m_y << ")" << endl;
 }
 
 Vecteur operator+(Vecteur const& a, Vecteur const& b)
