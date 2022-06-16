@@ -11,6 +11,9 @@ public:
     Vecteur(double x, double y);
     Vecteur& operator+=(const Vecteur &vecteur);
     void afficher() const;
+    void afficher2(std::ostream &flux) const;
+    double x();
+    double y();
 
 private:
     double m_x;
@@ -19,5 +22,6 @@ private:
 };
 
 Vecteur operator+(Vecteur const& a, Vecteur const& b);
+
 
 #endif

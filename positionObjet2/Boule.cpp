@@ -1,4 +1,5 @@
-/*#include "Boule.hpp"
+#include "Boule.hpp"
+#include "Vecteur.hpp"
 #include <ctime>
 #include <cmath>
 
@@ -6,19 +7,19 @@ using namespace std;
 
 
 //constructeur basique
-Boule::Boule() : m_nom("A"), m_x(0), m_y(0), m_vx(0), m_vy(0)
+Boule::Boule() : m_nom("A"), m_x(0), m_y(0), vitesse(0,0)
 {
 }
 
 //constructeur personalisable
-Boule::Boule(string nom, int x, int y) : m_nom(nom), m_x(x), m_y(y), m_vx(0), m_vy(0)
+Boule::Boule(string nom, double x, double y) : m_nom(nom), m_x(x), m_y(y), vitesse(0,0)
 {
 }
 
 //affiche le nom, la vitesse et la position de la bille.
 void Boule::afficher()
 {
-    cout << "Boule : " << m_nom << " (Position : " << m_x << ";" << m_y << ")" << endl << "vitesse : " << m_vx << "; " << m_vy << endl;
+//    cout << "Boule : " << m_nom << " (Position : " << m_x << ";" << m_y << ")" << endl << "vitesse : " << vitesse.afficher << endl;
 }
 
 //retourne la position de la bille en x
@@ -34,7 +35,7 @@ double Boule::positionY()
 }
 
 //modifie la vitesse de la bille
-void Boule::changerVitesse(int x, int y)
+void Boule::changerVitesse(double x, double y)
 {
     m_vx = x;
     m_vy = y;
@@ -80,8 +81,8 @@ void Boule::collision(Boule &cible)
         m_y = m_y - m_ay*0.5*f*f/1000000 + m_vy*f/1000; //calcule de la position en y a chaque rafraichissement
 
 
-        m_x = m_x + m_vx*f/1000;
-        m_y = m_y + m_vy*f/1000;
+        //m_x = m_x + m_vx*f/1000;
+        //m_y = m_y + m_vy*f/1000;
 
 
 
@@ -125,4 +126,3 @@ void Boule::shoot()
     cout << "Vitesse y ??" << endl;
     cin >> m_vy;
 }
-*/
