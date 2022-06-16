@@ -7,6 +7,7 @@
 class Vecteur
 {
 public:
+    Vecteur();
     Vecteur(double x, double y);
     Vecteur& operator+=(const Vecteur &vecteur);
     void afficher() const;
