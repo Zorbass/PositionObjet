@@ -4,19 +4,20 @@
 
 using namespace std;
 
+
 int main()
 {
     Vecteur vecteur1(7, 10), vecteur2(5, 53);
     Vecteur resultat;
 
-    vecteur1.afficher2();
+    cout << vecteur1 << endl;
     cout << "+" << endl;
-    vecteur2.afficher();
+    cout << vecteur2 << endl;
 
     resultat = vecteur1 + vecteur2;
 
     cout << "=" << endl;
-    resultat.afficher();
+    cout << resultat << endl;
 
     return 0;
 }

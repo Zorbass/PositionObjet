@@ -19,7 +19,7 @@ Boule::Boule(string nom, double x, double y) : m_nom(nom), m_x(x), m_y(y), vites
 //affiche le nom, la vitesse et la position de la bille.
 void Boule::afficher()
 {
-//    cout << "Boule : " << m_nom << " (Position : " << m_x << ";" << m_y << ")" << endl << "vitesse : " << vitesse.afficher << endl;
+    cout << "Boule : " << m_nom << " (Position : " << m_x << ";" << m_y << ")" << endl << "vitesse : " << vitesse << endl;
 }
 
 //retourne la position de la bille en x
