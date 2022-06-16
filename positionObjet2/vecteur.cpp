@@ -3,8 +3,7 @@
 
 using namespace std;
 
-Vecteur::Vecteur(double x, double y)
-    : m_x(x), m_y(y)
+Vecteur::Vecteur(double x, double y) : m_x(x), m_y(y)
 {
 }
 
@@ -18,7 +17,7 @@ Vecteur& Vecteur::operator+=(const Vecteur &vecteur2)
 
 void Vecteur::afficher() const
 {
-    cout <<"composante x: "<< m_x <<" composante y :" << m_y << endl;
+    cout <<"composante x: "<< m_x <<" composante y : " << m_y << endl;
 }
 
 Vecteur operator+(Vecteur const& a, Vecteur const& b)

@@ -1,10 +1,13 @@
 #ifndef Vecteur_HPP_INCLUDED
 #define Vecteur_HPP_INCLUDED
 
+#include <iostream>
+#include <string>
+
 class Vecteur
 {
 public:
-    Vecteur(double x = 0, double y = 0);
+    Vecteur(double x, double y);
     Vecteur& operator+=(const Vecteur &vecteur);
     void afficher() const;
 
