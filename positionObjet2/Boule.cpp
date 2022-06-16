@@ -52,23 +52,13 @@ void Boule::collision(Boule &cible)
     m_ax = kx*m_a; //calcule de l'accélération de la bille sur l'axe x
     m_ay = ky*m_a; //calcule de l'accélération de la bille sur l'axe y
 
-    double f = 1; //frequence de rafraichissement
-    double n = m_t*1000/f; //nombre de rafraichissement a faire
+    double f = 0; //frequence de rafraichissement
     double i = 0; //nombre de refraichissements effectues
 
-    double t; //temps a chaque instant
-    double u; //temps au debut de la boucle
+    double u = 0; //temps au debut de la boucle
 
-    while(n > i)
+    while(m_t > u)
     {
-        u = clock();
-        t = clock();
-
-        //tant que le temps ecoule entre le debut de la boucle et mtn est < que la freq de refraichissement : on fait la boucle
-        while(t-u < f)
-        {
-            t = clock();
-        }
 
         m_vx = m_vx - m_ax*f/1000; //calcule de la vitesse en x a chaque rafraichissement
         m_x = m_x - m_ax*0.5*f*f/1000000 + m_vx*f/1000; //calcule de la position en x a chaque rafraichissement
@@ -76,12 +66,34 @@ void Boule::collision(Boule &cible)
         m_vy = m_vy - m_ay*f/1000; //calcule de la vitesse en y a chaque rafraichissement
         m_y = m_y - m_ay*0.5*f*f/1000000 + m_vy*f/1000; //calcule de la position en y a chaque rafraichissement
 
+        f = clock();
+
         if(sqrt((m_x-cible.positionX()) * (m_x-cible.positionX()) + (m_y-cible.positionY())*(m_y-cible.positionY()))<= 2*m_r)
         {
+            if(m_x-cible.positionX() < 0)
+            {
+                m_x = cible.positionX() - 2*m_r;
+            }
+
+            else if(m_x-cible.positionX() > 0)
+            {
+                m_x = cible.positionX() + 2*m_r;
+            }
+
+            if(m_y-cible.positionY() < 0)
+            {
+                m_y = cible.positionY() - 2*m_r;
+            }
+
+            else if(m_y-cible.positionY() > 0)
+            {
+                m_y = cible.positionY() + 2*m_r;
+            }
+
             cible.changerVitesse(m_vx, m_vy);
             m_vx = 0;
             m_vy = 0;
-            i=n;
+            u = m_t;
             cible.afficher();
         }
 
@@ -100,7 +112,9 @@ void Boule::collision(Boule &cible)
             m_ay = - m_ay;
         }
 
-        i++;
+        f = clock() - f;
+
+        u = u + f/1000;
     }
 
     cout << "fini collisions" << endl;
