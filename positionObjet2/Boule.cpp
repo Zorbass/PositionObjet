@@ -37,8 +37,12 @@ double Boule::positionY()
 //modifie la vitesse de la bille
 void Boule::changerVitesse(double x, double y)
 {
-    m_vx = x;
-    m_vy = y;
+    vitesse.modifier(x,y);
+}
+
+void Boule::changerVitesse(Vecteur a)
+{
+    vitesse = a;
 }
 
 //fait avancer la bille et effectue les contacts si il y en a.
@@ -80,6 +84,7 @@ void Boule::collision(Boule &cible)
         m_vy = m_vy - m_ay*f/1000; //calcule de la vitesse en y a chaque rafraichissement
         m_y = m_y - m_ay*0.5*f*f/1000000 + m_vy*f/1000; //calcule de la position en y a chaque rafraichissement
 
+        vitesse.modifier(m_vx, m_vy);
 
         //m_x = m_x + m_vx*f/1000;
         //m_y = m_y + m_vy*f/1000;
@@ -88,15 +93,14 @@ void Boule::collision(Boule &cible)
 
         if(sqrt((m_x-cible.positionX()) * (m_x-cible.positionX()) + (m_y-cible.positionY())*(m_y-cible.positionY()))<= 2*m_r)
         {
-            cible.changerVitesse(m_vx, m_vy);
-            m_vx = 0;
-            m_vy = 0;
+            cible.changerVitesse(vitesse);
+            vitesse.modifier(0,0);
             i=n;
             cible.afficher();
         }
 
         //calcule de la vitesse et acceleration si la bille touche la bande droit ou gauche
-        if(m_x+m_r >= 11 or m_x-m_r <= 0)
+        /*if(m_x+m_r >= 11 or m_x-m_r <= 0)
         {
             m_vx = - m_vx;
             m_ax = - m_ax;
@@ -108,14 +112,13 @@ void Boule::collision(Boule &cible)
         {
             m_vy = - m_vy;
             m_ay = - m_ay;
-        }
+        }*/
 
         i++;
     }
 
     cout << "fini collisions" << endl;
-    m_vx = 0;
-    m_vy = 0;
+    vitesse.modifier(0,0);
 }
 
 //permet de shooter la première bille
@@ -125,4 +128,6 @@ void Boule::shoot()
     cin >> m_vx;
     cout << "Vitesse y ??" << endl;
     cin >> m_vy;
+
+    vitesse.modifier(m_vx, m_vy);
 }

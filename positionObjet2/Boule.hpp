@@ -21,6 +21,7 @@ class Boule
     void deplacement();
 
     void changerVitesse(double x, double y);
+    void changerVitesse(Vecteur a);
 
     void collision(Boule &cible);
 

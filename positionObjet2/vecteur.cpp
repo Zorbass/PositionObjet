@@ -3,12 +3,6 @@
 
 using namespace std;
 
-ostream& operator<<(ostream &flux, Vecteur const& vecteur)
-{
-    vecteur.afficher(flux) ;
-    return flux;
-}
-
 Vecteur::Vecteur() : m_x(0), m_y(0)
 {
 }
@@ -25,10 +19,21 @@ Vecteur& Vecteur::operator+=(const Vecteur &vecteur2)
     return *this;
 }
 
+void Vecteur::modifier(double x, double y)
+{
+    m_x = x;
+    m_y = y;
+}
+
 /*void Vecteur::afficher() const
 {
     cout << "(" << m_x << ";" << m_y << ")" << endl;
 }*/
+
+void Vecteur::afficher(ostream &flux) const
+{
+    flux << "(" << m_x << ";" << m_y << ")";
+}
 
 double Vecteur::x()
 {
@@ -40,6 +45,9 @@ double Vecteur::y()
     return m_y;
 }
 
+
+
+
 Vecteur operator+(Vecteur const& a, Vecteur const& b)
 {
     Vecteur copie(a);
@@ -47,8 +55,8 @@ Vecteur operator+(Vecteur const& a, Vecteur const& b)
     return copie;
 }
 
-
-void Vecteur::afficher(ostream &flux) const
+ostream& operator<<( ostream &flux, Vecteur const& vecteur)
 {
-    flux << "(" << m_x << ";" << m_y << ")";
+    vecteur.afficher(flux) ;
+    return flux;
 }

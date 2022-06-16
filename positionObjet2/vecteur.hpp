@@ -16,6 +16,7 @@ public:
     double x();
     double y();
     void afficher(std::ostream &flux) const;
+    void modifier(double x, double y);
 
 private:
     double m_x;
