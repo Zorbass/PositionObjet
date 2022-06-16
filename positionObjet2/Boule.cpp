@@ -1,4 +1,4 @@
-#include "Boule.hpp"
+/*#include "Boule.hpp"
 #include <ctime>
 #include <cmath>
 
@@ -79,10 +79,10 @@ void Boule::collision(Boule &cible)
         m_vy = m_vy - m_ay*f/1000; //calcule de la vitesse en y a chaque rafraichissement
         m_y = m_y - m_ay*0.5*f*f/1000000 + m_vy*f/1000; //calcule de la position en y a chaque rafraichissement
 
-        /*
+
         m_x = m_x + m_vx*f/1000;
         m_y = m_y + m_vy*f/1000;
-        */
+
 
 
         if(sqrt((m_x-cible.positionX()) * (m_x-cible.positionX()) + (m_y-cible.positionY())*(m_y-cible.positionY()))<= 2*m_r)
@@ -125,3 +125,4 @@ void Boule::shoot()
     cout << "Vitesse y ??" << endl;
     cin >> m_vy;
 }
+*/

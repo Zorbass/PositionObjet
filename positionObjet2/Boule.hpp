@@ -1,4 +1,4 @@
-#ifndef BOULE_HPP_INCLUDED
+/*#ifndef BOULE_HPP_INCLUDED
 #define BOULE_HPP_INCLUDED
 
 #include <iostream>
@@ -41,3 +41,4 @@ class Boule
 };
 
 #endif
+*/
