@@ -36,6 +36,8 @@ class Boule
     double m_ax; //acceleration generee par le frottement sur l'axe x
     double m_ay; //acceleration generee par le frottement sur l'axe y
     double m_r = 0.0254; //rayon de la bille
+    double m_alpha; //angle entre l'axe verticale et la vitesse
+    double m_d; //deplacement de la resultante
 };
 
 #endif
