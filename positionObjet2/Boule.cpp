@@ -125,8 +125,8 @@ void Boule::collision(Boule &cible)
 //permet de shooter la première bille
 void Boule::shoot()
 {
-    cout << "Vitesse x ??" << endl;
+    cout << "Vitesse ??" << endl;
     cin >> m_vx;
-    cout << "Vitesse y ??" << endl;
+    cout << "Angle par rapport a la verticale ?? (jusqu'a 359 dans le sens des aiguilles d'une montre)" << endl;
     cin >> m_vy;
 }
