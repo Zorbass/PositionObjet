@@ -60,10 +60,10 @@ void Boule::collision(Boule &cible)
     {
 
         m_v = m_v - m_a*f/1000;
-        m_d = m_d - m_a*0.5*f*f/1000000 + m_v*f/1000;
+        m_d = m_v*f/1000 - m_a*0.5*f*f/1000000;
 
-        m_x = sin(m_alpha*PI/180) * m_d;
-        m_y = cos(m_alpha*PI/180) * m_d;
+        m_x = m_x + sin(m_alpha*PI/180) * m_d;
+        m_y = m_y + cos(m_alpha*PI/180) * m_d;
 /*
         m_vx = m_vx - m_ax*f/1000; //calcule de la vitesse en x a chaque rafraichissement
         m_x = m_x - m_ax*0.5*f*f/1000000 + m_vx*f/1000; //calcule de la position en x a chaque rafraichissement
@@ -71,7 +71,7 @@ void Boule::collision(Boule &cible)
         m_vy = m_vy - m_ay*f/1000; //calcule de la vitesse en y a chaque rafraichissement
         m_y = m_y - m_ay*0.5*f*f/1000000 + m_vy*f/1000; //calcule de la position en y a chaque rafraichissement
 */
-        f = clock();
+        f = clock(); //peut-etre pas necessaire
 
         if(sqrt((m_x-cible.positionX()) * (m_x-cible.positionX()) + (m_y-cible.positionY())*(m_y-cible.positionY()))<= 2*m_r)
         {
@@ -106,7 +106,7 @@ void Boule::collision(Boule &cible)
         if(m_x+m_r >= 11 or m_x-m_r <= 0)
         {
             m_alpha = 360 - m_alpha;
-            m_a = - m_a;
+            m_gamma = 360 - m_gamma;
         }
 
 
@@ -114,7 +114,7 @@ void Boule::collision(Boule &cible)
         if(m_y+m_r >= 6 or m_y-m_r <= 0)
         {
             m_alpha = 180 - m_alpha;
-            m_a = - m_a;
+            m_gamma = 180 - m_gamma;
         }
 
         f = clock() - f;
