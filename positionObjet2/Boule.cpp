@@ -64,6 +64,7 @@ void Boule::collision(Boule &cible)
 
         m_x = m_x + sin(m_alpha*PI/180) * m_d;
         m_y = m_y + cos(m_alpha*PI/180) * m_d;
+
 /*
         m_vx = m_vx - m_ax*f/1000; //calcule de la vitesse en x a chaque rafraichissement
         m_x = m_x - m_ax*0.5*f*f/1000000 + m_vx*f/1000; //calcule de la position en x a chaque rafraichissement
@@ -107,16 +108,23 @@ void Boule::collision(Boule &cible)
         if(m_x+m_r >= 11 or m_x-m_r <= 0)
         {
             m_alpha = 360 - m_alpha;
-            m_gamma = 360 - m_gamma;
         }
 
 
         //calcule de la vitesse et acceleration si la bille touche la bande haute ou basse
-        /*if(m_y+m_r >= 6 or m_y-m_r <= 0)
+        if(m_y+m_r >= 6 or m_y-m_r <= 0)
         {
-            m_alpha = 180 - m_alpha;    //faux
-            m_gamma = 180 - m_gamma;
-        }*/
+            if(0 <= m_alpha <= 180)
+            {
+                m_alpha = 180 - m_alpha;
+            }
+
+            else if(180 < m_alpha <= 360)
+            {
+                m_alpha = 540 - m_alpha;
+            }
+
+        }
 
         f = clock() - f;
 
