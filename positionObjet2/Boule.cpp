@@ -75,6 +75,7 @@ void Boule::collision(Boule &cible)
 
         if(sqrt((m_x-cible.positionX()) * (m_x-cible.positionX()) + (m_y-cible.positionY())*(m_y-cible.positionY()))<= 2*m_r)
         {
+            //ces if ne sont pas correctes
             if(m_x-cible.positionX() < 0)
             {
                 m_x = cible.positionX() - 2*m_r;
@@ -111,11 +112,11 @@ void Boule::collision(Boule &cible)
 
 
         //calcule de la vitesse et acceleration si la bille touche la bande haute ou basse
-        if(m_y+m_r >= 6 or m_y-m_r <= 0)
+        /*if(m_y+m_r >= 6 or m_y-m_r <= 0)
         {
-            m_alpha = 180 - m_alpha;
+            m_alpha = 180 - m_alpha;    //faux
             m_gamma = 180 - m_gamma;
-        }
+        }*/
 
         f = clock() - f;
 
