@@ -1,21 +1,26 @@
 #include <iostream>
-#include "Vecteur.hpp"
+#include <cmath>
+#include "Boule.hpp"
+
+
 
 using namespace std;
 
 int main()
 {
-    Vecteur vecteur1(7, 10), vecteur2(5, 53);
-    Vecteur resultat;
 
-    vecteur1.afficher();
-    cout << "+" << endl;
-    vecteur2.afficher();
+    Boule A("A", 1, 1);
+    Boule B("B", 2, 2);
 
-    resultat = vecteur1 + vecteur2;
+    A.afficher();
+    B.afficher();
 
-    cout << "=" << endl;
-    resultat.afficher();
+    A.shoot();
+    A.collision(B);
 
-    return 0;
+    B.collision(A);
+
+    A.afficher();
+    B.afficher();
+
 }
