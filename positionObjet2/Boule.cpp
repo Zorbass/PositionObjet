@@ -12,7 +12,7 @@ Boule::Boule() : m_nom("A"), m_x(0), m_y(0), m_v(0), m_alpha(0)
 }
 
 //constructeur personalisable
-Boule::Boule(string nom, int x, int y) : m_nom(nom), m_x(x), m_y(y), m_v(0), m_alpha(0)
+Boule::Boule(string nom, double x, double y) : m_nom(nom), m_x(x), m_y(y), m_v(0), m_alpha(0)
 {
 }
 
@@ -35,7 +35,7 @@ double Boule::positionY()
 }
 
 //modifie la vitesse de la bille
-void Boule::changerVitesse(int x, int y)
+void Boule::changerVitesse(double x, double y)
 {
     m_v = x;
     m_alpha = y;
@@ -145,22 +145,22 @@ void Boule::collision(Boule &cible)
 
             //est-ce que les else if qui suivent sont nécessaires??
 
-            else if(deltaY < 0 and deltaX = 0)
+            else if(deltaY < 0)
             {
                 gamma2 = 180;
             }
 
-            else if(deltaY > 0 and deltaX = 0)
+            else if(deltaY > 0)
             {
                 gamma2 = 0;
             }
 
-            else if(deltaX < 0 and deltaY = 0)
+            else if(deltaX < 0)
             {
                 gamma2 = 270;
             }
 
-            else if(deltaX > 0 and deltaY = 0)
+            else if(deltaX > 0)
             {
                 gamma2 = 90;
             }

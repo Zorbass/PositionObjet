@@ -9,7 +9,7 @@ class Boule
     public:
 
     Boule();
-    Boule(std::string nom, int x, int y);
+    Boule(std::string nom, double x, double y);
 
     void afficher();
 
@@ -17,7 +17,7 @@ class Boule
 
     double positionY();
 
-    void changerVitesse(int x, int y);
+    void changerVitesse(double x, double y);
 
     void collision(Boule &cible);
 
