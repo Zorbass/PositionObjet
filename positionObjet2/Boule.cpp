@@ -112,13 +112,15 @@ void Boule::collision(Boule &cible)
 
 //cas 1a
             double gamma2 = atan((cible.positionX()-m_x) / (cible.positionY()-m_y)) * 180 / PI; //en degres
-            double theta2 = gamma2 - m_alpha;
-            double theta1 = 90 - theta2;
+                                                                                                // !! varie !!
+            double theta2 = abs(gamma2 - m_alpha); //tout le temps ok
+            double theta1 = 90 - theta2; //tout le temps ok
 
-            double v2 = sin(theta1*PI/180) * m_v;
-            m_v = cos(theta1*PI/180) * m_v;
+            double v2 = sin(theta1*PI/180) * m_v; //tout le temps ok
+            m_v = cos(theta1*PI/180) * m_v; //tout le temps ok
 
-            m_alpha = theta1 - m_alpha + 360; //obligé de mettre +360 ou des valeurs négatives fonctionnent ??
+            m_alpha = 360 + m_alpha - theta1; //obligé de mettre +360 ou des valeurs négatives fonctionnent ??
+                                              // !! varie !!
 
             cible.changerVitesse(v2, gamma2);
             u = m_t;
