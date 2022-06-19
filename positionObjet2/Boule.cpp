@@ -82,7 +82,7 @@ void Boule::collision(Boule &cible)
                 m_x -= d;
             }
 
-            else if(m_x-cible.positionX() < 2*m_r and cible.positionX()-m_x>0)
+            else if(m_x-cible.positionX() < 2*m_r and m_x-cible.positionX()>0)
             {
 
 
@@ -91,14 +91,14 @@ void Boule::collision(Boule &cible)
                m_x -=d;
             }
 
-            if(cible.positionY()-m_y < 2*m_r and cible.positionX()-m_x>0)
+            if(cible.positionY()-m_y < 2*m_r and cible.positionY()-m_y>0)
             {
                 double d = m_y+2*m_r-cible.positionY() +0.00001;
 
                 m_y -=d;
             }
 
-            else if(m_y -cible.positionY()< 2*m_r and cible.positionX()-m_x>0)
+            else if(m_y -cible.positionY()< 2*m_r and m_y -cible.positionY()>0)
             {
                 double d = m_y+2*m_r-cible.positionY() +0.00001;
 
