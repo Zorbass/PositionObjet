@@ -147,8 +147,29 @@ void Boule::collision(Boule &cible)
             double v2 = sin(theta1*PI/180) * m_v; //tout le temps ok
             m_v = cos(theta1*PI/180) * m_v; //tout le temps ok
 
-            m_alpha = 360 + m_alpha - theta1; //obligé de mettre +360 ou des valeurs négatives fonctionnent ??
-                                              // !! varie !!
+            if(gamma2 > m_alpha)
+            {
+                if(deltaX > 0 and deltaY > 0)
+                {
+                    m_alpha = gamma2 + 270;
+                }
+                else
+                {
+                    m_alpha = gamma2 - 90;
+                }
+            }
+
+            else if(gamma2 < m_alpha)
+            {
+                if(deltaX < 0 and deltaY > 0)
+                {
+                    m_alpha = gamma2 - 270;
+                }
+                else
+                {
+                    m_alpha = gamma2 + 90;
+                }
+            }
 
             cible.changerVitesse(v2, gamma2);
             u = m_t;
