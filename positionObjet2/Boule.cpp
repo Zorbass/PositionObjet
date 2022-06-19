@@ -74,35 +74,43 @@ void Boule::collision(Boule &cible)
 
         if(sqrt((m_x-cible.positionX()) * (m_x-cible.positionX()) + (m_y-cible.positionY())*(m_y-cible.positionY()))<= 2*m_r)
         {
+            double r = 2*m_r -(sqrt((m_x-cible.positionX()) * (m_x-cible.positionX()) + (m_y-cible.positionY())*(m_y-cible.positionY())));
+
             //ces if ne sont pas correctes
-            if(cible.positionX()-m_x < 2*m_r and cible.positionX()-m_x>0 )
+            if(m_x-cible.positionX()< 0 )
             {
-                double d = m_x+2*m_r-cible.positionX() +0.00001;
+                cout<<"x : "<<m_x<<endl;
+                m_x -= (r *sin(m_alpha*PI/180) +0.00001);
+                cout<<"x plus petit"<<endl;
+                cout<<"r sinalpha "<<r*sin(m_alpha*PI/180)<<endl;
+                cout<<"r: "<<r<<endl;
+                cout<<"alpha: "<<m_alpha<<endl;
+                cout<<"sin :"<<sin(m_alpha*PI/180)<<endl;
+                cout<<"x: "<<m_x<<endl;
 
-                m_x -= d;
             }
 
-            else if(m_x-cible.positionX() < 2*m_r and m_x-cible.positionX()>0)
+            else if(cible.positionX() -m_x< 0)
             {
-
-
-               double d = m_x-2*m_r-cible.positionX() +0.00001;
-
-               m_x -=d;
+                m_x += (r *sin(m_alpha*PI/180)+0.00001);
+                cout<<"cible xxx pluis petit"<<endl;
             }
 
-            if(cible.positionY()-m_y < 2*m_r and cible.positionY()-m_y>0)
+            if(m_y-cible.positionY()< 0)
             {
-                double d = m_y+2*m_r-cible.positionY() +0.00001;
-
-                m_y -=d;
+                cout<<"y : "<<m_y<<endl;
+                m_y -= (r *cos(m_alpha*PI/180) + 0.00001);
+                cout<<"y pluis petit"<<endl;
+                cout<<"r: "<<r<<endl;
+                cout<<"alpha: "<<m_alpha<<endl;
+                cout<<"cos :"<<cos(m_alpha*PI/180)<<endl;
+                cout<<"y: "<<m_y<<endl;
             }
 
-            else if(m_y -cible.positionY()< 2*m_r and m_y -cible.positionY()>0)
+            else if(cible.positionY()-m_y< 0)
             {
-                double d = m_y+2*m_r-cible.positionY() +0.00001;
-
-                m_y -=d;
+                m_y += (r *cos(m_alpha*PI/180)+0.00001);
+                cout<<"cible yyy pluis petit"<<endl;
             }
 
 
