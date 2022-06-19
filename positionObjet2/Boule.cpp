@@ -109,10 +109,38 @@ void Boule::collision(Boule &cible)
                 m_gamma2 = m_gamma2 + 180;
             }
 */
+            double deltaX = cible.positionX()-m_x;
+            double deltaY = cible.positionY()-m_y;
 
-//cas 1a
-            double gamma2 = atan((cible.positionX()-m_x) / (cible.positionY()-m_y)) * 180 / PI; //en degres
-                                                                                                // !! varie !!
+            double gamma2;
+
+            if(deltaX * deltaY < 0)
+            {
+                if(deltaX > 0 and deltaY < 0)
+                {
+                    gamma2 = 90 + abs(atan(deltaY / deltaX)) * 180 / PI; //en degres
+                }
+
+                else if(deltaX < 0 and deltaY > 0)
+                {
+                    gamma2 = 270 + abs(atan(deltaY / deltaX)) * 180 / PI; //en degres
+                }
+            }
+
+            if(deltaX * deltaY > 0)
+            {
+                if(deltaX > 0 and deltaY > 0)
+                {
+                    gamma2 = abs(atan(deltaX / deltaY)) * 180 / PI; //en degres
+                }
+
+                else if(deltaX < 0 and deltaY < 0)
+                {
+                    gamma2 = 180 + abs(atan(deltaX / deltaY)) * 180 / PI; //en degres
+                }
+            }
+
+
             double theta2 = abs(gamma2 - m_alpha); //tout le temps ok
             double theta1 = 90 - theta2; //tout le temps ok
 

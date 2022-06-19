@@ -38,9 +38,6 @@ class Boule
     double m_r = 0.0254; //rayon de la bille
     double m_alpha; //angle entre l'axe verticale et la vitesse
     double m_d; //deplacement de la resultante
-    double m_gamma; //angle entre l'axe verticale et l'accélération
-    double m_gamma2;
-    double m_theta2;
 };
 
 #endif
