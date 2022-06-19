@@ -127,7 +127,7 @@ void Boule::collision(Boule &cible)
                 }
             }
 
-            if(deltaX * deltaY > 0)
+            else if(deltaX * deltaY > 0)
             {
                 if(deltaX > 0 and deltaY > 0)
                 {
@@ -137,6 +137,29 @@ void Boule::collision(Boule &cible)
                 else if(deltaX < 0 and deltaY < 0)
                 {
                     gamma2 = 180 + abs(atan(deltaX / deltaY)) * 180 / PI; //en degres
+                }
+            }
+
+            else// if(deltaY * deltaX = 0)
+            {
+                if(deltaY < 0)
+                {
+                    gamma2 = 180;
+                }
+
+                else if(deltaY > 0)
+                {
+                    gamma2 = 0;
+                }
+
+                else if(deltaX < 0)
+                {
+                    gamma2 = 270;
+                }
+
+                else if(deltaX > 0)
+                {
+                    gamma2 = 90;
                 }
             }
 
