@@ -10,7 +10,7 @@ int main()
 {
 
     Boule A("A", 1, 1);
-    Boule B("B", 2, 1);
+    Boule B("B", 2, 2);
 
     A.afficher();
     B.afficher();

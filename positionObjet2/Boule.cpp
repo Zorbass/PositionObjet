@@ -77,27 +77,25 @@ void Boule::collision(Boule &cible)
         if(sqrt((m_x-cible.positionX()) * (m_x-cible.positionX()) + (m_y-cible.positionY())*(m_y-cible.positionY()))<= 2*m_r)
         {
             //ces if ne sont pas correctes
-            if(m_x-cible.positionX() < 0)
+            if(cible.positionX()-m_x < 2*m_r and cible.positionX()-m_x > 0)
             {
-                m_x = cible.positionX() - 2*m_r;
+                m_x = cible.positionX() - 2*m_r - 0.00001;
             }
 
-            else if(m_x-cible.positionX() > 0)
+            else if(m_x-cible.positionX() < 2*m_r and m_x-cible.positionX()>0)
             {
-                m_x = cible.positionX() + 2*m_r;
+                m_x = cible.positionX() + 2*m_r + 0.00001;
             }
 
-            if(m_y-cible.positionY() < 0)
+            if(cible.positionY()-m_y < 2*m_r and cible.positionY()-m_y>0)
             {
-                m_y = cible.positionY() - 2*m_r;
+                m_y = cible.positionY() - 2*m_r - 0.00001;
             }
 
-            else if(m_y-cible.positionY() > 0)
+            else if(m_y -cible.positionY()< 2*m_r and m_y -cible.positionY()>0)
             {
-                m_y = cible.positionY() + 2*m_r;
+                m_y = cible.positionY() + 2*m_r + 0.00001;
             }
-
-
 
 
 /*            if(cible.positionX()-m_x < 0 and cible.positionY()-m_y < 0)
