@@ -82,7 +82,7 @@ void Boule::collision(Boule &cible)
                 m_x -= d;
             }
 
-            else if(m_x-cible.positionX() -2*m_r < 0)
+            else if(m_x-cible.positionX()  < 2*m_r)
             {
 
 
