@@ -114,54 +114,57 @@ void Boule::collision(Boule &cible)
 
             double gamma2; //angle entre la verticale et la vitesse finale de la deuxième boule
 
-            if(deltaX * deltaY < 0)
+            //if(deltaX * deltaY < 0)
+            //{
+            if(deltaX > 0 and deltaY < 0)
             {
-                if(deltaX > 0 and deltaY < 0)
-                {
-                    gamma2 = 90 + abs(atan(deltaY / deltaX)) * 180 / PI; //en degres
-                }
-
-                else if(deltaX < 0 and deltaY > 0)
-                {
-                    gamma2 = 270 + abs(atan(deltaY / deltaX)) * 180 / PI; //en degres
-                }
+                gamma2 = 90 + abs(atan(deltaY / deltaX)) * 180 / PI; //en degres
             }
 
-            else if(deltaX * deltaY > 0)
+            else if(deltaX < 0 and deltaY > 0)
             {
-                if(deltaX > 0 and deltaY > 0)
-                {
-                    gamma2 = abs(atan(deltaX / deltaY)) * 180 / PI; //en degres
-                }
+                gamma2 = 270 + abs(atan(deltaY / deltaX)) * 180 / PI; //en degres
+            }
+            //}
 
-                else if(deltaX < 0 and deltaY < 0)
-                {
-                    gamma2 = 180 + abs(atan(deltaX / deltaY)) * 180 / PI; //en degres
-                }
+            //else if(deltaX * deltaY > 0)
+            //{
+            else if(deltaX > 0 and deltaY > 0)
+            {
+                gamma2 = abs(atan(deltaX / deltaY)) * 180 / PI; //en degres
             }
 
-            else// if(deltaY * deltaX = 0)
+            else if(deltaX < 0 and deltaY < 0)
             {
-                if(deltaY < 0)
-                {
-                    gamma2 = 180;
-                }
-
-                else if(deltaY > 0)
-                {
-                    gamma2 = 0;
-                }
-
-                else if(deltaX < 0)
-                {
-                    gamma2 = 270;
-                }
-
-                else if(deltaX > 0)
-                {
-                    gamma2 = 90;
-                }
+                gamma2 = 180 + abs(atan(deltaX / deltaY)) * 180 / PI; //en degres
             }
+            //}
+
+            //else// if(deltaY * deltaX = 0)
+            //{
+
+            //est-ce que les else if qui suivent sont nécessaires??
+
+            else if(deltaY < 0 and deltaX = 0)
+            {
+                gamma2 = 180;
+            }
+
+            else if(deltaY > 0 and deltaX = 0)
+            {
+                gamma2 = 0;
+            }
+
+            else if(deltaX < 0 and deltaY = 0)
+            {
+                gamma2 = 270;
+            }
+
+            else if(deltaX > 0 and deltaY = 0)
+            {
+                gamma2 = 90;
+            }
+            //}
 
 
             double theta2 = abs(gamma2 - m_alpha); //angle entre la vitesse finale de la boule 2 et la vitesse initaale de la boule 1
