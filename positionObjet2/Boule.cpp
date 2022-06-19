@@ -98,7 +98,7 @@ void Boule::collision(Boule &cible)
             }
 
 
-            gamma2 = atan((cible.positionX()-m_x) / (cible.positionY()-m_y)) * 180 / PI; //en degres
+
 
 /*            if(cible.positionX()-m_x < 0 and cible.positionY()-m_y < 0)
             {
@@ -110,13 +110,18 @@ void Boule::collision(Boule &cible)
             }
 */
 
-            theta2 = abs(m_gamma2) + m_alpha;
-            theta1 = 90 - theta2;
+//cas 1a
+            double gamma2 = atan((cible.positionX()-m_x) / (cible.positionY()-m_y)) * 180 / PI; //en degres
+            double theta2 = gamma2 - m_alpha;
+            double theta1 = 90 - theta2;
 
+            double v2 = sin(theta1*PI/180) * m_v;
             m_v = cos(theta1*PI/180) * m_v;
-            v2 = sin(theta1*PI/180) * m_v
+
+            m_alpha = theta1 - m_alpha + 360; //obligé de mettre +360 ou des valeurs négatives fonctionnent ??
 
             cible.changerVitesse(v2, gamma2);
+            u = m_t;
 
 /*            cible.changerVitesse(m_v, m_alpha);
             m_v = 0;
@@ -154,8 +159,6 @@ void Boule::collision(Boule &cible)
     }
 
     cout << "fini collisions" << endl;
-    m_v = 0;
-    m_alpha = 0;
 }
 
 //permet de shooter la première bille
