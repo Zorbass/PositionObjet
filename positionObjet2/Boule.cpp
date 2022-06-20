@@ -179,6 +179,50 @@ void Boule::collision(Boule &cible)
                 }
             }
 
+            if(sqrt((m_x-cible.positionX()) * (m_x-cible.positionX()) + (m_y-cible.positionY())*(m_y-cible.positionY()))<= 2*m_r)
+            {
+                double r = 2*m_r -(sqrt((m_x-cible.positionX()) * (m_x-cible.positionX()) + (m_y-cible.positionY())*(m_y-cible.positionY())));
+                double d = r*cos(gamma2*PI/180)/cos((90-m_alpha)*PI/180);
+                //ces if ne sont pas correctes
+                if(m_x-cible.positionX()< 0 )
+                {
+                    cout<<"x : "<<m_x<<endl;
+                    m_x -= (d *sin(m_alpha*PI/180) +0.00001);
+                    cout<<"x plus petit"<<endl;
+                    cout<<"r sinalpha "<<r*sin(m_alpha*PI/180)<<endl;
+                    cout<<"r: "<<r<<endl;
+                    cout<<"alpha: "<<m_alpha<<endl;
+                    cout<<"sin :"<<sin(m_alpha*PI/180)<<endl;
+                    cout<<"x: "<<m_x<<endl;
+
+                }
+
+                else if(cible.positionX() -m_x< 0)
+                {
+                    m_x += (d *sin(m_alpha*PI/180)+0.00001);
+                    cout<<"cible xxx pluis petit"<<endl;
+                }
+
+                if(m_y-cible.positionY()< 0)
+                {
+                    cout<<"y : "<<m_y<<endl;
+                    m_y -= (d *cos(m_alpha*PI/180) + 0.00001);
+                    cout<<"y pluis petit"<<endl;
+                    cout<<"r: "<<r<<endl;
+                    cout<<"alpha: "<<m_alpha<<endl;
+                    cout<<"cos :"<<cos(m_alpha*PI/180)<<endl;
+                    cout<<"y: "<<m_y<<endl;
+                }
+
+                else if(cible.positionY()-m_y< 0)
+                {
+                    m_y += (d *cos(m_alpha*PI/180)+0.00001);
+                    cout<<"cible yyy pluis petit"<<endl;
+                }
+
+            }
+
+
 
             double theta2 = abs(gamma2 - m_alpha); //angle entre la vitesse finale de la boule 2 et la vitesse initaale de la boule 1
             double theta1 = 90 - theta2; //angle entre la vitesse finale de la boule 1 et la vitesse initaale de la boule 1
