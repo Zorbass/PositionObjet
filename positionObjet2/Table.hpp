@@ -3,6 +3,7 @@
 
 #include <iostream>
 #include <string>
+#inlcude "Boule.hpp"
 
 class Table()
 {
@@ -10,7 +11,7 @@ class Table()
     Table();
     Table(int x, int y, int x2, int y2)
 
-    void collision();
+    void innitialiser();
     void afficher();
 
     private:

@@ -15,6 +15,10 @@ Boule::Boule() : m_nom("A"), m_x(0), m_y(0), m_v(0), m_alpha(0)
 Boule::Boule(string nom, int x, int y) : m_nom(nom), m_x(x), m_y(y), m_v(0), m_alpha(0)
 {
 }
+Boule::Boule(Boule const&Boulecopier): m_nom(Boulecopier.m_nom), m_x(Boulecopier.m_x), m_y(Boulecopier.m_y), m_v(Boulecopier.m_v), m_alpha(Boulecopier.m_alpha)
+{
+
+}
 
 //affiche le nom, la vitesse et la position de la bille.
 void Boule::afficher()
@@ -183,6 +187,7 @@ void Boule::collision(Boule &cible)
             {
                 double r = 2*m_r -(sqrt((m_x-cible.positionX()) * (m_x-cible.positionX()) + (m_y-cible.positionY())*(m_y-cible.positionY())));
                 double d = r*cos(gamma2*PI/180)/cos((90-m_alpha)*PI/180);
+                double e = r*cos(gamma2*PI/180)/cos((90+m_alpha)*PI/180);
                 //ces if ne sont pas correctes
                 if(m_x-cible.positionX()< 0 )
                 {
@@ -216,7 +221,7 @@ void Boule::collision(Boule &cible)
 
                 else if(cible.positionY()-m_y< 0)
                 {
-                    m_y += (d *cos(m_alpha*PI/180)+0.00001);
+                    m_y += (e *cos(m_alpha*PI/180)+0.00001);
                     cout<<"cible yyy pluis petit"<<endl;
                 }
 
@@ -299,7 +304,6 @@ void Boule::collision(Boule &cible)
 
     cout << "fini collisions" << endl;
 }
-
 //permet de shooter la première bille
 void Boule::shoot()
 {
@@ -307,4 +311,8 @@ void Boule::shoot()
     cin >> m_v;
     cout << "Angle par rapport a la verticale ?? (jusqu'a 359 dans le sens des aiguilles d'une montre)" << endl;
     cin >> m_alpha;
+}
+void Boule::regle()
+{
+
 }

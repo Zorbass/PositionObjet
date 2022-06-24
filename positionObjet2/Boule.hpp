@@ -4,12 +4,14 @@
 #include <iostream>
 #include <string>
 
+
 class Boule
 {
     public:
 
     Boule();
     Boule(std::string nom, int x, int y);
+    Boule(Boule const&Boulecopier);
 
     void afficher();
 
@@ -21,7 +23,11 @@ class Boule
 
     void collision(Boule &cible);
 
+
+
     void shoot();
+
+    void regle();
 
     private:
 
