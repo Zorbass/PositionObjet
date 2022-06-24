@@ -21,7 +21,7 @@ Table1::Table1(int x, int y, int x2, int y2): m_xt(x), m_yt(y), m_xt2(x2), m_yt2
 void Table1::regle(Boule &Boulecopier)
 {
 
-    if (Boulecopier.m_x=3 and Boulecopier.m_y =2())
+    if (Boulecopier.positionX()=3 and Boulecopier.positionY() = 2)
     {
         cout<<"destrcutop"<<endl;
     }
