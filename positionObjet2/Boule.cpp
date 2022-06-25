@@ -8,7 +8,7 @@
 using namespace std;
 
 //constructeur basique
-Boule::Boule() : m_nom("A"), m_x(0), m_y(0), m_v(0), m_alpha(0)
+Boule::Boule() : m_nom("A"), m_x(0), m_y(0), m_vitesse(0,0)
 {
 }
 
