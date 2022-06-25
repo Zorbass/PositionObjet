@@ -34,6 +34,8 @@
 		</Compiler>
 		<Unit filename="Boule.cpp" />
 		<Unit filename="Boule.hpp" />
+		<Unit filename="Table1.cpp" />
+		<Unit filename="Table1.hpp" />
 		<Unit filename="main.cpp" />
 		<Unit filename="vecteur.cpp" />
 		<Unit filename="vecteur.hpp" />
