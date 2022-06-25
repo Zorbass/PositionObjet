@@ -1,7 +1,7 @@
 #include <iostream>
 #include <cmath>
 #include "Boule.hpp"
-#include "Table1.hpp"
+#include "Table.hpp"
 
 
 
@@ -10,7 +10,10 @@ using namespace std;
 int main()
 {
 
-    Table1();
+    Table table();
+    table.regle();
+
+
     Boule A("A", 1, 1);
     Boule B("B", 2, 2);
 

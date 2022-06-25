@@ -1,28 +1,28 @@
-#ifndef BOULE_HPP_INCLUDED
-#define BOULE_HPP_INCLUDED
+
+#ifndef TABLE_HPP_INCLUDED
+#define TABLE_HPP_INCLUDED
 
 #include <iostream>
 #include <string>
-#inlcude "Boule.hpp"
+#include "Boule.hpp"
 
-class Table()
+class Table
 {
-    public:
+
+public:
     Table();
-    Table(int x, int y, int x2, int y2)
-
-    void innitialiser();
-    void afficher();
-
-    private:
-
-    double m_elastic = 1;
-    int m_xt;
-    int m_yt;
-    int m_xt2;
-    int m_yt2;
+    Table(int x, int y, int x2, int y2);
+    Boule *m_boule;
+    void regle(Boule &boule);
+    void innitialisation();
+private:
+    int m_xt =0;
+    int m_yt =0;
+    int m_xt2 =6;
+    int m_yt2 =11;
 
 };
+
 
 #endif
 
