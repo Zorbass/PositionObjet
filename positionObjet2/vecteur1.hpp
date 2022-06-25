@@ -1,5 +1,5 @@
-#ifndef Vecteur_HPP_INCLUDED
-#define Vecteur_HPP_INCLUDED
+#ifndef VECTEUR1_HPP_INCLUDED
+#define VECTEUR1_HPP_INCLUDED
 
 #include <iostream>
 
@@ -26,4 +26,4 @@ private:
 Vecteur operator+(Vecteur const& a, Vecteur const& b);
 ostream& operator<<(ostream &flux, Vecteur const& vecteur);
 
-#endif
+#endif // VECTEUR1_HPP_INCLUDED
