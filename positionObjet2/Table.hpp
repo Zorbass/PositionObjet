@@ -13,7 +13,7 @@ public:
     Table();
     Table(int x, int y, int x2, int y2);
     Boule *m_boule;
-    void regle(Boule &boule);
+
     void innitialisation();
 private:
     int m_xt =0;

@@ -18,13 +18,11 @@ Table::Table(int x, int y, int x2, int y2): m_xt(x), m_yt(y), m_xt2(x2), m_yt2(y
 
 
 
-void Table::regle(Boule &boulecopier)
-{
 
-    if (boulecopier.positionX() = 1 and boulecopier.positionY() = 1)
-    {
-        cout<<"destrcutop"<<endl;
-    }
+
+
+void Table::innitialisation()
+{
 
 }
 

@@ -11,7 +11,7 @@ int main()
 {
 
     Table table();
-    table.regle();
+    table.innitialisation();
 
 
     Boule A("A", 1, 1);
