@@ -40,8 +40,7 @@ double Boule::positionY()
 //modifie la vitesse de la bille
 void Boule::changerVitesse(double x, double y)
 {
-    m_v = x;
-    m_alpha = y;
+    vitesse.modifier(x, y);
 }
 
 //fait avancer la bille et effectue les contacts si il y en a.
