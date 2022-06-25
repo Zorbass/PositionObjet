@@ -1,6 +1,8 @@
 #include <iostream>
 #include <cmath>
 #include "Boule.hpp"
+#include "Vecteur.hpp"
+
 
 
 
