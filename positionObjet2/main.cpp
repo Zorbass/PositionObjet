@@ -1,7 +1,7 @@
 #include <iostream>
 #include <cmath>
 #include "Boule.hpp"
-#include "vecteur1.hpp"
+#include "Vecteur.hpp"
 
 using namespace std;
 

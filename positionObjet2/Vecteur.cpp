@@ -1,21 +1,28 @@
 #include <iostream>
-#include "vecteur1.hpp"
+#include "Vecteur.hpp"
 
 using namespace std;
 
-Vecteur::Vecteur() : m_i(0), m_s(0)
+Vecteur::Vecteur() : m_x(0), m_y(0)
 {
 }
 
-Vecteur::Vecteur(double i, double s) : m_i(i), m_s(s)
+Vecteur::Vecteur(double x, double y) : m_x(x), m_y(y)
 {
 }
 
-
-void Vecteur::modifier(double i, double s)
+Vecteur& Vecteur::operator+=(const Vecteur &vecteur2)
 {
-    m_i = i;
-    m_s = s;
+    m_x += vecteur2.m_x;
+    m_y += vecteur2.m_y;
+
+    return *this;
+}
+
+void Vecteur::modifier(double x, double y)
+{
+    m_x = x;
+    m_y = y;
 }
 
 /*void Vecteur::afficher() const
@@ -25,27 +32,21 @@ void Vecteur::modifier(double i, double s)
 
 void Vecteur::afficher(ostream &flux) const
 {
-    flux << "(" << m_i << ";" << m_s << ")";
+    flux << "(" << m_x << ";" << m_y << ")";
 }
 
-double Vecteur::i()
+double Vecteur::x()
 {
-    return m_i;
+    return m_x;
 }
 
-double Vecteur::s()
+double Vecteur::y()
 {
-    return m_s;
+    return m_y;
 }
 
 
-Vecteur& Vecteur::operator+=(const Vecteur &vecteur2)
-{
-    m_i += vecteur2.m_i;
-    m_s += vecteur2.m_s;
 
-    return *this;
-}
 
 Vecteur operator+(Vecteur const& a, Vecteur const& b)
 {

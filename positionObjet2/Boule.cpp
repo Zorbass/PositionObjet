@@ -1,8 +1,9 @@
+#include <iostream>
+
 #include "Boule.hpp"
+#include "Vecteur.hpp"
 #include <ctime>
 #include <cmath>
-#include <iostream>
-#include "vecteur1.hpp"
 
 using namespace std;
 
@@ -21,7 +22,7 @@ Boule::Boule(string nom, double x, double y) : m_nom(nom), m_x(x), m_y(y), vites
 //affiche le nom, la vitesse et la position de la bille.
 void Boule::afficher()
 {
-    cout << "Boule : " << m_nom << " (Position : " << m_x << ";" << m_y << ")" << endl << "vitesse : " << m_v << "; " << m_alpha << " degres" << endl;
+    cout << "Boule : " << m_nom << " (Position : " << m_x << ";" << m_y << ")" << endl << "vitesse : " << vitesse << endl;
 }
 
 //retourne la position de la bille en x
@@ -46,7 +47,7 @@ void Boule::changerVitesse(double x, double y)
 //fait avancer la bille et effectue les contacts si il y en a.
 void Boule::collision(Boule &cible)
 {
-    m_t = m_v/m_a;
+    m_t = vitesse.x()/m_a;
 /*
     double kx = m_vx/m_v; //relation entre la resultante et l'axe x
     double ky = m_vy/m_v; //relation entre la resultante et l'axe y
@@ -250,4 +251,6 @@ void Boule::shoot()
     cin >> m_v;
     cout << "Angle par rapport a la verticale ?? (jusqu'a 359 dans le sens des aiguilles d'une montre)" << endl;
     cin >> m_alpha;
+
+    vitesse.modifier(m_v, m_alpha);
 }
