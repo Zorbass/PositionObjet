@@ -36,7 +36,7 @@ class Boule
     double m_t; //temps de déplacement de la bille
     double m_v; //vitesse de la bille
     double m_a = 2.943; //acceleration generee par le frottement
-    Vecteur acceleration(2.943, 0)
+    Vecteur acceleration;
     double m_ax; //acceleration generee par le frottement sur l'axe x
     double m_ay; //acceleration generee par le frottement sur l'axe y
     double m_r = 0.0254; //rayon de la bille
