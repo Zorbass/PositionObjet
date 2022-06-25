@@ -41,8 +41,8 @@ double Vecteur::s()
 
 Vecteur& Vecteur::operator+=(const Vecteur &vecteur2)
 {
-    m_x += vecteur2.m_;
-    m_y += vecteur2.m_y;
+    m_i += vecteur2.m_i;
+    m_s += vecteur2.m_s;
 
     return *this;
 }
