@@ -10,10 +10,11 @@
 	<string>
 	"Vecteur.hpp"
 
-1656187256 source:c:\users\zorbas\documents\tm\apprentissage programme\testcode\positionobjet3\positionobjet\positionobjet2\main.cpp
+1656188477 source:c:\users\zorbas\documents\tm\apprentissage programme\testcode\positionobjet3\positionobjet\positionobjet2\main.cpp
 	<iostream>
 	"Vecteur.hpp"
 	"Boule.hpp"
+	"Table1.hpp"
 
 1655206263 source:c:\users\ivanu\onedrive\documents\github\positionobjet\positionobjet2\boule.cpp
 	"Boule.hpp"
@@ -66,10 +67,10 @@
 	<iostream>
 	"Vecteur.hpp"
 
-1656187888 source:c:\users\zorbas\documents\tm\apprentissage programme\testcode\positionobjet3\positionobjet\positionobjet2\table1.cpp
+1656188477 source:c:\users\zorbas\documents\tm\apprentissage programme\testcode\positionobjet3\positionobjet\positionobjet2\table1.cpp
 	"Table1.hpp"
 
-1656187875 c:\users\zorbas\documents\tm\apprentissage programme\testcode\positionobjet3\positionobjet\positionobjet2\table1.hpp
+1656188495 c:\users\zorbas\documents\tm\apprentissage programme\testcode\positionobjet3\positionobjet\positionobjet2\table1.hpp
 	<iostream>
 	<string>
 

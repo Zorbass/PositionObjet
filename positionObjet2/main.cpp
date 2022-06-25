@@ -9,7 +9,7 @@ using namespace std;
 int main()
 {
 
-    Table1 table();
+    Table1 table(1, 2, 3, 4);
     table.innitialisation();
 
     /*Vecteur vecteur1(7, 10), vecteur2(5, 53);

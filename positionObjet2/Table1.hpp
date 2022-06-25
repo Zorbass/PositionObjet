@@ -8,6 +8,8 @@ class Table1
 {
 public:
     Table1();
+    Table1(int x, int y, int x2, int y2);
+
     void innitialisation();
 
 private:
