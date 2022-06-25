@@ -11,12 +11,12 @@ class Vecteur
 public:
     Vecteur();
     Vecteur(double i, double s);
-    Vecteur& operator+=(const Vecteur &vecteur);
-    //void afficher() const;
+    void modifier(double i, double s);
+    void afficher(std::ostream &flux) const;
     double i();
     double s();
-    void afficher(std::ostream &flux) const;
-    void modifier(double i, double s);
+    Vecteur& operator+=(const Vecteur &vecteur);
+    //void afficher() const;
 
 private:
     double m_i;
