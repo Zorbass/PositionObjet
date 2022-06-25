@@ -3,9 +3,6 @@
 #include "Boule.hpp"
 #include "Vecteur.hpp"
 
-
-
-
 using namespace std;
 
 int main()

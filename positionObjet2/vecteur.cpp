@@ -12,7 +12,6 @@ Vecteur::Vecteur(double i, double s) : m_i(i), m_s(s)
 }
 
 
-
 void Vecteur::modifier(double i, double s)
 {
     m_i = i;

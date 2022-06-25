@@ -2,7 +2,6 @@
 #define Vecteur_HPP_INCLUDED
 
 #include <iostream>
-#include <string>
 
 using namespace std;
 

@@ -1,19 +1,20 @@
 #include "Boule.hpp"
 #include <ctime>
 #include <cmath>
+#include <iostream>
 #include "Vecteur.hpp"
-
-#define PI 3.141592653589793238462643383279
 
 using namespace std;
 
+#define PI 3.141592653589793238462643383279
+
 //constructeur basique
-Boule::Boule() : m_nom("A"), m_x(0), m_y(0), m_vitesse(0,0)
+Boule::Boule() : m_nom("A"), m_x(0), m_y(0), vitesse(0,0)
 {
 }
 
 //constructeur personalisable
-Boule::Boule(string nom, double x, double y) : m_nom(nom), m_x(x), m_y(y), m_v(0), m_alpha(0)
+Boule::Boule(string nom, double x, double y) : m_nom(nom), m_x(x), m_y(y), vitesse(0,0)
 {
 }
 

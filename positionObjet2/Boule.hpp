@@ -5,6 +5,7 @@
 #include <string>
 #include "Vecteur.hpp"
 
+using namespace std;
 
 class Boule
 {
@@ -40,7 +41,7 @@ class Boule
     double m_r = 0.0254; //rayon de la bille
     double m_alpha; //angle entre l'axe verticale et la vitesse
     double m_d; //deplacement de la resultante
-    Vecteur m_vitesse;
+    Vecteur vitesse;
 
 };
 
