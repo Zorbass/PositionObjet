@@ -1,12 +1,17 @@
 #include <iostream>
 #include "Vecteur.hpp"
 #include "Boule.hpp"
+#include "Table1.hpp"
 
 using namespace std;
 
 
 int main()
 {
+
+    Table1 table();
+    table.innitialisation();
+
     /*Vecteur vecteur1(7, 10), vecteur2(5, 53);
     Vecteur resultat;
 
