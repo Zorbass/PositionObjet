@@ -61,8 +61,8 @@ void Boule::collision(Boule &cible)
     while(m_t > u)
     {
 
-        m_v = m_v - m_a*f/1000;
-        m_d = m_v*f/1000 - m_a*0.5*f*f/1000000;
+        vitesse.modifier(vitesse.x() - m_a*f/1000, vitesse.y());
+        m_d = vitesse.x()*f/1000 - m_a*0.5*f*f/1000000;
 
         m_x = m_x + sin(m_alpha*PI/180) * m_d;
         m_y = m_y + cos(m_alpha*PI/180) * m_d;
@@ -170,8 +170,8 @@ void Boule::collision(Boule &cible)
             double theta2 = abs(gamma2 - m_alpha); //angle entre la vitesse finale de la boule 2 et la vitesse initaale de la boule 1
             double theta1 = 90 - theta2; //angle entre la vitesse finale de la boule 1 et la vitesse initaale de la boule 1
 
-            double v2 = sin(theta1*PI/180) * m_v; //détermine la vitesse finale de la boule 2
-            m_v = cos(theta1*PI/180) * m_v; //détermine la vitesse finale de la boule 1
+            double v2 = sin(theta1*PI/180) * vitesse.x(); //détermine la vitesse finale de la boule 2
+            vitesse.modifier(cos(theta1*PI/180) * vitesse.x(), vitesse.y()); //détermine la vitesse finale de la boule 1
 
             if(gamma2 > m_alpha)
             {

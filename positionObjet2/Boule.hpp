@@ -11,20 +11,20 @@ class Boule
 {
     public:
 
-    Boule();
-    Boule(std::string nom, double x, double y);
+    Boule();  //ok
+    Boule(std::string nom, double x, double y);  //ok
 
-    void afficher();
+    void afficher();  //ok
 
-    double positionX();
+    double positionX(); //ok
 
-    double positionY();
+    double positionY(); //ok
 
-    void changerVitesse(double x, double y);
+    void changerVitesse(double x, double y); //ok
 
     void collision(Boule &cible);
 
-    void shoot();
+    void shoot(); //ok
 
     private:
 
