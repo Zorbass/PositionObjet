@@ -59,14 +59,17 @@ void Boule::collision(Boule &cible)
 
     double u = 0; //temps au debut de la boucle
 
+    double v = vitesse.x(), a = acceleration.x();
+
     while(m_t > u)
     {
+        v = v - a*f/1000;
+        vitesse.modifierX(v);
+        m_d = v*f/1000 - a*0.5*f*f/1000000;
 
-        vitesse.modifierX(vitesse.x() - acceleration.x()*f/1000);
-        m_d = vitesse.x()*f/1000 - acceleration.x()*0.5*f*f/1000000;
 
-        m_x = m_x + sin(vitesse.y()*PI/180) * m_d;
-        m_y = m_y + cos(vitesse.y()*PI/180) * m_d;
+        m_x = m_x + sin(v*PI/180) * m_d;
+        m_y = m_y + cos(v*PI/180) * m_d;
 
 /*
         m_vx = m_vx - m_ax*f/1000; //calcule de la vitesse en x a chaque rafraichissement
