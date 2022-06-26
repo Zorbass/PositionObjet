@@ -47,6 +47,7 @@ void Boule::changerVitesse(double x, double y)
 void Boule::collision(Boule &cible)
 {
     m_t = vitesse.x()/acceleration.x();
+    cout << m_t << endl;
 /*
     double kx = m_vx/m_v; //relation entre la resultante et l'axe x
     double ky = m_vy/m_v; //relation entre la resultante et l'axe y
@@ -246,10 +247,11 @@ void Boule::collision(Boule &cible)
 //permet de shooter la première bille
 void Boule::shoot()
 {
+    double v, alpha;
     cout << "Vitesse ??" << endl;
-    cin >> m_v;
+    cin >> v;
     cout << "Angle par rapport a la verticale ?? (jusqu'a 359 dans le sens des aiguilles d'une montre)" << endl;
-    cin >> m_alpha;
+    cin >> alpha;
 
-    vitesse.modifier(m_v, m_alpha);
+    vitesse.modifier(v, alpha);
 }
