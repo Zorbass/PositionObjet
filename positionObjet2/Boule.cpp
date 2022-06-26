@@ -37,6 +37,10 @@ double Boule::positionY()
 {
     return m_y;
 }
+string Boule::nom()
+{
+    return m_nom;
+}
 
 //modifie la vitesse de la bille
 void Boule::changerVitesse(int x, int y)

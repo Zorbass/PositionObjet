@@ -19,6 +19,8 @@ class Boule
 
     double positionY();
 
+    std::string nom();
+
     void changerVitesse(int x, int y);
 
     void collision(Boule &cible);

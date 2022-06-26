@@ -2,6 +2,7 @@
 #include <cmath>
 #include "Boule.hpp"
 #include "Table.hpp"
+#include <vector>
 
 
 
@@ -12,24 +13,11 @@ int main()
 
     Table table("m_b1",3,4);
 
-
-
-
-    Boule A("A", 1, 1);
-    Boule B("B", 2, 2);
-
     table.innitialisation();
     table.regle();
 
-    A.afficher();
-    B.afficher();
+    table.test();
 
-    A.shoot();
-    A.collision(B);
 
-    B.collision(A);
-
-    A.afficher();
-    B.afficher();
 
 }

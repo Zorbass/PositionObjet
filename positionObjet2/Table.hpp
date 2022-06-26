@@ -5,20 +5,28 @@
 #include <iostream>
 #include <string>
 #include "Boule.hpp"
+#include <vector>
 
 class Table
 {
 
 public:
     Table();
-    Table(std::string nom, int x, int y);
+    Table(std::string nom, double x, double y);
     ~Table();
 
 
     void regle();
     void innitialisation();
+    void test();
+
 
 private:
+    Boule *m_b;
+
+    int nombreDeBoules=16;
+
+
     Boule *m_b1;
     Boule *m_b2;
     Boule *m_b3;
