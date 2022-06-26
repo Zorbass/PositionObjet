@@ -71,16 +71,9 @@ void Boule::collision(Boule &cible)
         m_x = m_x + sin(v*PI/180) * m_d;
         m_y = m_y + cos(v*PI/180) * m_d;
 
-/*
-        m_vx = m_vx - m_ax*f/1000; //calcule de la vitesse en x a chaque rafraichissement
-        m_x = m_x - m_ax*0.5*f*f/1000000 + m_vx*f/1000; //calcule de la position en x a chaque rafraichissement
-
-        m_vy = m_vy - m_ay*f/1000; //calcule de la vitesse en y a chaque rafraichissement
-        m_y = m_y - m_ay*0.5*f*f/1000000 + m_vy*f/1000; //calcule de la position en y a chaque rafraichissement
-*/
         f = clock(); //peut-etre pas necessaire
 
-        if(sqrt((m_x-cible.positionX()) * (m_x-cible.positionX()) + (m_y-cible.positionY())*(m_y-cible.positionY()))<= 2*m_r)
+        /*if(sqrt((m_x-cible.positionX()) * (m_x-cible.positionX()) + (m_y-cible.positionY())*(m_y-cible.positionY()))<= 2*m_r)
         {
             //ces if ne sont pas correctes
             if(cible.positionX()-m_x < 2*m_r and cible.positionX()-m_x > 0)
@@ -103,7 +96,7 @@ void Boule::collision(Boule &cible)
                 m_y = cible.positionY() + 2*m_r + 0.00001;
             }
 
-
+*/
 /*            if(cible.positionX()-m_x < 0 and cible.positionY()-m_y < 0)
             {
                 m_gamma2 = m_gamma2 + 180;
@@ -113,7 +106,7 @@ void Boule::collision(Boule &cible)
                 m_gamma2 = m_gamma2 + 180;
             }
 */
-            double deltaX = cible.positionX()-m_x;
+/*            double deltaX = cible.positionX()-m_x;
             double deltaY = cible.positionY()-m_y;
 
             double gamma2; //angle entre la verticale et la vitesse finale de la deuxième boule
@@ -208,14 +201,14 @@ void Boule::collision(Boule &cible)
 
             cible.changerVitesse(v2, gamma2);
             u = m_t;
-
+*/
 /*            cible.changerVitesse(m_v, m_alpha);
             m_v = 0;
             m_alpha = 0;
             u = m_t;
             cible.afficher();
 */
-        }
+/*        }
 
         //calcule de la vitesse et acceleration si la bille touche la bande droit ou gauche
         if(m_x+m_r >= 11 or m_x-m_r <= 0)
@@ -237,7 +230,7 @@ void Boule::collision(Boule &cible)
                 vitesse.modifierY(540 - vitesse.y());
             }
 
-        }
+        }*/
 
         f = clock() - f;
 
