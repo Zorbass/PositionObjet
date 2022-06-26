@@ -3,15 +3,14 @@
 
 #include <iostream>
 #include <string>
-
+#include "Vecteur.hpp"
 
 class Boule
 {
     public:
 
     Boule();
-    Boule(std::string nom, int x, int y);
-    Boule(Boule const&Boulecopier);
+    Boule(std::string nom, double x, double y);
 
     void afficher();
 
@@ -19,15 +18,14 @@ class Boule
 
     double positionY();
 
-    void changerVitesse(int x, int y);
+    void deplacement();
+
+    void changerVitesse(double x, double y);
+    void changerVitesse(Vecteur a);
 
     void collision(Boule &cible);
 
-
-
     void shoot();
-
-    void regle();
 
     private:
 
@@ -42,8 +40,7 @@ class Boule
     double m_ax; //acceleration generee par le frottement sur l'axe x
     double m_ay; //acceleration generee par le frottement sur l'axe y
     double m_r = 0.0254; //rayon de la bille
-    double m_alpha; //angle entre l'axe verticale et la vitesse
-    double m_d; //deplacement de la resultante
+    Vecteur vitesse;
 };
 
 #endif
