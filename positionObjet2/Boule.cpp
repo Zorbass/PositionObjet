@@ -47,7 +47,7 @@ void Boule::changerVitesse(double x, double y)
 void Boule::collision(Boule &cible)
 {
     m_t = vitesse.x()/acceleration.x();
-    cout << "voici le temps : " << m_t << endl;
+    cout << "voici la vitesse : " << endl;
 /*
     double kx = m_vx/m_v; //relation entre la resultante et l'axe x
     double ky = m_vy/m_v; //relation entre la resultante et l'axe y
