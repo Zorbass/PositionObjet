@@ -46,7 +46,9 @@ void Boule::changerVitesse(double x, double y)
 //fait avancer la bille et effectue les contacts si il y en a.
 void Boule::collision(Boule &cible)
 {
-    m_t = vitesse.x()/acceleration.x();
+    double v = vitesse.x(), a = acceleration.x();
+
+    m_t = v/a;
 
 /*
     double kx = m_vx/m_v; //relation entre la resultante et l'axe x
@@ -59,12 +61,10 @@ void Boule::collision(Boule &cible)
 
     double u = 0; //temps au debut de la boucle
 
-    double v = vitesse.x(), a = acceleration.x();
-
     while(m_t > u)
     {
         v = v - a*f/1000;
-        vitesse.modifierX(v);
+
         m_d = v*f/1000 - a*0.5*f*f/1000000;
 
 
@@ -237,6 +237,7 @@ void Boule::collision(Boule &cible)
         u = u + f/1000;
     }
 
+    vitesse.modifierX(v);
     cout << "fini collisions" << endl;
 }
 
