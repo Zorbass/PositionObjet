@@ -10,7 +10,7 @@ using namespace std;
 int main()
 {
 
-    Table table();
+    Table table(1,2,3,4);
     table.innitialisation();
 
 

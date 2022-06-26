@@ -14,45 +14,39 @@
 	"Boule.hpp"
 	"Table1.hpp"
 
-<<<<<<< Updated upstream
-1655473857 ated upstream
+1654950030 ated upstream
 
-1656065944 source:c:\users\ivanu\onedrive\documents\github\positionobjet\positionobjet2\boule.cpp
+1656237152 source:c:\users\ivanu\onedrive\documents\github\positionobjet\positionobjet2\boule.cpp
 	"Boule.hpp"
 	<ctime>
 	<cmath>
 
-1655473857 shed changes
-=======
-1656237029 source:c:\users\ivanu\onedrive\documents\github\positionobjet\positionobjet2\boule.cpp
->>>>>>> Stashed changes
+1656187078 shed changes
 	"Boule.hpp"
 	"Vecteur.hpp"
 	<ctime>
 	<cmath>
 	<iostream>
 	"Vecteur.hpp"
-
-<<<<<<< Updated upstream
-1656065454 c:\users\ivanu\onedrive\documents\github\positionobjet\positionobjet2\boule.hpp
-=======
-1656237029 c:\users\ivanu\onedrive\documents\github\positionobjet\positionobjet2\boule.hpp
->>>>>>> Stashed changes
 	<iostream>
 	<string>
 	"Vecteur.hpp"
-
-<<<<<<< Updated upstream
-1656163598 source:c:\users\ivanu\onedrive\documents\github\positionobjet\positionobjet2\main.cpp
-	<iostream>
-	<cmath>
-=======
-1656237029 source:c:\users\ivanu\onedrive\documents\github\positionobjet\positionobjet2\main.cpp
-	<iostream>
-	"Vecteur.hpp"
->>>>>>> Stashed changes
 	"Boule.hpp"
 	"Table1.hpp"
+	<iostream>
+	<string>
+
+1656237152 c:\users\ivanu\onedrive\documents\github\positionobjet\positionobjet2\boule.hpp
+	<iostream>
+	<string>
+
+1656237152 source:c:\users\ivanu\onedrive\documents\github\positionobjet\positionobjet2\main.cpp
+	<iostream>
+	<cmath>
+	"Boule.hpp"
+	"Table.hpp"
+
+1656163598 
 
 1654455017 source:c:\users\jm\documents\tm\code\positionobjet\positionobjet2\boule.cpp
 	"Boule.hpp"
@@ -78,30 +72,29 @@
 	<iostream>
 	<string>
 
-1654950030 c:\users\ivanu\onedrive\documents\github\positionobjet\positionobjet2\table.hpp
+1656237152 c:\users\ivanu\onedrive\documents\github\positionobjet\positionobjet2\table.hpp
 	<iostream>
 	<string>
+	"Boule.hpp"
 
-<<<<<<< Updated upstream
-1655473989 c:\users\ivanu\onedrive\documents\github\positionobjet\positionobjet2\vecteur.hpp
-=======
 1656188580 c:\users\ivanu\onedrive\documents\github\positionobjet\positionobjet2\vecteur.hpp
 	<iostream>
 	<string>
 
-1656187078 c:\users\zorbas\documents\tm\apprentissage programme\testcode\positionobjet3\positionobjet\positionobjet2\vecteur.hpp
->>>>>>> Stashed changes
+1655729014 c:\users\zorbas\documents\tm\apprentissage programme\testcode\positionobjet3\positionobjet\positionobjet2\vecteur.hpp
 	<iostream>
 	<string>
 
-1655474070 source:c:\users\ivanu\onedrive\documents\github\positionobjet\positionobjet2\vecteur.cpp
+1656237152 source:c:\users\ivanu\onedrive\documents\github\positionobjet\positionobjet2\vecteur.cpp
 	<iostream>
 	"Vecteur.hpp"
 
-1656162529 c:\users\ivanu\onedrive\documents\github\positionobjet\positionobjet2\table1.hpp
+1656237130 c:\users\ivanu\onedrive\documents\github\positionobjet\positionobjet2\table1.hpp
 	<iostream>
 	<string>
 	"Boule.hpp"
+	<iostream>
+	<string>
 
 1656080604 c:\users\zorbas\documents\tm\apprentissage programme\testcode\positionobjet3\positionobjet\positionobjet2\table1.hpp
 	<iostream>
@@ -112,18 +105,6 @@
 	<iostream>
 	"Vecteur.hpp"
 
-1655729014 c:\users\zorbas\documents\tm\apprentissage programme\testcode\positionobjet3\positionobjet\positionobjet2\vecteur.hpp
-	<iostream>
-	<string>
-
-1656237130 c:\users\ivanu\onedrive\documents\github\positionobjet\positionobjet2\table1.hpp
-	<iostream>
-	<string>
-
 1656237029 source:c:\users\ivanu\onedrive\documents\github\positionobjet\positionobjet2\table1.cpp
 	"Table1.hpp"
-
-1656237029 source:c:\users\ivanu\onedrive\documents\github\positionobjet\positionobjet2\vecteur.cpp
-	<iostream>
-	"Vecteur.hpp"
 

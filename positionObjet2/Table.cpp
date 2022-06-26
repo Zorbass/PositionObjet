@@ -23,12 +23,10 @@ Table::Table(int x, int y, int x2, int y2): m_xt(x), m_yt(y), m_xt2(x2), m_yt2(y
 
 void Table::innitialisation()
 {
-<<<<<<< Updated upstream
-
-=======
     cout<<m_x<<endl;
     cout<<m_y<<endl;
->>>>>>> Stashed changes
+    cout<<"3"<<endl;
+
 }
 
 
