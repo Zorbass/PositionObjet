@@ -15,7 +15,7 @@ public:
     ~Table();
 
 
-    void regle(Boule &boule);
+    void regle();
     void innitialisation();
 private:
     int m_xt =0;

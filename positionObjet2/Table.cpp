@@ -23,9 +23,9 @@ Table::~Table()
 }
 
 
-void Table::regle(Boule &m_b1)
+void Table::regle()
 {
-    if(m_b1.positionX()==3)
+    if(m_b1->positionX()==3)
     {
         cout<<"detruire"<<endl;
 
@@ -39,7 +39,7 @@ void Table::regle(Boule &m_b1)
 void Table::innitialisation()
 {
 
-    cout<<"3"<<endl;
+    cout<<m_b1->positionX()<<endl;
 
 }
 
