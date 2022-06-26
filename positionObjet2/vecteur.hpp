@@ -10,17 +10,17 @@ class Vecteur
 {
 public:
     Vecteur();
-    Vecteur(double i, double s);
-    void modifier(double i, double s);
+    Vecteur(double x, double y);
+    void modifier(double x, double y);
     void afficher(std::ostream &flux) const;
-    double i();
-    double s();
+    double x();
+    double y();
     Vecteur& operator+=(const Vecteur &vecteur);
     //void afficher() const;
 
 private:
-    double m_i;
-    double m_s;
+    double m_x;
+    double m_y;
 
 };
 
