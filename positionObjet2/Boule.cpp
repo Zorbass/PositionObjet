@@ -46,8 +46,6 @@ void Boule::changerVitesse(double x, double y)
 //fait avancer la bille et effectue les contacts si il y en a.
 void Boule::collision(Boule &cible)
 {
-    cout << "voici la vitesse : " << endl;
-
     m_t = vitesse.x()/acceleration.x();
 
 /*
