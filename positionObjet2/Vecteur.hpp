@@ -17,7 +17,8 @@ public:
     double y();
     void afficher(std::ostream &flux) const;
     void modifier(double x, double y);
-    void changerVecteur(double x, double y);
+    void modifierX(double x);
+    void modifierY(double y);
 
 private:
     double m_x;

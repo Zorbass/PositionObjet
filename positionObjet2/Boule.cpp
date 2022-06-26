@@ -64,8 +64,8 @@ void Boule::collision(Boule &cible)
         vitesse.modifier(vitesse.x() - m_a*f/1000, vitesse.y());
         m_d = vitesse.x()*f/1000 - m_a*0.5*f*f/1000000;
 
-        m_x = m_x + sin(m_alpha*PI/180) * m_d;
-        m_y = m_y + cos(m_alpha*PI/180) * m_d;
+        m_x = m_x + sin(vitesse.y()*PI/180) * m_d;
+        m_y = m_y + cos(vitesse.y()*PI/180) * m_d;
 
 /*
         m_vx = m_vx - m_ax*f/1000; //calcule de la vitesse en x a chaque rafraichissement
@@ -167,7 +167,7 @@ void Boule::collision(Boule &cible)
             //}
 
 
-            double theta2 = abs(gamma2 - m_alpha); //angle entre la vitesse finale de la boule 2 et la vitesse initaale de la boule 1
+            double theta2 = abs(gamma2 - vitesse.y()); //angle entre la vitesse finale de la boule 2 et la vitesse initaale de la boule 1
             double theta1 = 90 - theta2; //angle entre la vitesse finale de la boule 1 et la vitesse initaale de la boule 1
 
             double v2 = sin(theta1*PI/180) * vitesse.x(); //détermine la vitesse finale de la boule 2

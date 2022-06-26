@@ -25,6 +25,16 @@ void Vecteur::modifier(double x, double y)
     m_y = y;
 }
 
+void Vecteur::modifierX(double x)
+{
+    m_x = x;
+}
+
+void modifierY(double y)
+{
+    m_y = y;
+}
+
 /*void Vecteur::afficher() const
 {
     cout << "(" << m_x << ";" << m_y << ")" << endl;
