@@ -35,16 +35,6 @@ void Vecteur::modifierY(double y)
     m_y = y;
 }
 
-/*void Vecteur::afficher() const
-{
-    cout << "(" << m_x << ";" << m_y << ")" << endl;
-}*/
-
-void Vecteur::afficher(ostream &flux) const
-{
-    flux << "(" << m_x << ";" << m_y << ")";
-}
-
 double Vecteur::x()
 {
     return m_x;
@@ -54,8 +44,15 @@ double Vecteur::y()
 {
     return m_y;
 }
+/*void Vecteur::afficher() const
+{
+    cout << "(" << m_x << ";" << m_y << ")" << endl;
+}*/
 
-
+void Vecteur::afficher(ostream &flux) const
+{
+    flux << "(" << m_x << ";" << m_y << ")";
+}
 
 
 Vecteur operator+(Vecteur const& a, Vecteur const& b)
