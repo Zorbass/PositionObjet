@@ -23,6 +23,8 @@ class Boule
 
     void collision(Boule &cible);
 
+    void detruire(Boule &boule);
+
 
 
     void shoot();

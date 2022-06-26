@@ -10,8 +10,9 @@ using namespace std;
 int main()
 {
 
-    Table table(1,2,3,4);
+    Table table("1",3,4);
     table.innitialisation();
+
 
 
     Boule A("A", 1, 1);
@@ -27,5 +28,5 @@ int main()
 
     A.afficher();
     B.afficher();
-
+    table.regle(B);
 }

@@ -45,6 +45,10 @@ void Boule::changerVitesse(int x, int y)
     m_alpha = y;
 }
 
+void Boule::detruire(Boule &boule)
+{
+
+}
 //fait avancer la bille et effectue les contacts si il y en a.
 void Boule::collision(Boule &cible)
 {

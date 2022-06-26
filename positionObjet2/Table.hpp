@@ -11,15 +11,18 @@ class Table
 
 public:
     Table();
-    Table(int x, int y, int x2, int y2);
-    Boule *m_boule;
+    Table(std::string nom, int x, int y);
+    ~Table();
 
+
+    void regle(Boule &boule);
     void innitialisation();
 private:
     int m_xt =0;
     int m_yt =0;
     int m_xt2 =6;
     int m_yt2 =11;
+    Boule *m_b1;;
 
 };
 
