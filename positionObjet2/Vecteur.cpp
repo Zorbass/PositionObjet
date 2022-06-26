@@ -30,7 +30,7 @@ void Vecteur::modifierX(double x)
     m_x = x;
 }
 
-void modifierY(double y)
+void Vecteur::modifierY(double y)
 {
     m_y = y;
 }

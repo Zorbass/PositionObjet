@@ -10,12 +10,12 @@ using namespace std;
 #define PI 3.141592653589793238462643383279
 
 //constructeur basique
-Boule::Boule() : m_nom("A"), m_x(0), m_y(0), vitesse(0,0), acceleration(2.943, 0)
+Boule::Boule() : m_nom("A"), m_x(0), m_y(0), vitesse(0, 0), acceleration(2.943, 0)
 {
 }
 
 //constructeur personalisable
-Boule::Boule(string nom, double x, double y) : m_nom(nom), m_x(x), m_y(y), vitesse(0,0), acceleration(2.943, 0)
+Boule::Boule(string nom, double x, double y) : m_nom(nom), m_x(x), m_y(y), vitesse(0, 0), acceleration(2.943, 0)
 {
 }
 
@@ -61,8 +61,8 @@ void Boule::collision(Boule &cible)
     while(m_t > u)
     {
 
-        vitesse.modifier(vitesse.x() - m_a*f/1000, vitesse.y());
-        m_d = vitesse.x()*f/1000 - m_a*0.5*f*f/1000000;
+        vitesse.modifierX(vitesse.x() - acceleration.x()*f/1000);
+        m_d = vitesse.x()*f/1000 - acceleration.x()*0.5*f*f/1000000;
 
         m_x = m_x + sin(vitesse.y()*PI/180) * m_d;
         m_y = m_y + cos(vitesse.y()*PI/180) * m_d;
@@ -171,35 +171,35 @@ void Boule::collision(Boule &cible)
             double theta1 = 90 - theta2; //angle entre la vitesse finale de la boule 1 et la vitesse initaale de la boule 1
 
             double v2 = sin(theta1*PI/180) * vitesse.x(); //détermine la vitesse finale de la boule 2
-            vitesse.modifier(cos(theta1*PI/180) * vitesse.x(), vitesse.y()); //détermine la vitesse finale de la boule 1
+            vitesse.modifierX(cos(theta1*PI/180) * vitesse.x()); //détermine la vitesse finale de la boule 1
 
-            if(gamma2 > m_alpha)
+            if(gamma2 > vitesse.y())
             {
                 if(deltaX > 0 and deltaY > 0)
                 {
-                    m_alpha = gamma2 + 270;
+                    vitesse.modifierY(gamma2 + 270);
                 }
                 else
                 {
-                    m_alpha = gamma2 - 90;
+                    vitesse.modifierY(gamma2 - 90);
                 }
             }
 
-            else if(gamma2 < m_alpha)
+            else if(gamma2 < vitesse.y())
             {
                 if(deltaX < 0 and deltaY > 0)
                 {
-                    m_alpha = gamma2 - 270;
+                    vitesse.modifierY(gamma2 - 270);
                 }
                 else
                 {
-                    m_alpha = gamma2 + 90;
+                    vitesse.modifierY(gamma2 + 90);
                 }
             }
 
-            else if(gamma2 = m_alpha)
+            else if(gamma2 = vitesse.y())
             {
-                m_alpha = 0;
+                vitesse.modifierY(0);
             }
 
             cible.changerVitesse(v2, gamma2);
@@ -216,21 +216,21 @@ void Boule::collision(Boule &cible)
         //calcule de la vitesse et acceleration si la bille touche la bande droit ou gauche
         if(m_x+m_r >= 11 or m_x-m_r <= 0)
         {
-            m_alpha = 360 - m_alpha;
+            vitesse.modifierY(360 - vitesse.y());
         }
 
 
         //calcule de la vitesse et acceleration si la bille touche la bande haute ou basse
         if(m_y+m_r >= 6 or m_y-m_r <= 0)
         {
-            if(0 <= m_alpha <= 180)
+            if(0 <= vitesse.y() <= 180)
             {
-                m_alpha = 180 - m_alpha;
+                vitesse.modifierY(180 - vitesse.y());
             }
 
-            else if(180 < m_alpha <= 360)
+            else if(180 < vitesse.y() <= 360)
             {
-                m_alpha = 540 - m_alpha;
+                vitesse.modifierY(540 - vitesse.y());
             }
 
         }
