@@ -62,27 +62,27 @@ void Boule::collision(Boule &cible)
 
         f = clock(); //peut-etre pas necessaire
 
-        if(sqrt((m_x-cible.positionX()) * (m_x-cible.positionX()) + (m_y-cible.positionY())*(m_y-cible.positionY()))<= 2*m_r)
+        if(sqrt((m_x-cible.m_x) * (m_x-cible.m_x) + (m_y-cible.m_y)*(m_y-cible.m_y))<= 2*m_r)
         {
             //ces if ne sont pas correctes
-            if(cible.positionX()-m_x < 2*m_r and cible.positionX()-m_x > 0)
+            if(cible.m_x-m_x < 2*m_r and cible.m_x-m_x > 0)
             {
-                m_x = cible.positionX() - 2*m_r - 0.00001;
+                m_x = cible.m_x - 2*m_r - 0.00001;
             }
 
-            else if(m_x-cible.positionX() < 2*m_r and m_x-cible.positionX()>0)
+            else if(m_x-cible.m_x < 2*m_r and m_x-cible.m_x>0)
             {
-                m_x = cible.positionX() + 2*m_r + 0.00001;
+                m_x = cible.m_x + 2*m_r + 0.00001;
             }
 
-            if(cible.positionY()-m_y < 2*m_r and cible.positionY()-m_y>0)
+            if(cible.m_y-m_y < 2*m_r and cible.m_y-m_y>0)
             {
-                m_y = cible.positionY() - 2*m_r - 0.00001;
+                m_y = cible.m_y - 2*m_r - 0.00001;
             }
 
-            else if(m_y -cible.positionY()< 2*m_r and m_y -cible.positionY()>0)
+            else if(m_y -cible.m_y< 2*m_r and m_y -cible.m_y>0)
             {
-                m_y = cible.positionY() + 2*m_r + 0.00001;
+                m_y = cible.m_y + 2*m_r + 0.00001;
             }
 
 
@@ -95,8 +95,8 @@ void Boule::collision(Boule &cible)
                 m_gamma2 = m_gamma2 + 180;
             }
 */
-            double deltaX = cible.positionX()-m_x;
-            double deltaY = cible.positionY()-m_y;
+            double deltaX = cible.m_x-m_x;
+            double deltaY = cible.m_y-m_y;
 
             double gamma2; //angle entre la verticale et la vitesse finale de la deuxième boule
 
