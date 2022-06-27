@@ -33,7 +33,7 @@ class Boule
     double m_y; //Position de la bille sur l'axe y
     double m_t; //temps de déplacement de la bille
     Vecteur acceleration;
-    double m_r = 0.0254; //rayon de la bille
+    double m_r = 0.0286; //rayon de la bille
     double m_d; //deplacement de la resultante
     Vecteur vitesse;
 
