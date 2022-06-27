@@ -3,6 +3,8 @@
 #include <ctime>
 #include <cmath>
 #include "Boule.hpp"
+#include "Vecteur.hpp"
+
 
 using namespace std;
 
@@ -13,7 +15,7 @@ Table::Table(): m_b(0)
 }
 
 
-Table::Table(string nom, double x, double y): m_b(0)
+Table::Table(string nom, double x, double y): m_nom("1"), m_x(x), m_y(y), m_b(0)
 {
     m_b = new Boule(nom,x,y);
 
@@ -55,9 +57,9 @@ void Table::regle()
 //j'ai trouve que une boule de billard a 57mm de diametre et pas ce que tu as trouve. Quand je reviens je vais continuer mes calculs pour positionner toutes les boules (j'ai deja commence mais pas mis sur le programme)
 void Table::innitialisation()
 {
-
-    /*essai d'une type de creation de boules en utilisant des tableau.
-    C'est plus long a faire et n'offre pas vraiment d'avantages */
+/*
+    essai d'une type de creation de boules en utilisant des tableau.
+    C'est plus long a faire et n'offre pas vraiment d'avantages
     vector<int> numeroBoule(nombreDeBoules);
 
     int i=0;
@@ -83,7 +85,7 @@ void Table::innitialisation()
     }
     cout<<nomBoule[numeroBoule[5]]<<endl;
 
-
+*/
 
     //creation des 16 boules comme un chinois
     m_b1 =new Boule("1 pleine",1.905,0.635);
@@ -113,7 +115,7 @@ void Table::innitialisation()
 void Table::test()
 {
     cout<<m_b10->positionX()<<endl;
-    cout<<m_b10->nom()<<endl;
+//    cout<<m_b10->nom()<<endl;
 }
 
 

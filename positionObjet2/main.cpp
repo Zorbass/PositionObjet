@@ -8,9 +8,14 @@ using namespace std;
 
 int main()
 {
-    Table table();
+    Table table("m_b1",3,4);
 
-    Boule A("A", 1, 1);
+    table.innitialisation();
+    table.regle();
+
+    table.test();
+
+   /* Boule A("A", 1, 1);
     Boule B("B", 2, 2);
 
     A.afficher();
@@ -23,5 +28,5 @@ int main()
 
     A.afficher();
     B.afficher();
-
+*/
 }

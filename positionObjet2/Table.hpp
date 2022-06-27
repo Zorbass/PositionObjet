@@ -1,4 +1,3 @@
-
 #ifndef TABLE_HPP_INCLUDED
 #define TABLE_HPP_INCLUDED
 
@@ -6,13 +5,16 @@
 #include <string>
 #include "Boule.hpp"
 #include <vector>
+#include "Vecteur.hpp"
+
+using namespace std;
 
 class Table
 {
 
 public:
     Table();
-    Table(std::string nom, double x, double y);
+    Table(std::string m_nom, double m_x, double m_y);
     ~Table();
 
 
@@ -22,6 +24,11 @@ public:
 
 
 private:
+
+    string m_nom;
+    double m_x;
+    double m_y;
+
     Boule *m_b;
 
     int nombreDeBoules=16;
