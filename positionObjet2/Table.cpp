@@ -14,9 +14,8 @@ Table::Table()
 }
 
 
-Table::Table(string nom, double x, double y): m_nom("1"), m_x(x), m_y(y), m_b(0)
+Table::Table(string nom, double x, double y): m_nom("1"), m_x(x), m_y(y)
 {
-    m_b = new Boule(nom,x,y);
 
 }
 
@@ -119,5 +118,14 @@ void Table::test()
 
 void Table::jouer()
 {
-    m_b16->shoot()
+    m_b16->afficher();
+    m_b8->afficher();
+
+    m_b16->shoot();
+
+    m_b16->collision(*m_b8);
+    m_b8->collision(*m_b16);
+
+    m_b16->afficher();
+    m_b8->afficher();
 }
