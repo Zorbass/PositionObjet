@@ -21,6 +21,7 @@ public:
     void regle();
     void innitialisation();
     void test();
+    void jouer();
 
 
 private:

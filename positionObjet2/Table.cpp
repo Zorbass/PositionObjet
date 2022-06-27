@@ -8,9 +8,8 @@
 
 using namespace std;
 
-Table::Table(): m_b(0)
+Table::Table()
 {
-    m_b = new Boule();
 
 }
 
@@ -95,7 +94,7 @@ void Table::innitialisation()
     m_b5 =new Boule("5 pleine",2.02840862,0.578);
     m_b6 =new Boule("6 pleine",2.09011293,0.5495);
     m_b7 =new Boule("7 pleine",2.15181724,0.4925);
-    m_bNoir =new Boule("noire",2.02840862,0.635);
+    m_b8 =new Boule("noire",2.02840862,0.635);
     m_b9 =new Boule("9 rayee",2.09011293,0.6065);
     m_b10 =new Boule("10 rayee",2.09011293,0.6635);
     m_b11 =new Boule("11 rayee",2.09011293,0.7205);
@@ -103,7 +102,7 @@ void Table::innitialisation()
     m_b13 =new Boule("13 rayee",2.15181724,0.635);
     m_b14 =new Boule("14 rayee",2.15181724,0.692);
     m_b15 =new Boule("15 rayee",2.15181724,0.7775);
-    m_bBlanche =new Boule("blanche",0.635,0.635);
+    m_b16 =new Boule("blanche",0.635,0.635);
 
 
     cout<<m_b1->positionX()<<endl;
@@ -115,7 +114,10 @@ void Table::innitialisation()
 void Table::test()
 {
     cout<<m_b10->positionX()<<endl;
-//    cout<<m_b10->nom()<<endl;
+    m_b10->afficher();
 }
 
-
+void Table::jouer()
+{
+    m_b16->shoot()
+}

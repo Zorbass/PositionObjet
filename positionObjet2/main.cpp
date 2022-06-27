@@ -15,6 +15,8 @@ int main()
 
     table.test();
 
+    table.jouer();
+
    /* Boule A("A", 1, 1);
     Boule B("B", 2, 2);
 
