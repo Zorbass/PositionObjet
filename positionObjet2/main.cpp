@@ -1,40 +1,32 @@
 #include <iostream>
-#include "Vecteur.hpp"
+#include <cmath>
 #include "Boule.hpp"
-#include "Table1.hpp"
+#include "Vecteur.hpp"
+#include "Table.hpp"
 
 using namespace std;
 
-
 int main()
 {
+    Table table("m_b1",3,4);
 
-    Table1 table(1, 2, 3, 4);
     table.innitialisation();
+    table.regle();
 
-    /*Vecteur vecteur1(7, 10), vecteur2(5, 53);
-    Vecteur resultat;
+    table.jouer();
 
-    cout << vecteur1 << endl;
-    cout << "+" << endl;
-    cout << vecteur2 << endl;
+   /* Boule A("A", 1, 1);
+    Boule B("B", 2, 2);
 
-    resultat = vecteur1 + vecteur2;
-
-    cout << "=" << endl;
-    cout << resultat << endl;*/
-
-    Boule B("B",1,1), Z("Z",3,3);
-
+    A.afficher();
     B.afficher();
-    Z.afficher();
 
-    B.shoot();
-    B.collision(Z);
-    Z.collision(B);
+    A.shoot();
+    A.collision(B);
 
+    B.collision(A);
+
+    A.afficher();
     B.afficher();
-    Z.afficher();
-
-    return 0;
+*/
 }
