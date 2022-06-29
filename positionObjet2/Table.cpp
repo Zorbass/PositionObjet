@@ -52,29 +52,24 @@ void Table::regle()
 
 
 
-
+//j'ai trouve que une boule de billard a 57mm de diametre et pas ce que tu as trouve. Quand je reviens je vais continuer mes calculs pour positionner toutes les boules (j'ai deja commence mais pas mis sur le programme)
 void Table::innitialisation()
 {
 /*
     essai d'une type de creation de boules en utilisant des tableau.
     C'est plus long a faire et n'offre pas vraiment d'avantages
     vector<int> numeroBoule(nombreDeBoules);
-
     int i=0;
     int z=1;
-
     //nombre de la boule
     while(i<nombreDeBoules)
     {
         numeroBoule[i]=z;
         i++;
         z++;
-
     }
     i=0;
-
     vector<string> nomBoule(nombreDeBoules);
-
     //nom de la boule (oui je sais que ils sont tous appele "1")
     while(i<nombreDeBoules)
     {
@@ -82,7 +77,6 @@ void Table::innitialisation()
        i++;
     }
     cout<<nomBoule[numeroBoule[5]]<<endl;
-
 */
 
     //creation des 16 boules comme un chinois

@@ -13,6 +13,9 @@ int main()
     table.innitialisation();
     table.regle();
 
+
+
+
     table.jouer();
 
    /* Boule A("A", 1, 1);

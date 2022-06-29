@@ -1,5 +1,5 @@
-#ifndef Vecteur_HPP_INCLUDED
-#define Vecteur_HPP_INCLUDED
+#ifndef VECTEUR_HPP_INCLUDED
+#define VECTEUR_HPP_INCLUDED
 
 #include <iostream>
 #include <string>
@@ -17,6 +17,8 @@ public:
     double y();
     void afficher(std::ostream &flux) const;
     void modifier(double x, double y);
+    void modifierX(double x);
+    void modifierY(double y);
 
 private:
     double m_x;
@@ -27,4 +29,5 @@ private:
 Vecteur operator+(Vecteur const& a, Vecteur const& b);
 ostream& operator<<(ostream &flux, Vecteur const& vecteur);
 
-#endif
+
+#endif // VECTEUR_HPP_INCLUDED
