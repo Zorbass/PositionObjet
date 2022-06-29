@@ -26,6 +26,11 @@ class Boule
 
     void shoot(); //ok
 
+    bool deplacement();
+
+    double vitesseX();
+    double vitesseY();
+
     private:
 
     std::string m_nom;

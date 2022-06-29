@@ -67,3 +67,4 @@ ostream& operator<<( ostream &flux, Vecteur const& vecteur)
     vecteur.afficher(flux) ;
     return flux;
 }
+

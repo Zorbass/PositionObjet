@@ -103,6 +103,25 @@ void Table::innitialisation()
 
 
 
+     for(int i(0); i<listeBoules.size(); ++i)
+    {
+        if(listeBoules[i]->deplacement() == true)
+        {
+            cout<<"verifier collisions avec table"<<endl;
+            cout<<"cree carre autour de boule pour savoir quels boule proche"<<endl;
+            cout<<"verifier colisions avec boules dans carre"<<endl;
+        }
+        else
+        {
+            cout<<"boule "<<i<<" ne se deplace pas"<<endl;
+        }
+    }
+
+
+
+
+
+
 
     for(int i(0); i<listeBoules.size(); ++i)
     {
@@ -150,6 +169,11 @@ void Table::test()
 
 void Table::jouer()
 {
+    m_b16->shoot();
+    m_b16->afficher();
+
+
+
 
 
 

@@ -20,6 +20,7 @@ public:
     void modifierX(double x);
     void modifierY(double y);
 
+
 private:
     double m_x;
     double m_y;
@@ -27,6 +28,7 @@ private:
 };
 
 Vecteur operator+(Vecteur const& a, Vecteur const& b);
+Vecteur operator<(Vecteur const& a, Vecteur const& b);
 ostream& operator<<(ostream &flux, Vecteur const& vecteur);
 
 

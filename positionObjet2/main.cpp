@@ -10,13 +10,15 @@ int main()
 {
     Table table("m_b1",3,4);
 
-    table.innitialisation();
+
     table.regle();
+    table.innitialisation();
 
 
 
 
     table.jouer();
+
 
    /* Boule A("A", 1, 1);
     Boule B("B", 2, 2);

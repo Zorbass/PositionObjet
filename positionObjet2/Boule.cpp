@@ -228,6 +228,14 @@ void Boule::collision(Boule &cible)
 
     cout << "fini collisions" << endl;
 }
+double Boule::vitesseX()
+{
+    return vitesse.x();
+}
+double Boule::vitesseY()
+{
+    return vitesse.y();
+}
 
 //permet de shooter la première bille
 void Boule::shoot()
@@ -239,4 +247,22 @@ void Boule::shoot()
     cin >> alpha;
 
     vitesse.modifier(v, alpha);
+    cout<<vitesseX()<<endl;
+    cout<<vitesseY()<<endl;
+
+
+}
+bool Boule::deplacement()
+{
+
+    if(vitesseX()>0 || vitesseY()>0)
+    {
+        return true;
+    }
+    else
+    {
+        return false;
+    }
+
+
 }
