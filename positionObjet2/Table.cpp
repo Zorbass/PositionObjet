@@ -55,30 +55,68 @@ void Table::regle()
 //j'ai trouve que une boule de billard a 57mm de diametre et pas ce que tu as trouve. Quand je reviens je vais continuer mes calculs pour positionner toutes les boules (j'ai deja commence mais pas mis sur le programme)
 void Table::innitialisation()
 {
-/*
-    essai d'une type de creation de boules en utilisant des tableau.
-    C'est plus long a faire et n'offre pas vraiment d'avantages
-    vector<int> numeroBoule(nombreDeBoules);
-    int i=0;
-    int z=1;
-    //nombre de la boule
-    while(i<nombreDeBoules)
-    {
-        numeroBoule[i]=z;
-        i++;
-        z++;
-    }
-    i=0;
-    vector<string> nomBoule(nombreDeBoules);
-    //nom de la boule (oui je sais que ils sont tous appele "1")
-    while(i<nombreDeBoules)
-    {
-       nomBoule[i] ="1";
-       i++;
-    }
-    cout<<nomBoule[numeroBoule[5]]<<endl;
-*/
 
+
+
+    vector<Boule*> listeBoules;
+
+    listeBoules.push_back(new Boule("1 pleine",1.905,0.635));
+    listeBoules.push_back(new Boule("2 pleine",1.96670431,0.6065));
+    listeBoules.push_back(new Boule("3 pleine",1.96670431,0.6635));
+    listeBoules.push_back(new Boule("4 pleine",2.02840862,0.692));
+    listeBoules.push_back(new Boule("5 pleine",2.02840862,0.578));
+    listeBoules.push_back(new Boule("6 pleine",2.09011293,0.5495));
+    listeBoules.push_back(new Boule("7 pleine",2.15181724,0.4925));
+    listeBoules.push_back(new Boule("8 noire",2.02840862,0.635));
+    listeBoules.push_back(new Boule("9 rayee",2.09011293,0.6065));
+    listeBoules.push_back(new Boule("10 rayee",2.09011293,0.6635));
+    listeBoules.push_back(new Boule("11 rayee",2.09011293,0.7205));
+    listeBoules.push_back(new Boule("12 rayee",2.15181724,0.578));
+    listeBoules.push_back(new Boule("13 rayee",2.15181724,0.635));
+    listeBoules.push_back(new Boule("14 rayee",2.15181724,0.692));
+    listeBoules.push_back(new Boule("15 rayee",2.15181724,0.7775));
+    listeBoules.push_back(new Boule("blanche",0.635,0.635));
+
+
+    listeBoules[1]->afficher();
+    cout<<"position X: "<<listeBoules[1]->positionX()<<endl;
+
+
+
+
+    m_b1 = listeBoules[0];
+    m_b2 = listeBoules[1];
+    m_b3 = listeBoules[2];
+    m_b4 = listeBoules[3];
+    m_b5 = listeBoules[4];
+    m_b6 = listeBoules[5];
+    m_b7 = listeBoules[6];
+    m_b8 = listeBoules[7];
+    m_b9 = listeBoules[8];
+    m_b10 = listeBoules[9];
+    m_b11 = listeBoules[10];
+    m_b12 = listeBoules[11];
+    m_b13 = listeBoules[12];
+    m_b14 = listeBoules[13];
+    m_b15 = listeBoules[14];
+    m_b16 = listeBoules[15];
+
+
+
+
+    for(int i(0); i<listeBoules.size(); ++i)
+    {
+        delete listeBoules[i];
+        listeBoules[i] = 0;
+    }
+
+
+
+
+
+
+
+    /*
     //creation des 16 boules comme un chinois
     m_b1 =new Boule("1 pleine",1.905,0.635);
     m_b2 =new Boule("2 pleine",1.96670431,0.6065);
@@ -87,7 +125,7 @@ void Table::innitialisation()
     m_b5 =new Boule("5 pleine",2.02840862,0.578);
     m_b6 =new Boule("6 pleine",2.09011293,0.5495);
     m_b7 =new Boule("7 pleine",2.15181724,0.4925);
-    m_b8 =new Boule("noire",2.02840862,0.635);
+    m_b8 =new Boule("8 noire",2.02840862,0.635);
     m_b9 =new Boule("9 rayee",2.09011293,0.6065);
     m_b10 =new Boule("10 rayee",2.09011293,0.6635);
     m_b11 =new Boule("11 rayee",2.09011293,0.7205);
@@ -100,18 +138,24 @@ void Table::innitialisation()
 
     cout<<m_b1->positionX()<<endl;
     cout<<m_b1->positionY()<<endl;
+    */
 
 }
 
 //pour tester
 void Table::test()
 {
-    cout<<m_b10->positionX()<<endl;
-    m_b10->afficher();
+
 }
 
 void Table::jouer()
 {
+
+
+
+
+
+    /*
     m_b16->afficher();
     m_b8->afficher();
 
@@ -122,4 +166,5 @@ void Table::jouer()
 
     m_b16->afficher();
     m_b8->afficher();
+    */
 }
