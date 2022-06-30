@@ -20,7 +20,17 @@ class Boule
 
     double positionY(); //ok
 
+    double intensiteeV();
+
+    double intensiteeA();
+
     void changerVitesse(double x, double y); //ok
+
+    void deplacemelent(double f);
+
+    void collBoule(Boule &cible);
+
+    void collTable();
 
     void collision(Boule &cible);
 

@@ -8,12 +8,13 @@ using namespace std;
 
 int main()
 {
-    Table table("m_b1",3,4);
+    Table table("m_b1",11,6);
 
     table.innitialisation();
-    table.regle();
 
     table.jouer();
+
+    table.~Table();
 
    /* Boule A("A", 1, 1);
     Boule B("B", 2, 2);

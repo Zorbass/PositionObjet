@@ -20,6 +20,7 @@ public:
 
     void regle();
     void innitialisation();
+    void mecanique(Boule &cible);
     void test();
     void jouer();
 
@@ -29,6 +30,8 @@ private:
     string m_nom;
     double m_x;
     double m_y;
+
+    double m_t;
 
     Boule *m_b;
 

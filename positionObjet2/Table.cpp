@@ -42,12 +42,6 @@ Table::~Table()
 
 void Table::regle()
 {
-    if(m_b1->positionX()==3)
-    {
-        cout<<"detruire"<<endl;
-
-
-    }
 }
 
 
@@ -103,10 +97,71 @@ void Table::innitialisation()
     m_b15 =new Boule("15 rayee",2.15181724,0.7775);
     m_b16 =new Boule("blanche",0.635,0.635);
 
+}
 
-    cout<<m_b1->positionX()<<endl;
-    cout<<m_b1->positionY()<<endl;
+void Table::mecanique(Boule &cible)
+{
+    double f = 0;
 
+    while(m_b1->intensiteeV() > 0 or m_b2->intensiteeV() > 0 or m_b3->intensiteeV() > 0 or m_b4->intensiteeV() > 0 or m_b5->intensiteeV() > 0 or m_b6->intensiteeV() > 0 or m_b7->intensiteeV() > 0 or m_b8->intensiteeV() > 0 or m_b9->intensiteeV() > 0 or m_b10->intensiteeV() > 0 or m_b11->intensiteeV() > 0 or m_b12->intensiteeV() > 0 or m_b13->intensiteeV() > 0 or m_b14->intensiteeV() > 0 or m_b15->intensiteeV() > 0 or m_b16->intensiteeV() > 0)
+    {
+
+        m_b1->deplacemelent(f);
+        m_b2->deplacemelent(f);
+        m_b3->deplacemelent(f);
+        m_b4->deplacemelent(f);
+        m_b5->deplacemelent(f);
+        m_b6->deplacemelent(f);
+        m_b7->deplacemelent(f);
+        m_b8->deplacemelent(f);
+        m_b9->deplacemelent(f);
+        m_b10->deplacemelent(f);
+        m_b11->deplacemelent(f);
+        m_b12->deplacemelent(f);
+        m_b13->deplacemelent(f);
+        m_b14->deplacemelent(f);
+        m_b15->deplacemelent(f);
+        m_b16->deplacemelent(f);
+
+        f = clock();
+
+/*        m_b1->collBoule(cible);
+        m_b2->collBoule(cible);
+        m_b3->collBoule(cible);
+        m_b4->collBoule(cible);
+        m_b5->collBoule(cible);
+        m_b6->collBoule(cible);
+        m_b7->collBoule(cible);     */
+//        m_b8->collBoule(*m_b16);
+/*        m_b9->collBoule(cible);
+        m_b10->collBoule(cible);
+        m_b11->collBoule(cible);
+        m_b12->collBoule(cible);
+        m_b13->collBoule(cible);
+        m_b14->collBoule(cible);
+        m_b15->collBoule(cible);
+*/        m_b16->collBoule(cible);
+
+        m_b1->collTable();
+        m_b2->collTable();
+        m_b3->collTable();
+        m_b4->collTable();
+        m_b5->collTable();
+        m_b6->collTable();
+        m_b7->collTable();
+        m_b8->collTable();
+        m_b9->collTable();
+        m_b10->collTable();
+        m_b11->collTable();
+        m_b12->collTable();
+        m_b13->collTable();
+        m_b14->collTable();
+        m_b15->collTable();
+        m_b16->collTable();
+
+        f = clock() - f;
+    }
+    cout << "fini collisions" << endl;
 }
 
 //pour tester
@@ -123,8 +178,10 @@ void Table::jouer()
 
     m_b16->shoot();
 
-    m_b16->collision(*m_b8);
-    m_b8->collision(*m_b16);
+    this->mecanique(*m_b8);
+//    m_b16->collision(*m_b8);
+//    m_b8->collision(*m_b16);
+
 
     m_b16->afficher();
     m_b8->afficher();
