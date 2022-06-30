@@ -20,7 +20,7 @@ public:
 
     void regle();
     void innitialisation();
-    void mecanique(Boule &cible);
+    void mecanique();
     void test();
     void jouer();
 
@@ -33,10 +33,9 @@ private:
 
     double m_t;
 
-    Boule *m_b;
-
     int nombreDeBoules=16;
 
+    Boule *boules = new Boule[16];
 
     Boule *m_b1;
     Boule *m_b2;
