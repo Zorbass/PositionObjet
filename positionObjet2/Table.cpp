@@ -125,22 +125,22 @@ void Table::mecanique(Boule &cible)
 
         f = clock();
 
-/*        m_b1->collBoule(cible);
+        m_b1->collBoule(cible);
         m_b2->collBoule(cible);
         m_b3->collBoule(cible);
         m_b4->collBoule(cible);
         m_b5->collBoule(cible);
         m_b6->collBoule(cible);
-        m_b7->collBoule(cible);     */
-//        m_b8->collBoule(*m_b16);
-/*        m_b9->collBoule(cible);
+        m_b7->collBoule(cible);
+        m_b8->collBoule(*m_b16);
+        m_b9->collBoule(cible);
         m_b10->collBoule(cible);
         m_b11->collBoule(cible);
         m_b12->collBoule(cible);
         m_b13->collBoule(cible);
         m_b14->collBoule(cible);
         m_b15->collBoule(cible);
-*/        m_b16->collBoule(cible);
+        m_b16->collBoule(cible);
 
         m_b1->collTable();
         m_b2->collTable();
