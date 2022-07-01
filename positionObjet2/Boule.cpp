@@ -72,9 +72,9 @@ void Boule::deplacemelent(double f)
 
 void Boule::collBoule(Boule& cible)
 {
-    if(sqrt((m_x-cible.m_x) * (m_x-cible.m_x) + (m_y-cible.m_y)*(m_y-cible.m_y))<= 2*m_r)
+    if(sqrt((m_x-cible.m_x) * (m_x-cible.m_x) + (m_y-cible.m_y)*(m_y-cible.m_y))<= 2*m_r and vitesse.x() > 0)
         {
-            cout << "collision" << endl;
+            cout << "collision " << cible.m_nom << cible.m_x << " ; " << cible.m_y << endl;
             //ces if ne sont pas correctes
 
 

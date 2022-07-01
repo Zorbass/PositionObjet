@@ -123,6 +123,8 @@ void Table::mecanique()
             i++;
         }
 
+        cout << boules[15].positionX();
+
         f = clock();
 
         i = 0;
@@ -132,7 +134,10 @@ void Table::mecanique()
         {
             while(z < nombreDeBoules)
             {
-                boules[i].collBoule(boules[z]);
+                if(z != i)
+                {
+                    boules[i].collBoule(boules[z]);
+                }
                 z++;
             }
             i++;
