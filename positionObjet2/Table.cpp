@@ -57,7 +57,7 @@ void Table::innitialisation()
 //    C'est plus long a faire et n'offre pas vraiment d'avantages
 
     //nombre de la boule
-    boules[0] = Boule("1 pleine",5,3);
+    boules[0] = Boule("1 pleine",2,3);
     boules[1] = Boule("A", 1, 1);//"2 pleine",1.96670431,0.6065);
     boules[2] = Boule("A", 1, 3);//"3 pleine",1.96670431,0.6635);
     boules[3] = Boule("A", 1, 4);//"4 pleine",2.02840862,0.692);
@@ -110,12 +110,17 @@ void Table::mecanique()
 {
     double f = 0;
 
+    double u = 0;
+
     int i = 0;
+
+    int z = 0;
 
     while(boules[0].intensiteeV() > 0 or boules[1].intensiteeV() > 0 or boules[2].intensiteeV() > 0 or boules[3].intensiteeV() > 0 or boules[4].intensiteeV() > 0 or boules[5].intensiteeV() > 0 or boules[6].intensiteeV() > 0 or boules[7].intensiteeV() > 0 or boules[8].intensiteeV() > 0 or boules[9].intensiteeV() > 0 or boules[10].intensiteeV() > 0 or boules[11].intensiteeV() > 0 or boules[12].intensiteeV() > 0 or boules[13].intensiteeV() > 0 or boules[14].intensiteeV() > 0 or boules[15].intensiteeV() > 0)
     {
+        u = clock();
 
-        int i = 0;
+        /*int i = 0;
 
         while(i < nombreDeBoules)
         {
@@ -123,12 +128,8 @@ void Table::mecanique()
             i++;
         }
 
-        cout << boules[15].positionX() << endl;
-
-        f = clock();
-
         i = 0;
-        int z = 0;
+        z = 0;
 
         while(i < nombreDeBoules)
         {
@@ -149,7 +150,19 @@ void Table::mecanique()
         {
             boules[i].collTable();
             i++;
-        }
+        }*/
+
+        boules[15].deplacemelent(f);
+        boules[7].deplacemelent(f);
+
+        boules[15].collBoule(boules[7]);
+        boules[7].collBoule(boules[15]);
+
+        boules[15].collTable();
+        boules[7].collTable();
+
+
+
         /*m_b1->deplacemelent(f);
         m_b2->deplacemelent(f);
         m_b3->deplacemelent(f);
@@ -203,7 +216,7 @@ void Table::mecanique()
         m_b15->collTable();
         boules[15].collTable();*/
 
-        f = clock() - f;
+        f = clock() - u;
     }
     cout << "fini collisions" << endl;
 }
