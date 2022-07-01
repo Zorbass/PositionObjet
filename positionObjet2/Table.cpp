@@ -15,7 +15,7 @@ Table::Table()
 }
 
 
-Table::Table(string nom, double x, double y): m_nom("1"), m_x(x), m_y(y)
+Table::Table(string nom, double x, double y): m_nom(nom), m_x(x), m_y(y)
 {
 
 }
@@ -57,22 +57,22 @@ void Table::innitialisation()
 //    C'est plus long a faire et n'offre pas vraiment d'avantages
 
     //nombre de la boule
-    boules[0] = Boule("1 pleine",1.905,0.635);
-    boules[1] = Boule("2 pleine",1.96670431,0.6065);
-    boules[2] = Boule("3 pleine",1.96670431,0.6635);
-    boules[3] = Boule("4 pleine",2.02840862,0.692);
-    boules[4] = Boule("5 pleine",2.02840862,0.578);
-    boules[5] = Boule("6 pleine",2.09011293,0.5495);
-    boules[6] = Boule("7 pleine",2.15181724,0.4925);
-    boules[7] = Boule("noire",2.02840862,0.635);
-    boules[8] = Boule("9 rayee",2.09011293,0.6065);
-    boules[9] = Boule("10 rayee",2.09011293,0.6635);
-    boules[10] = Boule("11 rayee",2.09011293,0.7205);
-    boules[11] = Boule("12 rayee",2.15181724,0.578);
-    boules[12] = Boule("13 rayee",2.15181724,0.635);
-    boules[13] = Boule("14 rayee",2.15181724,0.692);
-    boules[14] = Boule("15 rayee",2.15181724,0.7775);
-    boules[15] = Boule("blanche",0.635,0.635);
+    boules[0] = Boule("1 pleine",5,3);
+    boules[1] = Boule("A", 1, 1);//"2 pleine",1.96670431,0.6065);
+    boules[2] = Boule("A", 1, 3);//"3 pleine",1.96670431,0.6635);
+    boules[3] = Boule("A", 1, 4);//"4 pleine",2.02840862,0.692);
+    boules[4] = Boule("A", 1, 5);//"5 pleine",2.02840862,0.578);
+    boules[5] = Boule("A", 2, 1);//"6 pleine",2.09011293,0.5495);
+    boules[6] = Boule("A", 3, 1);//"7 pleine",2.15181724,0.4925);
+    boules[7] = Boule("noire",3,3);
+    boules[8] = Boule("A", 4, 1);//"9 rayee",2.09011293,0.6065);
+    boules[9] = Boule("A", 5, 1);//"10 rayee",2.09011293,0.6635);
+    boules[10] = Boule("A", 6, 1);//"11 rayee",2.09011293,0.7205);
+    boules[11] = Boule("A", 7, 1);//"12 rayee",2.15181724,0.578);
+    boules[12] = Boule("A", 8, 1);//"13 rayee",2.15181724,0.635);
+    boules[13] = Boule("A", 9, 1);//"14 rayee",2.15181724,0.692);
+    boules[14] = Boule("A", 10, 1);//"15 rayee",2.15181724,0.7775);
+    boules[15] = Boule("blanche",1,3);
 
 /*    vector<string> nomBoule(nombreDeBoules);
 

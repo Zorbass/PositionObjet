@@ -37,7 +37,7 @@ private:
 
     Boule *boules = new Boule[16];
 
-    Boule *m_b1;
+    /*Boule *m_b1;
     Boule *m_b2;
     Boule *m_b3;
     Boule *m_b4;
@@ -52,7 +52,7 @@ private:
     Boule *m_b13;
     Boule *m_b14;
     Boule *m_b15;
-    Boule *m_b16;
+    Boule *m_b16;*/
 
 
 };
