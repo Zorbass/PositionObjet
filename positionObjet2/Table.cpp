@@ -123,7 +123,7 @@ void Table::mecanique()
             i++;
         }
 
-        cout << boules[15].positionX();
+        cout << boules[15].positionX() << endl;
 
         f = clock();
 
