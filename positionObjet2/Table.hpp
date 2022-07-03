@@ -33,9 +33,9 @@ private:
 
     double m_t;
 
-    int nombreDeBoules=2;
+    int nombreDeBoules=16;
 
-    Boule *boules = new Boule[2];
+    Boule *boules = new Boule[16];
 
     /*Boule *m_b1;
     Boule *m_b2;
