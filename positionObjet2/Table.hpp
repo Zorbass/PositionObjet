@@ -22,6 +22,9 @@ public:
     void innitialisation();
     void test();
     void jouer();
+    void detruire();
+    bool bouger();
+
 
 
 private:
@@ -29,12 +32,13 @@ private:
     string m_nom;
     double m_x;
     double m_y;
-
-    Boule *m_b;
+    //vector<Boule*> listeBoules;
+    Boule *boules = new Boule[nombreDeBoules];
+    Boule *tableau = new Boule[nombreDeBoules];
 
     int nombreDeBoules=16;
 
-
+    /*
     Boule *m_b1;
     Boule *m_b2;
     Boule *m_b3;
@@ -51,6 +55,7 @@ private:
     Boule *m_b14;
     Boule *m_b15;
     Boule *m_b16;
+    */
 
 
 };

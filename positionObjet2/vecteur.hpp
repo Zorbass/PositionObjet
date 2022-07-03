@@ -11,6 +11,7 @@ class Vecteur
 public:
     Vecteur();
     Vecteur(double x, double y);
+    bool estPlusPetitQue(Vecteur const& b) const;
     Vecteur& operator+=(const Vecteur &vecteur);
     //void afficher() const;
     double x();
@@ -28,7 +29,7 @@ private:
 };
 
 Vecteur operator+(Vecteur const& a, Vecteur const& b);
-Vecteur operator<(Vecteur const& a, Vecteur const& b);
+bool operator<(Vecteur const& a, Vecteur const& b);
 ostream& operator<<(ostream &flux, Vecteur const& vecteur);
 
 

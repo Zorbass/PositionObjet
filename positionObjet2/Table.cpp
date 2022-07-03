@@ -21,6 +21,7 @@ Table::Table(string nom, double x, double y): m_nom("1"), m_x(x), m_y(y)
 
 Table::~Table()
 {
+    /*
     delete m_b1;
     delete m_b2;
     delete m_b3;
@@ -37,17 +38,18 @@ Table::~Table()
     delete m_b14;
     delete m_b15;
     delete m_b16;
+    */
+    delete boules;
 }
 
 
 void Table::regle()
 {
-    if(m_b1->positionX()==3)
-    {
-        cout<<"detruire"<<endl;
+
+    cout<<boules[1].positionX()<<endl;
 
 
-    }
+
 }
 
 
@@ -58,8 +60,8 @@ void Table::innitialisation()
 
 
 
-    vector<Boule*> listeBoules;
 
+    /*
     listeBoules.push_back(new Boule("1 pleine",1.905,0.635));
     listeBoules.push_back(new Boule("2 pleine",1.96670431,0.6065));
     listeBoules.push_back(new Boule("3 pleine",1.96670431,0.6635));
@@ -76,14 +78,38 @@ void Table::innitialisation()
     listeBoules.push_back(new Boule("14 rayee",2.15181724,0.692));
     listeBoules.push_back(new Boule("15 rayee",2.15181724,0.7775));
     listeBoules.push_back(new Boule("blanche",0.635,0.635));
-
+    cout<<listeBoules.size()<<endl;
 
     listeBoules[1]->afficher();
     cout<<"position X: "<<listeBoules[1]->positionX()<<endl;
+    */
+    boules[0] = Boule("1 pleine",2,3);
+    boules[1] = Boule("A", 1.1, 1);//"2 pleine",1.96670431,0.6065);
+    boules[2] = Boule("A", 1, 3);//"3 pleine",1.96670431,0.6635);
+    boules[3] = Boule("A", 1, 4);//"4 pleine",2.02840862,0.692);
+    boules[4] = Boule("A", 1, 5);//"5 pleine",2.02840862,0.578);
+    boules[5] = Boule("A", 2, 1);//"6 pleine",2.09011293,0.5495);
+    boules[6] = Boule("A", 3, 1);//"7 pleine",2.15181724,0.4925);
+    boules[7] = Boule("noire",3,3);
+    boules[8] = Boule("A", 4, 1);//"9 rayee",2.09011293,0.6065);
+    boules[9] = Boule("A", 5, 1);//"10 rayee",2.09011293,0.6635);
+    boules[10] = Boule("A", 6, 1);//"11 rayee",2.09011293,0.7205);
+    boules[11] = Boule("A", 7, 1);//"12 rayee",2.15181724,0.578);
+    boules[12] = Boule("A", 8, 1);//"13 rayee",2.15181724,0.635);
+    boules[13] = Boule("A", 9, 1);//"14 rayee",2.15181724,0.692);
+    boules[14] = Boule("A", 10, 1);//"15 rayee",2.15181724,0.7775);
+    boules[15] = Boule("blanche",1,3);
+
+
+    boules[0].shoot();
+    cout<<"boule 0000000000000000000000000000000 "<<boules[0].intensiteeV()<<endl;
 
 
 
 
+
+
+    /*
     m_b1 = listeBoules[0];
     m_b2 = listeBoules[1];
     m_b3 = listeBoules[2];
@@ -100,64 +126,13 @@ void Table::innitialisation()
     m_b14 = listeBoules[13];
     m_b15 = listeBoules[14];
     m_b16 = listeBoules[15];
-
-
-
-     for(int i(0); i<listeBoules.size(); ++i)
-    {
-        if(listeBoules[i]->deplacement() == true)
-        {
-            cout<<"verifier collisions avec table"<<endl;
-            cout<<"cree carre autour de boule pour savoir quels boule proche"<<endl;
-            cout<<"verifier colisions avec boules dans carre"<<endl;
-        }
-        else
-        {
-            cout<<"boule "<<i<<" ne se deplace pas"<<endl;
-        }
-    }
-
-
-
-
-
-
-
-    for(int i(0); i<listeBoules.size(); ++i)
-    {
-        delete listeBoules[i];
-        listeBoules[i] = 0;
-    }
-
-
-
-
-
-
-
-    /*
-    //creation des 16 boules comme un chinois
-    m_b1 =new Boule("1 pleine",1.905,0.635);
-    m_b2 =new Boule("2 pleine",1.96670431,0.6065);
-    m_b3 =new Boule("3 pleine",1.96670431,0.6635);
-    m_b4 =new Boule("4 pleine",2.02840862,0.692);
-    m_b5 =new Boule("5 pleine",2.02840862,0.578);
-    m_b6 =new Boule("6 pleine",2.09011293,0.5495);
-    m_b7 =new Boule("7 pleine",2.15181724,0.4925);
-    m_b8 =new Boule("8 noire",2.02840862,0.635);
-    m_b9 =new Boule("9 rayee",2.09011293,0.6065);
-    m_b10 =new Boule("10 rayee",2.09011293,0.6635);
-    m_b11 =new Boule("11 rayee",2.09011293,0.7205);
-    m_b12 =new Boule("12 rayee",2.15181724,0.578);
-    m_b13 =new Boule("13 rayee",2.15181724,0.635);
-    m_b14 =new Boule("14 rayee",2.15181724,0.692);
-    m_b15 =new Boule("15 rayee",2.15181724,0.7775);
-    m_b16 =new Boule("blanche",0.635,0.635);
-
-
-    cout<<m_b1->positionX()<<endl;
-    cout<<m_b1->positionY()<<endl;
     */
+
+
+
+
+
+
 
 }
 
@@ -166,29 +141,124 @@ void Table::test()
 {
 
 }
-
-void Table::jouer()
+bool Table::bouger()
 {
-    m_b16->shoot();
-    m_b16->afficher();
-
-
-
-
-
-
-
 
     /*
-    m_b16->afficher();
-    m_b8->afficher();
-
-    m_b16->shoot();
-
-    m_b16->collision(*m_b8);
-    m_b8->collision(*m_b16);
-
-    m_b16->afficher();
-    m_b8->afficher();
+    tableau[0] = boules[0];
+    tableau[1] = Boule("A", 1.1, 1);//"2 pleine",1.96670431,0.6065);
+    tableau[2] = Boule("A", 1, 3);//"3 pleine",1.96670431,0.6635);
+    tableau[3] = Boule("A", 1, 4);//"4 pleine",2.02840862,0.692);
+    tableau[4] = Boule("A", 1, 5);//"5 pleine",2.02840862,0.578);
+    tableau[5] = Boule("A", 2, 1);//"6 pleine",2.09011293,0.5495);
+    tableau[6] = Boule("A", 3, 1);//"7 pleine",2.15181724,0.4925);
+    tableau[7] = Boule("noire",3,3);
+    tableau[8] = Boule("A", 4, 1);//"9 rayee",2.09011293,0.6065);
+    tableau[9] = Boule("A", 5, 1);//"10 rayee",2.09011293,0.6635);
+    tableau[10] = Boule("A", 6, 1);//"11 rayee",2.09011293,0.7205);
+    tableau[11] = Boule("A", 7, 1);//"12 rayee",2.15181724,0.578);
+    tableau[12] = Boule("A", 8, 1);//"13 rayee",2.15181724,0.635);
+    tableau[13] = Boule("A", 9, 1);//"14 rayee",2.15181724,0.692);
+    tableau[14] = Boule("A", 10, 1);//"15 rayee",2.15181724,0.7775);
     */
+
+
+
+
+
+    int nbboules = 16;
+    for (int i=0; i<nbboules;)
+    {
+        cout<<tableau[0].intensiteeV();
+
+        int z=1;
+        if (tableau[0].deplacementss(tableau[0]))
+        {
+            cout<<"boule bouge"<<endl;
+            return true;
+
+        }
+        else
+        {
+            tableau[0]=tableau[z];
+            cout<<tableau[0].intensiteeV()<<endl<<tableau[z].intensiteeV()<<endl;
+
+            nbboules--;
+            z++;
+            cout<<"balblalbalbl"<<endl;
+            if (tableau[0].positionX()==tableau[15].positionX() and tableau[0].positionY()==tableau[15].positionY() and tableau[15].deplacementss(tableau[15])== false)
+            {
+                cout<<"boule NOT bouge"<<endl;
+                return false;
+            }
+        }
+    }
+
 }
+void Table::jouer()
+{
+
+    int u=0;
+    double f=0;
+    cout<<"avant le while"<<endl;
+    while(bouger())
+    {
+        u= clock();
+        for(int i(0); i<nombreDeBoules; ++i)
+        {
+            //verifie si il y a deplacement de la boule
+            if(boules[i].deplacementss(boules[i]))
+            {
+                //si c'est le cas on verifie ensuite les boules "proches" sur la positionX de cette boule
+
+                boules[i].collTable();
+                boules[i].deplacemelent(f);
+                for(int z(0); z<nombreDeBoules; z++)
+                {
+                    if(i==z){cout<<"meme boule"<<endl;}
+                    else
+                    {
+                        if(abs(boules[i].positionX()-boules[z].positionX())<=0.057)
+                        {
+                            cout<<"peu etre collision"<<endl;
+                            boules[i].collBoule(boules[z]);//si une boule "z" est proche de cette boule alors on verifie la collision
+                        }
+                        else
+                        {
+                            cout<<"collision pas possible"<<endl;
+                        }
+                    }
+                }
+
+            }
+            else{
+                cout<<"pas deplacement"<<endl;
+
+            }
+
+
+        }
+
+    }
+    f= clock()-u;
+
+
+
+
+
+
+}
+void Table::detruire()
+{
+    /*
+    for(int i(0); i<nombreDeBoules; ++i)
+    {
+        delete boules[i];
+        boules[i] = 0;
+    }
+    */
+
+}
+
+
+

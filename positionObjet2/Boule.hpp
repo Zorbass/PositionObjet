@@ -1,3 +1,4 @@
+
 #ifndef BOULE_HPP_INCLUDED
 #define BOULE_HPP_INCLUDED
 
@@ -20,16 +21,23 @@ class Boule
 
     double positionY(); //ok
 
+    double intensiteeV();
+
+    double intensiteeA();
+
     void changerVitesse(double x, double y); //ok
+
+    void deplacemelent(double f);
+
+    void collBoule(Boule &cible);
+
+    void collTable();
 
     void collision(Boule &cible);
 
+    bool deplacementss(Boule& boule);
+
     void shoot(); //ok
-
-    bool deplacement();
-
-    double vitesseX();
-    double vitesseY();
 
     private:
 
@@ -38,7 +46,7 @@ class Boule
     double m_y; //Position de la bille sur l'axe y
     double m_t; //temps de déplacement de la bille
     Vecteur acceleration;
-    double m_r = 0.0286; //rayon de la bille
+    double m_r = 0.0285; //rayon de la bille
     double m_d; //deplacement de la resultante
     Vecteur vitesse;
 

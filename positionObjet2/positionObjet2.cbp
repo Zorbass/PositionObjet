@@ -36,9 +36,9 @@
 		<Unit filename="Boule.hpp" />
 		<Unit filename="Table.cpp" />
 		<Unit filename="Table.hpp" />
-		<Unit filename="Vecteur.cpp" />
-		<Unit filename="Vecteur.hpp" />
 		<Unit filename="main.cpp" />
+		<Unit filename="vecteur.cpp" />
+		<Unit filename="vecteur.hpp" />
 		<Extensions>
 			<lib_finder disable_auto="1" />
 		</Extensions>

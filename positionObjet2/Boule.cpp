@@ -4,6 +4,7 @@
 #include "Vecteur.hpp"
 #include <ctime>
 #include <cmath>
+#include "Table.hpp"
 
 using namespace std;
 
@@ -31,6 +32,16 @@ double Boule::positionX()
     return m_x;
 }
 
+double Boule::intensiteeV()
+{
+    return vitesse.x();
+}
+
+double Boule::intensiteeA()
+{
+    return acceleration.x();
+}
+
 //retourne la position de la bille en y
 double Boule::positionY()
 {
@@ -43,47 +54,29 @@ void Boule::changerVitesse(double x, double y)
     vitesse.modifier(x, y);
 }
 
-//fait avancer la bille et effectue les contacts si il y en a.
-void Boule::collision(Boule &cible)
+void Boule::deplacemelent(double f)
 {
-    m_t = vitesse.x()/acceleration.x();
-
-    double f = 0; //frequence de rafraichissement
-
-    double u = 0; //temps au debut de la boucle
-
-    while(m_t > u)
+    if(vitesse.x()>0)
     {
-        vitesse.modifierX(vitesse.x() - acceleration.x()*f/1000);
         m_d = vitesse.x()*f/1000 - acceleration.x()*0.5*f*f/1000000;
+        vitesse.modifierX(vitesse.x() - acceleration.x()*f/1000);
 
         m_x = m_x + sin(vitesse.y()*PI/180) * m_d;
         m_y = m_y + cos(vitesse.y()*PI/180) * m_d;
+    }
 
-        f = clock(); //peut-etre pas necessaire
+    else
+    {
+        vitesse.modifierX(0);
+    }
+}
 
-        if(sqrt((m_x-cible.m_x) * (m_x-cible.m_x) + (m_y-cible.m_y)*(m_y-cible.m_y))<= 2*m_r)
+void Boule::collBoule(Boule& cible)
+{
+    if(sqrt((m_x-cible.m_x) * (m_x-cible.m_x) + (m_y-cible.m_y)*(m_y-cible.m_y))<= 2*m_r and vitesse.x() > 0)
         {
+            cout << "collision " << cible.m_nom << cible.m_x << " ; " << cible.m_y << endl;
             //ces if ne sont pas correctes
-            if(cible.m_x-m_x < 2*m_r and cible.m_x-m_x > 0)
-            {
-                m_x = cible.m_x - 2*m_r - 0.00001;
-            }
-
-            else if(m_x-cible.m_x < 2*m_r and m_x-cible.m_x>0)
-            {
-                m_x = cible.m_x + 2*m_r + 0.00001;
-            }
-
-            if(cible.m_y-m_y < 2*m_r and cible.m_y-m_y>0)
-            {
-                m_y = cible.m_y - 2*m_r - 0.00001;
-            }
-
-            else if(m_y -cible.m_y< 2*m_r and m_y -cible.m_y>0)
-            {
-                m_y = cible.m_y + 2*m_r + 0.00001;
-            }
 
 
 /*            if(cible.positionX()-m_x < 0 and cible.positionY()-m_y < 0)
@@ -159,6 +152,11 @@ void Boule::collision(Boule &cible)
             double v2 = sin(theta1*PI/180) * vitesse.x(); //détermine la vitesse finale de la boule 2
             vitesse.modifierX(cos(theta1*PI/180) * vitesse.x()); //détermine la vitesse finale de la boule 1
 
+            if(gamma2 = vitesse.y())
+            {
+                vitesse.modifierX(0);
+            }
+
             if(gamma2 > vitesse.y())
             {
                 if(deltaX > 0 and deltaY > 0)
@@ -188,54 +186,55 @@ void Boule::collision(Boule &cible)
                 vitesse.modifierY(0);
             }
 
+            if(cible.m_x-m_x < 2*m_r and cible.m_x-m_x > 0)
+            {
+                m_x = cible.m_x - 2*m_r - 0.00001;
+            }
+
+            else if(m_x-cible.m_x < 2*m_r and m_x-cible.m_x>0)
+            {
+                m_x = cible.m_x + 2*m_r + 0.00001;
+            }
+
+            if(cible.m_y-m_y < 2*m_r and cible.m_y-m_y>0)
+            {
+                m_y = cible.m_y - 2*m_r - 0.00001;
+            }
+
+            else if(m_y -cible.m_y< 2*m_r and m_y -cible.m_y>0)
+            {
+                m_y = cible.m_y + 2*m_r + 0.00001;
+            }
+
             cible.changerVitesse(v2, gamma2);
-            u = m_t;
-
-/*            cible.changerVitesse(m_v, m_alpha);
-            m_v = 0;
-            m_alpha = 0;
-            u = m_t;
-            cible.afficher();
-*/
         }
+}
 
-        //calcule de la vitesse et acceleration si la bille touche la bande droit ou gauche
-        if(m_x+m_r >= 11 or m_x-m_r <= 0)
-        {
-            vitesse.modifierY(360 - vitesse.y());
-        }
+void Boule::collTable()
+{
+    if(m_x+m_r >= 11 or m_x-m_r <= 0)
+    {
+        vitesse.modifierY(360 - vitesse.y());
+    }
 
 
         //calcule de la vitesse et acceleration si la bille touche la bande haute ou basse
-        if(m_y+m_r >= 6 or m_y-m_r <= 0)
+    if(m_y+m_r >= 6 or m_y-m_r <= 0)
+    {
+        if(0 <= vitesse.y() <= 180)
         {
-            if(0 <= vitesse.y() <= 180)
-            {
-                vitesse.modifierY(180 - vitesse.y());
-            }
-
-            else if(180 < vitesse.y() <= 360)
-            {
-                vitesse.modifierY(540 - vitesse.y());
-            }
-
+            vitesse.modifierY(180 - vitesse.y());
         }
 
-        f = clock() - f;
+        else if(180 < vitesse.y() <= 360)
+        {
+            vitesse.modifierY(540 - vitesse.y());
+        }
 
-        u = u + f/1000;
     }
+}
 
-    cout << "fini collisions" << endl;
-}
-double Boule::vitesseX()
-{
-    return vitesse.x();
-}
-double Boule::vitesseY()
-{
-    return vitesse.y();
-}
+
 
 //permet de shooter la première bille
 void Boule::shoot()
@@ -247,22 +246,23 @@ void Boule::shoot()
     cin >> alpha;
 
     vitesse.modifier(v, alpha);
-    cout<<vitesseX()<<endl;
-    cout<<vitesseY()<<endl;
-
-
 }
-bool Boule::deplacement()
+bool Boule::deplacementss(Boule& boule)
 {
 
-    if(vitesseX()>0 || vitesseY()>0)
+
+    if(intensiteeV() )
     {
+        cout<<"okkkkk"<<endl;
         return true;
+
     }
     else
     {
+        cout<<"noooot okkkkk"<<endl;
         return false;
     }
+
 
 
 }
