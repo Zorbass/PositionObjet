@@ -57,7 +57,11 @@ void Table::innitialisation()
 //    C'est plus long a faire et n'offre pas vraiment d'avantages
 
     //nombre de la boule
-    boules[0] = Boule("1 pleine",2,3);
+
+    boules[0] = Boule("blanche",1,3);
+    boules[1] = Boule("noire",1.5,3);
+
+    /*boules[0] = Boule("1 pleine",2,3);
     boules[1] = Boule("A", 1, 1);//"2 pleine",1.96670431,0.6065);
     boules[2] = Boule("A", 1, 3);//"3 pleine",1.96670431,0.6635);
     boules[3] = Boule("A", 1, 4);//"4 pleine",2.02840862,0.692);
@@ -72,7 +76,7 @@ void Table::innitialisation()
     boules[12] = Boule("A", 8, 1);//"13 rayee",2.15181724,0.635);
     boules[13] = Boule("A", 9, 1);//"14 rayee",2.15181724,0.692);
     boules[14] = Boule("A", 10, 1);//"15 rayee",2.15181724,0.7775);
-    boules[15] = Boule("blanche",1,3);
+    boules[15] = Boule("blanche",1,3);*/
 
 /*    vector<string> nomBoule(nombreDeBoules);
 
@@ -116,11 +120,11 @@ void Table::mecanique()
 
     int z = 0;
 
-    while(boules[0].intensiteeV() > 0 or boules[1].intensiteeV() > 0 or boules[2].intensiteeV() > 0 or boules[3].intensiteeV() > 0 or boules[4].intensiteeV() > 0 or boules[5].intensiteeV() > 0 or boules[6].intensiteeV() > 0 or boules[7].intensiteeV() > 0 or boules[8].intensiteeV() > 0 or boules[9].intensiteeV() > 0 or boules[10].intensiteeV() > 0 or boules[11].intensiteeV() > 0 or boules[12].intensiteeV() > 0 or boules[13].intensiteeV() > 0 or boules[14].intensiteeV() > 0 or boules[15].intensiteeV() > 0)
+    while(boules[0].intensiteeV() > 0 or boules[1].intensiteeV() > 0 /*or boules[2].intensiteeV() > 0 or boules[3].intensiteeV() > 0 or boules[4].intensiteeV() > 0 or boules[5].intensiteeV() > 0 or boules[6].intensiteeV() > 0 or boules[7].intensiteeV() > 0 or boules[8].intensiteeV() > 0 or boules[9].intensiteeV() > 0 or boules[10].intensiteeV() > 0 or boules[11].intensiteeV() > 0 or boules[12].intensiteeV() > 0 or boules[13].intensiteeV() > 0 or boules[14].intensiteeV() > 0 or boules[15].intensiteeV() > 0*/)
     {
         u = clock();
 
-        /*int i = 0;
+
 
         while(i < nombreDeBoules)
         {
@@ -150,9 +154,9 @@ void Table::mecanique()
         {
             boules[i].collTable();
             i++;
-        }*/
+        }
 
-        boules[15].deplacemelent(f);
+       /* boules[15].deplacemelent(f);
         boules[7].deplacemelent(f);
 
         boules[15].collBoule(boules[7]);
@@ -161,7 +165,7 @@ void Table::mecanique()
         boules[15].collTable();
         boules[7].collTable();
 
-
+*/
 
         /*m_b1->deplacemelent(f);
         m_b2->deplacemelent(f);
@@ -236,7 +240,7 @@ void Table::jouer()
         i++;
     }
 
-    boules[15].shoot();
+    boules[0].shoot();
 
     this->mecanique();
 //    m_b16->collision(*m_b8);
