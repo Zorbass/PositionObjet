@@ -23,6 +23,7 @@ public:
     void mecanique();
     void test();
     void jouer();
+    void afficher();
 
 
 private:

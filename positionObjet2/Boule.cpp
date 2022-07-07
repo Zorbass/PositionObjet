@@ -7,6 +7,8 @@
 
 using namespace std;
 
+#define LARGEUR 6//0.935
+#define LONGUEUR 11//1.87
 #define PI 3.141592653589793238462643383279
 
 //constructeur basique
@@ -55,6 +57,11 @@ void Boule::changerVitesse(double x, double y)
 
 void Boule::deplacemelent(double f)
 {
+    if(vitesse.y()<0)
+    {
+        vitesse.modifierY(vitesse.y() + 360);
+    }
+
     if(vitesse.x()>0)
     {
         vitesse.modifierX(vitesse.x() - acceleration.x()*f/1000);
@@ -62,6 +69,14 @@ void Boule::deplacemelent(double f)
 
         m_x = m_x + sin(vitesse.y()*PI/180) * m_d;
         m_y = m_y + cos(vitesse.y()*PI/180) * m_d;
+        if(vitesse.x()<0)
+        {
+            vitesse.modifierX(0);
+        }
+        if(vitesse.y()<0)
+        {
+            vitesse.modifierY(vitesse.y() + 360);
+        }
     }
 
     else
@@ -75,6 +90,7 @@ void Boule::collBoule(Boule& cible)
     if(sqrt((m_x-cible.m_x) * (m_x-cible.m_x) + (m_y-cible.m_y)*(m_y-cible.m_y))<= 2*m_r and vitesse.x() != 0)
         {
             cout << "collision" << endl;
+            cout << m_x << " ; " << m_y << endl;
             //ces if ne sont pas correctes
 
 
@@ -185,6 +201,7 @@ void Boule::collBoule(Boule& cible)
                 vitesse.modifierY(0);
             }
 
+
             if(cible.m_x-m_x < 2*m_r and cible.m_x-m_x > 0)
             {
                 m_x = cible.m_x - 2*m_r - 0.00001;
@@ -213,13 +230,26 @@ void Boule::collTable()
 {
     if(m_x+m_r >= 11 or m_x-m_r <= 0)
     {
+        cout << m_x << " ; " << m_y << endl;
         vitesse.modifierY(360 - vitesse.y());
+
+        if(m_x-m_r < 0)
+        {
+            m_x = -m_x + 2*m_r;
+        }
+
+        else if(m_x+m_r > LONGUEUR)
+        {
+            m_x = 22 - m_x - 2*m_r;
+        }
+
     }
 
 
         //calcule de la vitesse et acceleration si la bille touche la bande haute ou basse
     if(m_y+m_r >= 6 or m_y-m_r <= 0)
     {
+        cout << m_x << " ; " << m_y << endl;
         if(0 <= vitesse.y() <= 180)
         {
             vitesse.modifierY(180 - vitesse.y());
@@ -230,6 +260,15 @@ void Boule::collTable()
             vitesse.modifierY(540 - vitesse.y());
         }
 
+        if(m_y-m_r < 0)
+        {
+            m_y = -m_y + 2*m_r;
+        }
+
+        else if(m_y+m_r > LARGEUR)
+        {
+            m_y = 12 - m_y - 2*m_r;
+        }
     }
 }
 

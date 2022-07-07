@@ -89,7 +89,7 @@ void Table::innitialisation()
     boules[12] = Boule("13 rayee",1,3);
     boules[13] = Boule("14 rayee",1,4);
     boules[14] = Boule("15 rayee",1,5);
-    boules[15] = Boule("blanche",8,5);
+    boules[15] = Boule("blanche",10,5);
 
 /*    vector<string> nomBoule(nombreDeBoules);
 
@@ -231,7 +231,7 @@ void Table::test()
 {
 }
 
-void Table::jouer()
+void Table::afficher()
 {
     int i = 0;
 
@@ -240,6 +240,11 @@ void Table::jouer()
         boules[i].afficher();
         i++;
     }
+}
+
+void Table::jouer()
+{
+    this->afficher();
 
     boules[15].shoot();
 
@@ -247,12 +252,5 @@ void Table::jouer()
 //    m_b16->collision(*m_b8);
 //    m_b8->collision(*m_b16);
 
-    i = 0;
-
-    while(i < nombreDeBoules)
-    {
-        boules[i].afficher();
-        i++;
-    }
-
+    this->afficher();
 }
