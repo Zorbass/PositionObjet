@@ -147,6 +147,7 @@ void Table::mecanique()
 
         while(i < nombreDeBoules)
         {
+            z = 0;
             while(z < nombreDeBoules)
             {
                 if(z != i)
