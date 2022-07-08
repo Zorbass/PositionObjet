@@ -57,24 +57,27 @@ void Table::innitialisation()
 //    C'est plus long a faire et n'offre pas vraiment d'avantages
 
     //nombre de la boule
-   /* boules[0] = Boule("1 pleine",1.905,0.635);
-    boules[1] = Boule("2 pleine",1.96670431,0.6065);
-    boules[2] = Boule("3 pleine",1.96670431,0.6635);
-    boules[3] = Boule("4 pleine",2.02840862,0.692);
-    boules[4] = Boule("5 pleine",2.02840862,0.578);
-    boules[5] = Boule("6 pleine",2.09011293,0.5495);
-    boules[6] = Boule("7 pleine",2.15181724,0.4925);
-    boules[7] = Boule("noire",2.02840862,0.635);
-    boules[8] = Boule("9 rayee",2.09011293,0.6065);
-    boules[9] = Boule("10 rayee",2.09011293,0.6635);
-    boules[10] = Boule("11 rayee",2.09011293,0.7205);
-    boules[11] = Boule("12 rayee",2.15181724,0.578);
-    boules[12] = Boule("13 rayee",2.15181724,0.635);
-    boules[13] = Boule("14 rayee",2.15181724,0.692);
-    boules[14] = Boule("15 rayee",2.15181724,0.7775);
-    boules[15] = Boule("blanche",0.635,0.635);*/
+    boules[0] = Boule("1 pleine",1.905,0.5778);
+    boules[1] = Boule("2 pleine",2.004073306,0.6922);
+    boules[2] = Boule("3 pleine",1.954536653,0.6064);
+    boules[3] = Boule("4 pleine",2.004073306,0.5778);
+    boules[4] = Boule("5 pleine",2.004073306,0.5206);
+    boules[5] = Boule("6 pleine",1.954536653,0.7208);
+    boules[6] = Boule("7 pleine",2.15181724,0.6636);
 
-    boules[0] = Boule("1 pleine",4,3);
+    boules[7] = Boule("noire",1.905,0.635);
+
+    boules[8] = Boule("9 rayee",2.09011293,0.635);
+    boules[9] = Boule("10 rayee",1.954536653,0.6636);
+    boules[10] = Boule("11 rayee",2.004073306,0.7494);
+    boules[11] = Boule("12 rayee",2.15181724,0.6064);
+    boules[12] = Boule("13 rayee",2.004073306,0.635);
+    boules[13] = Boule("14 rayee",1.954536653,0.5492);
+    boules[14] = Boule("15 rayee",1.905,0.6922);
+
+    boules[15] = Boule("blanche",0.635,0.635);
+
+   /* boules[0] = Boule("1 pleine",4,3);
     boules[1] = Boule("2 pleine",2,1);
     boules[2] = Boule("3 pleine",3,1);
     boules[3] = Boule("4 pleine",4,1);
@@ -90,7 +93,7 @@ void Table::innitialisation()
     boules[13] = Boule("14 rayee",1,4);
     boules[14] = Boule("15 rayee",1,5);
     boules[15] = Boule("blanche",10,5);
-
+*/
 /*    vector<string> nomBoule(nombreDeBoules);
 
     //nom de la boule (oui je sais que ils sont tous appele "1")
