@@ -7,8 +7,8 @@
 
 using namespace std;
 
-#define LARGEUR 6//0.935
-#define LONGUEUR 11//1.87
+#define LARGEUR 6//1.27
+#define LONGUEUR 11//2.54
 #define PI 3.141592653589793238462643383279
 
 //constructeur basique
@@ -89,8 +89,11 @@ void Boule::collBoule(Boule& cible)
 {
     if(sqrt((m_x-cible.m_x) * (m_x-cible.m_x) + (m_y-cible.m_y)*(m_y-cible.m_y))<= 2*m_r and vitesse.x() != 0)
         {
+
+            cout << m_nom << " : " << m_x << " ; " << m_y << endl;
             cout << "collision" << endl;
-            cout << m_x << " ; " << m_y << endl;
+            cout << cible.m_nom << endl;
+
             //ces if ne sont pas correctes
 
 
@@ -228,7 +231,7 @@ void Boule::collBoule(Boule& cible)
 
 void Boule::collTable()
 {
-    if(m_x+m_r >= 11 or m_x-m_r <= 0)
+    if(m_x+m_r >= LONGUEUR or m_x-m_r <= 0)
     {
         cout << m_x << " ; " << m_y << endl;
         vitesse.modifierY(360 - vitesse.y());
@@ -240,14 +243,14 @@ void Boule::collTable()
 
         else if(m_x+m_r > LONGUEUR)
         {
-            m_x = 22 - m_x - 2*m_r;
+            m_x = LONGUEUR*2 - m_x - 2*m_r;
         }
 
     }
 
 
         //calcule de la vitesse et acceleration si la bille touche la bande haute ou basse
-    if(m_y+m_r >= 6 or m_y-m_r <= 0)
+    if(m_y+m_r >= LARGEUR or m_y-m_r <= 0)
     {
         cout << m_x << " ; " << m_y << endl;
         if(0 <= vitesse.y() <= 180)
@@ -267,7 +270,7 @@ void Boule::collTable()
 
         else if(m_y+m_r > LARGEUR)
         {
-            m_y = 12 - m_y - 2*m_r;
+            m_y = LARGEUR*2 - m_y - 2*m_r;
         }
     }
 }
