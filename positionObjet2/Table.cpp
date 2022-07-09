@@ -57,23 +57,23 @@ void Table::innitialisation()
 //    C'est plus long a faire et n'offre pas vraiment d'avantages
 
     //nombre de la boule
-    boules[0] = Boule("1 pleine",1.905,0.5778);
-    boules[1] = Boule("2 pleine",2.004073306,0.6922);
-    boules[2] = Boule("3 pleine",1.954536653,0.6064);
-    boules[3] = Boule("4 pleine",2.004073306,0.5778);
-    boules[4] = Boule("5 pleine",2.004073306,0.5206);
-    boules[5] = Boule("6 pleine",1.954536653,0.7208);
-    boules[6] = Boule("7 pleine",1.85546337,0.6636);
+    boules[0] = Boule("1 pleine",1.905,0.5778-0.0001);
+    boules[1] = Boule("2 pleine",2.004073306+0.0002,0.6922+0.0001);
+    boules[2] = Boule("3 pleine",1.954536653+0.0001,0.6064-0.0001);
+    boules[3] = Boule("4 pleine",2.004073306+0.0002,0.5778-0.0001);
+    boules[4] = Boule("5 pleine",2.004073306+0.0002,0.5206-0.0002);
+    boules[5] = Boule("6 pleine",1.954536653+0.0001,0.7208+0.0002);
+    boules[6] = Boule("7 pleine",1.85546337-0.0001,0.6636+0.0001);
 
     boules[7] = Boule("noire",1.905,0.635);
 
-    boules[8] = Boule("9 rayee",1.805926694,0.635);
-    boules[9] = Boule("10 rayee",1.954536653,0.6636);
-    boules[10] = Boule("11 rayee",2.004073306,0.7494);
-    boules[11] = Boule("12 rayee",1.85546337,0.6064);
-    boules[12] = Boule("13 rayee",2.004073306,0.635);
-    boules[13] = Boule("14 rayee",1.954536653,0.5492);
-    boules[14] = Boule("15 rayee",1.905,0.6922);
+    boules[8] = Boule("9 rayee",1.805926694-0.0002,0.635);
+    boules[9] = Boule("10 rayee",1.954536653+0.0001,0.6636+0.0001);
+    boules[10] = Boule("11 rayee",2.004073306+0.0002,0.7494+0.0002);
+    boules[11] = Boule("12 rayee",1.85546337-0.0001,0.6064-0.0001);
+    boules[12] = Boule("13 rayee",2.004073306+0.0002,0.635);
+    boules[13] = Boule("14 rayee",1.954536653+0.0001,0.5492-0.0002);
+    boules[14] = Boule("15 rayee",1.905,0.6922+0.0001);
 
     boules[15] = Boule("blanche",0.635,0.635);
 
