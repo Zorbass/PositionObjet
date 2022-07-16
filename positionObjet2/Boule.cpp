@@ -87,9 +87,10 @@ void Boule::deplacemelent(double f)
 
 void Boule::collBoule(Boule& cible)
 {
+    //si la distance entre les 2 boules est <= à 2 * le rayon d'une boule et que la vitesse de la boule != 0 il y a collision
     if(sqrt((m_x-cible.m_x) * (m_x-cible.m_x) + (m_y-cible.m_y)*(m_y-cible.m_y))<= 2*m_r and vitesse.x() != 0)
         {
-
+            //informations tests
             cout << m_nom << " : " << m_x << " ; " << m_y << endl;
             cout << "collision" << endl;
             cout << cible.m_nom << endl;
@@ -106,10 +107,13 @@ void Boule::collBoule(Boule& cible)
                 m_gamma2 = m_gamma2 + 180;
             }
 */
-            double deltaX = cible.m_x-m_x;
-            double deltaY = cible.m_y-m_y;
+            double deltaX = cible.m_x-m_x;  //distance sur l'axe x entre le centre des 2 boules
+            double deltaY = cible.m_y-m_y;  //distance sur l'axe y entre le centre des 2 boules
 
             double gamma2; //angle entre la verticale et la vitesse finale de la deuxième boule
+
+
+            //on calcule gamma2 (angle de la vitesse de la boule choquée) en fonction de la position d'une boule relativement à l'autre
 
             //if(deltaX * deltaY < 0)
             //{
@@ -170,11 +174,14 @@ void Boule::collBoule(Boule& cible)
             double v2 = sin(theta1*PI/180) * vitesse.x(); //détermine la vitesse finale de la boule 2
             vitesse.modifierX(cos(theta1*PI/180) * vitesse.x()); //détermine la vitesse finale de la boule 1
 
+            //si la collision est "parfaite", on met la vitesse de la boule choquante à 0
+
             if(gamma2 = vitesse.y())
             {
                 vitesse.modifierX(0);
             }
 
+            //calcule de l'angle final de la vitesse de la boule choquante en fonction de l'angle de la vitesse de l'autre boule
             if(gamma2 > vitesse.y())
             {
                 if(deltaX > 0 and deltaY > 0)
@@ -205,6 +212,8 @@ void Boule::collBoule(Boule& cible)
             }
 
 
+            //replacement de la boule choquante (à revoir)
+
             if(cible.m_x-m_x < 2*m_r and cible.m_x-m_x > 0)
             {
                 m_x = cible.m_x - 2*m_r - 0.00001;
@@ -231,11 +240,16 @@ void Boule::collBoule(Boule& cible)
 
 void Boule::collTable()
 {
+    //si la boule touche la bande on poursuie
     if(m_x+m_r >= LONGUEUR or m_x-m_r <= 0)
     {
+        //info test
         cout << m_x << " ; " << m_y << endl;
+
+        //on modifie l'angle de la vitess de la boule
         vitesse.modifierY(360 - vitesse.y());
 
+        //on replace la boule en fonction de la bande qu'elle choque
         if(m_x-m_r < 0)
         {
             m_x = -m_x + 2*m_r;
@@ -252,7 +266,10 @@ void Boule::collTable()
         //calcule de la vitesse et acceleration si la bille touche la bande haute ou basse
     if(m_y+m_r >= LARGEUR or m_y-m_r <= 0)
     {
+        //info test
         cout << m_x << " ; " << m_y << endl;
+
+        //on modifie l'angle de la vitess de la boule en fonction de son angle
         if(0 <= vitesse.y() <= 180)
         {
             vitesse.modifierY(180 - vitesse.y());
@@ -263,6 +280,7 @@ void Boule::collTable()
             vitesse.modifierY(540 - vitesse.y());
         }
 
+        //on replace la boule en fonction de la bande qu'elle choque
         if(m_y-m_r < 0)
         {
             m_y = -m_y + 2*m_r;
@@ -275,6 +293,8 @@ void Boule::collTable()
     }
 }
 
+
+/*
 //fait avancer la bille et effectue les contacts si il y en a.
 void Boule::collision(Boule &cible)
 {
@@ -317,7 +337,7 @@ void Boule::collision(Boule &cible)
                 m_y = cible.m_y + 2*m_r + 0.00001;
             }
 
-
+*/
 /*            if(cible.positionX()-m_x < 0 and cible.positionY()-m_y < 0)
             {
                 m_gamma2 = m_gamma2 + 180;
@@ -327,7 +347,7 @@ void Boule::collision(Boule &cible)
                 m_gamma2 = m_gamma2 + 180;
             }
 */
-            double deltaX = cible.m_x-m_x;
+/*            double deltaX = cible.m_x-m_x;
             double deltaY = cible.m_y-m_y;
 
             double gamma2; //angle entre la verticale et la vitesse finale de la deuxième boule
@@ -422,14 +442,14 @@ void Boule::collision(Boule &cible)
 
             cible.changerVitesse(v2, gamma2);
             u = m_t;
-
+*/
 /*            cible.changerVitesse(m_v, m_alpha);
             m_v = 0;
             m_alpha = 0;
             u = m_t;
             cible.afficher();
 */
-        }
+/*        }
 
         //calcule de la vitesse et acceleration si la bille touche la bande droit ou gauche
         if(m_x+m_r >= 11 or m_x-m_r <= 0)
@@ -460,6 +480,7 @@ void Boule::collision(Boule &cible)
 
     cout << "fini collisions" << endl;
 }
+*/
 
 //permet de shooter la première bille
 void Boule::shoot()
