@@ -15,28 +15,30 @@ Table::Table()
 }
 
 
-Table::Table(string nom, double x, double y): m_nom("1"), m_x(x), m_y(y)
+Table::Table(string nom, double x, double y): m_nom(nom), m_x(x), m_y(y)
 {
 
 }
 
+//destructeur
 Table::~Table()
 {
     delete boules;
 }
 
-
+/*
 void Table::regle()
 {
 }
-
+*/
 
 
 //j'ai trouve que une boule de billard a 57mm de diametre et pas ce que tu as trouve. Quand je reviens je vais continuer mes calculs pour positionner toutes les boules (j'ai deja commence mais pas mis sur le programme)
+
+//placement des boules
 void Table::innitialisation()
 {
 
-    //nombre de la boule
     boules[0] = Boule("1 pleine",1.905,0.5778-0.0001);
     boules[1] = Boule("2 pleine",2.004073306+0.0002,0.6922+0.0001);
     boules[2] = Boule("3 pleine",1.954536653+0.0001,0.6064-0.0001);
@@ -76,19 +78,22 @@ void Table::innitialisation()
 */
 }
 
+//execute les formules de cinétique et collision pour toutes les boules à chaque rafraîchissement
 void Table::mecanique()
 {
-    double f = 0;
+    double f = 0; //f retient le temps passé depuis le dernier rafraîchissment
 
-    int i = 0;
-    int z = 0;
+    int i = 0; //itération pour les boucles
+    int z = 0; //itération pour les boucles
 
+    //le code ci-dessous s'exécute tant que une boules est en mouvement
     while(boules[0].intensiteeV() > 0 or boules[1].intensiteeV() > 0 or boules[2].intensiteeV() > 0 or boules[3].intensiteeV() > 0 or boules[4].intensiteeV() > 0 or boules[5].intensiteeV() > 0 or boules[6].intensiteeV() > 0 or boules[7].intensiteeV() > 0 or boules[8].intensiteeV() > 0 or boules[9].intensiteeV() > 0 or boules[10].intensiteeV() > 0 or boules[11].intensiteeV() > 0 or boules[12].intensiteeV() > 0 or boules[13].intensiteeV() > 0 or boules[14].intensiteeV() > 0 or boules[15].intensiteeV() > 0)
     {
         f = clock();
 
         i = 0;
 
+        //on vérifie la collision avec la table pour chaque boule
         while(i < nombreDeBoules)
         {
             boules[i].collTable();
@@ -98,6 +103,7 @@ void Table::mecanique()
         i = 0;
         z = 0;
 
+        //on vérifie la collision entre boule pour chaque boule
         while(i < nombreDeBoules)
         {
             z = 0;
@@ -116,6 +122,7 @@ void Table::mecanique()
 
         f = clock() - f;
 
+        //on déplace chaque boule si elle a de la vitesse
         while(i < nombreDeBoules)
         {
             boules[i].deplacemelent(f);
@@ -126,11 +133,7 @@ void Table::mecanique()
     cout << "fini collisions" << endl;
 }
 
-//pour tester
-void Table::test()
-{
-}
-
+//affiche l'empplacement, le nom et la vitesse de chaque boule
 void Table::afficher()
 {
     int i = 0;
@@ -142,6 +145,7 @@ void Table::afficher()
     }
 }
 
+//permet de jouer en y incluant plusieur méthodes
 void Table::jouer()
 {
     this->afficher();
