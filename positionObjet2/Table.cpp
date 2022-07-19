@@ -134,7 +134,7 @@ void Table::jouer()
 
         double tt=0;//temps qu'il faut pour la prochaine collision avec la bande d'une boule
 
-        string action;//a redefinir (pour savoir quel evenement apartient a quel boule)
+
         string evenement;//a redefinir
 
         double deltax=0; //distance separant bord de table droite ou gauche de la boule
@@ -196,17 +196,19 @@ void Table::jouer()
            //definition du temps qu'il faut pour toucher la bande droite et gauche
            double ttx= (-boules[i].intensiteeVx() + sqrt(boules[i].intensiteeVx()*boules[i].intensiteeVx() - (2*boules[i].intensiteeAx()*deltax)))/-boules[i].intensiteeAx();
            double tty= (-boules[i].intensiteeVy() + sqrt(boules[i].intensiteeVy()*boules[i].intensiteeVy() - (2*boules[i].intensiteeAy()*deltay)))/-boules[i].intensiteeAy();
-           //si le temps pour que la boule touche la bande droite est plus petite que le temps qu'il faut pour toucher la bande haute alors "tt" = temps de la bande droite
+           //on touche la bande droite ou gauche
            if(ttx<tty)
            {
                tt=ttx;
-               action="bande droite ou gauche";
+               boules[i].action(t,2,boules[i],boules[i]);
+
            }
-           //"tt" est la bande haute
+           //"tt" est la bande haute ou basse
            else if(tty<ttx)
            {
                tt=tty;
-               action = "bande haute ou basse";
+               boules[i].action(t,2,boules[i],boules[i]);
+
            }
            //cas tres special ou elle touche les deux bandes en meme temps
            else if(tty==ttx)
@@ -216,13 +218,18 @@ void Table::jouer()
            // dans le cas ou la boule ne touche aucune bande
            else
            {
+               boules[i].action(t,1,boules[i],boules[i]);
                tt=100;
            }
            //definir ensuite les evenements pour des collisions entre boules
+           //verifier lequel des temps est le plus petit
+
+
            if(tt<t)
            {
                t=tt;
-               evenement=action;
+               //evenement
+
            }
         }
         i++;

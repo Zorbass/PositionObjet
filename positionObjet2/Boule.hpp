@@ -36,6 +36,8 @@ class Boule
 
     void changerVitesse(double x, double y); //ok
 
+    void action(int f,int valeur, Boule &boule, Boule &cible);
+
     void deplacemelent(double f);
 
     void collBoule(Boule &cible);

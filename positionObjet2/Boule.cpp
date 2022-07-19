@@ -81,6 +81,26 @@ void Boule::changerVitesse(double x, double y)
     vitesse.modifier(x, y);
 }
 
+void Boule::action(int f,int valeur, Boule &boule, Boule &cible)
+{
+    if(valeur ==1)
+    {
+        boule.deplacemelent(f);
+    }
+    else if(valeur ==2)
+    {
+        boule.collTable();
+    }
+    else if(valeur ==3)
+    {
+        boule.collBoule(cible);
+    }
+    else
+    {
+
+    }
+}
+
 void Boule::deplacemelent(double f)
 {
     if(vitesse.y()<0)
