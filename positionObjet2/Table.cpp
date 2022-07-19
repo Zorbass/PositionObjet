@@ -130,34 +130,99 @@ void Table::jouer()
     int i = 0;
     while (i<nombreDeBoules)
     {
-        double t =0;// temps qu'il faut pour le prochain evenement de la boule
+        double t =100;// temps qu'il faut pour le prochain evenement de la boule
+
+        double tt=0;//temps qu'il faut pour la prochaine collision avec la bande d'une boule
+
+        string action;//a redefinir (pour savoir quel evenement apartient a quel boule)
+        string evenement;//a redefinir
+
         double deltax=0; //distance separant bord de table droite ou gauche de la boule
         double deltay =0;//distance separant bord de table haute ou basse de la boule
         if(boules[i].intensiteeV()!=0)
         {
+            //si c;est le cas on peut que toucher la bande haute ou droite
            if(boules[i].angle()>0 and boules[i].angle()<90)
            {
                deltax = 2,54 - boules[i].positionX();
-               cout<<"plus petit qu 90"<<endl;
-               t= (-boules[i].intensiteeVx() + sqrt(boules[i].intensiteeVx()*boules[i].intensiteeVx() - (2*boules[i].intensiteeAx()*deltax)))/-boules[i].intensiteeAx();
-
-               cout<<t<<endl;
+               deltay = 1,27 - boules[i].positionY();
            }
+           //on peut que toucher la bande droite ou basse
            else if(boules[i].angle()>90 and boules[i].angle()<180)
            {
+               deltax = 2,54 - boules[i].positionX();
+               deltay = boules[i].positionY();
                cout<<"plus petit qu 180"<<endl;
            }
+           //que la bande basse ou gauche
            else if(boules[i].angle()>180 and boules[i].angle()<270)
            {
+               deltax = boules[i].positionX();
+               deltay = boules[i].positionY();
                cout<<"plus petit qu 270"<<endl;
            }
+           //que la bande gauche ou haute
            else if(boules[i].angle()>270 and boules[i].angle()<360)
            {
+               deltax = boules[i].positionX();
+               deltay = 1,27 - boules[i].positionY();
                cout<<"plus petit qu 360"<<endl;
            }
+           //que une des quatre bandes
            else
            {
                cout<<"cas special"<<endl;
+               if(boules[i].angle()==90)
+               {
+                    deltax = 2,54 - boules[i].positionX();
+                    deltay = 0;
+               }
+               else if(boules[i].angle()==180)
+               {
+                    deltax = 0;
+                    deltay = boules[i].positionY();
+               }
+               else if(boules[i].angle()==270)
+               {
+                    deltax = boules[i].positionX();
+                    deltay = 0;
+               }
+               else if(boules[i].angle()==360)
+               {
+                    deltax = 0;
+                    deltay = 1,27 - boules[i].positionY();
+               }
+           }
+           //definition du temps qu'il faut pour toucher la bande droite et gauche
+           double ttx= (-boules[i].intensiteeVx() + sqrt(boules[i].intensiteeVx()*boules[i].intensiteeVx() - (2*boules[i].intensiteeAx()*deltax)))/-boules[i].intensiteeAx();
+           double tty= (-boules[i].intensiteeVy() + sqrt(boules[i].intensiteeVy()*boules[i].intensiteeVy() - (2*boules[i].intensiteeAy()*deltay)))/-boules[i].intensiteeAy();
+           //si le temps pour que la boule touche la bande droite est plus petite que le temps qu'il faut pour toucher la bande haute alors "tt" = temps de la bande droite
+           if(ttx<tty)
+           {
+               tt=ttx;
+               action="bande droite ou gauche";
+           }
+           //"tt" est la bande haute
+           else if(tty<ttx)
+           {
+               tt=tty;
+               action = "bande haute ou basse";
+           }
+           //cas tres special ou elle touche les deux bandes en meme temps
+           else if(tty==ttx)
+           {
+               tt=tty;//atttttttttttttttention pas oublier de attribuer action au deux bandes
+           }
+           // dans le cas ou la boule ne touche aucune bande
+           else
+           {
+               tt=100;
+           }
+           //definir ensuite les evenements pour des collisions entre boules
+           if(tt<t)
+           {
+               t=tt;
+               evenement=action;
            }
         }
         i++;
