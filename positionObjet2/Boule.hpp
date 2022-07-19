@@ -3,51 +3,60 @@
 
 #include <iostream>
 #include <string>
+#include "Vecteur.hpp"
 
+using namespace std;
 
 class Boule
 {
     public:
 
-    Boule();
-    Boule(std::string nom, int x, int y);
-    Boule(Boule const&Boulecopier);
+    Boule();  //ok
+    Boule(std::string nom, double x, double y);  //ok
 
-    void afficher();
+    void afficher();  //ok
 
-    double positionX();
+    double positionX(); //ok
 
-    double positionY();
+    double positionY(); //ok
 
-    std::string nom();
+    double intensiteeV();
 
-    void changerVitesse(int x, int y);
+    double intensiteeA();
+
+    double intensiteeVx();
+
+    double intensiteeVy();
+
+    double intensiteeAx();
+
+    double intensiteeAy();
+
+    double angle();
+
+    void changerVitesse(double x, double y); //ok
+
+    void deplacemelent(double f);
+
+    void collBoule(Boule &cible);
+
+    void collTable();
 
     void collision(Boule &cible);
 
-    void detruire(Boule &boule);
-
-
-
-    void shoot();
-
-    void regle();
+    void shoot(); //ok
 
     private:
 
     std::string m_nom;
     double m_x; //Position de la bille sur l'axe x
     double m_y; //Position de la bille sur l'axe y
-    double m_vx; //vitesse de la bille sur l'axe x
-    double m_vy; //vitesse de la bille sur l'axe y
     double m_t; //temps de déplacement de la bille
-    double m_v; //vitesse de la bille
-    double m_a = 2.943; //acceleration generee par le frottement
-    double m_ax; //acceleration generee par le frottement sur l'axe x
-    double m_ay; //acceleration generee par le frottement sur l'axe y
-    double m_r = 0.0254; //rayon de la bille
-    double m_alpha; //angle entre l'axe verticale et la vitesse
+    Vecteur acceleration;
+    double m_r = 0.0286; //rayon de la bille
     double m_d; //deplacement de la resultante
+    Vecteur vitesse;
+
 };
 
 #endif

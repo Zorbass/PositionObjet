@@ -1,23 +1,20 @@
 #include <iostream>
 #include <cmath>
 #include "Boule.hpp"
+#include "Vecteur.hpp"
 #include "Table.hpp"
 #include <vector>
-
-
 
 using namespace std;
 
 int main()
 {
-
-    Table table("m_b1",3,4);
+    Table table("m_b1",11,6);
 
     table.innitialisation();
-    table.regle();
 
-    table.test();
+    table.jouer();
 
-
+    table.~Table();
 
 }
