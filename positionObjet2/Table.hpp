@@ -23,6 +23,7 @@ public:
     void mecanique();
     void test();
     void jouer();
+    double temps();
     void afficher();
 
 
@@ -35,6 +36,8 @@ private:
     double m_t;
 
     int nombreDeBoules=16;
+
+    double t=0;
 
     Boule *boules = new Boule[16];
 

@@ -69,6 +69,7 @@ double Boule::angle()
     return vitesse.y();
 }
 
+
 //retourne la position de la bille en y
 double Boule::positionY()
 {

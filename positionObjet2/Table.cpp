@@ -130,7 +130,6 @@ void Table::jouer()
     int i = 0;
     while (i<nombreDeBoules)
     {
-        double t =100;// temps qu'il faut pour le prochain evenement de la boule
 
         double tt=0;//temps qu'il faut pour la prochaine collision avec la bande d'une boule
 
@@ -211,31 +210,62 @@ void Table::jouer()
 
            }
            //cas tres special ou elle touche les deux bandes en meme temps
-           else if(tty==ttx)
+           else if(tty==ttx and tty!=0)
            {
-               tt=tty;//atttttttttttttttention pas oublier de attribuer action au deux bandes
+               //a modifier
+               tt=tty;
+               //la boule est forcement empochee
            }
            // dans le cas ou la boule ne touche aucune bande
            else
            {
-               boules[i].action(t,1,boules[i],boules[i]);
                tt=100;
            }
            //definir ensuite les evenements pour des collisions entre boules
            //verifier lequel des temps est le plus petit
+            t=tt;
 
-
-           if(tt<t)
-           {
-               t=tt;
-               //evenement
-
-           }
         }
         i++;
+
+
+
     }
+    //declaration d'un tableau dynamique pour les boules qui bougent
+    vector <int> boulesbougent;
+    i=0;
+    while(i<nombreDeBoules)
+    {
+        if(boules[i].intensiteeV()>0)
+        {
+            cout<<"ok"<<endl;
+            boulesbougent.push_back(i);
+        }
+        i++;
+
+    }
+    cout<<"lo"<<endl;
+    cout<<boulesbougent[0]<<endl;
+    cout<<boulesbougent.size()<<endl;
+
+    while(boulesbougent.size()>0)
+    {
+        //this.mecanique();
+        boulesbougent.pop_back();
+    }
+
+    //mettre dans l'ordre dans tableau quels actions en premier
+    //while tableau de boules deplacement
+
+    //allez jusqua l'evemenet
+
+    //faire evenement
+
+    //revnir au debut de la boucle while
+
 
     this->mecanique();
 
     this->afficher();
 }
+
