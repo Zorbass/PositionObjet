@@ -101,6 +101,10 @@ void Boule::action(int f,int valeur, Boule &boule, Boule &cible)
 
     }
 }
+double Boule::temps(double temps)
+{
+    return temps;
+}
 
 void Boule::deplacemelent(double f)
 {

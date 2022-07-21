@@ -36,6 +36,8 @@ private:
     double m_t;
 
     int nombreDeBoules=16;
+     vector <double> tempsboule;
+     vector <int> boulesbougent;
 
     double t=0;
 

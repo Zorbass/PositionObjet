@@ -34,6 +34,8 @@ class Boule
 
     double angle();
 
+    double temps(double temps);
+
     void changerVitesse(double x, double y); //ok
 
     void action(int f,int valeur, Boule &boule, Boule &cible);

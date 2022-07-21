@@ -57,6 +57,7 @@ void Table::innitialisation()
 //execute les formules de cinétique et collision pour toutes les boules à chaque rafraîchissement
 void Table::mecanique()
 {
+    /*
     double f = 0; //f retient le temps passé depuis le dernier rafraîchissment
 
     int i = 0; //itération pour les boucles
@@ -107,6 +108,23 @@ void Table::mecanique()
 
     }
     cout << "fini collisions" << endl;
+    */
+    int j=0;
+    int tf=1000;
+    //on regarde quel est le plus petit temps pour le porchian evenement
+    for(int i=0; i<tempsboule.size(); i++)
+    {
+        if (tempsboule[i]<tf)
+        {
+            tf=tempsboule[i];
+            j=i;
+        }
+
+    }
+    int z=0;
+    z=boulesbougent[j];
+    boules[z].action();
+
 }
 
 //affiche l'empplacement, le nom et la vitesse de chaque boule
@@ -128,6 +146,7 @@ void Table::jouer()
 
     boules[15].shoot();
     int i = 0;
+
     while (i<nombreDeBoules)
     {
 
@@ -224,6 +243,10 @@ void Table::jouer()
            //definir ensuite les evenements pour des collisions entre boules
            //verifier lequel des temps est le plus petit
             t=tt;
+            tempsboule.push_back(t);
+
+
+
 
         }
         i++;
@@ -231,8 +254,9 @@ void Table::jouer()
 
 
     }
+
     //declaration d'un tableau dynamique pour les boules qui bougent
-    vector <int> boulesbougent;
+
     i=0;
     while(i<nombreDeBoules)
     {
@@ -244,9 +268,6 @@ void Table::jouer()
         i++;
 
     }
-    cout<<"lo"<<endl;
-    cout<<boulesbougent[0]<<endl;
-    cout<<boulesbougent.size()<<endl;
 
     while(boulesbougent.size()>0)
     {
