@@ -127,13 +127,13 @@ void Table::mecanique()
     {
         z=boulesbougent[i];
         boules[z].deplacemelent(tf);
+
     }
 
 
 
 
     //on fait "l'evenement"
-    int z=0;
     z=boulesbougent[j]; // affecter a z le numero de boule
     if(action[j]==1)
     {
@@ -175,8 +175,6 @@ void Table::jouer()
         double tt=0;//temps qu'il faut pour la prochaine collision avec la bande d'une boule
 
 
-        string evenement;//a redefinir
-
         double deltax=0; //distance separant bord de table droite ou gauche de la boule
         double deltay =0;//distance separant bord de table haute ou basse de la boule
         if(boules[i].intensiteeV()!=0)
@@ -192,26 +190,22 @@ void Table::jouer()
            {
                deltax = 2,54 - boules[i].positionX();
                deltay = boules[i].positionY();
-               cout<<"plus petit qu 180"<<endl;
            }
            //que la bande basse ou gauche
            else if(boules[i].angle()>180 and boules[i].angle()<270)
            {
                deltax = boules[i].positionX();
                deltay = boules[i].positionY();
-               cout<<"plus petit qu 270"<<endl;
            }
            //que la bande gauche ou haute
            else if(boules[i].angle()>270 and boules[i].angle()<360)
            {
                deltax = boules[i].positionX();
                deltay = 1,27 - boules[i].positionY();
-               cout<<"plus petit qu 360"<<endl;
            }
            //que une des quatre bandes
            else
            {
-               cout<<"cas special"<<endl;
                if(boules[i].angle()==90)
                {
                     deltax = 2,54 - boules[i].positionX();
@@ -264,9 +258,11 @@ void Table::jouer()
                //juste un deplacement
            }
            //definir ensuite les evenements pour des collisions entre boules
-           //verifier lequel des temps est le plus petit
+
             t=tt;
             tempsboule.push_back(t);
+
+
 
 
 
@@ -278,14 +274,11 @@ void Table::jouer()
 
     }
 
-    //declaration d'un tableau dynamique pour les boules qui bougent
-
     i=0;
     while(i<nombreDeBoules)
     {
         if(boules[i].intensiteeV()>0)
         {
-            cout<<"ok"<<endl;
             boulesbougent.push_back(i);
         }
         i++;
@@ -294,19 +287,13 @@ void Table::jouer()
 
     while(boulesbougent.size()>0)
     {
-        //this.mecanique();
+        this->mecanique();
+        //mettre dans l'ordre dans tableau quels actions en premier
+        //allez jusqua l'evemenet
+        //faire evenement
+        //revnir au debut de la boucle while
         boulesbougent.pop_back();
     }
-
-    //mettre dans l'ordre dans tableau quels actions en premier
-    //while tableau de boules deplacement
-
-    //allez jusqua l'evemenet
-
-    //faire evenement
-
-    //revnir au debut de la boucle while
-
 
     this->mecanique();
 
