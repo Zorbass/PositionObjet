@@ -36,8 +36,9 @@ private:
     double m_t;
 
     int nombreDeBoules=16;
-     vector <double> tempsboule;
-     vector <int> boulesbougent;
+     vector <double> tempsboule; //stock le temps minimale d'une boule
+     vector <int> boulesbougent; // stock quels boules sont en mouvement
+     vector <int> action;//stock quel est la prochaine action de la boule
 
     double t=0;
 

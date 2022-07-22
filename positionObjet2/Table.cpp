@@ -121,9 +121,31 @@ void Table::mecanique()
         }
 
     }
+    //on deplace toutes les boules en mouvement par le plus petit temps trouver
     int z=0;
-    z=boulesbougent[j];
-    boules[z].action();
+    for(int i=0; i<boulesbougent.size(); i++)
+    {
+        z=boulesbougent[i];
+        boules[z].deplacemelent(tf);
+    }
+
+
+
+
+    //on fait "l'evenement"
+    int z=0;
+    z=boulesbougent[j]; // affecter a z le numero de boule
+    if(action[j]==1)
+    {
+        //collision table
+        boules[z].collTable();
+
+    }
+    else if(action[j]==2)
+    {
+        //collision boule
+    }
+
 
 }
 
@@ -218,14 +240,14 @@ void Table::jouer()
            if(ttx<tty)
            {
                tt=ttx;
-               boules[i].action(t,2,boules[i],boules[i]);
+               action.push_back(1);
 
            }
            //"tt" est la bande haute ou basse
            else if(tty<ttx)
            {
                tt=tty;
-               boules[i].action(t,2,boules[i],boules[i]);
+               action.push_back(1);
 
            }
            //cas tres special ou elle touche les deux bandes en meme temps
@@ -239,6 +261,7 @@ void Table::jouer()
            else
            {
                tt=100;
+               //juste un deplacement
            }
            //definir ensuite les evenements pour des collisions entre boules
            //verifier lequel des temps est le plus petit
