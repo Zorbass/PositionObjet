@@ -110,7 +110,8 @@ void Table::mecanique()
     cout << "fini collisions" << endl;
     */
     int j=0;
-    int tf=1000;
+    double tf=1000;
+
     //on regarde quel est le plus petit temps pour le porchian evenement
     for(int i=0; i<tempsboule.size(); i++)
     {
@@ -139,6 +140,7 @@ void Table::mecanique()
     {
         //collision table
         boules[z].collTable();
+        cout<<"colltable"<<endl;
 
     }
     else if(action[j]==2)
@@ -146,6 +148,13 @@ void Table::mecanique()
         //collision boule
     }
 
+    //on enleve le temps
+    for(int i=0; i<tempsboule.size(); i++)
+    {
+        tempsboule[i]-=tf;
+
+
+    }
 
 }
 
@@ -260,7 +269,9 @@ void Table::jouer()
            //definir ensuite les evenements pour des collisions entre boules
 
             t=tt;
+
             tempsboule.push_back(t);
+
 
 
 
@@ -291,6 +302,7 @@ void Table::jouer()
         //mettre dans l'ordre dans tableau quels actions en premier
         //allez jusqua l'evemenet
         //faire evenement
+        //enlever le temps
         //revnir au debut de la boucle while
         boulesbougent.pop_back();
     }
