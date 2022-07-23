@@ -14,7 +14,6 @@ Table::Table()
 
 }
 
-
 Table::Table(string nom, double x, double y): m_nom(nom), m_x(x), m_y(y)
 {
 
@@ -265,8 +264,48 @@ void Table::jouer()
            {
                tt=100;
                //juste un deplacement
-           }
-           //definir ensuite les evenements pour des collisions entre boules
+           }//definir ensuite les evenements pour des collisions entre boules
+
+
+
+            //collision boules
+            double m_r=0.0286;
+            double tb=100;
+            for(int j=0;j<nombreDeBoules;j++)
+            {
+                if(j==i)return;
+
+                else
+                {
+                    deltax=boules[i].positionX()-boules[j].positionX();
+                    deltay=boules[i].positionY()-boules[j].positionY();
+                    double deltavx=boules[i].intensiteeVx()-boules[j].intensiteeVx();
+                    double deltavy=boules[i].intensiteeVy()-boules[j].intensiteeVy();
+                    double tb1=100;
+                    double tb2=100;
+                    double discriminant=pow(2*deltax*deltavx+2*deltay*deltavy,2)-4*(pow(deltavx,2)+pow(deltavy,2)*(pow(deltax,2)+pow(deltay,2)-4*m_r*m_r));
+                    if(discriminant<0)
+                    {
+
+                    }
+                    else
+                    {
+                        tb1=(-(2*deltax*deltavx+2*deltay*deltavy)+ sqrt(discriminant))/2*(pow(deltavx,2)+pow(deltavy,2));
+                        tb2=(-(2*deltax*deltavx+2*deltay*deltavy)- sqrt(discriminant))/2*(pow(deltavx,2)+pow(deltavy,2));
+                    }
+
+
+                    cout<<tb1<<endl;
+                    cout<<tb2<<endl;
+                }
+
+            }
+
+
+
+
+
+
 
             t=tt;
 
