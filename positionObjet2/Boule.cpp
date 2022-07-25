@@ -95,6 +95,199 @@ void Boule::collBoule(Boule& cible)
             cout << "collision" << endl;
             cout << cible.m_nom << endl;
 
+            //on calcule phi, l'angle entre le centre des 2 boules lors de la collision
+
+            double deltaX = cible.m_x-m_x;  //distance sur l'axe x entre le centre des 2 boules
+            double deltaY = cible.m_y-m_y;  //distance sur l'axe y entre le centre des 2 boules
+
+            double phi;
+
+            //if(deltaX * deltaY < 0)
+            //{
+            if(deltaX > 0 and deltaY < 0)
+            {
+                phi = 90 + abs(atan(deltaY / deltaX)) * 180 / PI; //en degres
+            }
+
+            else if(deltaX < 0 and deltaY > 0)
+            {
+                phi = 270 + abs(atan(deltaY / deltaX)) * 180 / PI; //en degres
+            }
+            //}
+
+            //else if(deltaX * deltaY > 0)
+            //{
+            else if(deltaX > 0 and deltaY > 0)
+            {
+                phi = abs(atan(deltaX / deltaY)) * 180 / PI; //en degres
+            }
+
+            else if(deltaX < 0 and deltaY < 0)
+            {
+                phi = 180 + abs(atan(deltaX / deltaY)) * 180 / PI; //en degres
+            }
+            //}
+
+            //else// if(deltaY * deltaX = 0)
+            //{
+
+            //est-ce que les else if qui suivent sont nécessaires??
+
+            else if(deltaY < 0)
+            {
+                phi = 180;
+            }
+
+            else if(deltaY > 0)
+            {
+                phi = 0;
+            }
+
+            else if(deltaX < 0)
+            {
+                phi = 270;
+            }
+
+            else if(deltaX > 0)
+            {
+                phi = 90;
+            }
+            //}
+
+            double v1x = cible.vitesse.x() * sin(cible.vitesse.y()*PI/180 - phi*PI/180) * sin(phi*PI/180) + vitesse.x() * cos(vitesse.y()*PI/180 - phi*PI/180) * sin(phi*PI/180 + PI/2);
+
+            double v1y = cible.vitesse.x() * sin(cible.vitesse.y()*PI/180 - phi*PI/180) * cos(phi*PI/180) + vitesse.x() * cos(vitesse.y()*PI/180 - phi*PI/180) * cos(phi*PI/180 + PI/2);
+
+            double v2x = vitesse.x() * sin(vitesse.y()*PI/180 - phi*PI/180) * sin(phi*PI/180) + cible.vitesse.x() * cos(cible.vitesse.y()*PI/180 - phi*PI/180) * sin(phi*PI/180 + PI/2);
+
+            double v2y = vitesse.x() * sin(vitesse.y()*PI/180 - phi*PI/180) * cos(phi*PI/180) + cible.vitesse.x() * cos(cible.vitesse.y()*PI/180 - phi*PI/180) * cos(phi*PI/180 + PI/2);
+
+            vitesse.modifierX(sqrt(v1x*v1x + v1y*v1y));
+            cible.vitesse.modifierX(sqrt(v2x*v2x + v2y*v2y));
+
+
+
+            if(v1x > 0 and v1y < 0)
+            {
+                vitesse.modifierY(90 + abs(atan(v1y / v1x)) * 180 / PI); //en degres
+            }
+
+            else if(v1x < 0 and v1y > 0)
+            {
+                vitesse.modifierY(270 + abs(atan(v1y / v1x)) * 180 / PI); //en degres
+            }
+            //}
+
+            //else if(deltaX * deltaY > 0)
+            //{
+            else if(v1x > 0 and v1y > 0)
+            {
+                vitesse.modifierY(abs(atan(v1x / v1y)) * 180 / PI); //en degres
+            }
+
+            else if(v1x < 0 and v1y < 0)
+            {
+                vitesse.modifierY(180 + abs(atan(v1x / v1y)) * 180 / PI); //en degres
+            }
+            //}
+
+            //else// if(deltaY * deltaX = 0)
+            //{
+
+            //est-ce que les else if qui suivent sont nécessaires??
+
+            else if(v1y < 0)
+            {
+                vitesse.modifierY(180);
+            }
+
+            else if(v1y > 0)
+            {
+                vitesse.modifierY(0);
+            }
+
+            else if(v1x < 0)
+            {
+                vitesse.modifierY(270);
+            }
+
+            else if(v1x > 0)
+            {
+                vitesse.modifierY(90);
+            }
+
+
+
+
+            if(v2x > 0 and v2y < 0)
+            {
+                cible.vitesse.modifierY(90 + abs(atan(v2y / v2x)) * 180 / PI); //en degres
+            }
+
+            else if(v2x < 0 and v2y > 0)
+            {
+                cible.vitesse.modifierY(270 + abs(atan(v2y / v2x)) * 180 / PI); //en degres
+            }
+            //}
+
+            //else if(deltaX * deltaY > 0)
+            //{
+            else if(v2x > 0 and deltaY > 0)
+            {
+                cible.vitesse.modifierY(abs(atan(v2x / v2y)) * 180 / PI); //en degres
+            }
+
+            else if(v2x < 0 and v2y < 0)
+            {
+                cible.vitesse.modifierY(180 + abs(atan(v2x / v2y)) * 180 / PI); //en degres
+            }
+            //}
+
+            //else// if(deltaY * deltaX = 0)
+            //{
+
+            //est-ce que les else if qui suivent sont nécessaires??
+
+            else if(v2y < 0)
+            {
+                cible.vitesse.modifierY(180);
+            }
+
+            else if(v2y > 0)
+            {
+                cible.vitesse.modifierY(0);
+            }
+
+            else if(v2x < 0)
+            {
+                cible.vitesse.modifierY(270);
+            }
+
+            else if(v2x > 0)
+            {
+                cible.vitesse.modifierY(90);
+            }
+
+            if(cible.m_x-m_x < 2*m_r and cible.m_x-m_x > 0)
+            {
+                m_x = cible.m_x - 2*m_r - 0.00001;
+            }
+
+            else if(m_x-cible.m_x < 2*m_r and m_x-cible.m_x>0)
+            {
+                m_x = cible.m_x + 2*m_r + 0.00001;
+            }
+
+            if(cible.m_y-m_y < 2*m_r and cible.m_y-m_y>0)
+            {
+                m_y = cible.m_y - 2*m_r - 0.00001;
+            }
+
+            else if(m_y-cible.m_y< 2*m_r and m_y -cible.m_y>0)
+            {
+                m_y = cible.m_y + 2*m_r + 0.00001;
+            }
+
             //ces if ne sont pas correctes
 
 
@@ -107,7 +300,7 @@ void Boule::collBoule(Boule& cible)
                 m_gamma2 = m_gamma2 + 180;
             }
 */
-            double deltaX = cible.m_x-m_x;  //distance sur l'axe x entre le centre des 2 boules
+/*            double deltaX = cible.m_x-m_x;  //distance sur l'axe x entre le centre des 2 boules
             double deltaY = cible.m_y-m_y;  //distance sur l'axe y entre le centre des 2 boules
 
             double gamma2; //angle entre la verticale et la vitesse finale de la deuxième boule
@@ -229,12 +422,13 @@ void Boule::collBoule(Boule& cible)
                 m_y = cible.m_y - 2*m_r - 0.00001;
             }
 
-            else if(m_y -cible.m_y< 2*m_r and m_y -cible.m_y>0)
+            else if(m_y-cible.m_y< 2*m_r and m_y -cible.m_y>0)
             {
                 m_y = cible.m_y + 2*m_r + 0.00001;
             }
 
             cible.changerVitesse(v2, gamma2);
+*/
         }
 }
 
