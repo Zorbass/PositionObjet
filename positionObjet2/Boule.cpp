@@ -12,19 +12,19 @@ using namespace std;
 #define PI 3.141592653589793238462643383279
 
 //constructeur basique
-Boule::Boule() : m_nom("A"), m_x(0), m_y(0), vitesse(0, 0), acceleration(2.943, 0)
+Boule::Boule() : m_numero("0"), m_type("rayee"), m_x(0), m_y(0), vitesse(0, 0), acceleration(2.943, 0)
 {
 }
 
 //constructeur personalisable
-Boule::Boule(string nom, double x, double y) : m_nom(nom), m_x(x), m_y(y), vitesse(0, 0), acceleration(2.943, 0)
+Boule::Boule(string numero, string type, double x, double y) : m_numero(numero), m_type(type), m_x(x), m_y(y), vitesse(0, 0), acceleration(2.943, 0)
 {
 }
 
 //affiche le nom, la vitesse et la position de la bille.
 void Boule::afficher()
 {
-    cout << "Boule : " << m_nom << " (Position : " << m_x << ";" << m_y << ")" << endl << "vitesse : " << vitesse << endl;
+    cout << "Boule : " << m_numero << " " << m_type << " (Position : " << m_x << ";" << m_y << ")" << endl << "vitesse : " << vitesse << endl;
 }
 
 //retourne la position de la bille en x
@@ -91,9 +91,9 @@ void Boule::collBoule(Boule& cible)
     if(sqrt((m_x-cible.m_x) * (m_x-cible.m_x) + (m_y-cible.m_y)*(m_y-cible.m_y))<= 2*m_r and vitesse.x() != 0)
         {
             //informations tests
-            cout << m_nom << " : " << m_x << " ; " << m_y << endl;
+            cout << m_numero << " : " << m_x << " ; " << m_y << endl;
             cout << "collision" << endl;
-            cout << cible.m_nom << endl;
+            cout << cible.m_numero << endl;
 
             //on calcule phi, l'angle entre le centre des 2 boules lors de la collision
 

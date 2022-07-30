@@ -12,7 +12,7 @@ class Boule
     public:
 
     Boule();  //ok
-    Boule(std::string nom, double x, double y);  //ok
+    Boule(std::string numero, std::string type, double x, double y);  //ok
 
     void afficher();  //ok
 
@@ -38,7 +38,8 @@ class Boule
 
     private:
 
-    std::string m_nom;
+    std::string m_numero;
+    std::string m_type;
     double m_x; //Position de la bille sur l'axe x
     double m_y; //Position de la bille sur l'axe y
     double m_t; //temps de déplacement de la bille

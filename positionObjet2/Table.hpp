@@ -6,6 +6,8 @@
 #include "Boule.hpp"
 #include <vector>
 #include "Vecteur.hpp"
+#include "Player.hpp"
+
 
 using namespace std;
 
@@ -37,6 +39,8 @@ private:
     int nombreDeBoules=16;
 
     Boule *boules = new Boule[16];
+    Player player1;
+    Player player2;
 
 };
 

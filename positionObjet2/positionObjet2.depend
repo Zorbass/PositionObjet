@@ -105,23 +105,23 @@
 	"Vecteur.hpp"
 	<vector>
 
-1658747441 source:c:\users\blandine\desktop\emmard\tm\positionobjet\positionobjet2\boule.cpp
+1659192232 source:c:\users\blandine\desktop\emmard\tm\positionobjet\positionobjet2\boule.cpp
 	<iostream>
 	"Boule.hpp"
 	"Vecteur.hpp"
 	<ctime>
 	<cmath>
 
-1658598391 c:\users\blandine\desktop\emmard\tm\positionobjet\positionobjet2\boule.hpp
+1659191879 c:\users\blandine\desktop\emmard\tm\positionobjet\positionobjet2\boule.hpp
 	<iostream>
 	<string>
 	"Vecteur.hpp"
 
-1658598391 c:\users\blandine\desktop\emmard\tm\positionobjet\positionobjet2\vecteur.hpp
+1659167192 c:\users\blandine\desktop\emmard\tm\positionobjet\positionobjet2\vecteur.hpp
 	<iostream>
 	<string>
 
-1658598391 source:c:\users\blandine\desktop\emmard\tm\positionobjet\positionobjet2\main.cpp
+1659167192 source:c:\users\blandine\desktop\emmard\tm\positionobjet\positionobjet2\main.cpp
 	<iostream>
 	<cmath>
 	"Boule.hpp"
@@ -129,14 +129,15 @@
 	"Table.hpp"
 	<vector>
 
-1658598391 c:\users\blandine\desktop\emmard\tm\positionobjet\positionobjet2\table.hpp
+1659193061 c:\users\blandine\desktop\emmard\tm\positionobjet\positionobjet2\table.hpp
 	<iostream>
 	<string>
 	"Boule.hpp"
 	<vector>
 	"Vecteur.hpp"
+	"Player.hpp"
 
-1658752398 source:c:\users\blandine\desktop\emmard\tm\positionobjet\positionobjet2\table.cpp
+1659193031 source:c:\users\blandine\desktop\emmard\tm\positionobjet\positionobjet2\table.cpp
 	<iostream>
 	"Table.hpp"
 	<ctime>
@@ -144,8 +145,23 @@
 	"Boule.hpp"
 	"Vecteur.hpp"
 	<vector>
+	"Player.hpp"
 
-1658598391 source:c:\users\blandine\desktop\emmard\tm\positionobjet\positionobjet2\vecteur.cpp
+1659167192 source:c:\users\blandine\desktop\emmard\tm\positionobjet\positionobjet2\vecteur.cpp
 	<iostream>
+	"Vecteur.hpp"
+
+1659191725 source:c:\users\blandine\desktop\emmard\tm\positionobjet\positionobjet2\player.cpp
+	<iostream>
+	"Boule.hpp"
+	"Vecteur.hpp"
+	<vector>
+	"Player.hpp"
+
+1659191714 c:\users\blandine\desktop\emmard\tm\positionobjet\positionobjet2\player.hpp
+	<iostream>
+	<string>
+	"Boule.hpp"
+	<vector>
 	"Vecteur.hpp"
 
