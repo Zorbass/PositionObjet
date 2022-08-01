@@ -485,6 +485,11 @@ void Boule::collTable()
             m_y = LARGEUR*2 - m_y - 2*m_r;
         }
     }
+
+    if(vitesse.y() < 0)
+    {
+        vitesse.modifierY(vitesse.y()+360);
+    }
 }
 
 
