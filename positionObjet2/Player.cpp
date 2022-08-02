@@ -21,6 +21,7 @@ Player::Player(string nom, int points, string typeBoule): m_nom(nom), m_points(p
 void Player::shoot(Boule i)
 {
     i.shoot();
+    i.afficher();
 }
 
 void Player::gagnePoint()

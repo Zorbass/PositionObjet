@@ -148,13 +148,18 @@ void Table::jouer()
 {
     this->afficher();
 
-    player1.shoot(boules[15]);
+    boules[15].shoot();
 
+    /*player1.shoot(boules[15]);
+    boules[15].afficher();
+*/
     this->mecanique();
 
     this->afficher();
 
-    player1.shoot(boules[15]);
+    boules[15].shoot();
+
+   /* player2.shoot(boules[15]);*/
 
     this->mecanique();
 
