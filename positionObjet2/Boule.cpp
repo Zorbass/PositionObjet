@@ -88,11 +88,11 @@ void Boule::deplacemelent(double f)
 void Boule::collBoule(Boule& cible)
 {
     //si la distance entre les 2 boules est <= à 2 * le rayon d'une boule et que la vitesse de la boule != 0 il y a collision
-    if(sqrt((m_x-cible.m_x) * (m_x-cible.m_x) + (m_y-cible.m_y)*(m_y-cible.m_y))<= 2*m_r and vitesse.x() != 0)
+    if(sqrt((m_x-cible.m_x) * (m_x-cible.m_x) + (m_y-cible.m_y)*(m_y-cible.m_y))<= 2*m_r and vitesse.x() > 0)
         {
             //informations tests
             cout << "BOULES " << m_numero << " : " << m_x << " ; " << m_y << endl;
-            cout << "collision" << cible.m_numero << endl;
+            cout << "collision " << cible.m_numero << endl;
 
             //on calcule phi, l'angle entre le centre des 2 boules lors de la collision
 
@@ -151,15 +151,19 @@ void Boule::collBoule(Boule& cible)
             {
                 phi = 90;
             }
+
+            cout << phi << endl;
+
+
             //}
 
-            double v1x = cible.vitesse.x() * sin(cible.vitesse.y()*PI/180 - phi*PI/180) * sin(phi*PI/180) + vitesse.x() * cos(vitesse.y()*PI/180 - phi*PI/180) * sin(phi*PI/180 + PI/2);
+            double v1x = cible.vitesse.x() * cos(-(cible.vitesse.y()-90)*PI/180 + (phi-90)*PI/180) * cos(-(phi-90)*PI/180) + vitesse.x() * sin(-(vitesse.y()-90)*PI/180 + (phi-90)*PI/180) * cos(-(phi-90)*PI/180 + PI/2);
 
-            double v1y = cible.vitesse.x() * sin(cible.vitesse.y()*PI/180 - phi*PI/180) * cos(phi*PI/180) + vitesse.x() * cos(vitesse.y()*PI/180 - phi*PI/180) * cos(phi*PI/180 + PI/2);
+            double v1y = cible.vitesse.x() * cos(-(cible.vitesse.y()-90)*PI/180 + (phi-90)*PI/180) * sin(-(phi-90)*PI/180) + vitesse.x() * sin(-(vitesse.y()-90)*PI/180 + (phi-90)*PI/180) * sin(-(phi-90)*PI/180 + PI/2);
 
-            double v2x = vitesse.x() * sin(vitesse.y()*PI/180 - phi*PI/180) * sin(phi*PI/180) + cible.vitesse.x() * cos(cible.vitesse.y()*PI/180 - phi*PI/180) * sin(phi*PI/180 + PI/2);
+            double v2x = vitesse.x() * cos(-(vitesse.y()-90)*PI/180 + (phi-90)*PI/180) * cos(-(phi-90)*PI/180) + cible.vitesse.x() * sin(-(cible.vitesse.y()-90)*PI/180 + (phi-90)*PI/180) * cos(-(phi-90)*PI/180 + PI/2);
 
-            double v2y = vitesse.x() * sin(vitesse.y()*PI/180 - phi*PI/180) * cos(phi*PI/180) + cible.vitesse.x() * cos(cible.vitesse.y()*PI/180 - phi*PI/180) * cos(phi*PI/180 + PI/2);
+            double v2y = vitesse.x() * cos(-(vitesse.y()-90)*PI/180 + (phi-90)*PI/180) * sin(-(phi-90)*PI/180) + cible.vitesse.x() * sin(-(cible.vitesse.y()-90)*PI/180 + (phi-90)*PI/180) * sin(-(phi-90)*PI/180 + PI/2);
 
             vitesse.modifierX(sqrt(v1x*v1x + v1y*v1y));
             cible.vitesse.modifierX(sqrt(v2x*v2x + v2y*v2y));
@@ -286,6 +290,8 @@ void Boule::collBoule(Boule& cible)
             {
                 m_y = cible.m_y + 2*m_r + 0.00001;
             }
+
+            cout << cible.vitesse << " " << vitesse << endl;
 
             //ces if ne sont pas correctes
 
@@ -460,7 +466,8 @@ void Boule::collTable()
     if(m_y+m_r >= LARGEUR or m_y-m_r <= 0)
     {
         //info test
-        cout << m_x << " ; " << m_y << endl;
+
+        cout << "TABLE " << m_numero << " " << m_x << " ; " << m_y << endl;
 
         //on modifie l'angle de la vitess de la boule en fonction de son angle
         if(0 <= vitesse.y() <= 180)
