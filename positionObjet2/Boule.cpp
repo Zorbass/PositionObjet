@@ -7,12 +7,14 @@
 
 using namespace std;
 
-#define LARGEUR 6//1.27 - 0.08
-#define LONGUEUR 11//2.54 - 0.08
+#define LARGEUR 6//1.27
+#define LONGUEUR 11//2.54
+
 #define PI 3.141592653589793238462643383279
+
 #define TROU_1X 0
 #define TROU_1Y 0
-#define TROU_2X 5.5
+#define TROU_2X 5.5 //LONGUEUR/2
 #define TROU_2Y 0
 #define TROU_3X LONGUEUR
 #define TROU_3Y 0
@@ -22,6 +24,8 @@ using namespace std;
 #define TROU_5Y LARGEUR
 #define TROU_6X LONGUEUR
 #define TROU_6Y LARGEUR
+
+#define R_TROU 0.0435
 
 //constructeur basique
 Boule::Boule() : m_numero("0"), m_type("rayee"), m_x(0), m_y(0), vitesse(0, 0), acceleration(2.943, 0)
@@ -100,7 +104,7 @@ void Boule::deplacemelent(double f)
 void Boule::empochage()
 {
     //changer m_r par le rayon du trou.
-    if(sqrt((m_x-TROU_1X) * (m_x-TROU_1X) + (m_y-TROU_1Y)*(m_y-TROU_1Y))<= m_r or sqrt((m_x-TROU_2X) * (m_x-TROU_2X) + (m_y-TROU_2Y)*(m_y-TROU_2Y))<= m_r or sqrt((m_x-TROU_3X) * (m_x-TROU_3X) + (m_y-TROU_3Y)*(m_y-TROU_3Y))<= m_r or sqrt((m_x-TROU_4X) * (m_x-TROU_4X) + (m_y-TROU_4Y)*(m_y-TROU_4Y))<= m_r or sqrt((m_x-TROU_5X) * (m_x-TROU_5X) + (m_y-TROU_5Y)*(m_y-TROU_5Y))<= m_r or sqrt((m_x-TROU_6X) * (m_x-TROU_6X) + (m_y-TROU_6Y)*(m_y-TROU_6Y))<= m_r)
+    if(sqrt((m_x-TROU_1X) * (m_x-TROU_1X) + (m_y-TROU_1Y)*(m_y-TROU_1Y))<= R_TROU or sqrt((m_x-TROU_2X) * (m_x-TROU_2X) + (m_y-TROU_2Y)*(m_y-TROU_2Y))<= R_TROU or sqrt((m_x-TROU_3X) * (m_x-TROU_3X) + (m_y-TROU_3Y)*(m_y-TROU_3Y))<= R_TROU or sqrt((m_x-TROU_4X) * (m_x-TROU_4X) + (m_y-TROU_4Y)*(m_y-TROU_4Y))<= R_TROU or sqrt((m_x-TROU_5X) * (m_x-TROU_5X) + (m_y-TROU_5Y)*(m_y-TROU_5Y))<= R_TROU or sqrt((m_x-TROU_6X) * (m_x-TROU_6X) + (m_y-TROU_6Y)*(m_y-TROU_6Y))<= R_TROU)
     {
         m_x = 20;
         vitesse.modifierX(0);
@@ -465,7 +469,17 @@ void Boule::collTable()
 {
     if(m_empochee == false)
     {
+/*
         if()
+        {
+            vitesse.modifierY(270 - vitesse.y());
+        }
+
+        else if()
+        {
+            vitesse.modifierY(90 - vitesse.y());
+        }
+*/
         //si la boule touche la bande on poursuie
         if(m_x+m_r >= LONGUEUR or m_x-m_r <= 0)
         {
