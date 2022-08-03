@@ -28,11 +28,11 @@ class Boule
 
     void deplacemelent(double f);
 
+    void empochage();
+
     void collBoule(Boule &cible);
 
     void collTable();
-
-    void collision(Boule &cible);
 
     void shoot(); //ok
 
@@ -47,6 +47,7 @@ class Boule
     double m_r = 0.0286; //rayon de la bille
     double m_d; //deplacement de la resultante
     Vecteur vitesse;
+    bool m_empochee = false;
 
 };
 

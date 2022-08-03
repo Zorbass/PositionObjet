@@ -73,7 +73,7 @@ void Table::innitialisation()
     boules[12] = Boule("13", "rayee",1,3);
     boules[13] = Boule("14", "rayee",1,4);
     boules[14] = Boule("15", "rayee",1,5);
-    boules[15] = Boule("16", "blanche",5,2);
+    boules[15] = Boule("16", "blanche",5.5,2);
 }
 
 //execute les formules de cinétique et collision pour toutes les boules à chaque rafraîchissement
@@ -88,6 +88,14 @@ void Table::mecanique()
     while(boules[0].intensiteeV() > 0 or boules[1].intensiteeV() > 0 or boules[2].intensiteeV() > 0 or boules[3].intensiteeV() > 0 or boules[4].intensiteeV() > 0 or boules[5].intensiteeV() > 0 or boules[6].intensiteeV() > 0 or boules[7].intensiteeV() > 0 or boules[8].intensiteeV() > 0 or boules[9].intensiteeV() > 0 or boules[10].intensiteeV() > 0 or boules[11].intensiteeV() > 0 or boules[12].intensiteeV() > 0 or boules[13].intensiteeV() > 0 or boules[14].intensiteeV() > 0 or boules[15].intensiteeV() > 0)
     {
         f = clock();
+
+        i = 0;
+
+        while(i < nombreDeBoules)
+        {
+            boules[i].empochage();
+            i++;
+        }
 
         i = 0;
 

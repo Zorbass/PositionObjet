@@ -7,9 +7,21 @@
 
 using namespace std;
 
-#define LARGEUR 6//1.27
-#define LONGUEUR 11//2.54
+#define LARGEUR 6//1.27 - 0.08
+#define LONGUEUR 11//2.54 - 0.08
 #define PI 3.141592653589793238462643383279
+#define TROU_1X 0
+#define TROU_1Y 0
+#define TROU_2X 5.5
+#define TROU_2Y 0
+#define TROU_3X LONGUEUR
+#define TROU_3Y 0
+#define TROU_4X 0
+#define TROU_4Y LARGEUR
+#define TROU_5X LONGUEUR/2
+#define TROU_5Y LARGEUR
+#define TROU_6X LONGUEUR
+#define TROU_6Y LARGEUR
 
 //constructeur basique
 Boule::Boule() : m_numero("0"), m_type("rayee"), m_x(0), m_y(0), vitesse(0, 0), acceleration(2.943, 0)
@@ -82,6 +94,18 @@ void Boule::deplacemelent(double f)
     else
     {
         vitesse.modifierX(0);
+    }
+}
+
+void Boule::empochage()
+{
+    //changer m_r par le rayon du trou.
+    if(sqrt((m_x-TROU_1X) * (m_x-TROU_1X) + (m_y-TROU_1Y)*(m_y-TROU_1Y))<= m_r or sqrt((m_x-TROU_2X) * (m_x-TROU_2X) + (m_y-TROU_2Y)*(m_y-TROU_2Y))<= m_r or sqrt((m_x-TROU_3X) * (m_x-TROU_3X) + (m_y-TROU_3Y)*(m_y-TROU_3Y))<= m_r or sqrt((m_x-TROU_4X) * (m_x-TROU_4X) + (m_y-TROU_4Y)*(m_y-TROU_4Y))<= m_r or sqrt((m_x-TROU_5X) * (m_x-TROU_5X) + (m_y-TROU_5Y)*(m_y-TROU_5Y))<= m_r or sqrt((m_x-TROU_6X) * (m_x-TROU_6X) + (m_y-TROU_6Y)*(m_y-TROU_6Y))<= m_r)
+    {
+        m_x = 20;
+        vitesse.modifierX(0);
+        cout << "la boule " << m_numero << " est empochee." << endl;
+        m_empochee = true;
     }
 }
 
@@ -439,62 +463,66 @@ void Boule::collBoule(Boule& cible)
 
 void Boule::collTable()
 {
-    //si la boule touche la bande on poursuie
-    if(m_x+m_r >= LONGUEUR or m_x-m_r <= 0)
+    if(m_empochee == false)
     {
-        //info test
-        cout << "TABLE " << m_numero << " " << m_x << " ; " << m_y << endl;
-
-        //on modifie l'angle de la vitess de la boule
-        vitesse.modifierY(360 - vitesse.y());
-
-        //on replace la boule en fonction de la bande qu'elle choque
-        if(m_x-m_r < 0)
+        if()
+        //si la boule touche la bande on poursuie
+        if(m_x+m_r >= LONGUEUR or m_x-m_r <= 0)
         {
-            m_x = -m_x + 2*m_r;
-        }
+            //info test
+            cout << "TABLE " << m_numero << " " << m_x << " ; " << m_y << endl;
 
-        else if(m_x+m_r > LONGUEUR)
-        {
-            m_x = LONGUEUR*2 - m_x - 2*m_r;
-        }
+            //on modifie l'angle de la vitess de la boule
+            vitesse.modifierY(360 - vitesse.y());
 
-    }
+            //on replace la boule en fonction de la bande qu'elle choque
+            if(m_x-m_r < 0)
+            {
+                m_x = -m_x + 2*m_r;
+            }
+
+            else if(m_x+m_r > LONGUEUR)
+            {
+                m_x = LONGUEUR*2 - m_x - 2*m_r;
+            }
+
+        }
 
 
         //calcule de la vitesse et acceleration si la bille touche la bande haute ou basse
-    if(m_y+m_r >= LARGEUR or m_y-m_r <= 0)
-    {
-        //info test
-
-        cout << "TABLE " << m_numero << " " << m_x << " ; " << m_y << endl;
-
-        //on modifie l'angle de la vitess de la boule en fonction de son angle
-        if(0 <= vitesse.y() <= 180)
+        if(m_y+m_r >= LARGEUR or m_y-m_r <= 0)
         {
-            vitesse.modifierY(180 - vitesse.y());
+            //info test
+
+            cout << "TABLE " << m_numero << " " << m_x << " ; " << m_y << endl;
+
+            //on modifie l'angle de la vitess de la boule en fonction de son angle
+            if(0 <= vitesse.y() <= 180)
+            {
+                vitesse.modifierY(180 - vitesse.y());
+            }
+
+            else if(180 < vitesse.y() <= 360)
+            {
+                vitesse.modifierY(540 - vitesse.y());
+            }
+
+            //on replace la boule en fonction de la bande qu'elle choque
+            if(m_y-m_r < 0)
+            {
+                m_y = -m_y + 2*m_r;
+            }
+
+            else if(m_y+m_r > LARGEUR)
+            {
+                m_y = LARGEUR*2 - m_y - 2*m_r;
+            }
         }
 
-        else if(180 < vitesse.y() <= 360)
+        if(vitesse.y() < 0)
         {
-            vitesse.modifierY(540 - vitesse.y());
+            vitesse.modifierY(vitesse.y()+360);
         }
-
-        //on replace la boule en fonction de la bande qu'elle choque
-        if(m_y-m_r < 0)
-        {
-            m_y = -m_y + 2*m_r;
-        }
-
-        else if(m_y+m_r > LARGEUR)
-        {
-            m_y = LARGEUR*2 - m_y - 2*m_r;
-        }
-    }
-
-    if(vitesse.y() < 0)
-    {
-        vitesse.modifierY(vitesse.y()+360);
     }
 }
 
