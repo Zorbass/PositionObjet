@@ -470,12 +470,58 @@ void Boule::collTable()
     if(m_empochee == false)
     {
 /*
-        if()
+     1   if(m_y+m_r/sqrt(2)<0.0835 and m_y+m_r/sqrt(2) >= 0.0435 + (m_x-m_r/sqrt(2) - 0))
+        {
+            vitesse.modifierY(90 - vitesse.y());
+        }
+
+      2  else if(m_x+m_r/sqrt(2) < 0.0835 and m_y-m_r/sqrt(2) <= 0.04 - (0.0835 - m_x+m_r/sqrt(2)))
+        {
+            vitesse.modifierY(90 - vitesse.y());
+        }
+
+      3  else if(m_x+m_r/sqrt(2) < 1.2265 and m_x+m_r/sqrt(2) > 1.1865 and m_y-m_r/sqrt(2) <= 0.04 - (m_x-m_r/sqrt(2) - 1.1865))
         {
             vitesse.modifierY(270 - vitesse.y());
         }
 
-        else if()
+     4   else if(m_x+m_r/sqrt(2) > 1.3135 and m_x+m_r/sqrt(2) < 1.3535 and m_y-m_r/sqrt(2) <= 0.04 - (1.3535 - m_x+m_r/sqrt(2)))
+        {
+            vitesse.modifierY(90 - vitesse.y());
+        }
+
+      5  else if(m_x-m_r/sqrt(2)<2.4965 and m_x-m_r/sqrt(2)>2.4565 and m_y-m_r/sqrt(2) <= 0.04 - (m_x-m_r/sqrt(2) - 2.4565))
+        {
+            vitesse.modifierY(270 - vitesse.y());
+        }
+
+     6   else if(m_y+m_r/sqrt(2)<0.0835 and m_y+m_r/sqrt(2) >= 0.0435 + (2.54 - m_x+m_r/sqrt(2)))
+        {
+            vitesse.modifierY(270 - vitesse.y());
+        }
+
+     7   else if(m_y-m_r/sqrt(2)>1.27-0.0835 and m_y-m_r/sqrt(2) <= 1.27 - 0.0435 - (m_x-m_r/sqrt(2) - 0))
+        {
+            vitesse.modifierY(270 - vitesse.y());
+        }
+
+      8  else if(m_x+m_r/sqrt(2)<0.0835 and m_x+m_r/sqrt(2)>0.0435 and m_y+m_r/sqrt(2) >= 1.27 - 0.04 + (0.0835 - m_x+m_r/sqrt(2)))
+        {
+            vitesse.modifierY(270 - vitesse.y());
+        }
+      9  else if(m_x-m_r/sqrt(2)<1.2265 and m_x-m_r/sqrt(2)>1.1865 and m_y+m_r/sqrt(2) >= 1.27 - 0.04 + (m_x-m_r/sqrt(2) - 1.1865))
+        {
+            vitesse.modifierY(90 - vitesse.y());
+        }
+      10  else if(m_x+m_r/sqrt(2)<1.3535 and m_x+m_r/sqrt(2)>1.3135 and m_y+m_r/sqrt(2) >= 1.27 - 0.04 + (1.3535 - m_x+m_r/sqrt(2)))
+        {
+            vitesse.modifierY(270 - vitesse.y());
+        }
+       11 else if(m_x-m_r/sqrt(2)<2.4965 and m_x-m_r/sqrt(2)>2.4565 and m_y+m_r/sqrt(2) >= 1.27 - 0.04 + (m_x-m_r/sqrt(2) - 2.4565))
+        {
+            vitesse.modifierY(90 - vitesse.y());
+        }
+       12 else if(m_y-m_r/sqrt(2)>1.1865 and m_y-m_r/sqrt(2) <= 1.27 - 0.0435 - (2.54 - m_x+m_r/sqrt(2)))
         {
             vitesse.modifierY(90 - vitesse.y());
         }
