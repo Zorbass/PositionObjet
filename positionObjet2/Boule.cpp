@@ -7,23 +7,23 @@
 
 using namespace std;
 
-#define LARGEUR 6//1.27
-#define LONGUEUR 11//2.54
+#define LARGEUR 1.27
+#define LONGUEUR 2.54
 
 #define PI 3.141592653589793238462643383279
 
 #define TROU_1X 0
 #define TROU_1Y 0
-#define TROU_2X 5.5 //LONGUEUR/2
+#define TROU_2X 1.27 //LONGUEUR/2
 #define TROU_2Y 0
-#define TROU_3X LONGUEUR
+#define TROU_3X 2.54
 #define TROU_3Y 0
 #define TROU_4X 0
-#define TROU_4Y LARGEUR
-#define TROU_5X LONGUEUR/2
-#define TROU_5Y LARGEUR
-#define TROU_6X LONGUEUR
-#define TROU_6Y LARGEUR
+#define TROU_4Y 1.27
+#define TROU_5X 1.27 //LONGUEUR/2
+#define TROU_5Y 1.27
+#define TROU_6X 2.54
+#define TROU_6Y 1.27
 
 #define R_TROU 0.0435
 
@@ -469,106 +469,112 @@ void Boule::collTable()
 {
     if(m_empochee == false)
     {
-/*
-     1   if(m_y+m_r/sqrt(2)<0.0835 and m_y+m_r/sqrt(2) >= 0.0435 + (m_x-m_r/sqrt(2) - 0))
+
+        if(m_y+m_r/sqrt(2)<0.0835 and m_y+m_r/sqrt(2) >= 0.0435 + (m_x-m_r/sqrt(2) - 0))
         {
             vitesse.modifierY(90 - vitesse.y());
         }
 
-      2  else if(m_x+m_r/sqrt(2) < 0.0835 and m_y-m_r/sqrt(2) <= 0.04 - (0.0835 - m_x+m_r/sqrt(2)))
+        else if(m_x+m_r/sqrt(2) < 0.0835 and m_y-m_r/sqrt(2) <= 0.04 - (0.0835 - m_x+m_r/sqrt(2)))
         {
             vitesse.modifierY(90 - vitesse.y());
         }
 
-      3  else if(m_x+m_r/sqrt(2) < 1.2265 and m_x+m_r/sqrt(2) > 1.1865 and m_y-m_r/sqrt(2) <= 0.04 - (m_x-m_r/sqrt(2) - 1.1865))
+        else if(m_x+m_r/sqrt(2) < 1.2265 and m_x+m_r/sqrt(2) > 1.1865 and m_y-m_r/sqrt(2) <= 0.04 - (m_x-m_r/sqrt(2) - 1.1865))
         {
             vitesse.modifierY(270 - vitesse.y());
         }
 
-     4   else if(m_x+m_r/sqrt(2) > 1.3135 and m_x+m_r/sqrt(2) < 1.3535 and m_y-m_r/sqrt(2) <= 0.04 - (1.3535 - m_x+m_r/sqrt(2)))
+        else if(m_x+m_r/sqrt(2) > 1.3135 and m_x+m_r/sqrt(2) < 1.3535 and m_y-m_r/sqrt(2) <= 0.04 - (1.3535 - m_x+m_r/sqrt(2)))
         {
             vitesse.modifierY(90 - vitesse.y());
         }
 
-      5  else if(m_x-m_r/sqrt(2)<2.4965 and m_x-m_r/sqrt(2)>2.4565 and m_y-m_r/sqrt(2) <= 0.04 - (m_x-m_r/sqrt(2) - 2.4565))
+        else if(m_x-m_r/sqrt(2)<2.4965 and m_x-m_r/sqrt(2)>2.4565 and m_y-m_r/sqrt(2) <= 0.04 - (m_x-m_r/sqrt(2) - 2.4565))
         {
             vitesse.modifierY(270 - vitesse.y());
         }
 
-     6   else if(m_y+m_r/sqrt(2)<0.0835 and m_y+m_r/sqrt(2) >= 0.0435 + (2.54 - m_x+m_r/sqrt(2)))
+        else if(m_y+m_r/sqrt(2)<0.0835 and m_y+m_r/sqrt(2) >= 0.0435 + (2.54 - m_x+m_r/sqrt(2)))
         {
             vitesse.modifierY(270 - vitesse.y());
         }
 
-     7   else if(m_y-m_r/sqrt(2)>1.27-0.0835 and m_y-m_r/sqrt(2) <= 1.27 - 0.0435 - (m_x-m_r/sqrt(2) - 0))
+        else if(m_y-m_r/sqrt(2)>1.27-0.0835 and m_y-m_r/sqrt(2) <= 1.27 - 0.0435 - (m_x-m_r/sqrt(2) - 0))
         {
             vitesse.modifierY(270 - vitesse.y());
         }
 
-      8  else if(m_x+m_r/sqrt(2)<0.0835 and m_x+m_r/sqrt(2)>0.0435 and m_y+m_r/sqrt(2) >= 1.27 - 0.04 + (0.0835 - m_x+m_r/sqrt(2)))
+        else if(m_x+m_r/sqrt(2)<0.0835 and m_x+m_r/sqrt(2)>0.0435 and m_y+m_r/sqrt(2) >= 1.27 - 0.04 + (0.0835 - m_x+m_r/sqrt(2)))
         {
             vitesse.modifierY(270 - vitesse.y());
         }
-      9  else if(m_x-m_r/sqrt(2)<1.2265 and m_x-m_r/sqrt(2)>1.1865 and m_y+m_r/sqrt(2) >= 1.27 - 0.04 + (m_x-m_r/sqrt(2) - 1.1865))
+        else if(m_x-m_r/sqrt(2)<1.2265 and m_x-m_r/sqrt(2)>1.1865 and m_y+m_r/sqrt(2) >= 1.27 - 0.04 + (m_x-m_r/sqrt(2) - 1.1865))
         {
             vitesse.modifierY(90 - vitesse.y());
         }
-      10  else if(m_x+m_r/sqrt(2)<1.3535 and m_x+m_r/sqrt(2)>1.3135 and m_y+m_r/sqrt(2) >= 1.27 - 0.04 + (1.3535 - m_x+m_r/sqrt(2)))
+        else if(m_x+m_r/sqrt(2)<1.3535 and m_x+m_r/sqrt(2)>1.3135 and m_y+m_r/sqrt(2) >= 1.27 - 0.04 + (1.3535 - m_x+m_r/sqrt(2)))
         {
             vitesse.modifierY(270 - vitesse.y());
         }
-       11 else if(m_x-m_r/sqrt(2)<2.4965 and m_x-m_r/sqrt(2)>2.4565 and m_y+m_r/sqrt(2) >= 1.27 - 0.04 + (m_x-m_r/sqrt(2) - 2.4565))
+        else if(m_x-m_r/sqrt(2)<2.4965 and m_x-m_r/sqrt(2)>2.4565 and m_y+m_r/sqrt(2) >= 1.27 - 0.04 + (m_x-m_r/sqrt(2) - 2.4565))
         {
             vitesse.modifierY(90 - vitesse.y());
         }
-       12 else if(m_y-m_r/sqrt(2)>1.1865 and m_y-m_r/sqrt(2) <= 1.27 - 0.0435 - (2.54 - m_x+m_r/sqrt(2)))
+        else if(m_y-m_r/sqrt(2)>1.1865 and m_y-m_r/sqrt(2) <= 1.27 - 0.0435 - (2.54 - m_x+m_r/sqrt(2)))
         {
             vitesse.modifierY(90 - vitesse.y());
         }
-*/
-        //si la boule touche la bande on poursuie
-        if(m_x+m_r >= LONGUEUR or m_x-m_r <= 0)
-        {
-            //info test
-            cout << "TABLE " << m_numero << " " << m_x << " ; " << m_y << endl;
 
-            //on modifie l'angle de la vitess de la boule
+        //on modifie l'angle de la vitess de la boule
+        //on replace la boule en fonction de la bande qu'elle choque
+        else if(m_x-m_r <= 0.04 and m_y <= 1.1865 and m_y >= 0.0835)
+        {
+            // m_x = -m_x + 2*m_r; à revoir
             vitesse.modifierY(360 - vitesse.y());
+            cout << "TABLE " << m_numero << " " << m_x << " ; " << m_y << endl;
+        }
 
-            //on replace la boule en fonction de la bande qu'elle choque
-            if(m_x-m_r < 0)
-            {
-                m_x = -m_x + 2*m_r;
-            }
-
-            else if(m_x+m_r > LONGUEUR)
-            {
-                m_x = LONGUEUR*2 - m_x - 2*m_r;
-            }
-
+        else if(m_x+m_r >= LONGUEUR-0.04 and m_y <= 1.1865 and m_y >= 0.0835)
+        {
+            vitesse.modifierY(360 - vitesse.y());
+            //  m_x = LONGUEUR*2 - m_x - 2*m_r; à revoir
+            cout << "TABLE " << m_numero << " " << m_x << " ; " << m_y << endl;
         }
 
 
         //calcule de la vitesse et acceleration si la bille touche la bande haute ou basse
-        if(m_y+m_r >= LARGEUR or m_y-m_r <= 0)
+
+        else if(m_y+m_r >= LARGEUR-0.04 and m_x >= 0.0835 and m_x <= 1.1865)
         {
-            //info test
-
             cout << "TABLE " << m_numero << " " << m_x << " ; " << m_y << endl;
+            vitesse.modifierY(180 - vitesse.y());
 
-            //on modifie l'angle de la vitess de la boule en fonction de son angle
-            if(0 <= vitesse.y() <= 180)
-            {
-                vitesse.modifierY(180 - vitesse.y());
-            }
+        }
 
-            else if(180 < vitesse.y() <= 360)
-            {
-                vitesse.modifierY(540 - vitesse.y());
-            }
+        else if(m_y+m_r >= LARGEUR-0.04 and m_x >= 1.3535 and m_x <= 2.4565)
+        {
+            cout << "TABLE " << m_numero << " " << m_x << " ; " << m_y << endl;
+            vitesse.modifierY(180 - vitesse.y());
+
+        }
+
+        else if(m_y-m_r <= 0.04 and m_x >= 0.0835 and m_x <= 1.1865)
+        {
+            cout << "TABLE " << m_numero << " " << m_x << " ; " << m_y << endl;
+            vitesse.modifierY(180 - vitesse.y());
+
+        }
+
+        else if(m_y-m_r <= 0.04 and m_x >= 1.3535 and m_x <= 2.4565)
+        {
+            cout << "TABLE " << m_numero << " " << m_x << " ; " << m_y << endl;
+            vitesse.modifierY(180 - vitesse.y());
+
+        }
 
             //on replace la boule en fonction de la bande qu'elle choque
-            if(m_y-m_r < 0)
+     /*       if(m_y-m_r < 0)
             {
                 m_y = -m_y + 2*m_r;
             }
@@ -577,7 +583,7 @@ void Boule::collTable()
             {
                 m_y = LARGEUR*2 - m_y - 2*m_r;
             }
-        }
+*/
 
         if(vitesse.y() < 0)
         {
