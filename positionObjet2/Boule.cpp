@@ -299,6 +299,10 @@ void Boule::collBoule(Boule& cible)
                 cible.vitesse.modifierY(90);
             }
 
+
+
+
+
             if(cible.m_x-m_x < 2*m_r and cible.m_x-m_x > 0)
             {
                 m_x = cible.m_x - 2*m_r - 0.00001;
