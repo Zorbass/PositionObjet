@@ -39,24 +39,24 @@ void Table::regle()
 //placement des boules
 void Table::innitialisation()
 {
-/*    boules[0] = Boule("1", "pleine",,3.020223254);
-    boules[1] = Boule("2", "pleine",2,1);
-    boules[2] = Boule("3", "pleine",3,1);
-    boules[3] = Boule("4", "pleine",4,1);
-    boules[4] = Boule("5", "pleine",5,1);
-    boules[5] = Boule("6", "pleine",6,1);
-    boules[6] = Boule("7", "pleine",7,1);
-    boules[7] = Boule("8", "noire",1,1);
-    boules[8] = Boule("9", "rayee",8,1);
-    boules[9] = Boule("10", "rayee",9,1);
-    boules[10] = Boule("11", "rayee",10,1);
-    boules[11] = Boule("12", "rayee",1,2);
-    boules[12] = Boule("13", "rayee",1,3);
-    boules[13] = Boule("14", "rayee",1,4);
-    boules[14] = Boule("15", "rayee",1,5);
-    boules[15] = Boule("16", "blanche",5.5,2);
-*/
+    boules[0] = Boule("1", "pleine",0.07,1.2);
+    boules[1] = Boule("2", "pleine",0.13,1.2);
+    boules[2] = Boule("3", "pleine",0.19,1.2);
+    boules[3] = Boule("4", "pleine",0.25,1.2);
+    boules[4] = Boule("5", "pleine",0.31,1.2);
+    boules[5] = Boule("6", "pleine",0.37,1.2);
+    boules[6] = Boule("7", "pleine",0.43,1.2);
+    boules[7] = Boule("8", "noire",0.49,1.2);
+    boules[8] = Boule("9", "rayee",0.55,1.2);
+    boules[9] = Boule("10", "rayee",0.61,1.2);
+    boules[10] = Boule("11", "rayee",0.67,1.2);
+    boules[11] = Boule("12", "rayee",0.73,1.2);
+    boules[12] = Boule("13", "rayee",0.79,1.2);
+    boules[13] = Boule("14", "rayee",0.85,1.2);
+    boules[14] = Boule("15", "rayee",0.91,1.2);
+    boules[15] = Boule("16", "blanche",1.27,0.635);
 
+/*
     boules[0] = Boule("1", "pleine",1.905,0.5778-0.0001);
     boules[1] = Boule("2", "pleine",2.004073306+0.0002,0.6922+0.0001);
     boules[2] = Boule("3", "pleine",1.954536653+0.0001,0.6064-0.0001);
@@ -75,7 +75,7 @@ void Table::innitialisation()
     boules[15] = Boule("16", "blanche",0.635,0.635);
 
 
-/*  boules[0] = Boule("1", "pleine",6-0.020223254,3.020223254);
+  boules[0] = Boule("1", "pleine",6-0.020223254,3.020223254);
     boules[1] = Boule("2", "pleine",2,1);
     boules[2] = Boule("3", "pleine",3,1);
     boules[3] = Boule("4", "pleine",4,1);
