@@ -24,6 +24,7 @@ Table::Table(string nom, double x, double y): m_nom(nom), m_x(x), m_y(y)
 //destructeur
 Table::~Table()
 {
+
     delete boules;
 }
 
@@ -39,6 +40,8 @@ void Table::regle()
 //placement des boules
 void Table::innitialisation()
 {
+
+
     boules[0] = Boule("1", "pleine",0.5,0.5,0,0);//0.07,1.2
     boules[1] = Boule("2", "pleine",0.13,1.2,0,0);
     boules[2] = Boule("3", "pleine",0.19,1.2,0,0);
@@ -95,7 +98,7 @@ void Table::innitialisation()
 }
 double Table::temps()
 {
-    return f-u;
+    return m_f-m_u;
 }
 //execute les formules de cinétique et collision pour toutes les boules à chaque rafraîchissement
 void Table::mecanique()
@@ -114,8 +117,13 @@ void Table::mecanique()
     //le code ci-dessous s'exécute tant que une boules est en mouvement
     while(boules[0].intensiteeV() > 0 or boules[1].intensiteeV() > 0 or boules[2].intensiteeV() > 0 or boules[3].intensiteeV() > 0 or boules[4].intensiteeV() > 0 or boules[5].intensiteeV() > 0 or boules[6].intensiteeV() > 0 or boules[7].intensiteeV() > 0 or boules[8].intensiteeV() > 0 or boules[9].intensiteeV() > 0 or boules[10].intensiteeV() > 0 or boules[11].intensiteeV() > 0 or boules[12].intensiteeV() > 0 or boules[13].intensiteeV() > 0 or boules[14].intensiteeV() > 0 or boules[15].intensiteeV() > 0)
     {
+        double f=0;
+        double u=0;
         u=f;
         f = clock();
+        m_f=f;
+        m_u=u;
+        this->temps();
 
         i = 0;
 

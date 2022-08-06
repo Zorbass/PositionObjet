@@ -234,7 +234,7 @@ void Boule::collBoule(Boule& cible)
             double t; // temps de rectification
 
             dc= (px-m_x)/(m_xprime-m_x);
-            t=sqrt(dc)//*table.temps();
+            t=sqrt(dc);//*table.temps();
 
             m_x=px;
             m_y=py;

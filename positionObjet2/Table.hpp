@@ -37,10 +37,11 @@ private:
 
     double m_t;
 
-    double f=0;//f retient le temps passé depuis le dernier rafraîchissment
-    double u=0;//temps du frame d'avant
+    double m_f=0;//f retient le temps passé depuis le dernier rafraîchissment
+    double m_u=0;//temps du frame d'avant
 
     int nombreDeBoules=16;
+
 
     Boule *boules = new Boule[16];
     Player player1;
