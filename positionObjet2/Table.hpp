@@ -6,6 +6,8 @@
 #include "Boule.hpp"
 #include <vector>
 #include "Vecteur.hpp"
+#include "Player.hpp"
+
 
 using namespace std;
 
@@ -20,11 +22,11 @@ public:
 
     void regle();
     void innitialisation();
+    void mecanique();
     void test();
     void jouer();
-    void detruire();
-    bool bouger();
-
+    void afficher();
+    double temps();
 
 
 private:
@@ -32,33 +34,20 @@ private:
     string m_nom;
     double m_x;
     double m_y;
-    //vector<Boule*> listeBoules;
-    Boule *boules = new Boule[nombreDeBoules];
-    Boule *tableau = new Boule[nombreDeBoules];
+
+    double m_t;
+
+    double f=0;//f retient le temps passé depuis le dernier rafraîchissment
+    double u=0;//temps du frame d'avant
 
     int nombreDeBoules=16;
 
-    /*
-    Boule *m_b1;
-    Boule *m_b2;
-    Boule *m_b3;
-    Boule *m_b4;
-    Boule *m_b5;
-    Boule *m_b6;
-    Boule *m_b7;
-    Boule *m_b8;
-    Boule *m_b9;
-    Boule *m_b10;
-    Boule *m_b11;
-    Boule *m_b12;
-    Boule *m_b13;
-    Boule *m_b14;
-    Boule *m_b15;
-    Boule *m_b16;
-    */
-
+    Boule *boules = new Boule[16];
+    Player player1;
+    Player player2;
 
 };
 
 
 #endif
+

@@ -3,39 +3,19 @@
 #include "Boule.hpp"
 #include "Vecteur.hpp"
 #include "Table.hpp"
+#include <vector>
 
 using namespace std;
 
 int main()
 {
-    Table table("m_b1",3,4);
-    /*
-    Vecteur a(1,3);
-    Vecteur b(4,5);
-    if(a<b)
-    {
-        cout<<"petit"<<endl;
-    }
-    else
-    {
-        cout<<"pas plut petit"<<endl;
-    }
-    */
-
-
+    Table table("m_b1",11,6);
 
     table.innitialisation();
-    table.regle();
-
-    cout<<"ok"<<endl;
-
-
-
 
     table.jouer();
 
-    table.detruire();
-
+    table.~Table();
 
    /* Boule A("A", 1, 1);
     Boule B("B", 2, 2);

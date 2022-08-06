@@ -12,51 +12,36 @@
 	<iostream>
 	<cmath>
 	"Boule.hpp"
-<<<<<<< Updated upstream
+
+1659791438 ated upstream
 	"Table1.hpp"
-
-1654950030 ated upstream
-
-1656858402 source:c:\users\ivanu\onedrive\documents\github\positionobjet\positionobjet2\boule.cpp
-=======
 	"Vecteur.hpp"
 	"Table.hpp"
 	<vector>
 
-1659791438 source:c:\users\ivanu\onedrive\documents\github\positionobjet\positionobjet2\boule.cpp
+1659814953 source:c:\users\ivanu\onedrive\documents\github\positionobjet\positionobjet2\boule.cpp
 	<iostream>
 	"Boule.hpp"
 	"Vecteur.hpp"
 	<ctime>
 	<cmath>
 
-1659791438 c:\users\ivanu\onedrive\documents\github\positionobjet\positionobjet2\boule.hpp
+1659791618 shed changes
+	<iostream>
+	"Boule.hpp"
+	"Vecteur.hpp"
+	<ctime>
+	<cmath>
 	<iostream>
 	<string>
 	"Vecteur.hpp"
-
-1659791438 source:c:\users\ivanu\onedrive\documents\github\positionobjet\positionobjet2\main.cpp
->>>>>>> Stashed changes
 	<iostream>
 	<cmath>
 	"Boule.hpp"
-<<<<<<< Updated upstream
-=======
-	"Vecteur.hpp"
-	"Table.hpp"
-	<vector>
-
-1656614662 source:c:\users\jm\documents\tm\code\positionobjet\positionobjet2\main.cpp
-	<iostream>
-	<cmath>
-	"Boule.hpp"
->>>>>>> Stashed changes
 	"Vecteur.hpp"
 	<ctime>
 	<cmath>
 	"Table.hpp"
-
-1656507888 shed changes
 	"Boule.hpp"
 	"Vecteur.hpp"
 	<ctime>
@@ -70,18 +55,29 @@
 	"Table1.hpp"
 	<iostream>
 	<string>
+	<iostream>
+	"Vecteur.hpp"
 
-1656850671 c:\users\ivanu\onedrive\documents\github\positionobjet\positionobjet2\boule.hpp
+1659814843 c:\users\ivanu\onedrive\documents\github\positionobjet\positionobjet2\boule.hpp
 	<iostream>
 	<string>
 	"Vecteur.hpp"
 
-1656860146 source:c:\users\ivanu\onedrive\documents\github\positionobjet\positionobjet2\main.cpp
+1659791693 source:c:\users\ivanu\onedrive\documents\github\positionobjet\positionobjet2\main.cpp
 	<iostream>
 	<cmath>
 	"Boule.hpp"
 	"Vecteur.hpp"
 	"Table.hpp"
+	<vector>
+
+1654455017 source:c:\users\jm\documents\tm\code\positionobjet\positionobjet2\main.cpp
+	<iostream>
+	<cmath>
+	"Boule.hpp"
+	<iostream>
+	"Boule.hpp"
+	"Table.cpp"
 
 1656163598 
 
@@ -94,11 +90,6 @@
 	<iostream>
 	<string>
 
-1654455017 source:c:\users\jm\documents\tm\code\positionobjet\positionobjet2\main.cpp
-	<iostream>
-	"Boule.hpp"
-	"Table.cpp"
-
 1654455017 c:\users\jm\documents\tm\code\positionobjet\positionobjet2\table.cpp
 	"Boule.hpp"
 	<ctime>
@@ -109,14 +100,15 @@
 	<iostream>
 	<string>
 
-1656853857 c:\users\ivanu\onedrive\documents\github\positionobjet\positionobjet2\table.hpp
+1659815322 c:\users\ivanu\onedrive\documents\github\positionobjet\positionobjet2\table.hpp
 	<iostream>
 	<string>
 	"Boule.hpp"
 	<vector>
 	"Vecteur.hpp"
+	"Player.hpp"
 
-1656841083 c:\users\ivanu\onedrive\documents\github\positionobjet\positionobjet2\vecteur.hpp
+1659791674 c:\users\ivanu\onedrive\documents\github\positionobjet\positionobjet2\vecteur.hpp
 	<iostream>
 	<string>
 
@@ -124,7 +116,7 @@
 	<iostream>
 	<string>
 
-1656841319 source:c:\users\ivanu\onedrive\documents\github\positionobjet\positionobjet2\vecteur.cpp
+1659791674 source:c:\users\ivanu\onedrive\documents\github\positionobjet\positionobjet2\vecteur.cpp
 	<iostream>
 	"Vecteur.hpp"
 
@@ -144,41 +136,7 @@
 	<iostream>
 	"Vecteur.hpp"
 
-1656859985 source:c:\users\ivanu\onedrive\documents\github\positionobjet\positionobjet2\table.cpp
-	<iostream>
-	"Table.hpp"
-	<ctime>
-	<cmath>
-	"Boule.hpp"
-	"Vecteur.hpp"
-
-1659791438 c:\users\ivanu\onedrive\documents\github\positionobjet\positionobjet2\vecteur.hpp
-	<iostream>
-	<string>
-
-1659791438 c:\users\ivanu\onedrive\documents\github\positionobjet\positionobjet2\table.hpp
-	<iostream>
-	<string>
-	"Boule.hpp"
-	<vector>
-	"Vecteur.hpp"
-	"Player.hpp"
-
-1659791438 c:\users\ivanu\onedrive\documents\github\positionobjet\positionobjet2\player.hpp
-	<iostream>
-	<string>
-	"Boule.hpp"
-	<vector>
-	"Vecteur.hpp"
-
-1659791438 source:c:\users\ivanu\onedrive\documents\github\positionobjet\positionobjet2\player.cpp
-	<iostream>
-	"Boule.hpp"
-	"Vecteur.hpp"
-	<vector>
-	"Player.hpp"
-
-1659791438 source:c:\users\ivanu\onedrive\documents\github\positionobjet\positionobjet2\table.cpp
+1659815322 source:c:\users\ivanu\onedrive\documents\github\positionobjet\positionobjet2\table.cpp
 	<iostream>
 	"Table.hpp"
 	<ctime>
@@ -188,7 +146,17 @@
 	<vector>
 	"Player.hpp"
 
-1659791438 source:c:\users\ivanu\onedrive\documents\github\positionobjet\positionobjet2\vecteur.cpp
+1659791911 c:\users\ivanu\onedrive\documents\github\positionobjet\positionobjet2\player.hpp
 	<iostream>
+	<string>
+	"Boule.hpp"
+	<vector>
 	"Vecteur.hpp"
+
+1659791913 source:c:\users\ivanu\onedrive\documents\github\positionobjet\positionobjet2\player.cpp
+	<iostream>
+	"Boule.hpp"
+	"Vecteur.hpp"
+	<vector>
+	"Player.hpp"
 

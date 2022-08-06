@@ -4,6 +4,8 @@
 #include <cmath>
 #include "Boule.hpp"
 #include "Vecteur.hpp"
+#include <vector>
+#include "Player.hpp"
 
 
 using namespace std;
@@ -14,251 +16,187 @@ Table::Table()
 }
 
 
-Table::Table(string nom, double x, double y): m_nom("1"), m_x(x), m_y(y)
+Table::Table(string nom, double x, double y): m_nom(nom), m_x(x), m_y(y)
 {
 
 }
 
+//destructeur
 Table::~Table()
 {
-    /*
-    delete m_b1;
-    delete m_b2;
-    delete m_b3;
-    delete m_b4;
-    delete m_b5;
-    delete m_b6;
-    delete m_b7;
-    delete m_b8;
-    delete m_b9;
-    delete m_b10;
-    delete m_b11;
-    delete m_b12;
-    delete m_b13;
-    delete m_b14;
-    delete m_b15;
-    delete m_b16;
-    */
     delete boules;
 }
 
-
+/*
 void Table::regle()
 {
-
-    cout<<boules[1].positionX()<<endl;
-
-
-
 }
-
+*/
 
 
 //j'ai trouve que une boule de billard a 57mm de diametre et pas ce que tu as trouve. Quand je reviens je vais continuer mes calculs pour positionner toutes les boules (j'ai deja commence mais pas mis sur le programme)
+
+//placement des boules
 void Table::innitialisation()
 {
+    boules[0] = Boule("1", "pleine",0.5,0.5,0,0);//0.07,1.2
+    boules[1] = Boule("2", "pleine",0.13,1.2,0,0);
+    boules[2] = Boule("3", "pleine",0.19,1.2,0,0);
+    boules[3] = Boule("4", "pleine",0.25,1.2,0,0);
+    boules[4] = Boule("5", "pleine",0.31,1.2,0,0);
+    boules[5] = Boule("6", "pleine",0.37,1.2,0,0);
+    boules[6] = Boule("7", "pleine",0.43,1.2,0,0);
+    boules[7] = Boule("8", "noire",0.49,1.2,0,0);
+    boules[8] = Boule("9", "rayee",0.55,1.2,0,0);
+    boules[9] = Boule("10", "rayee",0.61,1.2,0,0);
+    boules[10] = Boule("11", "rayee",0.67,1.2,0,0);
+    boules[11] = Boule("12", "rayee",0.73,1.2,0,0);
+    boules[12] = Boule("13", "rayee",0.79,1.2,0,0);
+    boules[13] = Boule("14", "rayee",0.85,1.2,0,0);
+    boules[14] = Boule("15", "rayee",0.91,1.2,0,0);
+    boules[15] = Boule("16", "blanche",0.3 ,0.7,0,0);//2.2,1.0535
+
+/*
+    boules[0] = Boule("1", "pleine",1.905,0.5778-0.0001);
+    boules[1] = Boule("2", "pleine",2.004073306+0.0002,0.6922+0.0001);
+    boules[2] = Boule("3", "pleine",1.954536653+0.0001,0.6064-0.0001);
+    boules[3] = Boule("4", "pleine",2.004073306+0.0002,0.5778-0.0001);
+    boules[4] = Boule("5", "pleine",2.004073306+0.0002,0.5206-0.0002);
+    boules[5] = Boule("6", "pleine",1.954536653+0.0001,0.7208+0.0002);
+    boules[6] = Boule("7", "pleine",1.85546337-0.0001,0.6636+0.0001);
+    boules[7] = Boule("8", "noire",1.905,0.635);
+    boules[8] = Boule("9", "rayee",1.805926694-0.0002,0.635);
+    boules[9] = Boule("10", "rayee",1.954536653+0.0001,0.6636+0.0001);
+    boules[10] = Boule("11", "rayee",2.004073306+0.0002,0.7494+0.0002);
+    boules[11] = Boule("12", "rayee",1.85546337-0.0001,0.6064-0.0001);
+    boules[12] = Boule("13", "rayee",2.004073306+0.0002,0.635);
+    boules[13] = Boule("14", "rayee",1.954536653+0.0001,0.5492-0.0002);
+    boules[14] = Boule("15", "rayee",1.905,0.6922+0.0001);
+    boules[15] = Boule("16", "blanche",0.635,0.635);
 
 
-
-
-    /*
-    listeBoules.push_back(new Boule("1 pleine",1.905,0.635));
-    listeBoules.push_back(new Boule("2 pleine",1.96670431,0.6065));
-    listeBoules.push_back(new Boule("3 pleine",1.96670431,0.6635));
-    listeBoules.push_back(new Boule("4 pleine",2.02840862,0.692));
-    listeBoules.push_back(new Boule("5 pleine",2.02840862,0.578));
-    listeBoules.push_back(new Boule("6 pleine",2.09011293,0.5495));
-    listeBoules.push_back(new Boule("7 pleine",2.15181724,0.4925));
-    listeBoules.push_back(new Boule("8 noire",2.02840862,0.635));
-    listeBoules.push_back(new Boule("9 rayee",2.09011293,0.6065));
-    listeBoules.push_back(new Boule("10 rayee",2.09011293,0.6635));
-    listeBoules.push_back(new Boule("11 rayee",2.09011293,0.7205));
-    listeBoules.push_back(new Boule("12 rayee",2.15181724,0.578));
-    listeBoules.push_back(new Boule("13 rayee",2.15181724,0.635));
-    listeBoules.push_back(new Boule("14 rayee",2.15181724,0.692));
-    listeBoules.push_back(new Boule("15 rayee",2.15181724,0.7775));
-    listeBoules.push_back(new Boule("blanche",0.635,0.635));
-    cout<<listeBoules.size()<<endl;
-
-    listeBoules[1]->afficher();
-    cout<<"position X: "<<listeBoules[1]->positionX()<<endl;
-    */
-    boules[0] = Boule("1 pleine",2,3);
-    boules[1] = Boule("A", 1.1, 1);//"2 pleine",1.96670431,0.6065);
-    boules[2] = Boule("A", 1, 3);//"3 pleine",1.96670431,0.6635);
-    boules[3] = Boule("A", 1, 4);//"4 pleine",2.02840862,0.692);
-    boules[4] = Boule("A", 1, 5);//"5 pleine",2.02840862,0.578);
-    boules[5] = Boule("A", 2, 1);//"6 pleine",2.09011293,0.5495);
-    boules[6] = Boule("A", 3, 1);//"7 pleine",2.15181724,0.4925);
-    boules[7] = Boule("noire",3,3);
-    boules[8] = Boule("A", 4, 1);//"9 rayee",2.09011293,0.6065);
-    boules[9] = Boule("A", 5, 1);//"10 rayee",2.09011293,0.6635);
-    boules[10] = Boule("A", 6, 1);//"11 rayee",2.09011293,0.7205);
-    boules[11] = Boule("A", 7, 1);//"12 rayee",2.15181724,0.578);
-    boules[12] = Boule("A", 8, 1);//"13 rayee",2.15181724,0.635);
-    boules[13] = Boule("A", 9, 1);//"14 rayee",2.15181724,0.692);
-    boules[14] = Boule("A", 10, 1);//"15 rayee",2.15181724,0.7775);
-    boules[15] = Boule("blanche",1,3);
-
-
-    boules[0].shoot();
-    cout<<"boule 0000000000000000000000000000000 "<<boules[0].intensiteeV()<<endl;
-
-
-
-
-
-
-    /*
-    m_b1 = listeBoules[0];
-    m_b2 = listeBoules[1];
-    m_b3 = listeBoules[2];
-    m_b4 = listeBoules[3];
-    m_b5 = listeBoules[4];
-    m_b6 = listeBoules[5];
-    m_b7 = listeBoules[6];
-    m_b8 = listeBoules[7];
-    m_b9 = listeBoules[8];
-    m_b10 = listeBoules[9];
-    m_b11 = listeBoules[10];
-    m_b12 = listeBoules[11];
-    m_b13 = listeBoules[12];
-    m_b14 = listeBoules[13];
-    m_b15 = listeBoules[14];
-    m_b16 = listeBoules[15];
-    */
-
-
-
-
-
-
-
+  boules[0] = Boule("1", "pleine",6-0.020223254,3.020223254);
+    boules[1] = Boule("2", "pleine",2,1);
+    boules[2] = Boule("3", "pleine",3,1);
+    boules[3] = Boule("4", "pleine",4,1);
+    boules[4] = Boule("5", "pleine",5,1);
+    boules[5] = Boule("6", "pleine",6,1);
+    boules[6] = Boule("7", "pleine",7,1);
+    boules[7] = Boule("8", "noire",1,1);
+    boules[8] = Boule("9", "rayee",8,1);
+    boules[9] = Boule("10", "rayee",9,1);
+    boules[10] = Boule("11", "rayee",10,1);
+    boules[11] = Boule("12", "rayee",1,2);
+    boules[12] = Boule("13", "rayee",1,3);
+    boules[13] = Boule("14", "rayee",1,4);
+    boules[14] = Boule("15", "rayee",1,5);
+    boules[15] = Boule("16", "blanche",5.5,2);
+*/
 }
-
-//pour tester
-void Table::test()
+double Table::temps()
 {
-
+    return f-u;
 }
-bool Table::bouger()
+//execute les formules de cinétique et collision pour toutes les boules à chaque rafraîchissement
+void Table::mecanique()
+
 {
-
-    /*
-    tableau[0] = boules[0];
-    tableau[1] = Boule("A", 1.1, 1);//"2 pleine",1.96670431,0.6065);
-    tableau[2] = Boule("A", 1, 3);//"3 pleine",1.96670431,0.6635);
-    tableau[3] = Boule("A", 1, 4);//"4 pleine",2.02840862,0.692);
-    tableau[4] = Boule("A", 1, 5);//"5 pleine",2.02840862,0.578);
-    tableau[5] = Boule("A", 2, 1);//"6 pleine",2.09011293,0.5495);
-    tableau[6] = Boule("A", 3, 1);//"7 pleine",2.15181724,0.4925);
-    tableau[7] = Boule("noire",3,3);
-    tableau[8] = Boule("A", 4, 1);//"9 rayee",2.09011293,0.6065);
-    tableau[9] = Boule("A", 5, 1);//"10 rayee",2.09011293,0.6635);
-    tableau[10] = Boule("A", 6, 1);//"11 rayee",2.09011293,0.7205);
-    tableau[11] = Boule("A", 7, 1);//"12 rayee",2.15181724,0.578);
-    tableau[12] = Boule("A", 8, 1);//"13 rayee",2.15181724,0.635);
-    tableau[13] = Boule("A", 9, 1);//"14 rayee",2.15181724,0.692);
-    tableau[14] = Boule("A", 10, 1);//"15 rayee",2.15181724,0.7775);
-    */
+    double pxprime;//posiiton x et y de la frame d'avant
+    double pyprime;
 
 
+    double px = 0;//position x et y de la frame d'avant
+    double py = 0;
 
+    int i = 0; //itération pour les boucles
+    int z = 0; //itération pour les boucles
 
-
-    int nbboules = 16;
-    for (int i=0; i<nbboules;)
+    //le code ci-dessous s'exécute tant que une boules est en mouvement
+    while(boules[0].intensiteeV() > 0 or boules[1].intensiteeV() > 0 or boules[2].intensiteeV() > 0 or boules[3].intensiteeV() > 0 or boules[4].intensiteeV() > 0 or boules[5].intensiteeV() > 0 or boules[6].intensiteeV() > 0 or boules[7].intensiteeV() > 0 or boules[8].intensiteeV() > 0 or boules[9].intensiteeV() > 0 or boules[10].intensiteeV() > 0 or boules[11].intensiteeV() > 0 or boules[12].intensiteeV() > 0 or boules[13].intensiteeV() > 0 or boules[14].intensiteeV() > 0 or boules[15].intensiteeV() > 0)
     {
-        cout<<tableau[0].intensiteeV();
+        u=f;
+        f = clock();
 
-        int z=1;
-        if (tableau[0].deplacementss(tableau[0]))
+        i = 0;
+
+        while(i < nombreDeBoules)
         {
-            cout<<"boule bouge"<<endl;
-            return true;
-
+            boules[i].empochage(); ///////////////////////////////j'espere que c un test
+            i++;
         }
-        else
-        {
-            tableau[0]=tableau[z];
-            cout<<tableau[0].intensiteeV()<<endl<<tableau[z].intensiteeV()<<endl;
 
-            nbboules--;
-            z++;
-            cout<<"balblalbalbl"<<endl;
-            if (tableau[0].positionX()==tableau[15].positionX() and tableau[0].positionY()==tableau[15].positionY() and tableau[15].deplacementss(tableau[15])== false)
+        i = 0;
+
+        //on vérifie la collision avec la table pour chaque boule
+        while(i < nombreDeBoules)
+        {
+            boules[i].collTable();
+            i++;
+        }
+
+        i = 0;
+        z = 0;
+
+        //on vérifie la collision entre boule pour chaque boule
+        while(i < nombreDeBoules)
+        {
+            z = 0;
+            while(z < nombreDeBoules)
             {
-                cout<<"boule NOT bouge"<<endl;
-                return false;
-            }
-        }
-    }
+                if(z != i)
+                {
+                    boules[i].collBoule(boules[z]);
 
+                }
+                z++;
+            }
+            i++;
+        }
+
+        i = 0;
+
+        f = clock() - f;
+
+
+
+
+        //on déplace chaque boule si elle a de la vitesse
+        while(i < nombreDeBoules)
+        {
+            boules[i].deplacemelent(f);
+            boules[i].positionprime();
+            i++;
+        }
+
+    }
+    cout << "fini collisions" << endl;
 }
+
+//affiche l'empplacement, le nom et la vitesse de chaque boule
+void Table::afficher()
+{
+    int i = 0;
+
+    while(i < nombreDeBoules)
+    {
+        boules[i].afficher();
+        i++;
+    }
+}
+
+//permet de jouer en y incluant plusieur méthodes
 void Table::jouer()
 {
 
-    int u=0;
-    double f=0;
-    cout<<"avant le while"<<endl;
-    while(bouger())
-    {
-        u= clock();
-        for(int i(0); i<nombreDeBoules; ++i)
-        {
-            //verifie si il y a deplacement de la boule
-            if(boules[i].deplacementss(boules[i]))
-            {
-                //si c'est le cas on verifie ensuite les boules "proches" sur la positionX de cette boule
 
-                boules[i].collTable();
-                boules[i].deplacemelent(f);
-                for(int z(0); z<nombreDeBoules; z++)
-                {
-                    if(i==z){cout<<"meme boule"<<endl;}
-                    else
-                    {
-                        if(abs(boules[i].positionX()-boules[z].positionX())<=0.057)
-                        {
-                            cout<<"peu etre collision"<<endl;
-                            boules[i].collBoule(boules[z]);//si une boule "z" est proche de cette boule alors on verifie la collision
-                        }
-                        else
-                        {
-                            cout<<"collision pas possible"<<endl;
-                        }
-                    }
-                }
+    boules[15].shoot();
 
-            }
-            else{
-                cout<<"pas deplacement"<<endl;
-
-            }
-
-
-        }
-
-    }
-    f= clock()-u;
-
-
+    /*player1.shoot(boules[15]);
+    boules[15].afficher();
+*/
+    this->mecanique();
 
 
 
 
 }
-void Table::detruire()
-{
-    /*
-    for(int i(0); i<nombreDeBoules; ++i)
-    {
-        delete boules[i];
-        boules[i] = 0;
-    }
-    */
-
-}
-
-
-
