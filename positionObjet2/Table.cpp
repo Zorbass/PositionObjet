@@ -42,22 +42,22 @@ void Table::innitialisation()
 {
 
 
-    boules[0] = Boule("1", "pleine",0.5,0.5,0,0);//0.07,1.2
-    boules[1] = Boule("2", "pleine",0.13,1.2,0,0);
-    boules[2] = Boule("3", "pleine",0.19,1.2,0,0);
-    boules[3] = Boule("4", "pleine",0.25,1.2,0,0);
-    boules[4] = Boule("5", "pleine",0.31,1.2,0,0);
-    boules[5] = Boule("6", "pleine",0.37,1.2,0,0);
-    boules[6] = Boule("7", "pleine",0.43,1.2,0,0);
-    boules[7] = Boule("8", "noire",0.49,1.2,0,0);
-    boules[8] = Boule("9", "rayee",0.55,1.2,0,0);
-    boules[9] = Boule("10", "rayee",0.61,1.2,0,0);
-    boules[10] = Boule("11", "rayee",0.67,1.2,0,0);
-    boules[11] = Boule("12", "rayee",0.73,1.2,0,0);
-    boules[12] = Boule("13", "rayee",0.79,1.2,0,0);
-    boules[13] = Boule("14", "rayee",0.85,1.2,0,0);
-    boules[14] = Boule("15", "rayee",0.91,1.2,0,0);
-    boules[15] = Boule("16", "blanche",0.3 ,0.7,0,0);//2.2,1.0535
+    boules[0] = Boule("1", "pleine",0.5,0.5);//0.07,1.2
+    boules[1] = Boule("2", "pleine",0.13,1.2);
+    boules[2] = Boule("3", "pleine",0.19,1.2);
+    boules[3] = Boule("4", "pleine",0.25,1.2);
+    boules[4] = Boule("5", "pleine",0.31,1.2);
+    boules[5] = Boule("6", "pleine",0.37,1.2);
+    boules[6] = Boule("7", "pleine",0.43,1.2);
+    boules[7] = Boule("8", "noire",0.49,1.2);
+    boules[8] = Boule("9", "rayee",0.55,1.2);
+    boules[9] = Boule("10", "rayee",0.61,1.2);
+    boules[10] = Boule("11", "rayee",0.67,1.2);
+    boules[11] = Boule("12", "rayee",0.73,1.2);
+    boules[12] = Boule("13", "rayee",0.79,1.2);
+    boules[13] = Boule("14", "rayee",0.85,1.2);
+    boules[14] = Boule("15", "rayee",0.91,1.2);
+    boules[15] = Boule("16", "blanche",0.3 ,0.7);//2.2,1.0535
 
 /*
     boules[0] = Boule("1", "pleine",1.905,0.5778-0.0001);
@@ -96,10 +96,7 @@ void Table::innitialisation()
     boules[15] = Boule("16", "blanche",5.5,2);
 */
 }
-double Table::temps()
-{
-    return m_f-m_u;
-}
+
 //execute les formules de cinétique et collision pour toutes les boules à chaque rafraîchissement
 void Table::mecanique()
 
@@ -120,16 +117,14 @@ void Table::mecanique()
         double f=0;
         double u=0;
         u=f;
+
         f = clock();
-        m_f=f;
-        m_u=u;
-        this->temps();
 
         i = 0;
 
         while(i < nombreDeBoules)
         {
-            boules[i].empochage(); ///////////////////////////////j'espere que c un test
+            boules[i].empochage();
             i++;
         }
 
@@ -172,7 +167,7 @@ void Table::mecanique()
         while(i < nombreDeBoules)
         {
             boules[i].deplacemelent(f);
-            boules[i].positionprime();
+
             i++;
         }
 

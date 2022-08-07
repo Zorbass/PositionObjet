@@ -28,12 +28,12 @@ using namespace std;
 #define R_TROU 0.0435
 
 //constructeur basique
-Boule::Boule() : m_numero("0"), m_type("rayee"), m_x(0), m_y(0), vitesse(0, 0), acceleration(2.943, 0),m_xprime(0),m_yprime(0)
+Boule::Boule() : m_numero("0"), m_type("rayee"), m_x(0), m_y(0), vitesse(0, 0), acceleration(2.943, 0)
 {
 }
 
 //constructeur personalisable
-Boule::Boule(string numero, string type, double x, double y,double xprime, double yprime) : m_numero(numero), m_type(type), m_x(x), m_y(y), vitesse(0, 0), acceleration(2.943, 0),m_xprime(xprime),m_yprime(yprime)
+Boule::Boule(string numero, string type, double x, double y) : m_numero(numero), m_type(type), m_x(x), m_y(y), vitesse(0, 0), acceleration(2.943, 0)
 {
 }
 
@@ -43,12 +43,7 @@ void Boule::afficher()
     cout << "Boule : " << m_numero << " " << m_type << " (Position : " << m_x << ";" << m_y << ")" << endl << "vitesse : " << vitesse << endl;
 
 }
-void Boule::positionprime()
-{
-    m_xprime=m_x;
-    m_yprime=m_y;
 
-}
 
 //retourne la position de la bille en x
 double Boule::positionX()
@@ -147,7 +142,7 @@ void Boule::collBoule(Boule& cible)
 
 
 
-            double m_sin= sin(vitesse.y()*PI/180);
+            double m_sin= sin(vitesse.y()*PI/180);//sin et cos de l'angle
             double m_cos= cos(vitesse.y()*PI/180);
 
 
@@ -165,7 +160,7 @@ void Boule::collBoule(Boule& cible)
             //{
             if(deltaX > 0 and deltaY < 0)
             {
-                phi = 90 + abs(atan(deltaY / deltaX)) * 180 / PI; //en degres
+
                 px=m_x-d1*m_sin;
                 py=m_y+d1*m_cos;
 
@@ -175,7 +170,7 @@ void Boule::collBoule(Boule& cible)
 
             else if(deltaX < 0 and deltaY > 0)
             {
-                phi = 270 + abs(atan(deltaY / deltaX)) * 180 / PI; //en degres
+
                 px=m_x+d1*m_sin;
                 py=m_y-d1*m_cos;
 
@@ -186,14 +181,14 @@ void Boule::collBoule(Boule& cible)
             //{
             else if(deltaX > 0 and deltaY > 0)
             {
-                phi = abs(atan(deltaX / deltaY)) * 180 / PI; //en degres
+
                 px=m_x-d1*m_sin;
                 py=m_y-d1*m_cos;
             }
 
             else if(deltaX < 0 and deltaY < 0)
             {
-                phi = 180 + abs(atan(deltaX / deltaY)) * 180 / PI; //en degres
+
                 px=m_x+d1*m_sin;
                 py=m_y+d1*m_cos;
             }
@@ -206,38 +201,109 @@ void Boule::collBoule(Boule& cible)
 
             else if(deltaY < 0)
             {
-                phi = 180;
+
                 py=m_y+d1*m_cos;
             }
 
             else if(deltaY > 0)
             {
-                phi = 0;
+
                 px=m_x-d1*m_sin;
             }
 
             else if(deltaX < 0)
             {
-                phi = 270;
+
                 px=m_x+d1*m_sin;
             }
 
             else if(deltaX > 0)
             {
-                phi = 90;
                 py=m_y+d1*m_cos;
             }
 
             cout << phi << endl;
 
-            double dc;
+            /*double dc;
             double t; // temps de rectification
 
             dc= (px-m_x)/(m_xprime-m_x);
             t=sqrt(dc);//*table.temps();
+            */
+            cout<<d1<<endl;
+            double t =(-vitesse.x()+sqrt(pow(vitesse.x(),2)-4*0.5*acceleration.x()*d1))/acceleration.x();
+            cout<< "t :"<<t<<endl;
+
 
             m_x=px;
             m_y=py;
+            cout<<vitesse.x()<<endl;
+            vitesse.modifierX(-(d1/t-0.5*acceleration.x()*t));
+            cout<<vitesse.x()<<endl;
+
+            deltaX= cible.m_x-m_x;  //distance sur l'axe x entre le centre des 2 boules
+            deltaY = cible.m_y-m_y;  //distance sur l'axe y entre le centre des 2 boules
+
+            if(deltaX > 0 and deltaY < 0)
+            {
+                phi = 90 + abs(atan(deltaY / deltaX)) * 180 / PI; //en degres
+
+
+
+
+            }
+
+            else if(deltaX < 0 and deltaY > 0)
+            {
+                phi = 270 + abs(atan(deltaY / deltaX)) * 180 / PI; //en degres
+
+
+            }
+            //}
+
+            //else if(deltaX * deltaY > 0)
+            //{
+            else if(deltaX > 0 and deltaY > 0)
+            {
+                phi = abs(atan(deltaX / deltaY)) * 180 / PI; //en degres
+
+            }
+
+            else if(deltaX < 0 and deltaY < 0)
+            {
+                phi = 180 + abs(atan(deltaX / deltaY)) * 180 / PI; //en degres
+            }
+
+            //}
+
+            //else// if(deltaY * deltaX = 0)
+            //{
+
+            //est-ce que les else if qui suivent sont nécessaires??
+
+            else if(deltaY < 0)
+            {
+                phi = 180;
+
+            }
+
+            else if(deltaY > 0)
+            {
+                phi = 0;
+
+            }
+
+            else if(deltaX < 0)
+            {
+                phi = 270;
+
+            }
+
+            else if(deltaX > 0)
+            {
+                phi = 90;
+
+            }
 
             //faire varier les angles
             //deplacer la boule pendant "t" temps;

@@ -26,7 +26,7 @@ public:
     void test();
     void jouer();
     void afficher();
-    double temps();
+
 
 
 private:
