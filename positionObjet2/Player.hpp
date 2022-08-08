@@ -14,10 +14,10 @@ class Player
 
 public:
     Player();
-    Player(string nom, int points, string typeBoule);
-
+    Player(string nom, string typeBoule);
+    void casse();
     void shoot(Boule i);
-    void gagnePoint();
+
     void choisir(string i);
     string choix();
 

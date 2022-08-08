@@ -16,7 +16,9 @@ class Boule
 
     void afficher();  //ok
 
-    void positionprime();
+    bool boulband();
+
+    bool empochee();
 
     double positionX(); //ok
 
@@ -52,6 +54,8 @@ class Boule
     double m_d; //deplacement de la resultante
     Vecteur vitesse;
     bool m_empochee = false;
+    bool boulebande = false;
+
 
 };
 

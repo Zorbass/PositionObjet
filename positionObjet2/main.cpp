@@ -11,6 +11,7 @@ int main()
 {
     Table table("m_b1",11,6);
 
+
     table.innitialisation();
 
     table.jouer();

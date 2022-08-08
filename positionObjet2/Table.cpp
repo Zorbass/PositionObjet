@@ -2,6 +2,7 @@
 #include "Table.hpp"
 #include <ctime>
 #include <cmath>
+#include <algorithm>
 #include "Boule.hpp"
 #include "Vecteur.hpp"
 #include <vector>
@@ -40,9 +41,11 @@ void Table::regle()
 //placement des boules
 void Table::innitialisation()
 {
+    player1=Player("player2","aucaun");
+    player2=Player("player2","aucaun");
 
 
-    boules[0] = Boule("1", "pleine",0.5,0.5);//0.07,1.2
+    /*boules[0] = Boule("1", "pleine",0.07,1.2);//0.07,1.2
     boules[1] = Boule("2", "pleine",0.13,1.2);
     boules[2] = Boule("3", "pleine",0.19,1.2);
     boules[3] = Boule("4", "pleine",0.25,1.2);
@@ -57,9 +60,9 @@ void Table::innitialisation()
     boules[12] = Boule("13", "rayee",0.79,1.2);
     boules[13] = Boule("14", "rayee",0.85,1.2);
     boules[14] = Boule("15", "rayee",0.91,1.2);
-    boules[15] = Boule("16", "blanche",0.3 ,0.7);//2.2,1.0535
+    boules[15] = Boule("16", "blanche",2.2 ,1.0535);//2.2,1.0535*/
 
-/*
+
     boules[0] = Boule("1", "pleine",1.905,0.5778-0.0001);
     boules[1] = Boule("2", "pleine",2.004073306+0.0002,0.6922+0.0001);
     boules[2] = Boule("3", "pleine",1.954536653+0.0001,0.6064-0.0001);
@@ -77,7 +80,7 @@ void Table::innitialisation()
     boules[14] = Boule("15", "rayee",1.905,0.6922+0.0001);
     boules[15] = Boule("16", "blanche",0.635,0.635);
 
-
+/*
   boules[0] = Boule("1", "pleine",6-0.020223254,3.020223254);
     boules[1] = Boule("2", "pleine",2,1);
     boules[2] = Boule("3", "pleine",3,1);
@@ -125,6 +128,10 @@ void Table::mecanique()
         while(i < nombreDeBoules)
         {
             boules[i].empochage();
+            if(boules[i].empochee()==true)
+            {
+                boulesempochee++;
+            }
             i++;
         }
 
@@ -134,6 +141,11 @@ void Table::mecanique()
         while(i < nombreDeBoules)
         {
             boules[i].collTable();
+            if(boules[i].boulband()==true)
+            {
+                boulebandes.push_back(i);
+
+            }
             i++;
         }
 
@@ -187,11 +199,32 @@ void Table::afficher()
     }
 }
 
+void Table::casse()
+{
+    sort( boulebandes.begin(), boulebandes.end() );
+    boulebandes.erase( unique( boulebandes.begin(), boulebandes.end() ), boulebandes.end() );//enlever les duplicates
+
+
+    boules[15].shoot();
+    this->mecanique();
+    if(boules[7].empochee()==true)
+    {
+        cout<<"boule noir empochee"<<endl;
+        faute==true;
+    }
+    else if(boulebandes.size()<4 and boulesempochee<1)
+    {
+        cout<<"mauvaise casse"<<endl;
+        faute = true;
+        cout<<"a l'autre joueur de casser"<<endl;
+    }
+}
+
 //permet de jouer en y incluant plusieur méthodes
 void Table::jouer()
 {
 
-
+    this->casse();
     boules[15].shoot();
 
     /*player1.shoot(boules[15]);

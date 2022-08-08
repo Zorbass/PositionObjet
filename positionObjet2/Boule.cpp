@@ -43,6 +43,15 @@ void Boule::afficher()
     cout << "Boule : " << m_numero << " " << m_type << " (Position : " << m_x << ";" << m_y << ")" << endl << "vitesse : " << vitesse << endl;
 
 }
+bool Boule::boulband()
+{
+    return boulebande ;
+}
+
+bool Boule::empochee()
+{
+    return m_empochee;
+}
 
 
 //retourne la position de la bille en x
@@ -117,6 +126,7 @@ void Boule::empochage()
         vitesse.modifierX(0);
         cout << "la boule " << m_numero << " est empochee." << endl;
         m_empochee = true;
+
     }
 }
 
@@ -571,6 +581,9 @@ void Boule::collTable()
 {
     if(m_empochee == false)
     {
+        double vy=vitesse.y();
+        boulebande=false;
+
 
         if(m_y+m_r/sqrt(2)<0.0835 and m_y+m_r/sqrt(2) >= 0.0435 + (m_x-m_r/sqrt(2) - 0))
         {
@@ -725,6 +738,10 @@ void Boule::collTable()
         if(vitesse.y() < 0)
         {
             vitesse.modifierY(vitesse.y()+360);
+        }
+        if(vy!=vitesse.y())
+        {
+            boulebande=true;
         }
     }
 }

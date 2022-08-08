@@ -12,21 +12,19 @@ Player::Player()
 
 }
 
-Player::Player(string nom, int points, string typeBoule): m_nom(nom), m_points(points), m_typeBoule(typeBoule)
+Player::Player(string nom, string typeBoule): m_nom(nom), m_typeBoule(typeBoule)
 {
 
 }
+void Player::casse()
+{
 
+}
 
 void Player::shoot(Boule i)
 {
     i.shoot();
     i.afficher();
-}
-
-void Player::gagnePoint()
-{
-    m_points ++;
 }
 
 void Player::choisir(string i)

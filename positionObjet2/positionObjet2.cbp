@@ -34,6 +34,8 @@
 		</Compiler>
 		<Unit filename="Boule.cpp" />
 		<Unit filename="Boule.hpp" />
+		<Unit filename="Player.cpp" />
+		<Unit filename="Player.hpp" />
 		<Unit filename="Table.cpp" />
 		<Unit filename="Table.hpp" />
 		<Unit filename="main.cpp" />
