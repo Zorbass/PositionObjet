@@ -591,6 +591,15 @@ void Boule::collTable()
             cout << m_x << ";" << m_y << endl;
         }
 
+
+        else if(m_x < 1.1865+m_r/sqrt(2) and m_x > 1.1865 and m_r >= sqrt((m_x-1.1865)*(m_x-1.1865)+(m_y-0.04)*(m_y-0.04)))
+        {
+            vitesse.modifierY(2*(90-asin((m_y-0.04)/m_r)*180/PI)+180-vitesse.y());
+            cout << asin((m_y-0.04)/m_r)*180/PI << " " << acos((m_x-1.1865)/m_r)*180/PI << endl;
+            cout << "collision coin 3 " << m_x << ";" << m_y << " " << vitesse.y() << endl;
+        }
+
+
         //on modifie l'angle de la vitess de la boule
         //on replace la boule en fonction de la bande qu'elle choque
         else if(m_x-m_r <= 0.04 and m_y <= 1.1865 and m_y >= 0.0835)
