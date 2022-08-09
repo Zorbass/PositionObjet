@@ -3,6 +3,7 @@
 #include "Vecteur.hpp"
 #include <vector>
 #include "Player.hpp"
+#include "Table.hpp"
 
 
 using namespace std;
@@ -16,15 +17,29 @@ Player::Player(string nom, string typeBoule): m_nom(nom), m_typeBoule(typeBoule)
 {
 
 }
-void Player::casse()
+string Player::nomjoueur()
 {
-
+    return m_nom;
+}
+int Player::finDeTour()
+{
+    if(player ==0)
+    {
+        player =1;
+    }
+    else
+    {
+        player = 0;
+    }
+    cout<<"fin du tour"<<endl;
+    return player;
 }
 
 void Player::shoot(Boule i)
 {
     i.shoot();
     i.afficher();
+
 }
 
 void Player::choisir(string i)

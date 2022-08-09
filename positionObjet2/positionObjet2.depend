@@ -100,7 +100,7 @@
 	<iostream>
 	<string>
 
-1659968301 c:\users\ivanu\onedrive\documents\github\positionobjet\positionobjet2\table.hpp
+1660038429 c:\users\ivanu\onedrive\documents\github\positionobjet\positionobjet2\table.hpp
 	<iostream>
 	<string>
 	"Boule.hpp"
@@ -136,7 +136,7 @@
 	<iostream>
 	"Vecteur.hpp"
 
-1659968396 source:c:\users\ivanu\onedrive\documents\github\positionobjet\positionobjet2\table.cpp
+1660036726 source:c:\users\ivanu\onedrive\documents\github\positionobjet\positionobjet2\table.cpp
 	<iostream>
 	"Table.hpp"
 	<ctime>
@@ -147,17 +147,18 @@
 	<vector>
 	"Player.hpp"
 
-1659963104 c:\users\ivanu\onedrive\documents\github\positionobjet\positionobjet2\player.hpp
+1660037159 c:\users\ivanu\onedrive\documents\github\positionobjet\positionobjet2\player.hpp
 	<iostream>
 	<string>
 	"Boule.hpp"
 	<vector>
 	"Vecteur.hpp"
 
-1659963110 source:c:\users\ivanu\onedrive\documents\github\positionobjet\positionobjet2\player.cpp
+1660037580 source:c:\users\ivanu\onedrive\documents\github\positionobjet\positionobjet2\player.cpp
 	<iostream>
 	"Boule.hpp"
 	"Vecteur.hpp"
 	<vector>
 	"Player.hpp"
+	"Table.hpp"
 

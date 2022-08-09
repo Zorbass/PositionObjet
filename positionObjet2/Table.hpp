@@ -27,6 +27,7 @@ public:
     void jouer();
     void afficher();
     void casse();
+    bool faute();
 
 
 
@@ -36,9 +37,11 @@ private:
     double m_x;
     double m_y;
 
-    double faute;
+    bool fautes= false;
     int boulbande;
     int boulesempochee=0;
+
+    int joueur=0;
 
     double m_t;
 
@@ -49,8 +52,7 @@ private:
 
 
     Boule *boules = new Boule[16];
-    Player player1;
-    Player player2;
+    Player players[2];
 
     vector <int> boulebandes;
 

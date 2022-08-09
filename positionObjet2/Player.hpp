@@ -15,7 +15,8 @@ class Player
 public:
     Player();
     Player(string nom, string typeBoule);
-    void casse();
+    int finDeTour();
+    string nomjoueur();
     void shoot(Boule i);
 
     void choisir(string i);
@@ -26,6 +27,7 @@ private:
     string m_nom;
     string m_typeBoule;
     int m_points;
+    int player =0;
     Boule i;
 
 };

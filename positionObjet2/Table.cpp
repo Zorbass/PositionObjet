@@ -41,8 +41,16 @@ void Table::regle()
 //placement des boules
 void Table::innitialisation()
 {
-    player1=Player("player2","aucaun");
-    player2=Player("player2","aucaun");
+    string nom;
+    cout<<"joueur 1 choisisez un nom"<<endl;
+    cin>>nom;
+    players[0]=Player(nom,"aucaun");
+    cout<<"joueur 2 choisisez un nom"<<endl;
+    cin>>nom;
+    players[1]=Player(nom,"aucaun");
+
+
+
 
 
     /*boules[0] = Boule("1", "pleine",0.07,1.2);//0.07,1.2
@@ -104,8 +112,7 @@ void Table::innitialisation()
 void Table::mecanique()
 
 {
-    double pxprime;//posiiton x et y de la frame d'avant
-    double pyprime;
+
 
 
     double px = 0;//position x et y de la frame d'avant
@@ -117,6 +124,7 @@ void Table::mecanique()
     //le code ci-dessous s'exécute tant que une boules est en mouvement
     while(boules[0].intensiteeV() > 0 or boules[1].intensiteeV() > 0 or boules[2].intensiteeV() > 0 or boules[3].intensiteeV() > 0 or boules[4].intensiteeV() > 0 or boules[5].intensiteeV() > 0 or boules[6].intensiteeV() > 0 or boules[7].intensiteeV() > 0 or boules[8].intensiteeV() > 0 or boules[9].intensiteeV() > 0 or boules[10].intensiteeV() > 0 or boules[11].intensiteeV() > 0 or boules[12].intensiteeV() > 0 or boules[13].intensiteeV() > 0 or boules[14].intensiteeV() > 0 or boules[15].intensiteeV() > 0)
     {
+
         double f=0;
         double u=0;
         u=f;
@@ -185,6 +193,8 @@ void Table::mecanique()
 
     }
     cout << "fini collisions" << endl;
+
+
 }
 
 //affiche l'empplacement, le nom et la vitesse de chaque boule
@@ -204,33 +214,90 @@ void Table::casse()
     sort( boulebandes.begin(), boulebandes.end() );
     boulebandes.erase( unique( boulebandes.begin(), boulebandes.end() ), boulebandes.end() );//enlever les duplicates
 
-
+    cout<<"c'est au joueur "<<players[0].nomjoueur()<<" de commencer"<<endl;
     boules[15].shoot();
     this->mecanique();
     if(boules[7].empochee()==true)
     {
         cout<<"boule noir empochee"<<endl;
-        faute==true;
+        fautes==true;
     }
     else if(boulebandes.size()<4 and boulesempochee<1)
     {
         cout<<"mauvaise casse"<<endl;
-        faute = true;
+        fautes = true;
         cout<<"a l'autre joueur de casser"<<endl;
     }
+    else if(boulesempochee==0)
+    {
+        joueur = players[0].finDeTour();//on change de joueur
+        cout<<"c'est au joueur "<< players[joueur].nomjoueur()<< " de jouer"<<endl;
+    }
+    else if(boules[15].empochee()==true)
+    {
+        fautes = true;
+        cout<<"blanche empochee. Veuillez la replacez derriere la ligne"<<endl;
+        joueur =players[0].finDeTour();//on change de joueur
+        cout<<"c'est au joueur "<< players[joueur].nomjoueur()<< " de jouer"<<endl;
+    }
+    else
+    {
+        cout<<"c'est toujours au joueur "<< players[joueur].nomjoueur()<< " de jouer"<<endl;
+    }
 }
+bool Table::faute()
+{
+    if(boules[15].empochee()==true)
+    {
+        fautes = true;
+        cout<<"blanche empochee. Veuillez la replacez derriere la ligne"<<endl;
+        joueur =players[0].finDeTour();//on change de joueur
+        cout<<"c'est au joueur "<< players[joueur].nomjoueur()<< " de jouer"<<endl;
+        return fautes;
+    }
+
+}
+
 
 //permet de jouer en y incluant plusieur méthodes
 void Table::jouer()
 {
+     //joueur 1 qui commence a shoot
 
     this->casse();
-    boules[15].shoot();
+    while(boules[7].empochee()==false)
+    {
+        //players[joueur].shoot(boules[15]);//joueur shoot
+        boules[15].shoot();
 
+        this->mecanique();
+        if(faute())
+        {
+            cout<<"fauuuuuuuuuuute"<<endl;
+            joueur =players[0].finDeTour();//on change de joueur
+            cout<<"c'est au joueur "<< players[joueur].nomjoueur()<< " de jouer"<<endl;
+            fautes = false;
+        }
+        else if(boulesempochee==0)
+        {
+            cout<<"aucune boule empochee"<<endl;
+            joueur =players[0].finDeTour();//on change de joueur
+            cout<<"c'est au joueur "<< players[joueur].nomjoueur()<< " de jouer"<<endl;
+        }
+        else
+        {
+            cout<<"c'est toujours au joueur "<< players[joueur].nomjoueur()<< " de jouer"<<endl;
+
+        }
+
+    }
     /*player1.shoot(boules[15]);
     boules[15].afficher();
 */
-    this->mecanique();
+
+
+
+    //this->mecanique();
 
 
 
