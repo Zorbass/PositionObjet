@@ -594,9 +594,14 @@ void Boule::collTable()
 
         else if(m_x < 1.1865+m_r/sqrt(2) and m_x > 1.1865 and m_r >= sqrt((m_x-1.1865)*(m_x-1.1865)+(m_y-0.04)*(m_y-0.04)))
         {
+            cout << "collision coin 3 " << m_x << ";" << m_y << " " << vitesse.y() << endl;
+            double xb = tan()
+            double alpha = asin((m_y-0.04)/m_r)*180/PI;
             vitesse.modifierY(2*(90-asin((m_y-0.04)/m_r)*180/PI)+180-vitesse.y());
             cout << asin((m_y-0.04)/m_r)*180/PI << " " << acos((m_x-1.1865)/m_r)*180/PI << endl;
-            cout << "collision coin 3 " << m_x << ";" << m_y << " " << vitesse.y() << endl;
+            m_x = cos(alpha*PI/180) * 2*abs(-tan(90*PI/180-asin((m_y-0.04)/m_r))*m_x - m_y + 0.04+sin(alpha*PI/180)*m_r-(-tan(90*PI/180-asin((m_y-0.04)/m_r))))/sqrt(-tan(90*PI/180-asin((m_y-0.04)/m_r))*(-tan(90*PI/180-asin((m_y-0.04)/m_r)) + 1)) + m_x;
+            m_y = sin(alpha*PI/180) * 2*abs(-tan(90*PI/180-asin((m_y-0.04)/m_r))*m_x - m_y + 0.04+sin(alpha*PI/180)*m_r-(-tan(90*PI/180-asin((m_y-0.04)/m_r))))/sqrt(-tan(90*PI/180-asin((m_y-0.04)/m_r))*(-tan(90*PI/180-asin((m_y-0.04)/m_r)) + 1)) + m_y;
+            cout << m_x << endl;
         }
 
 
