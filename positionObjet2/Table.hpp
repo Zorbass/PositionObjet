@@ -28,6 +28,10 @@ public:
     void afficher();
     void casse();
     bool faute();
+    void reset();
+    void choixGroupe();
+    void numeroBouleEmpochee();
+
 
 
 
@@ -42,7 +46,10 @@ private:
     int boulesempochee=0;
 
     int joueur=0;
+    int autrejoueur;
 
+    bool groupeChoisi = false;
+    bool blancheempochee =false;
     double m_t;
 
     double m_f=0;//f retient le temps passé depuis le dernier rafraîchissment
@@ -55,6 +62,8 @@ private:
     Player players[2];
 
     vector <int> boulebandes;
+
+    vector <int> bouleEmpochee;
 
 };
 

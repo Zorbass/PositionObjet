@@ -54,6 +54,12 @@ bool Boule::empochee()
 }
 
 
+string Boule::typeBoule()
+{
+    return m_type;
+}
+
+
 //retourne la position de la bille en x
 double Boule::positionX()
 {
@@ -84,6 +90,15 @@ double Boule::angle()
 void Boule::changerVitesse(double x, double y)
 {
     vitesse.modifier(x, y);
+}
+void Boule::replacementblanche()
+{
+    double positionx;
+    double positiony;
+    cin>>positionx;
+    m_x=positionx;
+    cin>>positiony;
+    m_y=positiony;
 }
 
 void Boule::deplacemelent(double f)
@@ -126,6 +141,8 @@ void Boule::empochage()
         vitesse.modifierX(0);
         cout << "la boule " << m_numero << " est empochee." << endl;
         m_empochee = true;
+
+
 
     }
 }

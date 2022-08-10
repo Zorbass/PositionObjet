@@ -20,6 +20,10 @@ class Boule
 
     bool empochee();
 
+    void replacementblanche();
+
+    string typeBoule();
+
     double positionX(); //ok
 
     double positionY(); //ok
@@ -54,6 +58,7 @@ class Boule
     double m_d; //deplacement de la resultante
     Vecteur vitesse;
     bool m_empochee = false;
+    bool m_dejaempochee =false;
     bool boulebande = false;
 
 
