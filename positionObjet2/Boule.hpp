@@ -20,9 +20,13 @@ class Boule
 
     bool empochee();
 
+    bool bouledejaempochee();
+
     void replacementblanche();
 
     string typeBoule();
+
+    string collbouletype();
 
     double positionX(); //ok
 
@@ -60,6 +64,7 @@ class Boule
     bool m_empochee = false;
     bool m_dejaempochee =false;
     bool boulebande = false;
+    string colltypeboule ="aucun";
 
 
 };

@@ -51,3 +51,4 @@ string Player::choix()
 {
     return m_typeBoule;
 }
+

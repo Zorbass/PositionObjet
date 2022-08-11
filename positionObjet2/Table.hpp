@@ -50,6 +50,7 @@ private:
 
     bool groupeChoisi = false;
     bool blancheempochee =false;
+    bool cassereussi = false;
     double m_t;
 
     double m_f=0;//f retient le temps passé depuis le dernier rafraîchissment

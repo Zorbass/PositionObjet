@@ -52,6 +52,18 @@ bool Boule::empochee()
 {
     return m_empochee;
 }
+bool Boule::bouledejaempochee()
+{
+
+    return m_dejaempochee;
+    m_dejaempochee=m_empochee;
+}
+
+string Boule::collbouletype()
+{
+    return colltypeboule;
+    colltypeboule = "aucun";
+}
 
 
 string Boule::typeBoule()
@@ -141,9 +153,6 @@ void Boule::empochage()
         vitesse.modifierX(0);
         cout << "la boule " << m_numero << " est empochee." << endl;
         m_empochee = true;
-
-
-
     }
 }
 
@@ -152,6 +161,10 @@ void Boule::collBoule(Boule& cible)
     //si la distance entre les 2 boules est <= à 2 * le rayon d'une boule et que la vitesse de la boule != 0 il y a collision
     if(sqrt((m_x-cible.m_x) * (m_x-cible.m_x) + (m_y-cible.m_y)*(m_y-cible.m_y))<= 2*m_r and vitesse.x() > 0)
         {
+            if (colltypeboule =="aucun")//on assigne le type de la boule a la varibale pour regarder quel type la balnche choque en premier
+            {
+                colltypeboule = cible.m_type;
+            }
             //informations tests
             cout << "BOULES " << m_numero << " : " << m_x << " ; " << m_y << endl;
             cout << "collision " << cible.m_numero << endl;
@@ -452,11 +465,11 @@ void Boule::collBoule(Boule& cible)
                 cible.vitesse.modifierY(90);
             }
 
+            this->deplacemelent(t);
 
 
 
-
-            if(cible.m_x-m_x < 2*m_r and cible.m_x-m_x > 0)
+            /*if(cible.m_x-m_x < 2*m_r and cible.m_x-m_x > 0)
             {
                 m_x = cible.m_x - 2*m_r - 0.00001;
             }
@@ -476,7 +489,7 @@ void Boule::collBoule(Boule& cible)
                 m_y = cible.m_y + 2*m_r + 0.00001;
             }
 
-            cout << cible.vitesse << " " << vitesse << endl;
+            cout << cible.vitesse << " " << vitesse << endl;*/
 
             //ces if ne sont pas correctes
 
