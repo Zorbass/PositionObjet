@@ -607,11 +607,11 @@ void Boule::collTable()
             vitesse.modifierY(2*(90-asin((yb2-0.04)/m_r)*180/PI)+180-vitesse.y());
             double alpha = asin((yb2-0.04)/m_r)*180/PI;
             cout << asin((yb2-0.04)/m_r)*180/PI << " " << acos((xb2-1.1865)/m_r)*180/PI << endl;
-            m_x = cos(alpha*PI/180) * 2*abs(-tan(90*PI/180-asin((yb2-0.04)/m_r))*m_x - m_y + 0.04+sin(alpha*PI/180)*m_r-(-tan(90*PI/180-asin((yb2-0.04)/m_r))))/sqrt(-tan(90*PI/180-asin((yb2-0.04)/m_r))*(-tan(90*PI/180-asin((yb2-0.04)/m_r)) + 1)) + m_x;
-            m_y = sin(alpha*PI/180) * 2*abs(-tan(90*PI/180-asin((yb2-0.04)/m_r))*m_x - m_y + 0.04+sin(alpha*PI/180)*m_r-(-tan(90*PI/180-asin((yb2-0.04)/m_r))))/sqrt(-tan(90*PI/180-asin((yb2-0.04)/m_r))*(-tan(90*PI/180-asin((yb2-0.04)/m_r)) + 1)) + m_y;
+            double x = m_x;
+            m_x = cos(alpha*PI/180) * 2*abs(-tan(90*PI/180-asin((yb2-0.04)/m_r))*m_x - m_y + 0.04+sin(alpha*PI/180)*m_r-(-tan(90*PI/180-asin((yb2-0.04)/m_r))))/sqrt(-tan(90*PI/180-asin((yb2-0.04)/m_r))*(-tan(90*PI/180-asin((yb2-0.04)/m_r))) + 1) + m_x;
             cout << m_x << endl;
-            cout << 2*abs(-tan(90*PI/180-asin((yb2-0.04)/m_r))*m_x - m_y + 0.04+sin(alpha*PI/180)*m_r-(-tan(90*PI/180-asin((yb2-0.04)/m_r)))) << endl;
-            cout << sqrt(-tan(90*PI/180-asin((yb2-0.04)/m_r))*(-tan(90*PI/180-asin((yb2-0.04)/m_r))) + 1) << endl;
+            m_y = sin(alpha*PI/180) * 2*abs(-tan(90*PI/180-asin((yb2-0.04)/m_r))*x - m_y + 0.04+sin(alpha*PI/180)*m_r-(-tan(90*PI/180-asin((yb2-0.04)/m_r))))/sqrt(-tan(90*PI/180-asin((yb2-0.04)/m_r))*(-tan(90*PI/180-asin((yb2-0.04)/m_r))) + 1) + m_y;
+            cout << m_y << endl;
         }
 
         //on modifie l'angle de la vitess de la boule
