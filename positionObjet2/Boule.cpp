@@ -594,16 +594,25 @@ void Boule::collTable()
 
         else if(m_x < 1.1865+m_r/sqrt(2) and m_x > 1.1865 and m_r >= sqrt((m_x-1.1865)*(m_x-1.1865)+(m_y-0.04)*(m_y-0.04)))
         {
+            double gamma = -(vitesse.y()-90)*PI/180;
+            double a = tan(gamma)*tan(gamma) + 1;
+            double b = 2*tan(gamma)*(m_y-(tan(gamma)*m_x)-0.04)-2*1.1865;
+            double c = (m_y-(tan(gamma)*m_x)-0.04)*(m_y-(tan(gamma)*m_x)-0.04) - m_r*m_r + 1.1865*1.1865;
             cout << "collision coin 3 " << m_x << ";" << m_y << " " << vitesse.y() << endl;
-        //    double xb = tan()
-            double alpha = asin((m_y-0.04)/m_r)*180/PI;
-            vitesse.modifierY(2*(90-asin((m_y-0.04)/m_r)*180/PI)+180-vitesse.y());
-            cout << asin((m_y-0.04)/m_r)*180/PI << " " << acos((m_x-1.1865)/m_r)*180/PI << endl;
-            m_x = cos(alpha*PI/180) * 2*abs(-tan(90*PI/180-asin((m_y-0.04)/m_r))*m_x - m_y + 0.04+sin(alpha*PI/180)*m_r-(-tan(90*PI/180-asin((m_y-0.04)/m_r))))/sqrt(-tan(90*PI/180-asin((m_y-0.04)/m_r))*(-tan(90*PI/180-asin((m_y-0.04)/m_r)) + 1)) + m_x;
-            m_y = sin(alpha*PI/180) * 2*abs(-tan(90*PI/180-asin((m_y-0.04)/m_r))*m_x - m_y + 0.04+sin(alpha*PI/180)*m_r-(-tan(90*PI/180-asin((m_y-0.04)/m_r))))/sqrt(-tan(90*PI/180-asin((m_y-0.04)/m_r))*(-tan(90*PI/180-asin((m_y-0.04)/m_r)) + 1)) + m_y;
+            double xb1 = (-b + sqrt(b*b - 4*a*c))/(2*a);
+            double xb2 = (-b - sqrt(b*b - 4*a*c))/(2*a);
+            double yb1 = tan(gamma)*xb1 + m_y -(tan(gamma)*m_x);
+            double yb2 = tan(gamma)*xb2 + m_y -(tan(gamma)*m_x);
+            cout << xb1 << ";" << yb1 << " "<< xb2 << ";" << yb2 << endl;
+            vitesse.modifierY(2*(90-asin((yb2-0.04)/m_r)*180/PI)+180-vitesse.y());
+            double alpha = asin((yb2-0.04)/m_r)*180/PI;
+            cout << asin((yb2-0.04)/m_r)*180/PI << " " << acos((xb2-1.1865)/m_r)*180/PI << endl;
+            m_x = cos(alpha*PI/180) * 2*abs(-tan(90*PI/180-asin((yb2-0.04)/m_r))*m_x - m_y + 0.04+sin(alpha*PI/180)*m_r-(-tan(90*PI/180-asin((yb2-0.04)/m_r))))/sqrt(-tan(90*PI/180-asin((yb2-0.04)/m_r))*(-tan(90*PI/180-asin((yb2-0.04)/m_r)) + 1)) + m_x;
+            m_y = sin(alpha*PI/180) * 2*abs(-tan(90*PI/180-asin((yb2-0.04)/m_r))*m_x - m_y + 0.04+sin(alpha*PI/180)*m_r-(-tan(90*PI/180-asin((yb2-0.04)/m_r))))/sqrt(-tan(90*PI/180-asin((yb2-0.04)/m_r))*(-tan(90*PI/180-asin((yb2-0.04)/m_r)) + 1)) + m_y;
             cout << m_x << endl;
+            cout << abs(-tan(90*PI/180-asin((yb2-0.04)/m_r))*m_x - m_y + 0.04+sin(alpha*PI/180)*m_r-(-tan(90*PI/180-asin((yb2-0.04)/m_r)))) << endl;
+            cout << sqrt(-tan(90*PI/180-asin((yb2-0.04)/m_r))*(-tan(90*PI/180-asin((yb2-0.04)/m_r))) + 1) << endl;
         }
-
 
         //on modifie l'angle de la vitess de la boule
         //on replace la boule en fonction de la bande qu'elle choque
