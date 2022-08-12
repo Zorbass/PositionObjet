@@ -663,7 +663,7 @@ void Boule::collTable()
         }
 
         else if(m_x < 1.1865+m_r/sqrt(2) and m_x > 1.1865 and m_r >= sqrt((m_x-1.1865)*(m_x-1.1865)+(m_y-0.04)*(m_y-0.04)))
-        {//3b ok
+        {//3b a revoir
             double x0 = 1.1865;
             double y0 = 0.04;
             double gamma = -(vitesse.y()-90)*PI/180; //sens de la vitesse par rapport au cercle trigonométrique
@@ -677,7 +677,7 @@ void Boule::collTable()
             double yb2 = tan(gamma)*xb2 + m_y -(tan(gamma)*m_x);
             cout << xb1 << ";" << yb1 << " "<< xb2 << ";" << yb2 << endl;
             double yb=0, xb=0; //position parfaite de la boule lors de la collision
-            if(xb1 > x0+m_r/sqrt(2) and xb1 < x0+m_r and m_r <= sqrt((xb1-x0)*(xb1-x0)+(yb1-y0)*(yb1-y0))+0.000001 and m_r >= sqrt((xb1-x0)*(xb1-x0)+(yb1-y0)*(yb1-y0))-0.000001)
+            if(xb1 > x0 and xb1 < x0+m_r/sqrt(2) and m_r <= sqrt((xb1-x0)*(xb1-x0)+(yb1-y0)*(yb1-y0))+0.00001 and m_r >= sqrt((xb1-x0)*(xb1-x0)+(yb1-y0)*(yb1-y0))-0.00001)
             {
                 xb = xb1;
                 yb = yb1;
