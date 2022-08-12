@@ -22,6 +22,7 @@ public:
 
     void regle();
     void innitialisation();
+    void replacementBoules();
     void mecanique();
     void test();
     void jouer();
@@ -31,6 +32,7 @@ public:
     void reset();
     void choixGroupe();
     void numeroBouleEmpochee();
+    void boulesempochees();
 
 
 

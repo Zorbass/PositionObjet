@@ -22,6 +22,8 @@ class Boule
 
     bool bouledejaempochee();
 
+    bool boulesempochees();
+
     void replacementblanche();
 
     string typeBoule();

@@ -52,11 +52,16 @@ bool Boule::empochee()
 {
     return m_empochee;
 }
+
 bool Boule::bouledejaempochee()
 {
 
     return m_dejaempochee;
     m_dejaempochee=m_empochee;
+}
+bool Boule::boulesempochees()
+{
+    return m_dejaempochee;
 }
 
 string Boule::collbouletype()
@@ -105,12 +110,23 @@ void Boule::changerVitesse(double x, double y)
 }
 void Boule::replacementblanche()
 {
-    double positionx;
-    double positiony;
-    cin>>positionx;
+    double positionx =0;
+    double positiony=0;
+    cout<<"vous devez replacez la blanche derriere la ligne"<<endl;
+    while(positionx<0.0287 or positionx>0.635)
+    {
+        cout<<"position x (doit etre entre 0.0287 et 0.635"<<endl;
+        cin>>positionx;
+    }
     m_x=positionx;
-    cin>>positiony;
+    while(positiony<0.0287 or positionx>1.2413)
+    {
+        cout<<"position y (doit etre entre 0.0287 et 1.2413"<<endl;
+        cin>>positiony;
+    }
     m_y=positiony;
+    m_empochee =false;
+    cout<<positionx<<" "<<positiony<<endl;
 }
 
 void Boule::deplacemelent(double f)
