@@ -608,9 +608,9 @@ void Boule::collTable()
             double alpha = asin((yb2-0.04)/m_r)*180/PI;
             cout << asin((yb2-0.04)/m_r)*180/PI << " " << acos((xb2-1.1865)/m_r)*180/PI << endl;
             double x = m_x;
-            m_x = cos(alpha*PI/180) * 2*abs(-tan(90*PI/180-asin((yb2-0.04)/m_r))*m_x - m_y + 0.04+sin(alpha*PI/180)*m_r-(-tan(90*PI/180-asin((yb2-0.04)/m_r))))/sqrt(-tan(90*PI/180-asin((yb2-0.04)/m_r))*(-tan(90*PI/180-asin((yb2-0.04)/m_r))) + 1) + m_x;
+            m_x = cos(alpha*PI/180) * 2*abs(-tan(90*PI/180-asin((yb2-0.04)/m_r))*x - m_y + yb2+tan(90*PI/180-asin((yb2-0.04)/m_r))*xb2)/sqrt(-tan(90*PI/180-asin((yb2-0.04)/m_r))*(-tan(90*PI/180-asin((yb2-0.04)/m_r))) + 1) + m_x;
             cout << m_x << endl;
-            m_y = sin(alpha*PI/180) * 2*abs(-tan(90*PI/180-asin((yb2-0.04)/m_r))*x - m_y + 0.04+sin(alpha*PI/180)*m_r-(-tan(90*PI/180-asin((yb2-0.04)/m_r))))/sqrt(-tan(90*PI/180-asin((yb2-0.04)/m_r))*(-tan(90*PI/180-asin((yb2-0.04)/m_r))) + 1) + m_y;
+            m_y = sin(alpha*PI/180) * 2*abs(-tan(90*PI/180-asin((yb2-0.04)/m_r))*x - m_y + yb2+tan(90*PI/180-asin((yb2-0.04)/m_r))*xb2)/sqrt(-tan(90*PI/180-asin((yb2-0.04)/m_r))*(-tan(90*PI/180-asin((yb2-0.04)/m_r))) + 1) + m_y;
             cout << m_y << endl;
         }
 
