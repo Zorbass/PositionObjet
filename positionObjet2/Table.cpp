@@ -54,7 +54,7 @@ void Table::innitialisation()
     boules[12] = Boule("13", "rayee",0.79,1);
     boules[13] = Boule("14", "rayee",0.85,1);
     boules[14] = Boule("15", "rayee",0.91,1);
-    boules[15] = Boule("16", "blanche",1.25131,0.62331);
+    boules[15] = Boule("16", "blanche",1.1865,1.03);
 
 /*
     boules[0] = Boule("1", "pleine",1.905,0.5778-0.0001);
