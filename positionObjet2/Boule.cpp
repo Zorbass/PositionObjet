@@ -677,7 +677,7 @@ void Boule::collTable()
             double yb2 = tan(gamma)*xb2 + m_y -(tan(gamma)*m_x);
             cout << xb1 << ";" << yb1 << " "<< xb2 << ";" << yb2 << endl;
             double yb=0, xb=0; //position parfaite de la boule lors de la collision
-            if(xb1 > x0 and xb1 < x0+m_r/sqrt(2) and m_r <= sqrt((xb1-x0)*(xb1-x0)+(yb1-y0)*(yb1-y0))+0.00001 and m_r >= sqrt((xb1-x0)*(xb1-x0)+(yb1-y0)*(yb1-y0))-0.00001)
+            if(xb1 > x0 and xb1 < x0+m_r/sqrt(2) and m_r <= sqrt((xb1-x0)*(xb1-x0)+(yb1-y0)*(yb1-y0))+0.00001 and m_r >= sqrt((xb1-x0)*(xb1-x0)+(yb1-y0)*(yb1-y0))-0.00001 and yb1 > y0+m_r/sqrt(2))
             {
                 xb = xb1;
                 yb = yb1;
@@ -688,7 +688,8 @@ void Boule::collTable()
                 yb = yb2;
             }
             cout << xb << ";" << yb << endl;
-            vitesse.modifierY(2*(90-asin((yb-y0)/m_r)*180/PI)+180-vitesse.y());
+            cout << asin((yb-y0)/m_r)*180/PI << " " << acos((xb-x0)/m_r)*180/PI << endl;
+            vitesse.modifierY(2*(90-asin((yb-y0)/m_r)*180/PI)-vitesse.y());
             double alpha = asin((yb-y0)/m_r)*180/PI;
             //cout << asin((yb-y0)/m_r)*180/PI << " " << acos((xb-x0)/m_r)*180/PI << endl;
             double x = m_x;
@@ -712,7 +713,7 @@ void Boule::collTable()
             double yb2 = tan(gamma)*xb2 + m_y -(tan(gamma)*m_x);
             cout << xb1 << ";" << yb1 << " "<< xb2 << ";" << yb2 << endl;
             double yb=0, xb=0; //position parfaite de la boule lors de la collision
-            if(xb1 > x0+m_r/sqrt(2) and xb1 < x0+m_r and m_r <= sqrt((xb1-x0)*(xb1-x0)+(yb1-y0)*(yb1-y0))+0.000001 and m_r >= sqrt((xb1-x0)*(xb1-x0)+(yb1-y0)*(yb1-y0))-0.000001)
+            if(xb1 > x0-m_r/sqrt(2) and xb1 < x0 and m_r <= sqrt((xb1-x0)*(xb1-x0)+(yb1-y0)*(yb1-y0))+0.000001 and m_r >= sqrt((xb1-x0)*(xb1-x0)+(yb1-y0)*(yb1-y0))-0.000001)
             {
                 xb = xb1;
                 yb = yb1;
@@ -723,9 +724,9 @@ void Boule::collTable()
                 yb = yb2;
             }
             cout << xb << ";" << yb << endl;
-            vitesse.modifierY(2*(90-asin((yb-y0)/m_r)*180/PI)+180-vitesse.y());
+            vitesse.modifierY(2*(90-acos((xb-x0)/m_r)*180/PI)-vitesse.y());
             double alpha = asin((yb-y0)/m_r)*180/PI;
-            //cout << asin((yb-y0)/m_r)*180/PI << " " << acos((xb-x0)/m_r)*180/PI << endl;
+            cout << asin((yb-y0)/m_r)*180/PI << " " << acos((xb-x0)/m_r)*180/PI << endl;
             double x = m_x;
             m_x = -(cos(alpha*PI/180) * 2*abs(-tan(90*PI/180-asin((yb-y0)/m_r))*x - m_y + yb+tan(90*PI/180-asin((yb-y0)/m_r))*xb2)/sqrt(-tan(90*PI/180-asin((yb-y0)/m_r))*(-tan(90*PI/180-asin((yb-y0)/m_r))) + 1)) + m_x;
             m_y = sin(alpha*PI/180) * 2*abs(-tan(90*PI/180-asin((yb-y0)/m_r))*x - m_y + yb+tan(90*PI/180-asin((yb-y0)/m_r))*xb2)/sqrt(-tan(90*PI/180-asin((yb-y0)/m_r))*(-tan(90*PI/180-asin((yb-y0)/m_r))) + 1) + m_y;
