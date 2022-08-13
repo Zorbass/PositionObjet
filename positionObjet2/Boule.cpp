@@ -901,7 +901,7 @@ void Boule::collTable()
             cout << xb << ";" << yb << endl;
             vitesse.modifierY(-2*(acos((y0-yb)/m_r)*180/PI)+180-vitesse.y());
             double alpha = asin((y0-yb)/m_r)*180/PI;
-            cout << acos((y0-yb)/m_r)*180/PI << " " << acos((xb-x0)/m_r)*180/PI << endl;
+            cout << acos((y0-yb)/m_r)*180/PI << " " << 90*PI/180-asin((yb-y0)/m_r) << endl;
             double x = m_x;
             m_x = cos(alpha*PI/180) * 2*abs(-tan(90*PI/180-asin((yb-y0)/m_r))*x - m_y + yb+tan(90*PI/180-asin((yb-y0)/m_r))*xb2)/sqrt(-tan(90*PI/180-asin((yb-y0)/m_r))*(-tan(90*PI/180-asin((yb-y0)/m_r))) + 1) + m_x;
             m_y = -(sin(alpha*PI/180) * 2*abs(-tan(90*PI/180-asin((yb-y0)/m_r))*x - m_y + yb+tan(90*PI/180-asin((yb-y0)/m_r))*xb2)/sqrt(-tan(90*PI/180-asin((yb-y0)/m_r))*(-tan(90*PI/180-asin((yb-y0)/m_r))) + 1)) + m_y;
