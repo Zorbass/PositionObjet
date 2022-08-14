@@ -3,6 +3,7 @@
 #include "Boule.hpp"
 #include "Vecteur.hpp"
 #include "Table.hpp"
+#include "Player.hpp"
 #include <vector>
 
 using namespace std;

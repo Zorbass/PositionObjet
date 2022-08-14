@@ -71,7 +71,7 @@ void Table::innitialisation()
     boules[15] = Boule("16", "blanche",2.2 ,1.0535);//2.2,1.0535*/
 
 
-    boules[0] = Boule("1", "pleine",1.905,0.5778-0.0001);
+    boules[0] = Boule("1", "pleine",0.7,0.7);//1.905,0.5778-0.0001);
     boules[1] = Boule("2", "pleine",2.004073306+0.0002,0.6922+0.0001);
     boules[2] = Boule("3", "pleine",1.954536653+0.0001,0.6064-0.0001);
     boules[3] = Boule("4", "pleine",2.004073306+0.0002,0.5778-0.0001);
@@ -85,7 +85,7 @@ void Table::innitialisation()
     boules[11] = Boule("12", "rayee",1.85546337-0.0001,0.6064-0.0001);
     boules[13] = Boule("14", "rayee",1.954536653+0.0001,0.5492-0.0002);
     boules[14] = Boule("15", "rayee",1.905,0.6922+0.0001);
-    boules[15] = Boule("16", "blanche",0.635,0.635);
+    boules[15] = Boule("16", "blanche",0.5,0.5);//0.635,0.635);
 
 /*
   boules[0] = Boule("1", "pleine",6-0.020223254,3.020223254);
@@ -343,15 +343,15 @@ void Table::choixGroupe()
             }
             if(p>r)
             {
-                cout<<"joueur" <<players[joueur].nomjoueur()<<"a les pleines"<<endl;
-                players[joueur].choisir("pleines");
+                cout<<"joueur" <<players[joueur].nomjoueur()<<"a les pleine"<<endl;
+                players[joueur].choisir("pleine");
                 players[autrejoueur].choisir("rayee");
             }
             else if(r>p)
             {
                 cout<<"joueur a les rayees"<<endl;
                 players[joueur].choisir("rayee");
-                players[autrejoueur].choisir("pleines");
+                players[autrejoueur].choisir("pleine");
             }
             else // dans le cas ou un nombre de rayee empochee est egale au nombre de pleines
             {
@@ -362,7 +362,7 @@ void Table::choixGroupe()
                 cout<<"votre choix est : "<<players[joueur].choix()<<endl;
                 if(typeboule=="rayee")
                 {
-                    players[autrejoueur].choisir("pleines");
+                    players[autrejoueur].choisir("pleine");
                 }
                 else
                 {
@@ -436,7 +436,7 @@ void Table::jouer()
     }
     //fin de partie maintenant regarder si on a gagne ou perdu
 
-    if(players[joueur].choix()== "rayee")
+    if(players[joueur].choix()== "pleine")
     {
         if(boules[0].empochee()==true and boules[1].empochee()==true and boules[2].empochee()==true and boules[3].empochee()==true and boules[4].empochee()==true and boules[5].empochee()==true and boules[6].empochee()==true)
         {
