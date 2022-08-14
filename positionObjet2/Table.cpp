@@ -343,7 +343,7 @@ void Table::choixGroupe()
             }
             if(p>r)
             {
-                cout<<"joueur" <<players[joueur].nomjoueur()<<"a les pleine"<<endl;
+                cout<<"joueur " <<players[joueur].nomjoueur()<<" a les pleine"<<endl;
                 players[joueur].choisir("pleine");
                 players[autrejoueur].choisir("rayee");
             }
