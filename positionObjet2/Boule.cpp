@@ -651,7 +651,7 @@ void Boule::collTable()
 
         //collisions avec les petites bandes
         if(m_y+m_r/sqrt(2)<0.0835 and m_y+m_r/sqrt(2) >= 0.0435 + (m_x-m_r/sqrt(2) - 0))
-        {//1
+        {//1 ok
             vitesse.modifierY(90 - vitesse.y());
             cout << "collision bord 1 Boule " << m_numero << " " << m_x << ";" << m_y << endl;
             x = m_x;
@@ -661,7 +661,7 @@ void Boule::collTable()
         }
 
         else if(m_x+m_r/sqrt(2) < 0.0835 and m_y-m_r/sqrt(2) <= 0.04 - (0.0835 - (m_x+m_r/sqrt(2))))
-        {//2
+        {//2 ok
             vitesse.modifierY(90 - vitesse.y());
             cout << "collision bord 2 Boule " << m_numero << " " << m_x << ";" << m_y << endl;
             x = m_x;
@@ -671,11 +671,11 @@ void Boule::collTable()
         }
 
         else if(m_x-m_r/sqrt(2)<1.2265 and m_x-m_r/sqrt(2) >= 1.1865 and m_y-m_r/sqrt(2) <= 0.04 - (m_x-m_r/sqrt(2) - 1.1865))
-        {//3
+        {//3 ok
             vitesse.modifierY(270 - vitesse.y());
             cout << "collision bord 3 Boule " << m_numero << " " << m_x << ";" << m_y << endl;
             x = m_x;
-            m_x = 1.1865+m_r/sqrt(2) + 0.04 + m_r/sqrt(2) - m_y;
+            m_x = 1.1865+m_r/sqrt(2) + 0.04+m_r/sqrt(2) - m_y;
             m_y = 0.04+m_r/sqrt(2) - (x - (1.1865+m_r/sqrt(2)));
             cout << m_x << ";" << m_y << endl;
         }
