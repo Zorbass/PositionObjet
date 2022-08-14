@@ -181,6 +181,10 @@ void Table::mecanique()
                 if(z != i)
                 {
                     boules[i].collBoule(boules[z]);
+                    if(boules[i].collisionBoule()==true)
+                    {
+                        typeBoule.push_back(boules[i].typeBoule());
+                    }
 
                 }
                 z++;
@@ -230,6 +234,7 @@ void Table::casse()
     this->reset();
     boules[15].shoot();
     this->mecanique();
+    this->boulesempochees();
     sort( boulebandes.begin(), boulebandes.end() );
     boulebandes.erase( unique( boulebandes.begin(), boulebandes.end() ), boulebandes.end() );//enlever les duplicates
 
@@ -285,7 +290,7 @@ bool Table::faute()
         cout<<"aucune boule n'a touche de raille ou a ete empoche. Faute."<<endl;
         fautes = true;
     }
-    else if(groupeChoisi==true and players[joueur].choix()!=boules[0].collbouletype())
+    else if(groupeChoisi==true and players[joueur].choix()!=typeBoule[0])
     {
         fautes = true;
         cout<<"mauvaise collision"<<endl;
@@ -298,6 +303,10 @@ void Table::reset()
     for(int i=0;i<boulebandes.size();i++)
     {
         boulebandes.pop_back();
+    }
+    for(int i=0;i<typeBoule.size();i++)
+    {
+        typeBoule.pop_back();
     }
     boulesempochee=0;
     blancheempochee=false;

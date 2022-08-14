@@ -47,6 +47,7 @@ private:
     int boulbande;
     int boulesempochee=0;
 
+
     int joueur=0;
     int autrejoueur;
 
@@ -67,6 +68,8 @@ private:
     vector <int> boulebandes;
 
     vector <int> bouleEmpochee;
+
+    vector <string> typeBoule;
 
 };
 

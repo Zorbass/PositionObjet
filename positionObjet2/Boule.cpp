@@ -64,10 +64,9 @@ bool Boule::boulesempochees()
     return m_dejaempochee;
 }
 
-string Boule::collbouletype()
+bool Boule::collisionBoule()
 {
-    return colltypeboule;
-    colltypeboule = "aucun";
+    return collboule;
 }
 
 
@@ -179,12 +178,11 @@ void Boule::empochage()
 void Boule::collBoule(Boule& cible)
 {
     //si la distance entre les 2 boules est <= à 2 * le rayon d'une boule et que la vitesse de la boule != 0 il y a collision
+
     if(sqrt((m_x-cible.m_x) * (m_x-cible.m_x) + (m_y-cible.m_y)*(m_y-cible.m_y))<= 2*m_r and vitesse.x() > 0)
         {
-            if (colltypeboule =="aucun")//on assigne le type de la boule a la varibale pour regarder quel type la balnche choque en premier
-            {
-                colltypeboule = cible.m_type;
-            }
+             collboule=true;
+
             //informations tests
             cout << "BOULES " << m_numero << " : " << m_x << " ; " << m_y << endl;
             cout << "collision " << cible.m_numero << endl;
