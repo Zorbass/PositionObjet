@@ -28,7 +28,7 @@ using namespace std;
 #define R_TROU 0.0435
 
 //constructeur basique
-Boule::Boule() : m_numero("0"), m_type("rayee"), m_x(0), m_y(0), vitesse(0, 0), acceleration(2.943, 0)
+Boule::Boule() : m_numero("0"), m_type("rayee"), m_x(0), m_y(0), vitesse(0, 0), acceleration(0, 0)
 {
 }
 
@@ -138,6 +138,7 @@ void Boule::deplacemelent(double f)
 
     if(vitesse.x()>0)
     {
+        acceleration.modifierX(2.943);
         m_d = vitesse.x()*f/1000 /*- acceleration.x()*0.5*f*f/1000000*/;
         vitesse.modifierX(vitesse.x() - acceleration.x()*f/1000); //est-ce juste??
 
@@ -151,10 +152,12 @@ void Boule::deplacemelent(double f)
         {
             vitesse.modifierY(vitesse.y() + 360);
         }
+
     }
 
     else
     {
+        acceleration.modifierX(0);
         vitesse.modifierX(0);
     }
 
@@ -198,38 +201,52 @@ void Boule::collBoule(Boule& cible)
 
 
 
-            double m_sin= sin(vitesse.y()*PI/180);//sin et cos de l'angle
-            double m_cos= cos(vitesse.y()*PI/180);
+            double coefficient1;
+            double coefficient2;
+            coefficient1=1/(1+cible.vitesse.x()/vitesse.x());
+            coefficient2= cible.vitesse.x()/vitesse.x()/(cible.vitesse.x()+vitesse.x());
+            cout<<"coefficients "<<coefficient1<<" "<<coefficient2<<endl;
 
+            double m_sin= coefficient1*sin(vitesse.y()*PI/180);//sin et cos de l'angle
+            double m_cos= coefficient1*cos(vitesse.y()*PI/180);
+            double m_sin2= coefficient2*sin(cible.vitesse.y()*PI/180);//sin et cos de l'angle
+            double m_cos2= coefficient2*cos(cible.vitesse.y()*PI/180);
+
+            double a= pow(m_sin+m_sin2,2)+pow(m_cos+m_cos,2);
+            double b= 2*(-m_x+cible.m_x)*(m_sin+m_sin2) + 2*(-m_y+cible.m_y)*(m_cos+m_cos2);
+            double c= pow(m_x,2)+pow(cible.m_x,2)+pow(m_y,2)+pow(cible.m_y,2)-2*m_x*cible.m_x+-2*m_y*cible.m_y -4*pow(m_r,2);
+            discriminant = pow(b,2)-4*a*c;
+
+            d1= (-b+sqrt(discriminant))/(2*a);
+            cout<<d1<<endl;
 
             //distance de la collision
-            discriminant= pow(-2*cible.m_x*m_sin+2*m_x*m_sin+2*m_y*m_cos-2*cible.m_y*m_cos,2)-4*((pow(m_x,2)+pow(cible.m_x,2)+pow(m_y,2)+pow(cible.m_y,2)-4*(m_r*m_r)-2*(m_x*cible.m_x)-2*(m_y*cible.m_y)));
+            //discriminant= pow(-2*cible.m_x*m_sin+2*m_x*m_sin+2*m_y*m_cos-2*cible.m_y*m_cos,2)-4*((pow(m_x,2)+pow(cible.m_x,2)+pow(m_y,2)+pow(cible.m_y,2)-4*(m_r*m_r)-2*(m_x*cible.m_x)-2*(m_y*cible.m_y)));
 
-            d1 = (-(-2*cible.m_x*m_sin+2*m_x*m_sin+2*m_y*m_cos-2*cible.m_y*m_cos)-sqrt(discriminant))/2;
+            //d1 = (-(-2*cible.m_x*m_sin+2*m_x*m_sin+2*m_y*m_cos-2*cible.m_y*m_cos)-sqrt(discriminant))/2;
 
             double px;//position correct que la boule a lors de la collision
             double py;
+            double px2;
+            double py2;
 
-            cout<<d1<<endl;
 
             //if(deltaX * deltaY < 0)
             //{
             if(deltaX > 0 and deltaY < 0)
             {
-
                 px=m_x-d1*m_sin;
+                px2=cible.m_x+d1*m_sin;
                 py=m_y+d1*m_cos;
-
-
-
+                py2=cible.m_y-d1*m_cos;
             }
 
             else if(deltaX < 0 and deltaY > 0)
             {
-
                 px=m_x+d1*m_sin;
+                px2=cible.m_x-d1*m_sin;
                 py=m_y-d1*m_cos;
-
+                py2=cible.m_y+d1*m_cos;
             }
             //}
 
@@ -237,16 +254,18 @@ void Boule::collBoule(Boule& cible)
             //{
             else if(deltaX > 0 and deltaY > 0)
             {
-
                 px=m_x-d1*m_sin;
+                px2=cible.m_x+d1*m_sin;
                 py=m_y-d1*m_cos;
+                py2=cible.m_y+d1*m_cos;
             }
 
             else if(deltaX < 0 and deltaY < 0)
             {
-
                 px=m_x+d1*m_sin;
+                px2=cible.m_x-d1*m_sin;
                 py=m_y+d1*m_cos;
+                py2=cible.m_y-d1*m_cos;
             }
             //}
 
@@ -257,25 +276,26 @@ void Boule::collBoule(Boule& cible)
 
             else if(deltaY < 0)
             {
-
                 py=m_y+d1*m_cos;
+                py2=cible.m_y-d1*m_cos;
             }
 
             else if(deltaY > 0)
             {
-
                 px=m_x-d1*m_sin;
+                px2=cible.m_x+d1*m_sin;
             }
 
             else if(deltaX < 0)
             {
-
                 px=m_x+d1*m_sin;
+                px2=cible.m_x-d1*m_sin;
             }
 
             else if(deltaX > 0)
             {
-                py=m_y+d1*m_cos;
+                py=m_y-d1*m_cos;
+                py2=cible.m_y+d1*m_cos;
             }
 
             cout << phi << endl;
@@ -287,15 +307,19 @@ void Boule::collBoule(Boule& cible)
             t=sqrt(dc);//*table.temps();
             */
             cout<<d1<<endl;
-            double t =(-vitesse.x()+sqrt(pow(vitesse.x(),2)-4*0.5*acceleration.x()*d1))/acceleration.x();
+            double t =(-vitesse.x()+sqrt(pow(vitesse.x(),2)-2*acceleration.x()*-d1/coefficient1))/acceleration.x();//le temps pour lequel la boule a trop avance.
             cout<< "t :"<<t<<endl;
 
 
-            m_x=px;
+            m_x=px;//modifie la position
             m_y=py;
-            cout<<vitesse.x()<<endl;
-            vitesse.modifierX(-(d1/t-0.5*acceleration.x()*t));
-            cout<<vitesse.x()<<endl;
+            cible.m_x=px2;
+            cible.m_y=py2;
+
+
+            vitesse.modifierX(-(d1/coefficient1/t-0.5*acceleration.x()*t));//modifie la vitesse
+            cible.vitesse.modifierX(-(d1/coefficient2/t-0.5*acceleration.x()*t));
+
 
             deltaX= cible.m_x-m_x;  //distance sur l'axe x entre le centre des 2 boules
             deltaY = cible.m_y-m_y;  //distance sur l'axe y entre le centre des 2 boules
@@ -304,15 +328,11 @@ void Boule::collBoule(Boule& cible)
             {
                 phi = 90 + abs(atan(deltaY / deltaX)) * 180 / PI; //en degres
 
-
-
-
             }
 
             else if(deltaX < 0 and deltaY > 0)
             {
                 phi = 270 + abs(atan(deltaY / deltaX)) * 180 / PI; //en degres
-
 
             }
             //}
@@ -322,7 +342,6 @@ void Boule::collBoule(Boule& cible)
             else if(deltaX > 0 and deltaY > 0)
             {
                 phi = abs(atan(deltaX / deltaY)) * 180 / PI; //en degres
-
             }
 
             else if(deltaX < 0 and deltaY < 0)
@@ -340,25 +359,21 @@ void Boule::collBoule(Boule& cible)
             else if(deltaY < 0)
             {
                 phi = 180;
-
             }
 
             else if(deltaY > 0)
             {
                 phi = 0;
-
             }
 
             else if(deltaX < 0)
             {
                 phi = 270;
-
             }
 
             else if(deltaX > 0)
             {
                 phi = 90;
-
             }
 
             //faire varier les angles
@@ -481,7 +496,7 @@ void Boule::collBoule(Boule& cible)
                 cible.vitesse.modifierY(90);
             }
 
-            this->deplacemelent(t);
+            this->deplacemelent(t);//deplace les boules
 
 
 
