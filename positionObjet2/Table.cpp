@@ -127,7 +127,6 @@ void Table::replacementBoules()
 
 //execute les formules de cinétique et collision pour toutes les boules à chaque rafraîchissement
 void Table::mecanique()
-
 {
 
 
@@ -373,8 +372,6 @@ void Table::choixGroupe()
         }
     }
 }
-
-
 
 
 void Table::numeroBouleEmpochee()
