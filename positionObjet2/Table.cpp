@@ -127,7 +127,6 @@ void Table::replacementBoules()
 
 //execute les formules de cinétique et collision pour toutes les boules à chaque rafraîchissement
 void Table::mecanique()
-
 {
 
 
@@ -332,7 +331,7 @@ void Table::choixGroupe()
             int r=0; //les rayees
             for(int i=0;i<bouleEmpochee.size();i++)
             {
-                if(boules[i].typeBoule()=="rayee")
+                if(boules[bouleEmpochee[i]].typeBoule()=="rayee")
                 {
                     r++;
                 }
@@ -343,7 +342,7 @@ void Table::choixGroupe()
             }
             if(p>r)
             {
-                cout<<"joueur" <<players[joueur].nomjoueur()<<"a les pleine"<<endl;
+                cout<<"joueur " <<players[joueur].nomjoueur()<<" a les pleine"<<endl;
                 players[joueur].choisir("pleine");
                 players[autrejoueur].choisir("rayee");
             }
@@ -373,8 +372,6 @@ void Table::choixGroupe()
         }
     }
 }
-
-
 
 
 void Table::numeroBouleEmpochee()
