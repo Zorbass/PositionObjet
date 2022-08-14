@@ -649,10 +649,11 @@ void Boule::collTable()
 
         double x;
 
+        //collisions avec les petites bandes
         if(m_y+m_r/sqrt(2)<0.0835 and m_y+m_r/sqrt(2) >= 0.0435 + (m_x-m_r/sqrt(2) - 0))
         {//1
             vitesse.modifierY(90 - vitesse.y());
-            cout << "collision bord 1 " << m_x << ";" << m_y << endl;
+            cout << "collision bord 1 Boule " << m_numero << " " << m_x << ";" << m_y << endl;
             x = m_x;
             m_x = 0.04+m_r/sqrt(2) - (0.0835-m_r/sqrt(2)) + m_y;
             m_y = 0.0835-m_r/sqrt(2) - (0.04+m_r/sqrt(2) - x);
@@ -662,7 +663,7 @@ void Boule::collTable()
         else if(m_x+m_r/sqrt(2) < 0.0835 and m_y-m_r/sqrt(2) <= 0.04 - (0.0835 - (m_x+m_r/sqrt(2))))
         {//2
             vitesse.modifierY(90 - vitesse.y());
-            cout << "collision bord 2 " << m_x << ";" << m_y << endl;
+            cout << "collision bord 2 Boule " << m_numero << " " << m_x << ";" << m_y << endl;
             x = m_x;
             m_x = 0.0835-m_r/sqrt(2) - (0.04+m_r/sqrt(2)) + m_y;
             m_y = 0.04+m_r/sqrt(2) - (0.0835-m_r/sqrt(2) - x);
@@ -672,7 +673,7 @@ void Boule::collTable()
         else if(m_x-m_r/sqrt(2)<1.2265 and m_x-m_r/sqrt(2) >= 1.1865 and m_y-m_r/sqrt(2) <= 0.04 - (m_x-m_r/sqrt(2) - 1.1865))
         {//3
             vitesse.modifierY(270 - vitesse.y());
-            cout << "collision bord 3 " << m_x << ";" << m_y << endl;
+            cout << "collision bord 3 Boule " << m_numero << " " << m_x << ";" << m_y << endl;
             x = m_x;
             m_x = 1.1865+m_r/sqrt(2) + 0.04 + m_r/sqrt(2) - m_y;
             m_y = 0.04+m_r/sqrt(2) - (x - (1.1865+m_r/sqrt(2)));
@@ -682,7 +683,7 @@ void Boule::collTable()
         else if(m_x+m_r/sqrt(2) > 1.3135 and m_x+m_r/sqrt(2) < 1.3535 and m_y-m_r/sqrt(2) <= 0.04 - (1.3535 - (m_x+m_r/sqrt(2))))
         {//4
             vitesse.modifierY(90 - vitesse.y());
-            cout << "collision bord 4 " << m_x << ";" << m_y << endl;
+            cout << "collision bord 4 Boule " << m_numero << " " << m_x << ";" << m_y << endl;
             x = m_x;
             m_x = 1.3535-m_r/sqrt(2) - (0.04+m_r/sqrt(2)) + m_y;
             m_y = 0.04+m_r/sqrt(2) - (1.3535-m_r/sqrt(2) - x);
@@ -692,7 +693,7 @@ void Boule::collTable()
         else if(m_x-m_r/sqrt(2)<2.4965 and m_x-m_r/sqrt(2)>2.4565 and m_y-m_r/sqrt(2) <= 0.04 - (m_x-m_r/sqrt(2) - 2.4565))
         {//5
             vitesse.modifierY(270 - vitesse.y());
-            cout << "collision bord 5 " << m_x << ";" << m_y << endl;
+            cout << "collision bord 5 Boule " << m_numero << " " << m_x << ";" << m_y << endl;
             x = m_x;
             m_x = 2.4565+m_r/sqrt(2) + 0.04 + m_r/sqrt(2) - m_y;
             m_y = 0.04+m_r/sqrt(2) - (x - (2.4565+m_r/sqrt(2)));
@@ -702,7 +703,7 @@ void Boule::collTable()
         else if(m_y+m_r/sqrt(2)<0.0835 and m_y+m_r/sqrt(2) >= 0.0435 + (2.54 - (m_x+m_r/sqrt(2))))
         {//6
             vitesse.modifierY(270 - vitesse.y());
-            cout << "collision bord 6 " << m_x << ";" << m_y << endl;
+            cout << "collision bord 6 Boule " << m_numero << " " << m_x << ";" << m_y << endl;
             x = m_x;
             m_x = 2.5-m_r/sqrt(2) + 0.0835-m_r/sqrt(2) - m_y;
             m_y = 0.0835-m_r/sqrt(2) - (x - (2.5-m_r/sqrt(2)));
@@ -712,7 +713,7 @@ void Boule::collTable()
         else if(m_y-m_r/sqrt(2)>1.27-0.0835 and m_y-m_r/sqrt(2) <= 1.27 - 0.0435 - (m_x-m_r/sqrt(2) - 0))
         {//7
             vitesse.modifierY(270 - vitesse.y());
-            cout << "collision bord 7 " << m_x << ";" << m_y << endl;
+            cout << "collision bord 7 Boule " << m_numero << " " << m_x << ";" << m_y << endl;
             x = m_x;
             m_x = 0+m_r/sqrt(2) + 1.2265+m_r/sqrt(2) - m_y;
             m_y = 1.2265+m_r/sqrt(2) - (x - (0+m_r/sqrt(2)));
@@ -722,7 +723,7 @@ void Boule::collTable()
         else if(m_x+m_r/sqrt(2)<0.0835 and m_x+m_r/sqrt(2)>0.0435 and m_y+m_r/sqrt(2) >= 1.27 - 0.04 + (0.0835 - (m_x+m_r/sqrt(2))))
         {//8
             vitesse.modifierY(270 - vitesse.y());
-            cout << "collision bord 8 " << m_x << ";" << m_y << endl;
+            cout << "collision bord 8 Boule " << m_numero << " " << m_x << ";" << m_y << endl;
             x = m_x;
             m_x = 0.0435-m_r/sqrt(2) + 1.27-m_r/sqrt(2) - m_y;
             m_y = 1.27-m_r/sqrt(2) - (x - (0.0435-m_r/sqrt(2)));
@@ -731,7 +732,7 @@ void Boule::collTable()
         else if(m_x-m_r/sqrt(2)<1.2265 and m_x-m_r/sqrt(2)>1.1865 and m_y+m_r/sqrt(2) >= 1.27 - 0.04 + (m_x-m_r/sqrt(2) - 1.1865))
         {//9
             vitesse.modifierY(90 - vitesse.y());
-            cout << "collision bord 9 " << m_x << ";" << m_y << endl;
+            cout << "collision bord 9 Boule " << m_numero << " " << m_x << ";" << m_y << endl;
             x = m_x;
             m_x = 1.2265+m_r/sqrt(2) - (1.27-m_r/sqrt(2)) + m_y;
             m_y = 1.27-m_r/sqrt(2) - (1.2265+m_r/sqrt(2) - x);
@@ -740,7 +741,7 @@ void Boule::collTable()
         else if(m_x+m_r/sqrt(2)<1.3535 and m_x+m_r/sqrt(2)>1.3135 and m_y+m_r/sqrt(2) >= 1.27 - 0.04 + (1.3535 - (m_x+m_r/sqrt(2))))
         {//10
             vitesse.modifierY(270 - vitesse.y());
-            cout << "collision bord 10 " << m_x << ";" << m_y << endl;
+            cout << "collision bord 10 Boule " << m_numero << " " << m_x << ";" << m_y << endl;
             x = m_x;
             m_x = 1.3135-m_r/sqrt(2) + 1.27-m_r/sqrt(2) - m_y;
             m_y = 1.27-m_r/sqrt(2) - (x - (1.3135-m_r/sqrt(2)));
@@ -749,7 +750,7 @@ void Boule::collTable()
         else if(m_x-m_r/sqrt(2)<2.4965 and m_x-m_r/sqrt(2)>2.4565 and m_y+m_r/sqrt(2) >= 1.27 - 0.04 + (m_x-m_r/sqrt(2) - 2.4565))
         {//11
             vitesse.modifierY(90 - vitesse.y());
-            cout << "collision bord 11 " << m_x << ";" << m_y << endl;
+            cout << "collision bord 11 Boule " << m_numero << " " << m_x << ";" << m_y << endl;
             x = m_x;
             m_x = 2.4965+m_r/sqrt(2) - (1.27-m_r/sqrt(2)) + m_y;
             m_y = 1.27-m_r/sqrt(2) - (2.4965+m_r/sqrt(2) - x);
@@ -758,7 +759,7 @@ void Boule::collTable()
         else if(m_y-m_r/sqrt(2)>1.1865 and m_y-m_r/sqrt(2) <= 1.27 - 0.0435 - (2.54 - (m_x+m_r/sqrt(2))))
         {//12
             vitesse.modifierY(90 - vitesse.y());
-            cout << "collision bord 12 " << m_x << ";" << m_y << endl;
+            cout << "collision bord 12 Boule " << m_numero << " " << m_x << ";" << m_y << endl;
             x = m_x;
             m_x = 2.54-m_r/sqrt(2) - (1.2265+m_r/sqrt(2)) + m_y;
             m_y = 1.2265+m_r/sqrt(2) - (2.54-m_r/sqrt(2) - x);
@@ -795,7 +796,7 @@ void Boule::collTable()
             vitesse.modifierY(-2*(acos((y0-yb)/m_r)*180/PI)+180-vitesse.y());
             double alpha = asin((y0-yb)/m_r)*180/PI;
             //cout << asin((yb-y0)/m_r)*180/PI << " " << acos((xb-x0)/m_r)*180/PI << endl;
-            double x = m_x;
+            x = m_x;
             m_x = cos(alpha*PI/180) * 2*abs((xb-x0)/(y0-yb)*x - m_y + yb-(xb-x0)/(y0-yb)*xb)/sqrt(((xb-x0)/(y0-yb))*((xb-x0)/(y0-yb)) + 1) + m_x;
             m_y = -(sin(alpha*PI/180)) * 2*abs((xb-x0)/(y0-yb)*x - m_y + yb-(xb-x0)/(y0-yb)*xb)/sqrt(((xb-x0)/(y0-yb))*((xb-x0)/(y0-yb)) + 1) + m_y;
             cout << m_x << ";" << m_y << " ; " << vitesse.y() << endl;
@@ -830,7 +831,7 @@ void Boule::collTable()
             vitesse.modifierY(-2*(acos((yb-y0)/m_r)*180/PI)+180-vitesse.y());
             double alpha = asin((yb-y0)/m_r)*180/PI;
             //cout << asin((yb-y0)/m_r)*180/PI << " " << acos((xb-x0)/m_r)*180/PI << endl;
-            double x = m_x;
+            x = m_x;
             m_x = -(cos(alpha*PI/180)) * 2*abs((x0-xb)/(yb-y0)*x - m_y + yb-(x0-xb)/(yb-y0)*xb)/sqrt(((x0-xb)/(yb-y0))*((x0-xb)/(yb-y0)) + 1) + m_x;
             m_y = sin(alpha*PI/180) * 2*abs((x0-xb)/(yb-y0)*x - m_y + yb-(x0-xb)/(yb-y0)*xb)/sqrt(((x0-xb)/(yb-y0))*((x0-xb)/(yb-y0)) + 1) + m_y;
             cout << m_x << ";" << m_y << " ; " << vitesse.y() << endl;
@@ -866,7 +867,7 @@ void Boule::collTable()
             vitesse.modifierY(2*(acos((yb-y0)/m_r)*180/PI)+180-vitesse.y());
             double alpha = asin((yb-y0)/m_r)*180/PI;
             //cout << asin((yb-y0)/m_r)*180/PI << " " << acos((xb-x0)/m_r)*180/PI << endl;
-            double x = m_x;
+            x = m_x;
             m_x = cos(alpha*PI/180) * 2*abs((x0-xb)/(yb-y0)*x - m_y + yb-(x0-xb)/(yb-y0)*xb)/sqrt(((x0-xb)/(yb-y0))*((x0-xb)/(yb-y0)) + 1) + m_x;
             m_y = sin(alpha*PI/180) * 2*abs((x0-xb)/(yb-y0)*x - m_y + yb-(x0-xb)/(yb-y0)*xb)/sqrt(((x0-xb)/(yb-y0))*((x0-xb)/(yb-y0)) + 1) + m_y;
             cout << m_x << ";" << m_y << " ; " << vitesse.y() << endl;
@@ -901,7 +902,7 @@ void Boule::collTable()
             vitesse.modifierY(-2*(acos((yb-y0)/m_r)*180/PI)+180-vitesse.y());
             double alpha = asin((yb-y0)/m_r)*180/PI;
             cout << asin((yb-y0)/m_r)*180/PI << " " << acos((xb-x0)/m_r)*180/PI << endl;
-            double x = m_x;
+            x = m_x;
             m_x = -(cos(alpha*PI/180)) * 2*abs((x0-xb)/(yb-y0)*x - m_y + yb-(x0-xb)/(yb-y0)*xb)/sqrt(((x0-xb)/(yb-y0))*((x0-xb)/(yb-y0)) + 1) + m_x;
             m_y = sin(alpha*PI/180) * 2*abs((x0-xb)/(yb-y0)*x - m_y + yb-(x0-xb)/(yb-y0)*xb)/sqrt(((x0-xb)/(yb-y0))*((x0-xb)/(yb-y0)) + 1) + m_y;
             cout << m_x << ";" << m_y << " ; " << vitesse.y() << endl;
@@ -936,7 +937,7 @@ void Boule::collTable()
             vitesse.modifierY(2*(acos((yb-y0)/m_r)*180/PI)+180-vitesse.y());
             double alpha = asin((yb-y0)/m_r)*180/PI;
             //cout << asin((yb-y0)/m_r)*180/PI << " " << acos((xb-x0)/m_r)*180/PI << endl;
-            double x = m_x;
+            x = m_x;
             m_x = cos(alpha*PI/180) * 2*abs((x0-xb)/(yb-y0)*x - m_y + yb-(x0-xb)/(yb-y0)*xb)/sqrt(((x0-xb)/(yb-y0))*((x0-xb)/(yb-y0)) + 1) + m_x;
             m_y = sin(alpha*PI/180) * 2*abs((x0-xb)/(yb-y0)*x - m_y + yb-(x0-xb)/(yb-y0)*xb)/sqrt(((x0-xb)/(yb-y0))*((x0-xb)/(yb-y0)) + 1) + m_y;
             cout << m_x << ";" << m_y << " ; " << vitesse.y() << endl;
@@ -971,7 +972,7 @@ void Boule::collTable()
             vitesse.modifierY(2*(acos((y0-yb)/m_r)*180/PI)+180-vitesse.y());
             double alpha = asin((y0-yb)/m_r)*180/PI;
             //cout << asin((yb-y0)/m_r)*180/PI << " " << acos((xb-x0)/m_r)*180/PI << endl;
-            double x = m_x;
+            x = m_x;
             m_x = -(cos(alpha*PI/180)) * 2*abs((xb-x0)/(y0-yb)*x - m_y + yb-(xb-x0)/(y0-yb)*xb)/sqrt(((xb-x0)/(y0-yb))*((xb-x0)/(y0-yb)) + 1) + m_x;
             m_y = -(sin(alpha*PI/180)) * 2*abs((xb-x0)/(y0-yb)*x - m_y + yb-(xb-x0)/(y0-yb)*xb)/sqrt(((xb-x0)/(y0-yb))*((xb-x0)/(y0-yb)) + 1) + m_y;
             cout << m_x << ";" << m_y << " ; " << vitesse.y() << endl;
@@ -1006,7 +1007,7 @@ void Boule::collTable()
             vitesse.modifierY(2*(acos((yb-y0)/m_r)*180/PI)+180-vitesse.y());
             double alpha = asin((yb-y0)/m_r)*180/PI;
             //cout << asin((yb-y0)/m_r)*180/PI << " " << acos((xb-x0)/m_r)*180/PI << endl;
-            double x = m_x;
+            x = m_x;
             m_x = cos(alpha*PI/180) * 2*abs((x0-xb)/(yb-y0)*x - m_y + yb-(x0-xb)/(yb-y0)*xb)/sqrt(((x0-xb)/(yb-y0))*((x0-xb)/(yb-y0)) + 1) + m_x;
             m_y = sin(alpha*PI/180) * 2*abs((x0-xb)/(yb-y0)*x - m_y + yb-(x0-xb)/(yb-y0)*xb)/sqrt(((x0-xb)/(yb-y0))*((x0-xb)/(yb-y0)) + 1) + m_y;
             cout << m_x << ";" << m_y << " ; " << vitesse.y() << endl;
@@ -1041,7 +1042,7 @@ void Boule::collTable()
             vitesse.modifierY(2*(acos((y0-yb)/m_r)*180/PI)+180-vitesse.y());
             double alpha = asin((y0-yb)/m_r)*180/PI;
             //cout << asin((yb-y0)/m_r)*180/PI << " " << acos((xb-x0)/m_r)*180/PI << endl;
-            double x = m_x;
+            x = m_x;
             m_x = -(cos(alpha*PI/180)) * 2*abs((xb-x0)/(y0-yb)*x - m_y + yb-(xb-x0)/(y0-yb)*xb)/sqrt(((xb-x0)/(y0-yb))*((xb-x0)/(y0-yb)) + 1) + m_x;
             m_y = -(sin(alpha*PI/180)) * 2*abs((xb-x0)/(y0-yb)*x - m_y + yb-(xb-x0)/(y0-yb)*xb)/sqrt(((xb-x0)/(y0-yb))*((xb-x0)/(y0-yb)) + 1) + m_y;
             cout << m_x << ";" << m_y << " ; " << vitesse.y() << endl;
@@ -1076,7 +1077,7 @@ void Boule::collTable()
             vitesse.modifierY(-2*(acos((y0-yb)/m_r)*180/PI)+180-vitesse.y());
             double alpha = asin((y0-yb)/m_r);
             cout << alpha*180/PI << " " << 90-tan((xb-x0)/(y0-yb))*180/PI << endl;
-            double x = m_x;
+            x = m_x;
             m_x = cos(alpha) * 2*abs((xb-x0)/(y0-yb)*x - m_y + yb-(xb-x0)/(y0-yb)*xb)/sqrt(((xb-x0)/(y0-yb))*((xb-x0)/(y0-yb)) + 1) + m_x;
             m_y = -(sin(alpha)) * 2*abs((xb-x0)/(y0-yb)*x - m_y + yb-(xb-x0)/(y0-yb)*xb)/sqrt(((xb-x0)/(y0-yb))*((xb-x0)/(y0-yb)) + 1) + m_y;
             cout << m_x << ";" << m_y << " ; " << vitesse.y() << endl;
@@ -1112,7 +1113,7 @@ void Boule::collTable()
             vitesse.modifierY(2*(acos((y0-yb)/m_r)*180/PI)+180-vitesse.y());
             double alpha = asin((y0-yb)/m_r)*180/PI;
             //cout << asin((yb-y0)/m_r)*180/PI << " " << acos((xb-x0)/m_r)*180/PI << endl;
-            double x = m_x;
+            x = m_x;
             m_x = -(cos(alpha*PI/180)) * 2*abs((xb-x0)/(y0-yb)*x - m_y + yb-(xb-x0)/(y0-yb)*xb)/sqrt(((xb-x0)/(y0-yb))*((xb-x0)/(y0-yb)) + 1) + m_x;
             m_y = -(sin(alpha*PI/180)) * 2*abs((xb-x0)/(y0-yb)*x - m_y + yb-(xb-x0)/(y0-yb)*xb)/sqrt(((xb-x0)/(y0-yb))*((xb-x0)/(y0-yb)) + 1) + m_y;
             cout << m_x << ";" << m_y << " ; " << vitesse.y() << endl;
@@ -1147,7 +1148,7 @@ void Boule::collTable()
             vitesse.modifierY(-2*(acos((y0-yb)/m_r)*180/PI)+180-vitesse.y());
             double alpha = asin((y0-yb)/m_r)*180/PI;
             //cout << asin((yb-y0)/m_r)*180/PI << " " << acos((xb-x0)/m_r)*180/PI << endl;
-            double x = m_x;
+            x = m_x;
             m_x = cos(alpha*PI/180) * 2*abs((xb-x0)/(y0-yb)*x - m_y + yb-(xb-x0)/(y0-yb)*xb)/sqrt(((xb-x0)/(y0-yb))*((xb-x0)/(y0-yb)) + 1) + m_x;
             m_y = -(sin(alpha*PI/180)) * 2*abs((xb-x0)/(y0-yb)*x - m_y + yb-(xb-x0)/(y0-yb)*xb)/sqrt(((xb-x0)/(y0-yb))*((xb-x0)/(y0-yb)) + 1) + m_y;
             cout << m_x << ";" << m_y << " ; " << vitesse.y() << endl;
@@ -1182,7 +1183,7 @@ void Boule::collTable()
             vitesse.modifierY(-2*(acos((yb-y0)/m_r)*180/PI)+180-vitesse.y());
             double alpha = asin((yb-y0)/m_r)*180/PI;
             //cout << asin((yb-y0)/m_r)*180/PI << " " << acos((xb-x0)/m_r)*180/PI << endl;
-            double x = m_x;
+            x = m_x;
             m_x = -(cos(alpha*PI/180)) * 2*abs((x0-xb)/(yb-y0)*x - m_y + yb-(x0-xb)/(yb-y0)*xb)/sqrt(((x0-xb)/(yb-y0))*((x0-xb)/(yb-y0)) + 1) + m_x;
             m_y = sin(alpha*PI/180) * 2*abs((x0-xb)/(yb-y0)*x - m_y + yb-(x0-xb)/(yb-y0)*xb)/sqrt(((x0-xb)/(yb-y0))*((x0-xb)/(yb-y0)) + 1) + m_y;
             cout << m_x << ";" << m_y << " ; " << vitesse.y() << endl;
