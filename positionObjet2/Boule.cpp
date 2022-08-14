@@ -317,8 +317,8 @@ void Boule::collBoule(Boule& cible)
             cible.m_y=py2;
 
 
-            vitesse.modifierX(-(d1/coefficient1/t-0.5*acceleration.x()*t));//modifie la vitesse
-            cible.vitesse.modifierX(-(d1/coefficient2/t-0.5*acceleration.x()*t));
+            vitesse.modifierX(vitesse.x()+t*0.5*acceleration.x());
+            cible.vitesse.modifierX(cible.vitesse.x()+t*0.5*acceleration.x());
 
 
             deltaX= cible.m_x-m_x;  //distance sur l'axe x entre le centre des 2 boules
