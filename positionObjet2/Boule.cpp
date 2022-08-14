@@ -147,6 +147,7 @@ void Boule::deplacemelent(double f)
         if(vitesse.x()<0)
         {
             vitesse.modifierX(0);
+            acceleration.modifierX(0);
         }
         if(vitesse.y()<0)
         {
