@@ -331,7 +331,7 @@ void Table::choixGroupe()
             int r=0; //les rayees
             for(int i=0;i<bouleEmpochee.size();i++)
             {
-                if(boules[i].typeBoule()=="rayee")
+                if(boules[bouleEmpochee[i]].typeBoule()=="rayee")
                 {
                     r++;
                 }
