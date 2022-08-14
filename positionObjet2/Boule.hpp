@@ -16,6 +16,20 @@ class Boule
 
     void afficher();  //ok
 
+    bool boulband();
+
+    bool empochee();
+
+    bool bouledejaempochee();
+
+    bool boulesempochees();
+
+    void replacementblanche();
+
+    string typeBoule();
+
+    string collbouletype();
+
     double positionX(); //ok
 
     double positionY(); //ok
@@ -23,6 +37,8 @@ class Boule
     double intensiteeV();
 
     double intensiteeA();
+
+    double angle();
 
     void changerVitesse(double x, double y); //ok
 
@@ -48,6 +64,10 @@ class Boule
     double m_d; //deplacement de la resultante
     Vecteur vitesse;
     bool m_empochee = false;
+    bool m_dejaempochee =false;
+    bool boulebande = false;
+    string colltypeboule ="aucun";
+
 
 };
 

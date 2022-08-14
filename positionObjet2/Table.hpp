@@ -22,10 +22,19 @@ public:
 
     void regle();
     void innitialisation();
+    void replacementBoules();
     void mecanique();
     void test();
     void jouer();
     void afficher();
+    void casse();
+    bool faute();
+    void reset();
+    void choixGroupe();
+    void numeroBouleEmpochee();
+    void boulesempochees();
+
+
 
 
 private:
@@ -34,13 +43,30 @@ private:
     double m_x;
     double m_y;
 
+    bool fautes= false;
+    int boulbande;
+    int boulesempochee=0;
+
+    int joueur=0;
+    int autrejoueur;
+
+    bool groupeChoisi = false;
+    bool blancheempochee =false;
+    bool cassereussi = false;
     double m_t;
+
+    double m_f=0;//f retient le temps passé depuis le dernier rafraîchissment
+    double m_u=0;//temps du frame d'avant
 
     int nombreDeBoules=16;
 
+
     Boule *boules = new Boule[16];
-    Player player1;
-    Player player2;
+    Player players[2];
+
+    vector <int> boulebandes;
+
+    vector <int> bouleEmpochee;
 
 };
 
