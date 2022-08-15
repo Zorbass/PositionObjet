@@ -301,10 +301,12 @@ bool Table::faute()
 
 void Table::reset()
 {
-    for(int i=0;i<boulebandes.size();i++)
+    int i=0;
+    while(i<boulebandes.size())
     {
         boulebandes.pop_back();
     }
+
     for(int i=0;i<typeBoule.size();i++)
     {
         typeBoule.pop_back();
