@@ -28,7 +28,7 @@ using namespace std;
 #define R_TROU 0.0435
 
 //constructeur basique
-Boule::Boule() : m_numero("0"), m_type("rayee"), m_x(0), m_y(0), vitesse(0, 0), acceleration(0, 0)
+Boule::Boule() : m_numero("0"), m_type("rayee"), m_x(20), m_y(0), vitesse(0, 0), acceleration(0, 0)
 {
 }
 
