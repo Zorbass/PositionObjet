@@ -32,7 +32,6 @@ public:
     void reset();
     void choixGroupe();
     void numeroBouleEmpochee();
-    void boulesempochees();
 
 
 

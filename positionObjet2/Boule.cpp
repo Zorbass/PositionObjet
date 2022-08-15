@@ -57,7 +57,11 @@ bool Boule::bouledejaempochee()
 {
 
     return m_dejaempochee;
-    m_dejaempochee=m_empochee;
+    if(m_dejaempochee==false and m_empochee==true)
+    {
+        m_dejaempochee=true;
+    }
+
 }
 bool Boule::boulesempochees()
 {
@@ -137,7 +141,6 @@ void Boule::deplacemelent(double f)
 
     if(vitesse.x()>0)
     {
-        acceleration.modifierX(2.943);
         m_d = vitesse.x()*f/1000 /*- acceleration.x()*0.5*f*f/1000000*/;
         vitesse.modifierX(vitesse.x() - acceleration.x()*f/1000); //est-ce juste??
 
@@ -185,6 +188,7 @@ void Boule::collBoule(Boule& cible)
 
             //informations tests
             cout << "BOULES " << m_numero << " : " << m_x << " ; " << m_y << endl;
+            cout<<"acc "<<acceleration.x()<<"vitesse "<<vitesse.x()<<endl;
             cout << "collision " << cible.m_numero << endl;
 
             //on calcule phi, l'angle entre le centre des 2 boules lors de la collision
@@ -193,17 +197,14 @@ void Boule::collBoule(Boule& cible)
             double deltaY = cible.m_y-m_y;  //distance sur l'axe y entre le centre des 2 boules
 
             double phi;
+
             double discriminant;
-
-
             double d1;
-
-
 
             double coefficient1;
             double coefficient2;
             coefficient1=1/(1+cible.vitesse.x()/vitesse.x());
-            coefficient2= cible.vitesse.x()/vitesse.x()/(cible.vitesse.x()+vitesse.x());
+            coefficient2= cible.vitesse.x()/vitesse.x()/(1+cible.vitesse.x()/vitesse.x());
             cout<<"coefficients "<<coefficient1<<" "<<coefficient2<<endl;
 
             double m_sin= coefficient1*sin(vitesse.y()*PI/180);//sin et cos de l'angle
@@ -211,41 +212,36 @@ void Boule::collBoule(Boule& cible)
             double m_sin2= coefficient2*sin(cible.vitesse.y()*PI/180);//sin et cos de l'angle
             double m_cos2= coefficient2*cos(cible.vitesse.y()*PI/180);
 
-            double a= pow(m_sin+m_sin2,2)+pow(m_cos+m_cos,2);
+            double a= pow(m_sin+m_sin2,2)+pow(m_cos+m_cos2,2);
             double b= 2*(-m_x+cible.m_x)*(m_sin+m_sin2) + 2*(-m_y+cible.m_y)*(m_cos+m_cos2);
             double c= pow(m_x,2)+pow(cible.m_x,2)+pow(m_y,2)+pow(cible.m_y,2)-2*m_x*cible.m_x+-2*m_y*cible.m_y -4*pow(m_r,2);
             discriminant = pow(b,2)-4*a*c;
 
             d1= (-b+sqrt(discriminant))/(2*a);
             cout<<d1<<endl;
+            double t =(-vitesse.x()+sqrt(pow(vitesse.x(),2)-2*acceleration.x()*-d1/coefficient1))/acceleration.x();//le temps pour lequel la boule a trop avance.
+            cout<< "t :"<<t<<endl;
 
-            //distance de la collision
-            //discriminant= pow(-2*cible.m_x*m_sin+2*m_x*m_sin+2*m_y*m_cos-2*cible.m_y*m_cos,2)-4*((pow(m_x,2)+pow(cible.m_x,2)+pow(m_y,2)+pow(cible.m_y,2)-4*(m_r*m_r)-2*(m_x*cible.m_x)-2*(m_y*cible.m_y)));
-
-            //d1 = (-(-2*cible.m_x*m_sin+2*m_x*m_sin+2*m_y*m_cos-2*cible.m_y*m_cos)-sqrt(discriminant))/2;
-
-            double px;//position correct que la boule a lors de la collision
-            double py;
-            double px2;
-            double py2;
+            vitesse.modifierX(vitesse.x()+t*0.5*acceleration.x());
+            cible.vitesse.modifierX(cible.vitesse.x()+t*0.5*acceleration.x());
 
 
             //if(deltaX * deltaY < 0)
             //{
             if(deltaX > 0 and deltaY < 0)
             {
-                px=m_x-d1*m_sin;
-                px2=cible.m_x+d1*m_sin;
-                py=m_y+d1*m_cos;
-                py2=cible.m_y-d1*m_cos;
+                m_x=m_x-d1*m_sin2;
+                cible.m_x=cible.m_x+d1*m_sin2;
+                m_y=m_y+d1*m_cos;
+                cible.m_y=cible.m_y-d1*m_cos2;
             }
 
             else if(deltaX < 0 and deltaY > 0)
             {
-                px=m_x+d1*m_sin;
-                px2=cible.m_x-d1*m_sin;
-                py=m_y-d1*m_cos;
-                py2=cible.m_y+d1*m_cos;
+                m_x=m_x+d1*m_sin;
+                cible.m_x=cible.m_x-d1*m_sin2;
+                m_y=m_y-d1*m_cos;
+                cible.m_y=cible.m_y+d1*m_cos2;
             }
             //}
 
@@ -253,18 +249,18 @@ void Boule::collBoule(Boule& cible)
             //{
             else if(deltaX > 0 and deltaY > 0)
             {
-                px=m_x-d1*m_sin;
-                px2=cible.m_x+d1*m_sin;
-                py=m_y-d1*m_cos;
-                py2=cible.m_y+d1*m_cos;
+                m_x=m_x-d1*m_sin;
+                cible.m_x=cible.m_x+d1*m_sin2;
+                m_y=m_y-d1*m_cos;
+                cible.m_y=cible.m_y+d1*m_cos2;
             }
 
             else if(deltaX < 0 and deltaY < 0)
             {
-                px=m_x+d1*m_sin;
-                px2=cible.m_x-d1*m_sin;
-                py=m_y+d1*m_cos;
-                py2=cible.m_y-d1*m_cos;
+                m_x=m_x+d1*m_sin;
+                cible.m_x=cible.m_x-d1*m_sin2;
+                m_y=m_y+d1*m_cos;
+                cible.m_y=cible.m_y-d1*m_cos2;
             }
             //}
 
@@ -275,29 +271,27 @@ void Boule::collBoule(Boule& cible)
 
             else if(deltaY < 0)
             {
-                py=m_y+d1*m_cos;
-                py2=cible.m_y-d1*m_cos;
+                m_y=m_y+d1*m_cos;
+                cible.m_y=cible.m_y-d1*m_cos2;
             }
 
             else if(deltaY > 0)
             {
-                px=m_x-d1*m_sin;
-                px2=cible.m_x+d1*m_sin;
+                m_x=m_x-d1*m_sin;
+                cible.m_x=cible.m_x+d1*m_sin2;
             }
 
             else if(deltaX < 0)
             {
-                px=m_x+d1*m_sin;
-                px2=cible.m_x-d1*m_sin;
+                m_x=m_x+d1*m_sin;
+                cible.m_x=cible.m_x-d1*m_sin2;
             }
 
             else if(deltaX > 0)
             {
-                py=m_y-d1*m_cos;
-                py2=cible.m_y+d1*m_cos;
+                m_y=m_y-d1*m_cos;
+                cible.m_y=cible.m_y+d1*m_cos2;
             }
-
-            cout << phi << endl;
 
             /*double dc;
             double t; // temps de rectification
@@ -305,19 +299,7 @@ void Boule::collBoule(Boule& cible)
             dc= (px-m_x)/(m_xprime-m_x);
             t=sqrt(dc);//*table.temps();
             */
-            cout<<d1<<endl;
-            double t =(-vitesse.x()+sqrt(pow(vitesse.x(),2)-2*acceleration.x()*-d1/coefficient1))/acceleration.x();//le temps pour lequel la boule a trop avance.
-            cout<< "t :"<<t<<endl;
 
-
-            m_x=px;//modifie la position
-            m_y=py;
-            cible.m_x=px2;
-            cible.m_y=py2;
-
-
-            vitesse.modifierX(vitesse.x()+t*0.5*acceleration.x());
-            cible.vitesse.modifierX(cible.vitesse.x()+t*0.5*acceleration.x());
 
 
             deltaX= cible.m_x-m_x;  //distance sur l'axe x entre le centre des 2 boules
@@ -494,8 +476,9 @@ void Boule::collBoule(Boule& cible)
             {
                 cible.vitesse.modifierY(90);
             }
-
+            cible.acceleration.modifierX(2.943);
             this->deplacemelent(t);//deplace les boules
+            cible.deplacemelent(t);
 
 
 
@@ -1271,5 +1254,6 @@ void Boule::shoot()
     cin >> alpha;
 
     vitesse.modifier(v, alpha);
+    acceleration.modifierX(2.943);
     //cout << vitesse << endl;
 }
