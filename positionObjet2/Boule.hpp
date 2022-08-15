@@ -24,6 +24,8 @@ class Boule
 
     bool boulesempochees();
 
+    void verificationbouledejaempochee();
+
     bool collisionBoule();
 
     void replacementblanche();

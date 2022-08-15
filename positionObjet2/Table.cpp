@@ -71,7 +71,7 @@ void Table::innitialisation()
     boules[15] = Boule("16", "blanche",2.2 ,1.0535);//2.2,1.0535*/
 
 
-    boules[0] = Boule("1", "pleine",0.7,0.7);//1.905,0.5778-0.0001);
+    boules[0] = Boule("1", "pleine",1.905,0.5778-0.0001);
     boules[1] = Boule("2", "pleine",2.004073306+0.0002,0.6922+0.0001);
     boules[2] = Boule("3", "pleine",1.954536653+0.0001,0.6064-0.0001);
     boules[3] = Boule("4", "pleine",2.004073306+0.0002,0.5778-0.0001);
@@ -85,7 +85,7 @@ void Table::innitialisation()
     boules[11] = Boule("12", "rayee",1.85546337-0.0001,0.6064-0.0001);
     boules[13] = Boule("14", "rayee",1.954536653+0.0001,0.5492-0.0002);
     boules[14] = Boule("15", "rayee",1.905,0.6922+0.0001);
-    boules[15] = Boule("16", "blanche",0.5,0.5);//0.635,0.635);
+    boules[15] = Boule("16", "blanche",0.635,0.635);
 
 /*
   boules[0] = Boule("1", "pleine",6-0.020223254,3.020223254);
@@ -382,6 +382,7 @@ void Table::numeroBouleEmpochee()
 {
     for(int i=0;i<nombreDeBoules-1;i++)
     {
+        boules[i].verificationbouledejaempochee();
         if(boules[i].empochee()==true and boules[i].bouledejaempochee()==false) //and boule n'etait pas deja empochee )
         {
             bouleEmpochee.push_back(i);//ajoute numero de boule dans le tableau (pour ensuite determiner combien de raye ou de pleines sont empochees lors de la casse)

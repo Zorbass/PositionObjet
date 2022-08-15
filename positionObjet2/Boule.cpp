@@ -33,7 +33,7 @@ Boule::Boule() : m_numero("0"), m_type("rayee"), m_x(0), m_y(0), vitesse(0, 0), 
 }
 
 //constructeur personalisable
-Boule::Boule(string numero, string type, double x, double y) : m_numero(numero), m_type(type), m_x(x), m_y(y), vitesse(0, 0), acceleration(2.943, 0)
+Boule::Boule(string numero, string type, double x, double y) : m_numero(numero), m_type(type), m_x(x), m_y(y), vitesse(0, 0), acceleration(0, 0)
 {
 }
 
@@ -57,11 +57,13 @@ bool Boule::bouledejaempochee()
 {
 
     return m_dejaempochee;
+}
+void Boule::verificationbouledejaempochee()
+{
     if(m_dejaempochee==false and m_empochee==true)
     {
         m_dejaempochee=true;
     }
-
 }
 bool Boule::boulesempochees()
 {
@@ -171,6 +173,7 @@ void Boule::empochage()
     //changer m_r par le rayon du trou.
     if(sqrt((m_x-TROU_1X) * (m_x-TROU_1X) + (m_y-TROU_1Y)*(m_y-TROU_1Y))<= R_TROU or sqrt((m_x-TROU_2X) * (m_x-TROU_2X) + (m_y-TROU_2Y)*(m_y-TROU_2Y))<= R_TROU or sqrt((m_x-TROU_3X) * (m_x-TROU_3X) + (m_y-TROU_3Y)*(m_y-TROU_3Y))<= R_TROU or sqrt((m_x-TROU_4X) * (m_x-TROU_4X) + (m_y-TROU_4Y)*(m_y-TROU_4Y))<= R_TROU or sqrt((m_x-TROU_5X) * (m_x-TROU_5X) + (m_y-TROU_5Y)*(m_y-TROU_5Y))<= R_TROU or sqrt((m_x-TROU_6X) * (m_x-TROU_6X) + (m_y-TROU_6Y)*(m_y-TROU_6Y))<= R_TROU)
     {
+        cout<<m_x<<" "<<m_y<<endl;
         m_x = 20;
         vitesse.modifierX(0);
         cout << "la boule " << m_numero << " est empochee." << endl;
