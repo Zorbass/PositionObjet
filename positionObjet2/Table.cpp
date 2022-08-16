@@ -70,7 +70,7 @@ void Table::innitialisation()
     boules[14] = Boule("15", "rayee",0.91,1.2);
     boules[15] = Boule("16", "blanche",2.2 ,1.0535);//2.2,1.0535*/
 
-
+/*
     boules[0] = Boule("1", "pleine",1.905,0.5778-0.0001);
     boules[1] = Boule("2", "pleine",2.004073306+0.0002,0.6922+0.0001);
     boules[2] = Boule("3", "pleine",1.954536653+0.0001,0.6064-0.0001);
@@ -86,7 +86,7 @@ void Table::innitialisation()
     boules[13] = Boule("14", "rayee",1.954536653+0.0001,0.5492-0.0002);
     boules[14] = Boule("15", "rayee",1.905,0.6922+0.0001);
     boules[15] = Boule("16", "blanche",0.635,0.635);
-
+*/
 /*
   boules[0] = Boule("1", "pleine",6-0.020223254,3.020223254);
     boules[1] = Boule("2", "pleine",2,1);
