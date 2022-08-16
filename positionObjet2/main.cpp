@@ -3,6 +3,7 @@
 #include "Boule.hpp"
 #include "Vecteur.hpp"
 #include "Table.hpp"
+#include "Player.hpp"
 #include <vector>
 
 using namespace std;
@@ -10,8 +11,6 @@ using namespace std;
 int main()
 {
     Table table("m_b1",11,6);
-
-    table.innitialisation();
 
     table.jouer();
 
