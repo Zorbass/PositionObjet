@@ -384,13 +384,14 @@ void Table::numeroBouleEmpochee()
 {
     for(int i=0;i<nombreDeBoules-1;i++)
     {
-        boules[i].verificationbouledejaempochee();
+
         if(boules[i].empochee()==true and boules[i].bouledejaempochee()==false) //and boule n'etait pas deja empochee )
         {
             bouleEmpochee.push_back(i);//ajoute numero de boule dans le tableau (pour ensuite determiner combien de raye ou de pleines sont empochees lors de la casse)
             cout<<"boule "<<i+1<<" est empochee"<<endl;
             boulesempochee++;
         }
+        boules[i].verificationbouledejaempochee();
     }
 }
 

@@ -107,7 +107,11 @@ double Boule::angle()
     return vitesse.y();
 }
 
-
+//jw crois que on en a plus besoin
+void Boule::changerVitesse(double x, double y)
+{
+    vitesse.modifier(x, y);
+}
 void Boule::replacementblanche()
 {
     double positionx =0;
