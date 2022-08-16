@@ -398,6 +398,7 @@ void Table::numeroBouleEmpochee()
 //permet de jouer en y incluant plusieur méthodes
 void Table::jouer()
 {
+    this->innitialisation();
      //joueur 1 qui commence a shoot
     while(cassereussi==false)
     {

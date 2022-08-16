@@ -2,7 +2,7 @@
 
 #include "Boule.hpp"
 #include "Vecteur.hpp"
-#include <ctime>
+
 #include <cmath>
 
 using namespace std;
@@ -43,6 +43,16 @@ void Boule::afficher()
     cout << "Boule : " << m_numero << " " << m_type << " (Position : " << m_x << ";" << m_y << ")" << endl << "vitesse : " << vitesse << endl;
 
 }
+//retourne la position de la bille en x
+double Boule::positionX()
+{
+    return m_x;
+}
+//retourne la position de la bille en y
+double Boule::positionY()
+{
+    return m_y;
+}
 bool Boule::boulband()
 {
     return boulebande ;
@@ -82,12 +92,6 @@ string Boule::typeBoule()
 }
 
 
-//retourne la position de la bille en x
-double Boule::positionX()
-{
-    return m_x;
-}
-
 double Boule::intensiteeV()
 {
     return vitesse.x();
@@ -98,21 +102,12 @@ double Boule::intensiteeA()
     return acceleration.x();
 }
 
-//retourne la position de la bille en y
-double Boule::positionY()
-{
-    return m_y;
-}
 double Boule::angle()
 {
     return vitesse.y();
 }
 
-//modifie la vitesse de la bille
-void Boule::changerVitesse(double x, double y)
-{
-    vitesse.modifier(x, y);
-}
+
 void Boule::replacementblanche()
 {
     double positionx =0;
