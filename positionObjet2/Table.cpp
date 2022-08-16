@@ -50,7 +50,22 @@ void Table::innitialisation()
     players[1]=Player(nom,"aucaun");
 
 
-
+    boules[0] = Boule("1", "pleine",0.07,1);
+    boules[1] = Boule("2", "pleine",0.13,1);
+    boules[2] = Boule("3", "pleine",0.19,1);
+    boules[3] = Boule("4", "pleine",0.25,1);
+    boules[4] = Boule("5", "pleine",0.31,1);
+    boules[5] = Boule("6", "pleine",0.37,1);
+    boules[6] = Boule("7", "pleine",0.43,1);
+    boules[7] = Boule("8", "noire",0.49,1);
+    boules[8] = Boule("9", "rayee",0.55,1);
+    boules[9] = Boule("10", "rayee",0.61,1);
+    boules[10] = Boule("11", "rayee",0.67,1);
+    boules[11] = Boule("12", "rayee",0.73,1);
+    boules[12] = Boule("13", "rayee",0.79,1);
+    boules[13] = Boule("14", "rayee",0.85,1);
+    boules[14] = Boule("15", "rayee",1.27,0.2);
+    boules[15] = Boule("16", "blanche",1.27,1);
 
 
     /*boules[0] = Boule("1", "pleine",0.07,1.2);//0.07,1.2
