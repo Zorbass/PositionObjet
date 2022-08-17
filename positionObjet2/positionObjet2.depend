@@ -135,14 +135,12 @@
 	<iostream>
 	"Vecteur.hpp"
 
-1660729731 source:c:\users\ivanu\onedrive\documents\github\positionobjet\positionobjet2\table.cpp
+1660731338 source:c:\users\ivanu\onedrive\documents\github\positionobjet\positionobjet2\table.cpp
 	<iostream>
 	"Table.hpp"
 	<ctime>
-	<cmath>
 	<algorithm>
 	"Boule.hpp"
-	"Vecteur.hpp"
 	<vector>
 	"Player.hpp"
 
