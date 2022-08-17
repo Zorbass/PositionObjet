@@ -16,22 +16,6 @@ class Boule
 
     void afficher();  //ok
 
-    bool boulband();
-
-    bool empochee();
-
-    bool bouledejaempochee();
-
-    bool boulesempochees();
-
-    void verificationbouledejaempochee();
-
-    bool collisionBoule();
-
-    void replacementblanche();
-
-    string typeBoule();
-
     double positionX(); //ok
 
     double positionY(); //ok
@@ -41,6 +25,22 @@ class Boule
     double intensiteeA();
 
     double angle();
+
+    string typeBoule();
+
+    bool boulband();
+
+    bool empochee();
+
+    bool bouledejaempochee();
+
+    bool boulesempochees();
+
+    bool collisionBoule();
+
+    void verificationbouledejaempochee();
+
+    void replacementblanche();
 
     void changerVitesse(double x, double y); //ok
 
@@ -65,10 +65,10 @@ class Boule
     double m_r = 0.0286; //rayon de la bille
     double m_d; //deplacement de la resultante
     Vecteur vitesse;
-    bool m_empochee = false;
-    bool m_dejaempochee =false;
-    bool boulebande = false;
-    bool collboule =false;
+    bool m_empochee = false; //si la boule est empochee
+    bool m_dejaempochee =false; //si la boule est dejaempoche
+    bool boulebande = false; //si la boule a touche une bande
+    bool collboule =false; //si la boule a touche une autre boule
 
 
 };

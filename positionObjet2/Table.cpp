@@ -183,7 +183,8 @@ void Table::mecanique()
                     boules[i].collBoule(boules[z]);
                     if(boules[i].collisionBoule()==true)
                     {
-                        typeBoule.push_back(boules[i].typeBoule());
+                        typeBoule.push_back(boules[z].typeBoule());
+
                     }
 
                 }
@@ -195,7 +196,6 @@ void Table::mecanique()
         i = 0;
 
         f = clock() - f;
-
 
 
 

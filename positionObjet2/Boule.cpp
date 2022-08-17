@@ -53,44 +53,6 @@ double Boule::positionY()
 {
     return m_y;
 }
-bool Boule::boulband()
-{
-    return boulebande ;
-}
-
-bool Boule::empochee()
-{
-    return m_empochee;
-}
-
-bool Boule::bouledejaempochee()
-{
-
-    return m_dejaempochee;
-}
-void Boule::verificationbouledejaempochee()
-{
-    if(m_dejaempochee==false and m_empochee==true)
-    {
-        m_dejaempochee=true;
-    }
-}
-bool Boule::boulesempochees()
-{
-    return m_dejaempochee;
-}
-
-bool Boule::collisionBoule()
-{
-    return collboule;
-}
-
-
-string Boule::typeBoule()
-{
-    return m_type;
-}
-
 
 double Boule::intensiteeV()
 {
@@ -107,6 +69,46 @@ double Boule::angle()
     return vitesse.y();
 }
 
+string Boule::typeBoule()
+{
+    return m_type;
+}
+
+bool Boule::boulband()
+{
+    return boulebande ;
+}
+
+bool Boule::empochee()
+{
+    return m_empochee;
+}
+
+bool Boule::boulesempochees()
+{
+    return m_dejaempochee;
+}
+
+bool Boule::bouledejaempochee()
+{
+
+    return m_dejaempochee;
+}
+
+bool Boule::collisionBoule()
+{
+    return collboule;
+}
+
+void Boule::verificationbouledejaempochee()
+{
+    if(m_dejaempochee==false and m_empochee==true)
+    {
+        m_dejaempochee=true;
+    }
+}
+
+
 //jw crois que on en a plus besoin
 void Boule::changerVitesse(double x, double y)
 {
@@ -117,15 +119,15 @@ void Boule::replacementblanche()
     double positionx =0;
     double positiony=0;
     cout<<"vous devez replacez la blanche derriere la ligne"<<endl;
-    while(positionx<0.0287 or positionx>0.635)
+    while(positionx<0.0836 or positionx>0.635)
     {
-        cout<<"position x (doit etre entre 0.0287 et 0.635"<<endl;
+        cout<<"position x (doit etre entre 0.0836 et 0.635"<<endl;
         cin>>positionx;
     }
     m_x=positionx;
-    while(positiony<0.0287 or positionx>1.2413)
+    while(positiony<0.0836 or positionx>1.2413)
     {
-        cout<<"position y (doit etre entre 0.0287 et 1.2413"<<endl;
+        cout<<"position y (doit etre entre 0.0836 et 1.2413"<<endl;
         cin>>positiony;
     }
     m_y=positiony;
@@ -142,6 +144,7 @@ void Boule::deplacemelent(double f)
 
     if(vitesse.x()>0)
     {
+
         m_d = vitesse.x()*f/1000 /*- acceleration.x()*0.5*f*f/1000000*/;
         vitesse.modifierX(vitesse.x() - acceleration.x()*f/1000); //est-ce juste??
 
@@ -190,7 +193,6 @@ void Boule::collBoule(Boule& cible)
 
             //informations tests
             cout << "BOULES " << m_numero << " : " << m_x << " ; " << m_y << endl;
-            cout<<"acc "<<acceleration.x()<<"vitesse "<<vitesse.x()<<endl;
             cout << "collision " << cible.m_numero << endl;
 
             //on calcule phi, l'angle entre le centre des 2 boules lors de la collision
@@ -620,14 +622,19 @@ void Boule::collBoule(Boule& cible)
             cible.changerVitesse(v2, gamma2);
 */
         }
+        else
+        {
+            collboule=false;
+        }
 }
 
 void Boule::collTable()
 {
     if(m_empochee == false)
     {
-        double vy=vitesse.y();
         boulebande=false;
+        double vy=vitesse.y();
+
 
         double x;
 
@@ -1244,6 +1251,10 @@ void Boule::collTable()
         {
             boulebande=true;
         }
+    }
+    else
+    {
+        boulebande = false;
     }
 }
 
