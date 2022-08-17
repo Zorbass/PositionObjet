@@ -25,7 +25,6 @@ public:
     void mecanique();
     void test();
     void jouer();
-    void afficher();
     void casse();
     bool faute();
     void reset();

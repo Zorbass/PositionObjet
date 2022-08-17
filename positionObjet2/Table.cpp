@@ -192,17 +192,6 @@ void Table::mecanique()
 
 }
 
-//affiche l'empplacement, le nom et la vitesse de chaque boule
-void Table::afficher()
-{
-    int i = 0;
-
-    while(i < nombreDeBoules)
-    {
-        boules[i].afficher();
-        i++;
-    }
-}
 
 void Table::casse()
 {
