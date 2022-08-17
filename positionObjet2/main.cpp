@@ -10,7 +10,7 @@ using namespace std;
 
 int main()
 {
-    Table table("m_b1",11,6);
+    Table table;
 
     table.jouer();
 

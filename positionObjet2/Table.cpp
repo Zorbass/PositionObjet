@@ -17,10 +17,6 @@ Table::Table()
 }
 
 
-Table::Table(string nom, double x, double y): m_nom(nom), m_x(x), m_y(y)
-{
-
-}
 
 //destructeur
 Table::~Table()
