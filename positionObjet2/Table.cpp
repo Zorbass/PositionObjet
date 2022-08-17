@@ -1,10 +1,8 @@
 #include <iostream>
 #include "Table.hpp"
 #include <ctime>
-#include <cmath>
 #include <algorithm>
 #include "Boule.hpp"
-#include "Vecteur.hpp"
 #include <vector>
 #include "Player.hpp"
 
