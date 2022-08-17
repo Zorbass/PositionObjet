@@ -37,6 +37,20 @@ Boule::Boule(string numero, string type, double x, double y) : m_numero(numero),
 {
 }
 
+void Boule::shoot()
+{
+    double v, alpha;
+    cout << "Vitesse ??" << endl;
+    cin >> v;
+    cout << "Angle par rapport a la verticale ?? (jusqu'a 359 dans le sens des aiguilles d'une montre)" << endl;
+    cin >> alpha;
+
+    vitesse.modifier(v, alpha);
+    acceleration.modifierX(2.943);
+    //cout << vitesse << endl;
+}
+
+
 //affiche le nom, la vitesse et la position de la bille.
 void Boule::afficher()
 {
@@ -1258,15 +1272,3 @@ void Boule::collTable()
     }
 }
 
-void Boule::shoot()
-{
-    double v, alpha;
-    cout << "Vitesse ??" << endl;
-    cin >> v;
-    cout << "Angle par rapport a la verticale ?? (jusqu'a 359 dans le sens des aiguilles d'une montre)" << endl;
-    cin >> alpha;
-
-    vitesse.modifier(v, alpha);
-    acceleration.modifierX(2.943);
-    //cout << vitesse << endl;
-}

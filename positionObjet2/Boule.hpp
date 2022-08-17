@@ -14,6 +14,8 @@ class Boule
     Boule();  //ok
     Boule(std::string numero, std::string type, double x, double y);  //ok
 
+    void shoot(); //ok
+
     void afficher();  //ok
 
     double positionX(); //ok
@@ -52,7 +54,6 @@ class Boule
 
     void collTable();
 
-    void shoot(); //ok
 
     private:
 
