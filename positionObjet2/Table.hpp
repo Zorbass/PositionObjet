@@ -37,10 +37,6 @@ public:
 
 private:
 
-    string m_nom;
-    double m_x;
-    double m_y;
-
     bool fautes= false;
     int boulbande;
     int boulesempochee=0;
