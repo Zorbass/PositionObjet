@@ -48,7 +48,7 @@ void Table::innitialisation()
     cout<<"joueur 2 choisisez un nom"<<endl;
     cin>>nom;
     players[1]=Player(nom,"aucaun");
-
+/*
     boules[0] = Boule("1", "pleine",2,0.25);
     boules[1] = Boule("2", "pleine",1.27,1);
     boules[2] = Boule("3", "pleine",0.19,1);
@@ -65,7 +65,7 @@ void Table::innitialisation()
     boules[13] = Boule("14", "rayee",0.85,1);
     boules[14] = Boule("15", "rayee",1.27,0.2);
     boules[15] = Boule("16", "blanche",1.27,0.5);
-
+*/
 
     /*boules[0] = Boule("1", "pleine",0.07,1.2);//0.07,1.2
     boules[1] = Boule("2", "pleine",0.13,1.2);
@@ -84,7 +84,7 @@ void Table::innitialisation()
     boules[14] = Boule("15", "rayee",0.91,1.2);
     boules[15] = Boule("16", "blanche",2.2 ,1.0535);//2.2,1.0535*/
 
-/*
+
     boules[0] = Boule("1", "pleine",1.905,0.5778-0.0001);
     boules[1] = Boule("2", "pleine",2.004073306+0.0002,0.6922+0.0001);
     boules[2] = Boule("3", "pleine",1.954536653+0.0001,0.6064-0.0001);
@@ -101,8 +101,8 @@ void Table::innitialisation()
     boules[14] = Boule("15", "rayee",1.905,0.6922+0.0001);
     boules[15] = Boule("16", "blanche",0.635,0.635);
 
-
-  boules[0] = Boule("1", "pleine",6-0.020223254,3.020223254);
+/*
+    boules[0] = Boule("1", "pleine",6-0.020223254,3.020223254);
     boules[1] = Boule("2", "pleine",2,1);
     boules[2] = Boule("3", "pleine",3,1);
     boules[3] = Boule("4", "pleine",4,1);
