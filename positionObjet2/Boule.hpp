@@ -75,4 +75,3 @@ class Boule
 };
 
 #endif
-

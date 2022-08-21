@@ -313,6 +313,7 @@ void Boule::collBoule(Boule& cible)
 
             /*double dc;
             double t; // temps de rectification
+
             dc= (px-m_x)/(m_xprime-m_x);
             t=sqrt(dc);//*table.temps();
             */
@@ -503,18 +504,22 @@ void Boule::collBoule(Boule& cible)
             {
                 m_x = cible.m_x - 2*m_r - 0.00001;
             }
+
             else if(m_x-cible.m_x < 2*m_r and m_x-cible.m_x>0)
             {
                 m_x = cible.m_x + 2*m_r + 0.00001;
             }
+
             if(cible.m_y-m_y < 2*m_r and cible.m_y-m_y>0)
             {
                 m_y = cible.m_y - 2*m_r - 0.00001;
             }
+
             else if(m_y-cible.m_y< 2*m_r and m_y -cible.m_y>0)
             {
                 m_y = cible.m_y + 2*m_r + 0.00001;
             }
+
             cout << cible.vitesse << " " << vitesse << endl;*/
 
             //ces if ne sont pas correctes
@@ -1240,6 +1245,7 @@ void Boule::collTable()
             {
                 m_y = 2*0.04-m_y + 2*m_r;
             }
+
             else if(m_y+m_r > LARGEUR)
             {
                 m_y = (LARGEUR-0.04)*2 - m_y - 2*m_r;
@@ -1265,5 +1271,4 @@ void Boule::collTable()
         boulebande = false;
     }
 }
-
 

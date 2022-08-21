@@ -1,7 +1,6 @@
 #ifndef PLAYER_HPP_INCLUDED
 #define PLAYER_HPP_INCLUDED
 
-
 #include <iostream>
 #include <string>
 
@@ -30,4 +29,4 @@ private:
 
 };
 
-#endif // PLAYER_HPP_INCLUDED
+#endif
