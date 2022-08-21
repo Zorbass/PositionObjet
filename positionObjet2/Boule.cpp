@@ -646,9 +646,8 @@ void Boule::collTable()
 {
     if(m_empochee == false)
     {
-        boulebande=false;
         double vy=vitesse.y();
-
+        boulebande=false;
 
         double x;
 
@@ -1245,7 +1244,6 @@ void Boule::collTable()
             {
                 m_y = 2*0.04-m_y + 2*m_r;
             }
-
             else if(m_y+m_r > LARGEUR)
             {
                 m_y = (LARGEUR-0.04)*2 - m_y - 2*m_r;
@@ -1268,7 +1266,8 @@ void Boule::collTable()
     }
     else
     {
-        boulebande = false;
+        boulebande  = false;
     }
 }
+
 
