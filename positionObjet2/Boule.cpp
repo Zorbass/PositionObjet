@@ -43,16 +43,19 @@ void Boule::afficher()
     cout << "Boule : " << m_numero << " " << m_type << " (Position : " << m_x << ";" << m_y << ")" << endl << "vitesse : " << vitesse << endl;
 
 }
+
 //retourne la position de la bille en x
 double Boule::positionX()
 {
     return m_x;
 }
+
 //retourne la position de la bille en y
 double Boule::positionY()
 {
     return m_y;
 }
+
 bool Boule::boulband()
 {
     return boulebande ;
@@ -68,6 +71,7 @@ bool Boule::bouledejaempochee()
 
     return m_dejaempochee;
 }
+
 void Boule::verificationbouledejaempochee()
 {
     if(m_dejaempochee==false and m_empochee==true)
@@ -75,6 +79,7 @@ void Boule::verificationbouledejaempochee()
         m_dejaempochee=true;
     }
 }
+
 bool Boule::boulesempochees()
 {
     return m_dejaempochee;
@@ -85,12 +90,10 @@ bool Boule::collisionBoule()
     return collboule;
 }
 
-
 string Boule::typeBoule()
 {
     return m_type;
 }
-
 
 double Boule::intensiteeV()
 {
@@ -107,11 +110,12 @@ double Boule::angle()
     return vitesse.y();
 }
 
-//jw crois que on en a plus besoin
+//je crois que on en a plus besoin
 void Boule::changerVitesse(double x, double y)
 {
     vitesse.modifier(x, y);
 }
+
 void Boule::replacementblanche()
 {
     double positionx =0;
