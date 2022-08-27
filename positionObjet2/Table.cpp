@@ -1,10 +1,8 @@
 #include <iostream>
 #include "Table.hpp"
 #include <ctime>
-#include <cmath>
 #include <algorithm>
 #include "Boule.hpp"
-#include "Vecteur.hpp"
 #include <vector>
 #include "Player.hpp"
 
@@ -17,10 +15,6 @@ Table::Table()
 }
 
 
-Table::Table(string nom, double x, double y): m_nom(nom), m_x(x), m_y(y)
-{
-
-}
 
 //destructeur
 Table::~Table()
@@ -71,7 +65,7 @@ void Table::innitialisation()
     boules[15] = Boule("16", "blanche",2.2 ,1.0535);//2.2,1.0535*/
 
 
-    boules[0] = Boule("1", "pleine",0.7,0.7);//1.905,0.5778-0.0001);
+    boules[0] = Boule("1", "pleine",1.905,0.5778-0.0001);
     boules[1] = Boule("2", "pleine",2.004073306+0.0002,0.6922+0.0001);
     boules[2] = Boule("3", "pleine",1.954536653+0.0001,0.6064-0.0001);
     boules[3] = Boule("4", "pleine",2.004073306+0.0002,0.5778-0.0001);
@@ -85,7 +79,7 @@ void Table::innitialisation()
     boules[11] = Boule("12", "rayee",1.85546337-0.0001,0.6064-0.0001);
     boules[13] = Boule("14", "rayee",1.954536653+0.0001,0.5492-0.0002);
     boules[14] = Boule("15", "rayee",1.905,0.6922+0.0001);
-    boules[15] = Boule("16", "blanche",0.5,0.5);//0.635,0.635);
+    boules[15] = Boule("16", "blanche",0.635,0.635);
 
 /*
   boules[0] = Boule("1", "pleine",6-0.020223254,3.020223254);
@@ -127,7 +121,6 @@ void Table::replacementBoules()
 
 //execute les formules de cinétique et collision pour toutes les boules à chaque rafraîchissement
 void Table::mecanique()
-
 {
 
 
@@ -149,53 +142,42 @@ void Table::mecanique()
         f = clock();
 
         i = 0;
+        z = 0;
 
         while(i < nombreDeBoules)
         {
             boules[i].empochage();
-            i++;
-        }
 
-        i = 0;
-
-        //on vérifie la collision avec la table pour chaque boule
-        while(i < nombreDeBoules)
-        {
-            boules[i].collTable();
+            boules[i].collTable();  //on vérifie la collision avec la table pour chaque boule
             if(boules[i].boulband()==true)
             {
                 boulebandes.push_back(i);
 
             }
-            i++;
-        }
 
-        i = 0;
-        z = 0;
-
-        //on vérifie la collision entre boule pour chaque boule
-        while(i < nombreDeBoules)
-        {
             z = 0;
             while(z < nombreDeBoules)
             {
                 if(z != i)
                 {
                     boules[i].collBoule(boules[z]);
+                    if(boules[i].collisionBoule()==true)
+                    {
+                        typeBoule.push_back(boules[z].typeBoule());
+
+                    }
 
                 }
                 z++;
             }
+
             i++;
+
         }
 
+
         i = 0;
-
         f = clock() - f;
-
-
-
-
         //on déplace chaque boule si elle a de la vitesse
         while(i < nombreDeBoules)
         {
@@ -210,17 +192,6 @@ void Table::mecanique()
 
 }
 
-//affiche l'empplacement, le nom et la vitesse de chaque boule
-void Table::afficher()
-{
-    int i = 0;
-
-    while(i < nombreDeBoules)
-    {
-        boules[i].afficher();
-        i++;
-    }
-}
 
 void Table::casse()
 {
@@ -231,6 +202,7 @@ void Table::casse()
     this->reset();
     boules[15].shoot();
     this->mecanique();
+    this->numeroBouleEmpochee();
     sort( boulebandes.begin(), boulebandes.end() );
     boulebandes.erase( unique( boulebandes.begin(), boulebandes.end() ), boulebandes.end() );//enlever les duplicates
 
@@ -267,6 +239,7 @@ void Table::casse()
     {
         joueur =players[0].finDeTour();//on change de joueur
         this->replacementBoules();//replace les boules a leur position innitiale
+        cout<<"nouvelle casse"<<endl;
 
     }
 
@@ -286,7 +259,7 @@ bool Table::faute()
         cout<<"aucune boule n'a touche de raille ou a ete empoche. Faute."<<endl;
         fautes = true;
     }
-    else if(groupeChoisi==true and players[joueur].choix()!=boules[0].collbouletype())
+    else if(groupeChoisi==true and players[joueur].choix()!=typeBoule[0])
     {
         fautes = true;
         cout<<"mauvaise collision"<<endl;
@@ -296,23 +269,24 @@ bool Table::faute()
 
 void Table::reset()
 {
-    for(int i=0;i<boulebandes.size();i++)
+    int i=0;
+    while(i<boulebandes.size())
     {
         boulebandes.pop_back();
+    }
+
+    for(int i=0;i<typeBoule.size();i++)
+    {
+        typeBoule.pop_back();
+    }
+    for(int i=0;i<bouleEmpochee.size();i++)
+    {
+        bouleEmpochee.pop_back();//enleve les boules du tableau
     }
     boulesempochee=0;
     blancheempochee=false;
 }
-void Table::boulesempochees()
-{
-    for(int i=0; i<nombreDeBoules-1;i++)
-    {
-        if(boules[i].empochee()==true and boules[i].boulesempochees()== false)
-        {
-            boulesempochee++;
-        }
-    }
-}
+
 void Table::choixGroupe()
 {
     if(groupeChoisi==false)//si on a pas deja determiner le groupe
@@ -327,12 +301,11 @@ void Table::choixGroupe()
             {
                 autrejoueur=0;
             }
-            numeroBouleEmpochee();
             int p=0; //les pleines
             int r=0; //les rayees
             for(int i=0;i<bouleEmpochee.size();i++)
             {
-                if(boules[i].typeBoule()=="rayee")
+                if(boules[bouleEmpochee[i]].typeBoule()=="rayee")
                 {
                     r++;
                 }
@@ -343,7 +316,7 @@ void Table::choixGroupe()
             }
             if(p>r)
             {
-                cout<<"joueur" <<players[joueur].nomjoueur()<<"a les pleine"<<endl;
+                cout<<"joueur " <<players[joueur].nomjoueur()<<" a les pleine"<<endl;
                 players[joueur].choisir("pleine");
                 players[autrejoueur].choisir("rayee");
             }
@@ -375,20 +348,18 @@ void Table::choixGroupe()
 }
 
 
-
-
 void Table::numeroBouleEmpochee()
 {
     for(int i=0;i<nombreDeBoules-1;i++)
     {
-        for(int i=0;i<bouleEmpochee.size();i++)
-        {
-            bouleEmpochee.pop_back();//enleve les boules du tableau
-        }
+
         if(boules[i].empochee()==true and boules[i].bouledejaempochee()==false) //and boule n'etait pas deja empochee )
         {
             bouleEmpochee.push_back(i);//ajoute numero de boule dans le tableau (pour ensuite determiner combien de raye ou de pleines sont empochees lors de la casse)
+            cout<<"boule "<<i+1<<" est empochee"<<endl;
+            boulesempochee++;
         }
+        boules[i].verificationbouledejaempochee();
     }
 }
 
@@ -396,6 +367,7 @@ void Table::numeroBouleEmpochee()
 //permet de jouer en y incluant plusieur méthodes
 void Table::jouer()
 {
+    this->innitialisation();
      //joueur 1 qui commence a shoot
     while(cassereussi==false)
     {
@@ -412,7 +384,7 @@ void Table::jouer()
         this->reset();//reset les valeurs de nombre de collisions de table et boules empochee
 
         this->mecanique();
-        this->boulesempochees();
+        this->numeroBouleEmpochee();
         if(faute()) //verifie si il y a faute
         {
             cout<<"fauuuuuuuuuuute"<<endl;
@@ -430,8 +402,6 @@ void Table::jouer()
         {
             cout<<"c'est toujours au joueur "<< players[joueur].nomjoueur()<< " de jouer"<<endl;
             choixGroupe();
-            cout<<boulesempochee<<endl;
-
         }
     }
     //fin de partie maintenant regarder si on a gagne ou perdu

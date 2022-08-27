@@ -61,25 +61,9 @@ Vecteur operator+(Vecteur const& a, Vecteur const& b)
     copie += b;
     return copie;
 }
-bool Vecteur::estPlusPetitQue(Vecteur const& b) const
-{
-    if(m_x<b.m_x)
-    {
-        return true;
-    }
-    else
-    {
-        return false;
-    }
-}
-bool operator<(Vecteur const& a, Vecteur const& b)
-{
-    return a.estPlusPetitQue(b);
-}
 
 ostream& operator<<( ostream &flux, Vecteur const& vecteur)
 {
     vecteur.afficher(flux) ;
     return flux;
 }
-

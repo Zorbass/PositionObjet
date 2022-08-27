@@ -5,7 +5,6 @@
 #include <string>
 #include "Boule.hpp"
 #include <vector>
-#include "Vecteur.hpp"
 #include "Player.hpp"
 
 
@@ -16,7 +15,7 @@ class Table
 
 public:
     Table();
-    Table(std::string m_nom, double m_x, double m_y);
+
     ~Table();
 
 
@@ -26,26 +25,21 @@ public:
     void mecanique();
     void test();
     void jouer();
-    void afficher();
     void casse();
     bool faute();
     void reset();
     void choixGroupe();
     void numeroBouleEmpochee();
-    void boulesempochees();
 
 
 
 
 private:
 
-    string m_nom;
-    double m_x;
-    double m_y;
-
     bool fautes= false;
     int boulbande;
     int boulesempochee=0;
+
 
     int joueur=0;
     int autrejoueur;
@@ -68,8 +62,9 @@ private:
 
     vector <int> bouleEmpochee;
 
+    vector <string> typeBoule;
+
 };
 
 
 #endif
-

@@ -14,21 +14,9 @@ class Boule
     Boule();  //ok
     Boule(std::string numero, std::string type, double x, double y);  //ok
 
+    void shoot(); //ok
+
     void afficher();  //ok
-
-    bool boulband();
-
-    bool empochee();
-
-    bool bouledejaempochee();
-
-    bool boulesempochees();
-
-    void replacementblanche();
-
-    string typeBoule();
-
-    string collbouletype();
 
     double positionX(); //ok
 
@@ -40,6 +28,22 @@ class Boule
 
     double angle();
 
+    string typeBoule();
+
+    bool boulband();
+
+    bool empochee();
+
+    bool bouledejaempochee();
+
+    bool boulesempochees();
+
+    bool collisionBoule();
+
+    void verificationbouledejaempochee();
+
+    void replacementblanche();
+
     void changerVitesse(double x, double y); //ok
 
     void deplacemelent(double f);
@@ -50,7 +54,6 @@ class Boule
 
     void collTable();
 
-    void shoot(); //ok
 
     private:
 
@@ -63,12 +66,13 @@ class Boule
     double m_r = 0.0286; //rayon de la bille
     double m_d; //deplacement de la resultante
     Vecteur vitesse;
-    bool m_empochee = false;
-    bool m_dejaempochee =false;
-    bool boulebande = false;
-    string colltypeboule ="aucun";
+    bool m_empochee = false; //si la boule est empochee
+    bool m_dejaempochee =false; //si la boule est dejaempoche
+    bool boulebande = false; //si la boule a touche une bande
+    bool collboule =false; //si la boule a touche une autre boule
 
 
 };
 
 #endif
+
