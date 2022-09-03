@@ -7,6 +7,42 @@
 #include "Player.hpp"
 
 
+
+#define position1x 2.00092332//2.000923306//1cm + rayon a partir du point de replacement
+#define position2x 2.09999664//2.099996612
+#define position3x 2.05045998//2.050459959
+#define position4x 2.09999664//2.099996612
+#define position5x 2.09999664//2.099996612
+#define position6x 2.05045998//2.050459959
+#define position7x 1.95138666//1.951386653
+#define position8x 2.00092332//2.000923306
+#define position9x 1.90185//1.90185
+#define position10x 2.05045998//2.050459959
+#define position11x 2.09999664//2.099996612
+#define position12x 1.95138666//1.951386653
+#define position13x 2.09999664//2.099996612
+#define position14x 2.05045998//2.050459959
+#define position15x 2.00092332//2.000923306
+#define position16x 0.655875//0.655875
+
+#define position1y 0.57779998//0.5778
+#define position2y 0.69220002//0.6922
+#define position3y 0.60639999//0.6064
+#define position4y 0.57779998//0.5778
+#define position5y 0.52059996//0.5206
+#define position6y 0.72080003//0.7208
+#define position7y 0.66360001//0.6636
+#define position8y 0.635//0.635
+#define position9y 0.635//0.635
+#define position10y 0.66360001//0.6636
+#define position11y 0.74940004//0.7494
+#define position12y 0.60639999//0.6064
+#define position13y 0.635//0.635
+#define position14y 0.54919997//0.5492
+#define position15y 0.69220002//0.6922
+#define position16y 0.635//0.635
+
+
 using namespace std;
 
 Table::Table()
@@ -32,6 +68,11 @@ void Table::regle()
 
 //j'ai trouve que une boule de billard a 57mm de diametre et pas ce que tu as trouve. Quand je reviens je vais continuer mes calculs pour positionner toutes les boules (j'ai deja commence mais pas mis sur le programme)
 
+
+void Table::dessiner()
+{
+
+}
 //placement des boules
 void Table::innitialisation()
 {
@@ -65,21 +106,22 @@ void Table::innitialisation()
     boules[15] = Boule("16", "blanche",2.2 ,1.0535);//2.2,1.0535*/
 
 
-    boules[0] = Boule("1", "pleine",1.905,0.5778-0.0001);
-    boules[1] = Boule("2", "pleine",2.004073306+0.0002,0.6922+0.0001);
-    boules[2] = Boule("3", "pleine",1.954536653+0.0001,0.6064-0.0001);
-    boules[3] = Boule("4", "pleine",2.004073306+0.0002,0.5778-0.0001);
-    boules[4] = Boule("5", "pleine",2.004073306+0.0002,0.5206-0.0002);
-    boules[5] = Boule("6", "pleine",1.954536653+0.0001,0.7208+0.0002);
-    boules[6] = Boule("7", "pleine",1.85546337-0.0001,0.6636+0.0001);
-    boules[7] = Boule("8", "noire",1.905,0.635);
-    boules[8] = Boule("9", "rayee",1.805926694-0.0002,0.635);
-    boules[9] = Boule("10", "rayee",1.954536653+0.0001,0.6636+0.0001);
-    boules[10] = Boule("11", "rayee",2.004073306+0.0002,0.7494+0.0002);
-    boules[11] = Boule("12", "rayee",1.85546337-0.0001,0.6064-0.0001);
-    boules[13] = Boule("14", "rayee",1.954536653+0.0001,0.5492-0.0002);
-    boules[14] = Boule("15", "rayee",1.905,0.6922+0.0001);
-    boules[15] = Boule("16", "blanche",0.635,0.635);
+    boules[0] = Boule("1", "pleine",position1x,position1y);
+    boules[1] = Boule("2", "pleine",position2x,position2y);
+    boules[2] = Boule("3", "pleine",position3x,position3y);
+    boules[3] = Boule("4", "pleine",position4x,position4y);
+    boules[4] = Boule("5", "pleine",position5x,position5y);
+    boules[5] = Boule("6", "pleine",position6x,position6y);
+    boules[6] = Boule("7", "pleine",position7x,position7y);
+    boules[7] = Boule("8", "noire",position8x,position8y);
+    boules[8] = Boule("9", "rayee",position9x,position9y);
+    boules[9] = Boule("10", "rayee",position10x,position10y);
+    boules[10] = Boule("11", "rayee",position11x,position11y);
+    boules[11] = Boule("12", "rayee",position12x,position12y);
+    boules[12] = Boule("13", "rayee",position13x,position13y);
+    boules[13] = Boule("14", "rayee",position14x,position14y);
+    boules[14] = Boule("15", "rayee",position15x,position15y);
+    boules[15] = Boule("16", "blanche",position16x,position16y);
 
 /*
   boules[0] = Boule("1", "pleine",6-0.020223254,3.020223254);
@@ -102,21 +144,22 @@ void Table::innitialisation()
 }
 void Table::replacementBoules()
 {
-    boules[0] = Boule("1", "pleine",1.905,0.5778-0.0001);
-    boules[1] = Boule("2", "pleine",2.004073306+0.0002,0.6922+0.0001);
-    boules[2] = Boule("3", "pleine",1.954536653+0.0001,0.6064-0.0001);
-    boules[3] = Boule("4", "pleine",2.004073306+0.0002,0.5778-0.0001);
-    boules[4] = Boule("5", "pleine",2.004073306+0.0002,0.5206-0.0002);
-    boules[5] = Boule("6", "pleine",1.954536653+0.0001,0.7208+0.0002);
-    boules[6] = Boule("7", "pleine",1.85546337-0.0001,0.6636+0.0001);
-    boules[7] = Boule("8", "noire",1.905,0.635);
-    boules[8] = Boule("9", "rayee",1.805926694-0.0002,0.635);
-    boules[9] = Boule("10", "rayee",1.954536653+0.0001,0.6636+0.0001);
-    boules[10] = Boule("11", "rayee",2.004073306+0.0002,0.7494+0.0002);
-    boules[11] = Boule("12", "rayee",1.85546337-0.0001,0.6064-0.0001);
-    boules[13] = Boule("14", "rayee",1.954536653+0.0001,0.5492-0.0002);
-    boules[14] = Boule("15", "rayee",1.905,0.6922+0.0001);
-    boules[15] = Boule("16", "blanche",0.635,0.635);
+    boules[0] = Boule("1", "pleine",position1x,position1y);
+    boules[1] = Boule("2", "pleine",position2x,position2y);
+    boules[2] = Boule("3", "pleine",position3x,position3y);
+    boules[3] = Boule("4", "pleine",position4x,position4y);
+    boules[4] = Boule("5", "pleine",position5x,position5y);
+    boules[5] = Boule("6", "pleine",position6x,position6y);
+    boules[6] = Boule("7", "pleine",position7x,position7y);
+    boules[7] = Boule("8", "noire",position8x,position8y);
+    boules[8] = Boule("9", "rayee",position9x,position9y);
+    boules[9] = Boule("10", "rayee",position10x,position10y);
+    boules[10] = Boule("11", "rayee",position11x,position11y);
+    boules[11] = Boule("12", "rayee",position12x,position12y);
+    boules[12] = Boule("13", "rayee",position13x,position13y);
+    boules[13] = Boule("14", "rayee",position14x,position14y);
+    boules[14] = Boule("15", "rayee",position15x,position15y);
+    boules[15] = Boule("16", "blanche",position16x,position16y);
 }
 
 //execute les formules de cinétique et collision pour toutes les boules à chaque rafraîchissement
@@ -275,11 +318,11 @@ void Table::reset()
         boulebandes.pop_back();
     }
 
-    for(int i=0;i<typeBoule.size();i++)
+    while(i<typeBoule.size())
     {
         typeBoule.pop_back();
     }
-    for(int i=0;i<bouleEmpochee.size();i++)
+    while(i<bouleEmpochee.size())
     {
         bouleEmpochee.pop_back();//enleve les boules du tableau
     }

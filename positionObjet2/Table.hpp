@@ -18,7 +18,7 @@ public:
 
     ~Table();
 
-
+    void dessiner();
     void regle();
     void innitialisation();
     void replacementBoules();
