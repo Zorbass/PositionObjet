@@ -196,33 +196,19 @@ void Table::mecanique()
         f = clock();
 
         i = 0;
+        z = 0;
 
         while(i < nombreDeBoules)
         {
             boules[i].empochage();
-            i++;
-        }
 
-        i = 0;
-
-        //on vérifie la collision avec la table pour chaque boule
-        while(i < nombreDeBoules)
-        {
-            boules[i].collTable();
+            boules[i].collTable();  //on vérifie la collision avec la table pour chaque boule
             if(boules[i].boulband()==true)
             {
                 boulebandes.push_back(i);
 
             }
-            i++;
-        }
 
-        i = 0;
-        z = 0;
-
-        //on vérifie la collision entre boule pour chaque boule
-        while(i < nombreDeBoules)
-        {
             z = 0;
             while(z < nombreDeBoules)
             {
@@ -231,22 +217,21 @@ void Table::mecanique()
                     boules[i].collBoule(boules[z]);
                     if(boules[i].collisionBoule()==true)
                     {
-                        typeBoule.push_back(boules[i].typeBoule());
+                        typeBoule.push_back(boules[z].typeBoule());
+
                     }
 
                 }
                 z++;
             }
+
             i++;
+
         }
 
+
         i = 0;
-
         f = clock() - f;
-
-
-
-
         //on déplace chaque boule si elle a de la vitesse
         while(i < nombreDeBoules)
         {
@@ -257,7 +242,6 @@ void Table::mecanique()
 
     }
     cout << "fini collisions" << endl;
-
 
 }
 
