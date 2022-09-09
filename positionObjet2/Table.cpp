@@ -259,7 +259,7 @@ void Table::afficher()
 
 void Table::casse()
 {
-
+    boules[15].replacementblanche();
     cout<<"c'est au joueur "<<players[joueur].nomjoueur()<<" de jouer"<<endl;
     if(blancheempochee==true)boules[15].replacementblanche();//replace la blanche
     blancheempochee=false;
