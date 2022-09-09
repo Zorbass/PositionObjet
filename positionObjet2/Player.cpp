@@ -1,6 +1,6 @@
 #include <iostream>
-#include "Boule.hpp"
-#include "Vecteur.hpp"
+//#include "Boule.hpp"
+//#include "Vecteur.hpp"
 #include <vector>
 #include "Player.hpp"
 #include "Table.hpp"
@@ -35,13 +35,13 @@ int Player::finDeTour()
     return player;
 }
 
-void Player::shoot(Boule i)
+/*void Player::shoot(Boule i)
 {
     i.shoot();
     i.afficher();
 
 }
-
+*/
 void Player::choisir(string i)
 {
     m_typeBoule = i;

@@ -3,9 +3,9 @@
 
 #include <iostream>
 #include <string>
-#include "Boule.hpp"
+//#include "Boule.hpp"
 #include <vector>
-#include "Vecteur.hpp"
+//#include "Vecteur.hpp"
 
 using namespace std;
 
@@ -17,7 +17,7 @@ public:
     Player(string nom, string typeBoule);
     int finDeTour();
     string nomjoueur();
-    void shoot(Boule i);
+    //void shoot(Boule i);
 
     void choisir(string i);
     string choix();
@@ -26,9 +26,9 @@ private:
 
     string m_nom;
     string m_typeBoule;
-    int m_points;
+//    int m_points;
     int player =0;
-    Boule i;
+//    Boule i;
 
 };
 
