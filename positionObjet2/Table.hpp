@@ -5,7 +5,6 @@
 #include <string>
 #include "Boule.hpp"
 #include <vector>
-#include "Vecteur.hpp"
 #include "Player.hpp"
 
 
@@ -16,7 +15,6 @@ class Table
 
 public:
     Table();
-    Table(std::string m_nom, double m_x, double m_y);
     ~Table();
 
 
@@ -37,10 +35,6 @@ public:
 
 
 private:
-
-    string m_nom;
-    double m_x;
-    double m_y;
 
     bool fautes= false;
     int boulbande;
