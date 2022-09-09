@@ -30,6 +30,7 @@ public:
     void reset();
     void choixGroupe();
     void numeroBouleEmpochee();
+    void dessiner();
 
 
 

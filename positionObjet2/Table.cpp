@@ -179,8 +179,8 @@ void Table::mecanique()
 
 
 
-    double px = 0;//position x et y de la frame d'avant
-    double py = 0;
+//    double px = 0;//position x et y de la frame d'avant
+//    double py = 0;
 
     int i = 0; //itération pour les boucles
     int z = 0; //itération pour les boucles
@@ -190,8 +190,8 @@ void Table::mecanique()
     {
 
         double f=0;
-        double u=0;
-        u=f;
+//        double u=0;
+//        u=f;
 
         f = clock();
 
