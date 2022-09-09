@@ -339,11 +339,11 @@ void Table::reset()
         boulebandes.pop_back();
     }
 
-    for(int i=0;i<typeBoule.size();i++)
+    while(i<typeBoule.size())
     {
         typeBoule.pop_back();
     }
-    for(int i=0;i<bouleEmpochee.size();i++)
+    while(i<bouleEmpochee.size())
     {
         bouleEmpochee.pop_back();//enleve les boules du tableau
     }
