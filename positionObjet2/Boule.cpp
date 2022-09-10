@@ -27,6 +27,61 @@ using namespace std;
 
 #define R_TROU 0.0435
 
+#define C1aX 0.0435
+#define C1aY 0
+#define C1bX 0.0835
+#define C1bY 0.04
+#define C1cX 1.1865
+#define C1cY 0.04
+#define C1dX 1.2265
+#define C1dY 0
+
+#define C2aX 1.3135
+#define C2aY 0
+#define C2bX 1.3535
+#define C2bY 0.04
+#define C2cX 2.4565
+#define C2cY 0.04
+#define C2dX 2.4965
+#define C2dY 0
+
+#define C3aX 0
+#define C3aY 0.0435
+#define C3bX 0.04
+#define C3bY 0.0835
+#define C3cX 0.04
+#define C3cY 1.1865
+#define C3dX 0
+#define C3dY 1.2265
+
+#define C4aX 2.54
+#define C4aY 0.0435
+#define C4bX 2.5
+#define C4bY 0.0835
+#define C4cX 2.5
+#define C4cY 1.1865
+#define C4dX 2.54
+#define C4dY 1.2265
+
+#define C5aX 0.435
+#define C5aY 1.27
+#define C5bX 0.0835
+#define C5bY 1.23
+#define C5cX 1.1865
+#define C5cY 1.23
+#define C5dX 1.2265
+#define C5dY 1.27
+
+#define C6aX 1.3135
+#define C6aY 1.27
+#define C6bX 1.3535
+#define C6bY 1.23
+#define C6cX 2.4565
+#define C6cY 1.23
+#define C6dX 2.4965
+#define C6dY 1.27
+
+
 //constructeur basique
 Boule::Boule() : m_numero("0"), m_type("rayee"), m_x(20), m_y(0), vitesse(0, 0), acceleration(0, 0)
 {
@@ -635,67 +690,67 @@ void Boule::collTable()
 
         double x;
 
-        if(m_y+m_r/sqrt(2)<0.0835 and m_y+m_r/sqrt(2) >= 0.0435 + (m_x-m_r/sqrt(2) - 0))
+        if(m_y+m_r/sqrt(2)<C3bY and m_y+m_r/sqrt(2) >= R_TROU + (m_x-m_r/sqrt(2) - 0))
         {//1
             vitesse.modifierY(90 - vitesse.y());
             cout << "collision bord 1 " << m_x << ";" << m_y << endl;
             x = m_x;
-            m_x = 0.04+m_r/sqrt(2) - (0.0835-m_r/sqrt(2)) + m_y;
-            m_y = 0.0835-m_r/sqrt(2) - (0.04+m_r/sqrt(2) - x);
+            m_x = C3bX+m_r/sqrt(2) - (C3bY-m_r/sqrt(2)) + m_y;
+            m_y = C3bY-m_r/sqrt(2) - (C3bX+m_r/sqrt(2) - x);
             cout << m_x << ";" << m_y << endl;
         }
 
-        else if(m_x+m_r/sqrt(2) < 0.0835 and m_y-m_r/sqrt(2) <= 0.04 - (0.0835 - (m_x+m_r/sqrt(2))))
+        else if(m_x+m_r/sqrt(2) < C1bX and m_y-m_r/sqrt(2) <= C1bY - (C1bX - (m_x+m_r/sqrt(2))))
         {//2
             vitesse.modifierY(90 - vitesse.y());
             cout << "collision bord 2 " << m_x << ";" << m_y << endl;
             x = m_x;
-            m_x = 0.0835-m_r/sqrt(2) - (0.04+m_r/sqrt(2)) + m_y;
-            m_y = 0.04+m_r/sqrt(2) - (0.0835-m_r/sqrt(2) - x);
+            m_x = C1bX-m_r/sqrt(2) - (C1bY+m_r/sqrt(2)) + m_y;
+            m_y = C1bY+m_r/sqrt(2) - (C1bX-m_r/sqrt(2) - x);
             cout << m_x << ";" << m_y << endl;
         }
 
-        else if(m_x-m_r/sqrt(2)<1.2265 and m_x-m_r/sqrt(2) >= 1.1865 and m_y-m_r/sqrt(2) <= 0.04 - (m_x-m_r/sqrt(2) - 1.1865))
+        else if(m_x-m_r/sqrt(2)<C1dX and m_x-m_r/sqrt(2) >= C1cX and m_y-m_r/sqrt(2) <= C1cY - (m_x-m_r/sqrt(2) - C1cX))
         {//3
             vitesse.modifierY(270 - vitesse.y());
             cout << "collision bord 3 " << m_x << ";" << m_y << endl;
             x = m_x;
-            m_x = 1.1865+m_r/sqrt(2) + 0.04 + m_r/sqrt(2) - m_y;
-            m_y = 0.04+m_r/sqrt(2) - (x - (1.1865+m_r/sqrt(2)));
+            m_x = C1cX+m_r/sqrt(2) + C1cY + m_r/sqrt(2) - m_y;
+            m_y = C1cY+m_r/sqrt(2) - (x - (C1cX+m_r/sqrt(2)));
             cout << m_x << ";" << m_y << endl;
         }
 
-        else if(m_x+m_r/sqrt(2) > 1.3135 and m_x+m_r/sqrt(2) < 1.3535 and m_y-m_r/sqrt(2) <= 0.04 - (1.3535 - (m_x+m_r/sqrt(2))))
+        else if(m_x+m_r/sqrt(2) > C2aX and m_x+m_r/sqrt(2) < C2bX and m_y-m_r/sqrt(2) <= C2bY - (C2bX - (m_x+m_r/sqrt(2))))
         {//4
             vitesse.modifierY(90 - vitesse.y());
             cout << "collision bord 4 " << m_x << ";" << m_y << endl;
             x = m_x;
-            m_x = 1.3535-m_r/sqrt(2) - (0.04+m_r/sqrt(2)) + m_y;
-            m_y = 0.04+m_r/sqrt(2) - (1.3535-m_r/sqrt(2) - x);
+            m_x = C2bX-m_r/sqrt(2) - (C2bY+m_r/sqrt(2)) + m_y;
+            m_y = C2bY+m_r/sqrt(2) - (C2bX-m_r/sqrt(2) - x);
             cout << m_x << ";" << m_y << endl;
         }
 
-        else if(m_x-m_r/sqrt(2)<2.4965 and m_x-m_r/sqrt(2)>2.4565 and m_y-m_r/sqrt(2) <= 0.04 - (m_x-m_r/sqrt(2) - 2.4565))
+        else if(m_x-m_r/sqrt(2)<C2dX and m_x-m_r/sqrt(2)>C2cX and m_y-m_r/sqrt(2) <= C2cY - (m_x-m_r/sqrt(2) - C2cX))
         {//5
             vitesse.modifierY(270 - vitesse.y());
             cout << "collision bord 5 " << m_x << ";" << m_y << endl;
             x = m_x;
-            m_x = 2.4565+m_r/sqrt(2) + 0.04 + m_r/sqrt(2) - m_y;
-            m_y = 0.04+m_r/sqrt(2) - (x - (2.4565+m_r/sqrt(2)));
+            m_x = C2cX+m_r/sqrt(2) + C2cY + m_r/sqrt(2) - m_y;
+            m_y = C2cY+m_r/sqrt(2) - (x - (C2cX+m_r/sqrt(2)));
             cout << m_x << ";" << m_y << endl;
         }
 
-        else if(m_y+m_r/sqrt(2)<0.0835 and m_y+m_r/sqrt(2) >= 0.0435 + (2.54 - (m_x+m_r/sqrt(2))))
+        else if(m_y+m_r/sqrt(2)<C4bY and m_y+m_r/sqrt(2) >= R_TROU + (C4aX - (m_x+m_r/sqrt(2))))
         {//6
             vitesse.modifierY(270 - vitesse.y());
             cout << "collision bord 6 " << m_x << ";" << m_y << endl;
             x = m_x;
-            m_x = 2.5-m_r/sqrt(2) + 0.0835-m_r/sqrt(2) - m_y;
-            m_y = 0.0835-m_r/sqrt(2) - (x - (2.5-m_r/sqrt(2)));
+            m_x = C4bX-m_r/sqrt(2) + C4bY-m_r/sqrt(2) - m_y;
+            m_y = C4bY-m_r/sqrt(2) - (x - (C4bX-m_r/sqrt(2)));
             cout << m_x << ";" << m_y << endl;
         }
 
-        else if(m_y-m_r/sqrt(2)>1.27-0.0835 and m_y-m_r/sqrt(2) <= 1.27 - 0.0435 - (m_x-m_r/sqrt(2) - 0))
+        else if(m_y-m_r/sqrt(2)>1.27-0.0835 and m_y-m_r/sqrt(2) <= 1.27 - R_TROU - (m_x-m_r/sqrt(2) - 0))
         {//7
             vitesse.modifierY(270 - vitesse.y());
             cout << "collision bord 7 " << m_x << ";" << m_y << endl;
@@ -705,13 +760,13 @@ void Boule::collTable()
             cout << m_x << ";" << m_y << endl;
         }
 
-        else if(m_x+m_r/sqrt(2)<0.0835 and m_x+m_r/sqrt(2)>0.0435 and m_y+m_r/sqrt(2) >= 1.27 - 0.04 + (0.0835 - (m_x+m_r/sqrt(2))))
+        else if(m_x+m_r/sqrt(2)<0.0835 and m_x+m_r/sqrt(2)>R_TROU and m_y+m_r/sqrt(2) >= 1.27 - 0.04 + (0.0835 - (m_x+m_r/sqrt(2))))
         {//8
             vitesse.modifierY(270 - vitesse.y());
             cout << "collision bord 8 " << m_x << ";" << m_y << endl;
             x = m_x;
-            m_x = 0.0435-m_r/sqrt(2) + 1.27-m_r/sqrt(2) - m_y;
-            m_y = 1.27-m_r/sqrt(2) - (x - (0.0435-m_r/sqrt(2)));
+            m_x = R_TROU-m_r/sqrt(2) + 1.27-m_r/sqrt(2) - m_y;
+            m_y = 1.27-m_r/sqrt(2) - (x - (R_TROU-m_r/sqrt(2)));
             cout << m_x << ";" << m_y << endl;
         }
         else if(m_x-m_r/sqrt(2)<1.2265 and m_x-m_r/sqrt(2)>1.1865 and m_y+m_r/sqrt(2) >= 1.27 - 0.04 + (m_x-m_r/sqrt(2) - 1.1865))
@@ -741,7 +796,7 @@ void Boule::collTable()
             m_y = 1.27-m_r/sqrt(2) - (2.4965+m_r/sqrt(2) - x);
             cout << m_x << ";" << m_y << endl;
         }
-        else if(m_y-m_r/sqrt(2)>1.1865 and m_y-m_r/sqrt(2) <= 1.27 - 0.0435 - (2.54 - (m_x+m_r/sqrt(2))))
+        else if(m_y-m_r/sqrt(2)>1.1865 and m_y-m_r/sqrt(2) <= 1.27 - R_TROU - (2.54 - (m_x+m_r/sqrt(2))))
         {//12
             vitesse.modifierY(90 - vitesse.y());
             cout << "collision bord 12 " << m_x << ";" << m_y << endl;
