@@ -690,13 +690,13 @@ void Boule::collTable()
 
         double x;
 
-        if(m_y+m_r/sqrt(2)<C3bY and m_y+m_r/sqrt(2) >= R_TROU + (m_x-m_r/sqrt(2) - 0))
+        if(m_y+m_r/sqrt(2)<C3bY and m_y+m_r/sqrt(2) >= C3aY + (m_x-m_r/sqrt(2) - C3aX)) //vérification de la collision boule-bord
         {//1
-            vitesse.modifierY(90 - vitesse.y());
+            vitesse.modifierY(90 - vitesse.y()); //sens de la vitesse finale de la boule
             cout << "collision bord 1 " << m_x << ";" << m_y << endl;
             x = m_x;
-            m_x = C3bX+m_r/sqrt(2) - (C3bY-m_r/sqrt(2)) + m_y;
-            m_y = C3bY-m_r/sqrt(2) - (C3bX+m_r/sqrt(2) - x);
+            m_x = C3bX+m_r/sqrt(2) - (C3bY-m_r/sqrt(2)) + m_y; //replacement en x de la boule pour restituer l'énergie perdue lors de l'overshoot
+            m_y = C3bY-m_r/sqrt(2) - (C3bX+m_r/sqrt(2) - x); //replacement en y de la boule pour restituer l'énergie perdue lors de l'overshoot
             cout << m_x << ";" << m_y << endl;
         }
 
@@ -705,7 +705,7 @@ void Boule::collTable()
             vitesse.modifierY(90 - vitesse.y());
             cout << "collision bord 2 " << m_x << ";" << m_y << endl;
             x = m_x;
-            m_x = C1bX-m_r/sqrt(2) - (C1bY+m_r/sqrt(2)) + m_y;
+            m_x = C1bX-m_r/sqrt(2) - (C1bY+m_r/sqrt(2)) + m_y; //replacement en x de la boule pour restituer l'énergie perdue lors de l'overshoot
             m_y = C1bY+m_r/sqrt(2) - (C1bX-m_r/sqrt(2) - x);
             cout << m_x << ";" << m_y << endl;
         }
@@ -715,7 +715,7 @@ void Boule::collTable()
             vitesse.modifierY(270 - vitesse.y());
             cout << "collision bord 3 " << m_x << ";" << m_y << endl;
             x = m_x;
-            m_x = C1cX+m_r/sqrt(2) + C1cY + m_r/sqrt(2) - m_y;
+            m_x = C1cX+m_r/sqrt(2) + C1cY + m_r/sqrt(2) - m_y; //replacement en x de la boule pour restituer l'énergie perdue lors de l'overshoot
             m_y = C1cY+m_r/sqrt(2) - (x - (C1cX+m_r/sqrt(2)));
             cout << m_x << ";" << m_y << endl;
         }
@@ -725,7 +725,7 @@ void Boule::collTable()
             vitesse.modifierY(90 - vitesse.y());
             cout << "collision bord 4 " << m_x << ";" << m_y << endl;
             x = m_x;
-            m_x = C2bX-m_r/sqrt(2) - (C2bY+m_r/sqrt(2)) + m_y;
+            m_x = C2bX-m_r/sqrt(2) - (C2bY+m_r/sqrt(2)) + m_y; //replacement en x de la boule pour restituer l'énergie perdue lors de l'overshoot
             m_y = C2bY+m_r/sqrt(2) - (C2bX-m_r/sqrt(2) - x);
             cout << m_x << ";" << m_y << endl;
         }
@@ -735,7 +735,7 @@ void Boule::collTable()
             vitesse.modifierY(270 - vitesse.y());
             cout << "collision bord 5 " << m_x << ";" << m_y << endl;
             x = m_x;
-            m_x = C2cX+m_r/sqrt(2) + C2cY + m_r/sqrt(2) - m_y;
+            m_x = C2cX+m_r/sqrt(2) + C2cY + m_r/sqrt(2) - m_y; //replacement en x de la boule pour restituer l'énergie perdue lors de l'overshoot
             m_y = C2cY+m_r/sqrt(2) - (x - (C2cX+m_r/sqrt(2)));
             cout << m_x << ";" << m_y << endl;
         }
@@ -745,84 +745,82 @@ void Boule::collTable()
             vitesse.modifierY(270 - vitesse.y());
             cout << "collision bord 6 " << m_x << ";" << m_y << endl;
             x = m_x;
-            m_x = C4bX-m_r/sqrt(2) + C4bY-m_r/sqrt(2) - m_y;
+            m_x = C4bX-m_r/sqrt(2) + C4bY-m_r/sqrt(2) - m_y; //replacement en x de la boule pour restituer l'énergie perdue lors de l'overshoot
             m_y = C4bY-m_r/sqrt(2) - (x - (C4bX-m_r/sqrt(2)));
             cout << m_x << ";" << m_y << endl;
         }
 
-        else if(m_y-m_r/sqrt(2)>1.27-0.0835 and m_y-m_r/sqrt(2) <= 1.27 - R_TROU - (m_x-m_r/sqrt(2) - 0))
+        else if(m_y-m_r/sqrt(2)>C3cY and m_y-m_r/sqrt(2) <= C3dY - (m_x-m_r/sqrt(2) - C3dX))
         {//7
             vitesse.modifierY(270 - vitesse.y());
-            cout << "collision bord 7 " << m_x << ";" << m_y << endl;
+            cout << "collision bord 7 " << m_x << ";" << m_y << endl; //replacement en x de la boule pour restituer l'énergie perdue lors de l'overshoot
             x = m_x;
-            m_x = 0+m_r/sqrt(2) + 1.2265+m_r/sqrt(2) - m_y;
-            m_y = 1.2265+m_r/sqrt(2) - (x - (0+m_r/sqrt(2)));
+            m_x = C3dX+m_r/sqrt(2) + C3dY+m_r/sqrt(2) - m_y;
+            m_y = C3dY+m_r/sqrt(2) - (x - (C3dX+m_r/sqrt(2)));
             cout << m_x << ";" << m_y << endl;
         }
 
-        else if(m_x+m_r/sqrt(2)<0.0835 and m_x+m_r/sqrt(2)>R_TROU and m_y+m_r/sqrt(2) >= 1.27 - 0.04 + (0.0835 - (m_x+m_r/sqrt(2))))
+        else if(m_x+m_r/sqrt(2)<C5bX and m_x+m_r/sqrt(2)>C5aX and m_y+m_r/sqrt(2) >= C5bY + (C5bX - (m_x+m_r/sqrt(2))))
         {//8
             vitesse.modifierY(270 - vitesse.y());
             cout << "collision bord 8 " << m_x << ";" << m_y << endl;
             x = m_x;
-            m_x = R_TROU-m_r/sqrt(2) + 1.27-m_r/sqrt(2) - m_y;
-            m_y = 1.27-m_r/sqrt(2) - (x - (R_TROU-m_r/sqrt(2)));
+            m_x = C5aX-m_r/sqrt(2) + C5aY-m_r/sqrt(2) - m_y; //replacement en x de la boule pour restituer l'énergie perdue lors de l'overshoot
+            m_y = C5aY-m_r/sqrt(2) - (x - (C5aX-m_r/sqrt(2)));
             cout << m_x << ";" << m_y << endl;
         }
-        else if(m_x-m_r/sqrt(2)<1.2265 and m_x-m_r/sqrt(2)>1.1865 and m_y+m_r/sqrt(2) >= 1.27 - 0.04 + (m_x-m_r/sqrt(2) - 1.1865))
+        else if(m_x-m_r/sqrt(2)<C5dX and m_x-m_r/sqrt(2)>C5cX and m_y+m_r/sqrt(2) >= C5cY + (m_x-m_r/sqrt(2) - C5cX))
         {//9
             vitesse.modifierY(90 - vitesse.y());
             cout << "collision bord 9 " << m_x << ";" << m_y << endl;
             x = m_x;
-            m_x = 1.2265+m_r/sqrt(2) - (1.27-m_r/sqrt(2)) + m_y;
-            m_y = 1.27-m_r/sqrt(2) - (1.2265+m_r/sqrt(2) - x);
+            m_x = C5dX+m_r/sqrt(2) - (C5dY-m_r/sqrt(2)) + m_y; //replacement en x de la boule pour restituer l'énergie perdue lors de l'overshoot
+            m_y = C5dY-m_r/sqrt(2) - (C5dX+m_r/sqrt(2) - x);
             cout << m_x << ";" << m_y << endl;
         }
-        else if(m_x+m_r/sqrt(2)<1.3535 and m_x+m_r/sqrt(2)>1.3135 and m_y+m_r/sqrt(2) >= 1.27 - 0.04 + (1.3535 - (m_x+m_r/sqrt(2))))
+        else if(m_x+m_r/sqrt(2)<C6bX and m_x+m_r/sqrt(2)>C6aX and m_y+m_r/sqrt(2) >= C6bY + (C6bX - (m_x+m_r/sqrt(2))))
         {//10
             vitesse.modifierY(270 - vitesse.y());
             cout << "collision bord 10 " << m_x << ";" << m_y << endl;
             x = m_x;
-            m_x = 1.3135-m_r/sqrt(2) + 1.27-m_r/sqrt(2) - m_y;
-            m_y = 1.27-m_r/sqrt(2) - (x - (1.3135-m_r/sqrt(2)));
+            m_x = C6aX-m_r/sqrt(2) + C6aY-m_r/sqrt(2) - m_y; //replacement en x de la boule pour restituer l'énergie perdue lors de l'overshoot
+            m_y = C6aY-m_r/sqrt(2) - (x - (C6aX-m_r/sqrt(2)));
             cout << m_x << ";" << m_y << endl;
         }
-        else if(m_x-m_r/sqrt(2)<2.4965 and m_x-m_r/sqrt(2)>2.4565 and m_y+m_r/sqrt(2) >= 1.27 - 0.04 + (m_x-m_r/sqrt(2) - 2.4565))
+        else if(m_x-m_r/sqrt(2)<C6dX and m_x-m_r/sqrt(2)>C6cX and m_y+m_r/sqrt(2) >= C6cY + (m_x-m_r/sqrt(2) - C6cX))
         {//11
             vitesse.modifierY(90 - vitesse.y());
             cout << "collision bord 11 " << m_x << ";" << m_y << endl;
             x = m_x;
-            m_x = 2.4965+m_r/sqrt(2) - (1.27-m_r/sqrt(2)) + m_y;
-            m_y = 1.27-m_r/sqrt(2) - (2.4965+m_r/sqrt(2) - x);
+            m_x = C6dX+m_r/sqrt(2) - (C6dY-m_r/sqrt(2)) + m_y; //replacement en x de la boule pour restituer l'énergie perdue lors de l'overshoot
+            m_y = C6dY-m_r/sqrt(2) - (C6dX+m_r/sqrt(2) - x);
             cout << m_x << ";" << m_y << endl;
         }
-        else if(m_y-m_r/sqrt(2)>1.1865 and m_y-m_r/sqrt(2) <= 1.27 - R_TROU - (2.54 - (m_x+m_r/sqrt(2))))
+        else if(m_y-m_r/sqrt(2)>C4cY and m_y-m_r/sqrt(2) <= C4dY - (C4dX - (m_x+m_r/sqrt(2))))
         {//12
             vitesse.modifierY(90 - vitesse.y());
             cout << "collision bord 12 " << m_x << ";" << m_y << endl;
             x = m_x;
-            m_x = 2.54-m_r/sqrt(2) - (1.2265+m_r/sqrt(2)) + m_y;
-            m_y = 1.2265+m_r/sqrt(2) - (2.54-m_r/sqrt(2) - x);
+            m_x = C4dX-m_r/sqrt(2) - (C4dY+m_r/sqrt(2)) + m_y; //replacement en x de la boule pour restituer l'énergie perdue lors de l'overshoot
+            m_y = C4dY+m_r/sqrt(2) - (C4dX-m_r/sqrt(2) - x);
             cout << m_x << ";" << m_y << endl;
         }
 
 //collision avec les coins
-        else if(m_y > 0.0835-m_r/sqrt(2) and m_y < 0.0835 and m_r >= sqrt((m_x-0.04)*(m_x-0.04)+(m_y-0.0835)*(m_y-0.0835)))
+        else if(m_y > C3bY-m_r/sqrt(2) and m_y < C3bY and m_r >= sqrt((m_x-C3bX)*(m_x-C3bX)+(m_y-C3bY)*(m_y-C3bY))) //vérification de la collision avec le coin
         {//1b a revoir
-            double x0 = 0.04;
-            double y0 = 0.0835;
             double gamma = -(vitesse.y()-90)*PI/180; //sens de la vitesse par rapport au cercle trigonométrique en radian
-            double a = tan(gamma)*tan(gamma) + 1; //coef de x*x
-            double b = 2*tan(gamma)*(m_y-(tan(gamma)*m_x)-y0)-2*x0; //coef de x
-            double c = (m_y-(tan(gamma)*m_x)-y0)*(m_y-(tan(gamma)*m_x)-y0) - m_r*m_r + x0*x0;
+            double a = tan(gamma)*tan(gamma) + 1; //coef de x^2 dans l'équation quadratique
+            double b = 2*tan(gamma)*(m_y-(tan(gamma)*m_x)-C3bY)-2*C3bX; //coef de x dans l'équation quadratique
+            double c = (m_y-(tan(gamma)*m_x)-C3bY)*(m_y-(tan(gamma)*m_x)-C3bY) - m_r*m_r + C3bX*C3bX;
             cout << "collision coin 1 " << m_x << ";" << m_y << " " << vitesse.y() << endl;
-            double xb1 = (-b + sqrt(b*b - 4*a*c))/(2*a);
-            double xb2 = (-b - sqrt(b*b - 4*a*c))/(2*a);
-            double yb1 = tan(gamma)*xb1 + m_y -(tan(gamma)*m_x);
-            double yb2 = tan(gamma)*xb2 + m_y -(tan(gamma)*m_x);
+            double xb1 = (-b + sqrt(b*b - 4*a*c))/(2*a); // première coordonée x du point de sécance entre la trajectoire de la boule et le cercle de rayon m_x et de centre C3bX;C3bY
+            double xb2 = (-b - sqrt(b*b - 4*a*c))/(2*a); // seconde coordonée x du point de sécance entre la trajectoire de la boule et le cercle de rayon m_x et de centre C3bX;C3bY
+            double yb1 = tan(gamma)*xb1 + m_y -(tan(gamma)*m_x); // première coordonée y du point de sécance entre la trajectoire de la boule et le cercle de rayon m_x et de centre C3bX;C3bY
+            double yb2 = tan(gamma)*xb2 + m_y -(tan(gamma)*m_x); // seconde coordonée y du point de sécance entre la trajectoire de la boule et le cercle de rayon m_x et de centre C3bX;C3bY
             cout << xb1 << ";" << yb1 << " "<< xb2 << ";" << yb2 << endl;
             double yb=0, xb=0; //position parfaite de la boule lors de la collision
-            if(xb1 > x0+m_r/sqrt(2) and xb1 < x0+m_r and m_r <= sqrt((xb1-x0)*(xb1-x0)+(yb1-y0)*(yb1-y0))+0.000001 and m_r >= sqrt((xb1-x0)*(xb1-x0)+(yb1-y0)*(yb1-y0))-0.000001)
+            if(xb1 > C3bX+m_r/sqrt(2) and xb1 < C3bX+m_r and m_r <= sqrt((xb1-C3bX)*(xb1-C3bX)+(yb1-C3bY)*(yb1-C3bY))+0.000001 and m_r >= sqrt((xb1-C3bX)*(xb1-C3bX)+(yb1-C3bY)*(yb1-C3bY))-0.000001)
             {
                 xb = xb1;
                 yb = yb1;
@@ -833,12 +831,12 @@ void Boule::collTable()
                 yb = yb2;
             }
             cout << xb << ";" << yb << endl;
-            vitesse.modifierY(-2*(acos((y0-yb)/m_r)*180/PI)+180-vitesse.y());
-            double alpha = asin((y0-yb)/m_r)*180/PI;
+            vitesse.modifierY(-2*(acos((C3bY-yb)/m_r)*180/PI)+180-vitesse.y()); //sens de la vitesse finale de la boule
+            double alpha = asin((C3bY-yb)/m_r)*180/PI; //angle formé par la droite séante au centre de la boule ainsi que le coins et l'horizontale
             //cout << asin((yb-y0)/m_r)*180/PI << " " << acos((xb-x0)/m_r)*180/PI << endl;
             double x = m_x;
-            m_x = cos(alpha*PI/180) * 2*abs((xb-x0)/(y0-yb)*x - m_y + yb-(xb-x0)/(y0-yb)*xb)/sqrt(((xb-x0)/(y0-yb))*((xb-x0)/(y0-yb)) + 1) + m_x;
-            m_y = -(sin(alpha*PI/180)) * 2*abs((xb-x0)/(y0-yb)*x - m_y + yb-(xb-x0)/(y0-yb)*xb)/sqrt(((xb-x0)/(y0-yb))*((xb-x0)/(y0-yb)) + 1) + m_y;
+            m_x = cos(alpha*PI/180) * 2*abs((xb-C3bX)/(C3bY-yb)*x - m_y + yb-(xb-C3bX)/(C3bY-yb)*xb)/sqrt(((xb-C3bX)/(C3bY-yb))*((xb-C3bX)/(C3bY-yb)) + 1) + m_x; //position x de la boule après avoir restitué l'énergie perdu lors de l'overshoot
+            m_y = -(sin(alpha*PI/180)) * 2*abs((xb-C3bX)/(C3bY-yb)*x - m_y + yb-(xb-C3bX)/(C3bY-yb)*xb)/sqrt(((xb-C3bX)/(C3bY-yb))*((xb-C3bX)/(C3bY-yb)) + 1) + m_y; //position y de la boule après avoir restitué l'énergie perdu lors de l'overshoot
             cout << m_x << ";" << m_y << " ; " << vitesse.y() << endl;
         }
 
