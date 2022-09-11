@@ -178,13 +178,13 @@ void Boule::replacementblanche()
     cout<<"vous devez replacez la blanche derriere la ligne"<<endl;
     while(positionx<0.0287 or positionx>0.635)
     {
-        cout<<"position x (doit etre entre 0.0287 et 0.635"<<endl;
+        cout<<"position x (doit etre entre 0.0287 et 0.635)"<<endl;
         cin>>positionx;
     }
     m_x=positionx;
     while(positiony<0.0287 or positionx>1.2413)
     {
-        cout<<"position y (doit etre entre 0.0287 et 1.2413"<<endl;
+        cout<<"position y (doit etre entre 0.0287 et 1.2413)"<<endl;
         cin>>positiony;
     }
     m_y=positiony;

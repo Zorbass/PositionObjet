@@ -176,7 +176,7 @@ void Table::replacementBoules()
 //execute les formules de cinétique et collision pour toutes les boules à chaque rafraîchissement
 void Table::mecanique()
 {
-
+    double t = clock();
 
 
 //    double px = 0;//position x et y de la frame d'avant
@@ -241,7 +241,9 @@ void Table::mecanique()
         }
 
     }
-    cout << "fini collisions" << endl;
+    t = clock()-t;
+    cout << "fini collisions " << t << endl << endl;
+    this->afficher();
 
 }
 
@@ -260,7 +262,8 @@ void Table::afficher()
 void Table::casse()
 {
     boules[15].replacementblanche();
-    cout<<"c'est au joueur "<<players[joueur].nomjoueur()<<" de jouer"<<endl;
+    this->afficher();
+    cout<< endl << "c'est au joueur "<<players[joueur].nomjoueur()<<" de jouer"<<endl;
     if(blancheempochee==true)boules[15].replacementblanche();//replace la blanche
     blancheempochee=false;
     this->reset();
@@ -393,7 +396,7 @@ void Table::choixGroupe()
             else // dans le cas ou un nombre de rayee empochee est egale au nombre de pleines
             {
                 string typeboule;
-                cout<<"quels boule choisisez vous?"<<endl;//pas faire de faute d'orthographe
+                cout<<"quels boule choisisez vous? (pleine ou rayee)"<<endl;//pas faire de faute d'orthographe
                 cin>>typeboule;
                 players[joueur].choisir(typeboule);
                 cout<<"votre choix est : "<<players[joueur].choix()<<endl;
