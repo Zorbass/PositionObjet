@@ -1306,11 +1306,18 @@ void Boule::collTable()
 
 void Boule::shoot()
 {
-    double v, alpha;
-    cout << "Vitesse ??" << endl;
-    cin >> v;
-    cout << "Angle par rapport a la verticale ?? (jusqu'a 359 dans le sens des aiguilles d'une montre)" << endl;
-    cin >> alpha;
+    double v(1000), alpha(1000);
+
+    while(v<0 or v>20)
+    {
+        cout << "Vitesse ?? (de 0 a 20m/s)" << endl;
+        cin >> v;
+    }
+    while(alpha<0 or alpha>360)
+    {
+        cout << "Angle par rapport a la verticale ?? (de 0 a 359 degres dans le sens des aiguilles d'une montre, le 0 etant en haut; rose des vents)" << endl;
+        cin >> alpha;
+    }
 
     vitesse.modifier(v, alpha);
     acceleration.modifierX(2.943);
