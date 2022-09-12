@@ -201,11 +201,13 @@ void Boule::deplacemelent(double f)
 
     if(vitesse.x()>0)
     {
-        m_d = vitesse.x()*f/1000 /*- acceleration.x()*0.5*f*f/1000000*/;
-        vitesse.modifierX(vitesse.x() - acceleration.x()*f/1000); //est-ce juste??
+        m_d = vitesse.x()*f/1000 - acceleration.x()*0.5*f*f/1000000;
 
         m_x = m_x + sin(vitesse.y()*PI/180) * m_d;
         m_y = m_y + cos(vitesse.y()*PI/180) * m_d;
+
+        vitesse.modifierX(vitesse.x() - acceleration.x()*f/1000);
+
         if(vitesse.x()<0)
         {
             vitesse.modifierX(0);

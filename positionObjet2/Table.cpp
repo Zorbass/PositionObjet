@@ -190,8 +190,7 @@ void Table::mecanique()
     {
 
         double f=0;
-//        double u=0;
-//        u=f;
+
 
         f = clock();
 
