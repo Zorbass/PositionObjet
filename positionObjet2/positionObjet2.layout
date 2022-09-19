@@ -2,63 +2,49 @@
 <CodeBlocks_layout_file>
 	<FileVersion major="1" minor="0" />
 	<ActiveTarget name="Debug" />
+	<File name="Boule.cpp" open="1" top="0" tabpos="6" split="0" active="1" splitpos="0" zoom_1="-1" zoom_2="0">
+		<Cursor>
+			<Cursor1 position="1713" topLine="51" />
+		</Cursor>
+	</File>
+	<File name="Table.hpp" open="1" top="0" tabpos="4" split="0" active="1" splitpos="0" zoom_1="0" zoom_2="0">
+		<Cursor>
+			<Cursor1 position="1139" topLine="33" />
+		</Cursor>
+	</File>
+	<File name="Table.cpp" open="1" top="0" tabpos="3" split="0" active="1" splitpos="0" zoom_1="0" zoom_2="0">
+		<Cursor>
+			<Cursor1 position="16583" topLine="462" />
+		</Cursor>
+	</File>
+	<File name="vecteur.cpp" open="1" top="0" tabpos="9" split="0" active="1" splitpos="0" zoom_1="0" zoom_2="0">
+		<Cursor>
+			<Cursor1 position="0" topLine="0" />
+		</Cursor>
+	</File>
+	<File name="vecteur.hpp" open="1" top="0" tabpos="5" split="0" active="1" splitpos="0" zoom_1="0" zoom_2="0">
+		<Cursor>
+			<Cursor1 position="0" topLine="0" />
+		</Cursor>
+	</File>
 	<File name="main.cpp" open="1" top="0" tabpos="7" split="0" active="1" splitpos="0" zoom_1="0" zoom_2="0">
 		<Cursor>
-			<Cursor1 position="205" topLine="0" />
+			<Cursor1 position="147" topLine="0" />
 		</Cursor>
 	</File>
 	<File name="Boule.hpp" open="1" top="0" tabpos="1" split="0" active="1" splitpos="0" zoom_1="0" zoom_2="0">
 		<Cursor>
-			<Cursor1 position="1543" topLine="25" />
+			<Cursor1 position="0" topLine="0" />
 		</Cursor>
 	</File>
-	<File name="Player.hpp" open="1" top="0" tabpos="3" split="0" active="1" splitpos="0" zoom_1="0" zoom_2="0">
+	<File name="Player.cpp" open="1" top="1" tabpos="8" split="0" active="1" splitpos="0" zoom_1="0" zoom_2="0">
 		<Cursor>
-			<Cursor1 position="428" topLine="0" />
+			<Cursor1 position="184" topLine="0" />
 		</Cursor>
 	</File>
-	<File name="Table.cpp" open="1" top="0" tabpos="6" split="0" active="1" splitpos="0" zoom_1="0" zoom_2="0">
+	<File name="Player.hpp" open="1" top="0" tabpos="2" split="0" active="1" splitpos="0" zoom_1="0" zoom_2="0">
 		<Cursor>
-			<Cursor1 position="8361" topLine="199" />
+			<Cursor1 position="0" topLine="0" />
 		</Cursor>
-	</File>
-	<File name="Player.cpp" open="1" top="0" tabpos="4" split="0" active="1" splitpos="0" zoom_1="0" zoom_2="0">
-		<Cursor>
-			<Cursor1 position="587" topLine="1" />
-		</Cursor>
-	</File>
-	<File name="Table.hpp" open="1" top="0" tabpos="5" split="0" active="1" splitpos="0" zoom_1="0" zoom_2="0">
-		<Cursor>
-			<Cursor1 position="546" topLine="0" />
-		</Cursor>
-	</File>
-	<File name="Boule.cpp" open="1" top="1" tabpos="2" split="0" active="1" splitpos="0" zoom_1="0" zoom_2="0">
-		<Cursor>
-			<Cursor1 position="663" topLine="0" />
-		</Cursor>
-		<Folding>
-			<Collapse line="86" />
-			<Collapse line="91" />
-			<Collapse line="96" />
-			<Collapse line="103" />
-			<Collapse line="109" />
-			<Collapse line="114" />
-			<Collapse line="119" />
-			<Collapse line="124" />
-			<Collapse line="130" />
-			<Collapse line="138" />
-			<Collapse line="143" />
-			<Collapse line="148" />
-			<Collapse line="153" />
-			<Collapse line="158" />
-			<Collapse line="163" />
-			<Collapse line="169" />
-			<Collapse line="174" />
-			<Collapse line="195" />
-			<Collapse line="231" />
-			<Collapse line="244" />
-			<Collapse line="682" />
-			<Collapse line="1305" />
-		</Folding>
 	</File>
 </CodeBlocks_layout_file>

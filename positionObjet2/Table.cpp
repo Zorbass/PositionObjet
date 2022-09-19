@@ -8,38 +8,38 @@
 #include <vector>
 #include "Player.hpp"
 
-#define position1x 2.00092332//2.000923306//1cm + rayon a partir du point de replacement
-#define position2x 2.09999664//2.099996612
-#define position3x 2.05045998//2.050459959
-#define position4x 2.09999664//2.099996612
-#define position5x 2.09999664//2.099996612
-#define position6x 2.05045998//2.050459959
-#define position7x 1.95138666//1.951386653
-#define position8x 2.00092332//2.000923306
-#define position9x 1.90185//1.90185
-#define position10x 2.05045998//2.050459959
-#define position11x 2.09999664//2.099996612
-#define position12x 1.95138666//1.951386653
-#define position13x 2.09999664//2.099996612
-#define position14x 2.05045998//2.050459959
-#define position15x 2.00092332//2.000923306
-#define position16x 0.655875//0.655875
+#define position1x 1.960923306//1.960923306//1cm + rayon a partir du point de replacement
+#define position2x 2.059996612//2.059996612
+#define position3x 2.010459959//2.010459959
+#define position4x 2.059996612//2.059996612
+#define position5x 2.059996612//2.059996612
+#define position6x 2.010459959//2.010459959
+#define position7x 1.911386653//1.911386653
+#define position8x 1.960923306//1.960923306
+#define position9x 1.86185//1.86185
+#define position10x 2.010459959//2.010459959
+#define position11x 2.059996612//2.059996612
+#define position12x 1.911386653//1.911386653
+#define position13x 2.059996612//2.059996612
+#define position14x 2.010459959//2.010459959
+#define position15x 1.960923306//1.960923306
+#define position16x 0.615875//0.615875
 
-#define position1y 0.57779998//0.5778
-#define position2y 0.69220002//0.6922
-#define position3y 0.60639999//0.6064
-#define position4y 0.57779998//0.5778
-#define position5y 0.52059996//0.5206
-#define position6y 0.72080003//0.7208
-#define position7y 0.66360001//0.6636
+#define position1y 0.5776//0.5778
+#define position2y 0.6923//0.6922
+#define position3y 0.6063//0.6064
+#define position4y 0.5777//0.5778
+#define position5y 0.5202//0.5206
+#define position6y 0.7210//0.7208
+#define position7y 0.6637//0.6636
 #define position8y 0.635//0.635
 #define position9y 0.635//0.635
-#define position10y 0.66360001//0.6636
-#define position11y 0.74940004//0.7494
-#define position12y 0.60639999//0.6064
+#define position10y 0.6636//0.6636
+#define position11y 0.7496//0.7494
+#define position12y 0.6064//0.6064
 #define position13y 0.635//0.635
-#define position14y 0.54919997//0.5492
-#define position15y 0.69220002//0.6922
+#define position14y 0.5490//0.5492
+#define position15y 0.6922//0.6922
 #define position16y 0.635//0.635
 
 using namespace std;
