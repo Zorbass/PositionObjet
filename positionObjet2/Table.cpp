@@ -80,7 +80,9 @@ void Table::innitialisation()
     cout<<"joueur 2 choisisez un nom"<<endl;
     cin>>nom;
     players[1]=Player(nom,"aucaun");
-/*
+
+    cout << "la table a une largeur de 1.27m et une longueur de 2.54m." << endl << "la table est orientee de cette maniere :  " << endl <<  " ___________" << endl << "|           |" << endl << "|           |" << endl << "|___________|" << endl;
+/*--
     boules[0] = Boule("1", "pleine",2,0.25);
     boules[1] = Boule("2", "pleine",1.27,1);
     boules[2] = Boule("3", "pleine",0.19,1);
@@ -262,7 +264,7 @@ void Table::casse()
 {
     boules[15].replacementblanche();
     this->afficher();
-    cout<< endl << "c'est au joueur "<<players[joueur].nomjoueur()<<" de jouer"<<endl;
+    cout<< endl << "c'est au joueur "<<players[joueur].nomjoueur()<<" de jouer"<< endl << "le triangle de casse se situe a droite de la boule blanche" << endl;
     if(blancheempochee==true)boules[15].replacementblanche();//replace la blanche
     blancheempochee=false;
     this->reset();
