@@ -8,21 +8,21 @@
 #include <vector>
 #include "Player.hpp"
 
-#define position1x 1.960923306//1.960923306//1cm + rayon a partir du point de replacement
-#define position2x 2.059996612//2.059996612
-#define position3x 2.010459959//2.010459959
-#define position4x 2.059996612//2.059996612
-#define position5x 2.059996612//2.059996612
-#define position6x 2.010459959//2.010459959
-#define position7x 1.911386653//1.911386653
-#define position8x 1.960923306//1.960923306
-#define position9x 1.86185//1.86185
-#define position10x 2.010459959//2.010459959
-#define position11x 2.059996612//2.059996612
-#define position12x 1.911386653//1.911386653
-#define position13x 2.059996612//2.059996612
-#define position14x 2.010459959//2.010459959
-#define position15x 1.960923306//1.960923306
+#define position1x 2.0074//2.0074//1cm + rayon a partir du point de replacement
+#define position2x 2.0912//2.0912
+#define position3x 2.0493//2.0493
+#define position4x 2.0912//2.0912
+#define position5x 2.0912//2.0912
+#define position6x 2.0493//2.0493
+#define position7x 1.9655//1.9655
+#define position8x 2.0074//2.0074
+#define position9x 1.9236//1.86185
+#define position10x 2.0493//2.0493
+#define position11x 2.0912//2.0912
+#define position12x 1.9655//1.9655
+#define position13x 2.0912//2.0912
+#define position14x 2.0493//2.0493
+#define position15x 2.0074//2.0074
 #define position16x 0.615875//0.615875
 
 #define position1y 0.5776//0.5778
