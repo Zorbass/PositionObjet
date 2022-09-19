@@ -15,7 +15,6 @@ class Table
 
 public:
     Table();
-
     ~Table();
 
 
@@ -25,11 +24,13 @@ public:
     void mecanique();
     void test();
     void jouer();
+    void afficher();
     void casse();
     bool faute();
     void reset();
     void choixGroupe();
     void numeroBouleEmpochee();
+    void dessiner();
 
 
 
@@ -68,4 +69,3 @@ private:
 
 
 #endif
-

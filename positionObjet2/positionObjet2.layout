@@ -2,66 +2,44 @@
 <CodeBlocks_layout_file>
 	<FileVersion major="1" minor="0" />
 	<ActiveTarget name="Debug" />
-<<<<<<< Updated upstream
-	<File name="Player.cpp" open="1" top="0" tabpos="5" split="0" active="1" splitpos="0" zoom_1="0" zoom_2="0">
-=======
-	<File name="Player.hpp" open="1" top="0" tabpos="5" split="0" active="1" splitpos="0" zoom_1="0" zoom_2="0">
->>>>>>> Stashed changes
+	<File name="Boule.cpp" open="1" top="0" tabpos="1" split="0" active="1" splitpos="0" zoom_1="-1" zoom_2="0">
 		<Cursor>
-			<Cursor1 position="43" topLine="0" />
+			<Cursor1 position="48612" topLine="1123" />
 		</Cursor>
 	</File>
-<<<<<<< Updated upstream
-	<File name="main.cpp" open="1" top="0" tabpos="1" split="0" active="1" splitpos="0" zoom_1="0" zoom_2="0">
-		<Cursor>
-			<Cursor1 position="184" topLine="0" />
-		</Cursor>
-	</File>
-	<File name="Player.hpp" open="1" top="0" tabpos="4" split="0" active="1" splitpos="0" zoom_1="0" zoom_2="0">
-=======
-	<File name="Table.cpp" open="1" top="0" tabpos="7" split="0" active="1" splitpos="0" zoom_1="0" zoom_2="0">
-		<Cursor>
-			<Cursor1 position="269" topLine="0" />
-		</Cursor>
-	</File>
-	<File name="Table.hpp" open="1" top="0" tabpos="6" split="0" active="1" splitpos="0" zoom_1="0" zoom_2="0">
->>>>>>> Stashed changes
-		<Cursor>
-			<Cursor1 position="1099" topLine="32" />
-		</Cursor>
-	</File>
-<<<<<<< Updated upstream
-	<File name="Table.hpp" open="1" top="1" tabpos="6" split="0" active="1" splitpos="0" zoom_1="0" zoom_2="0">
-=======
-	<File name="Boule.cpp" open="1" top="0" tabpos="3" split="0" active="1" splitpos="0" zoom_1="1" zoom_2="0">
->>>>>>> Stashed changes
+	<File name="Player.cpp" open="1" top="0" tabpos="3" split="0" active="1" splitpos="0" zoom_1="0" zoom_2="0">
 		<Cursor>
 			<Cursor1 position="0" topLine="0" />
 		</Cursor>
 	</File>
-<<<<<<< Updated upstream
-	<File name="Boule.cpp" open="1" top="0" tabpos="2" split="0" active="1" splitpos="0" zoom_1="1" zoom_2="0">
-		<Cursor>
-			<Cursor1 position="1019" topLine="22" />
-		</Cursor>
-	</File>
-	<File name="Table.cpp" open="1" top="0" tabpos="7" split="0" active="1" splitpos="0" zoom_1="0" zoom_2="0">
-		<Cursor>
-			<Cursor1 position="2" topLine="0" />
-=======
 	<File name="main.cpp" open="1" top="0" tabpos="2" split="0" active="1" splitpos="0" zoom_1="0" zoom_2="0">
 		<Cursor>
-			<Cursor1 position="253" topLine="0" />
->>>>>>> Stashed changes
+			<Cursor1 position="147" topLine="0" />
 		</Cursor>
 	</File>
-	<File name="Boule.hpp" open="1" top="1" tabpos="4" split="0" active="1" splitpos="0" zoom_1="0" zoom_2="0">
+	<File name="Table.cpp" open="1" top="0" tabpos="4" split="0" active="1" splitpos="0" zoom_1="0" zoom_2="0">
 		<Cursor>
-<<<<<<< Updated upstream
-			<Cursor1 position="146" topLine="0" />
-=======
-			<Cursor1 position="28" topLine="0" />
->>>>>>> Stashed changes
+			<Cursor1 position="14106" topLine="396" />
+		</Cursor>
+	</File>
+	<File name="Boule.hpp" open="1" top="0" tabpos="6" split="0" active="1" splitpos="0" zoom_1="0" zoom_2="0">
+		<Cursor>
+			<Cursor1 position="0" topLine="0" />
+		</Cursor>
+	</File>
+	<File name="Table.hpp" open="1" top="0" tabpos="8" split="0" active="1" splitpos="0" zoom_1="0" zoom_2="0">
+		<Cursor>
+			<Cursor1 position="350" topLine="0" />
+		</Cursor>
+	</File>
+	<File name="Player.hpp" open="1" top="1" tabpos="7" split="0" active="1" splitpos="0" zoom_1="0" zoom_2="0">
+		<Cursor>
+			<Cursor1 position="0" topLine="0" />
+		</Cursor>
+	</File>
+	<File name="Vecteur.cpp" open="1" top="0" tabpos="5" split="0" active="1" splitpos="0" zoom_1="0" zoom_2="0">
+		<Cursor>
+			<Cursor1 position="0" topLine="0" />
 		</Cursor>
 	</File>
 </CodeBlocks_layout_file>
