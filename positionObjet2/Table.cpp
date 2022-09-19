@@ -243,7 +243,7 @@ void Table::mecanique()
 
     }
     t = clock()-t;
-    cout << "fini collisions " << t << endl << endl;
+//    cout << "fini collisions " << t << endl << endl;
     this->afficher();
 
 }
