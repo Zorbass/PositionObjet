@@ -1305,10 +1305,12 @@ void Boule::collTable()
 void Boule::shoot()
 {
     double v(1000), alpha(1000);
+    string d = typeid(v).name();
 
-    while(v<0 or v>20)
+    while(v<0 or v>20 or typeid(v) != double)
     {
         cout << "Vitesse ?? (de 0 a 20m/s)" << endl;
+        cout << typeid(v).name() << endl;
         cin >> v;
     }
     while(alpha<0 or alpha>360)

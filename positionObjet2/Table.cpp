@@ -56,11 +56,6 @@ Table::~Table()
     delete boules;
 }
 
-void Table::dessiner()
-{
-
-}
-
 /*
 void Table::regle()
 {
