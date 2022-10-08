@@ -1312,14 +1312,19 @@ void Boule::shoot()
 {
     double v(1000), alpha(1000);
 
-    while(v<0 or v>20)
+    while(v<=0 or v>20 or !(cin.good()))
     {
+        cin.clear();
+        cin.ignore(INT_MAX, '\n');
         cout << "Vitesse ?? (de 0 a 20m/s)" << endl;
         cin >> v;
     }
-    while(alpha<0 or alpha>360)
+
+    while(alpha<=0 or alpha>360 or !(cin.good()))
     {
-        cout << "Angle par rapport a la verticale ?? (de 0 a 359 degres dans le sens des aiguilles d'une montre, le 0 etant en haut; rose des vents)" << endl;
+        cin.clear();
+        cin.ignore(INT_MAX, '\n');
+        cout << "Angle par rapport a la verticale ?? (de 0 (non compris) a 360 (compris) degres dans le sens des aiguilles d'une montre, le 0 etant en haut; rose des vents)" << endl;
         cin >> alpha;
     }
 
