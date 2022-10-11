@@ -691,7 +691,7 @@ void Boule::collTable()
         if(m_y+m_r/sqrt(2)<C3bY and m_y+m_r/sqrt(2) >= C3aY + (m_x-m_r/sqrt(2) - C3aX)) //vérification de la collision boule-bord
         {//1
             vitesse.modifierY(90 - vitesse.y()); //sens de la vitesse finale de la boule
-            cout << "collision bord 1 " << m_x << ";" << m_y << endl;
+            cout << "Boule " << m_numero << " collision bord 1 " << m_x << ";" << m_y << endl;
             x = m_x;
             m_x = C3bX+m_r/sqrt(2) - (C3bY-m_r/sqrt(2)) + m_y; //replacement en x de la boule pour restituer l'énergie perdue lors de l'overshoot
             m_y = C3bY-m_r/sqrt(2) - (C3bX+m_r/sqrt(2) - x); //replacement en y de la boule pour restituer l'énergie perdue lors de l'overshoot
@@ -701,7 +701,7 @@ void Boule::collTable()
         else if(m_x+m_r/sqrt(2) < C1bX and m_y-m_r/sqrt(2) <= C1bY - (C1bX - (m_x+m_r/sqrt(2))))
         {//2
             vitesse.modifierY(90 - vitesse.y());
-            cout << "collision bord 2 " << m_x << ";" << m_y << endl;
+            cout << "Boule " << m_numero << " collision bord 2 " << m_x << ";" << m_y << endl;
             x = m_x;
             m_x = C1bX-m_r/sqrt(2) - (C1bY+m_r/sqrt(2)) + m_y; //replacement en x de la boule pour restituer l'énergie perdue lors de l'overshoot
             m_y = C1bY+m_r/sqrt(2) - (C1bX-m_r/sqrt(2) - x);
@@ -711,7 +711,7 @@ void Boule::collTable()
         else if(m_x-m_r/sqrt(2)<C1dX and m_x-m_r/sqrt(2) >= C1cX and m_y-m_r/sqrt(2) <= C1cY - (m_x-m_r/sqrt(2) - C1cX))
         {//3
             vitesse.modifierY(270 - vitesse.y());
-            cout << "collision bord 3 " << m_x << ";" << m_y << endl;
+            cout << "Boule " << m_numero << " collision bord 3 " << m_x << ";" << m_y << endl;
             x = m_x;
             m_x = C1cX+m_r/sqrt(2) + C1cY + m_r/sqrt(2) - m_y; //replacement en x de la boule pour restituer l'énergie perdue lors de l'overshoot
             m_y = C1cY+m_r/sqrt(2) - (x - (C1cX+m_r/sqrt(2)));
@@ -721,7 +721,7 @@ void Boule::collTable()
         else if(m_x+m_r/sqrt(2) > C2aX and m_x+m_r/sqrt(2) < C2bX and m_y-m_r/sqrt(2) <= C2bY - (C2bX - (m_x+m_r/sqrt(2))))
         {//4
             vitesse.modifierY(90 - vitesse.y());
-            cout << "collision bord 4 " << m_x << ";" << m_y << endl;
+            cout << "Boule " << m_numero << " collision bord 4 " << m_x << ";" << m_y << endl;
             x = m_x;
             m_x = C2bX-m_r/sqrt(2) - (C2bY+m_r/sqrt(2)) + m_y; //replacement en x de la boule pour restituer l'énergie perdue lors de l'overshoot
             m_y = C2bY+m_r/sqrt(2) - (C2bX-m_r/sqrt(2) - x);
@@ -731,7 +731,7 @@ void Boule::collTable()
         else if(m_x-m_r/sqrt(2)<C2dX and m_x-m_r/sqrt(2)>C2cX and m_y-m_r/sqrt(2) <= C2cY - (m_x-m_r/sqrt(2) - C2cX))
         {//5
             vitesse.modifierY(270 - vitesse.y());
-            cout << "collision bord 5 " << m_x << ";" << m_y << endl;
+            cout << "Boule " << m_numero << " collision bord 5 " << m_x << ";" << m_y << endl;
             x = m_x;
             m_x = C2cX+m_r/sqrt(2) + C2cY + m_r/sqrt(2) - m_y; //replacement en x de la boule pour restituer l'énergie perdue lors de l'overshoot
             m_y = C2cY+m_r/sqrt(2) - (x - (C2cX+m_r/sqrt(2)));
@@ -741,7 +741,7 @@ void Boule::collTable()
         else if(m_y+m_r/sqrt(2)<C4bY and m_y+m_r/sqrt(2) >= R_TROU + (C4aX - (m_x+m_r/sqrt(2))))
         {//6
             vitesse.modifierY(270 - vitesse.y());
-            cout << "collision bord 6 " << m_x << ";" << m_y << endl;
+            cout << "Boule " << m_numero << " collision bord 6 " << m_x << ";" << m_y << endl;
             x = m_x;
             m_x = C4bX-m_r/sqrt(2) + C4bY-m_r/sqrt(2) - m_y; //replacement en x de la boule pour restituer l'énergie perdue lors de l'overshoot
             m_y = C4bY-m_r/sqrt(2) - (x - (C4bX-m_r/sqrt(2)));
@@ -751,7 +751,7 @@ void Boule::collTable()
         else if(m_y-m_r/sqrt(2)>C3cY and m_y-m_r/sqrt(2) <= C3dY - (m_x-m_r/sqrt(2) - C3dX))
         {//7
             vitesse.modifierY(270 - vitesse.y());
-            cout << "collision bord 7 " << m_x << ";" << m_y << endl; //replacement en x de la boule pour restituer l'énergie perdue lors de l'overshoot
+            cout << "Boule " << m_numero << " collision bord 7 " << m_x << ";" << m_y << endl; //replacement en x de la boule pour restituer l'énergie perdue lors de l'overshoot
             x = m_x;
             m_x = C3dX+m_r/sqrt(2) + C3dY+m_r/sqrt(2) - m_y;
             m_y = C3dY+m_r/sqrt(2) - (x - (C3dX+m_r/sqrt(2)));
@@ -761,7 +761,7 @@ void Boule::collTable()
         else if(m_x+m_r/sqrt(2)<C5bX and m_x+m_r/sqrt(2)>C5aX and m_y+m_r/sqrt(2) >= C5bY + (C5bX - (m_x+m_r/sqrt(2))))
         {//8
             vitesse.modifierY(270 - vitesse.y());
-            cout << "collision bord 8 " << m_x << ";" << m_y << endl;
+            cout << "Boule " << m_numero << " collision bord 8 " << m_x << ";" << m_y << endl;
             x = m_x;
             m_x = C5aX-m_r/sqrt(2) + C5aY-m_r/sqrt(2) - m_y; //replacement en x de la boule pour restituer l'énergie perdue lors de l'overshoot
             m_y = C5aY-m_r/sqrt(2) - (x - (C5aX-m_r/sqrt(2)));
@@ -770,7 +770,7 @@ void Boule::collTable()
         else if(m_x-m_r/sqrt(2)<C5dX and m_x-m_r/sqrt(2)>C5cX and m_y+m_r/sqrt(2) >= C5cY + (m_x-m_r/sqrt(2) - C5cX))
         {//9
             vitesse.modifierY(90 - vitesse.y());
-            cout << "collision bord 9 " << m_x << ";" << m_y << endl;
+            cout << "Boule " << m_numero << " collision bord 9 " << m_x << ";" << m_y << endl;
             x = m_x;
             m_x = C5dX+m_r/sqrt(2) - (C5dY-m_r/sqrt(2)) + m_y; //replacement en x de la boule pour restituer l'énergie perdue lors de l'overshoot
             m_y = C5dY-m_r/sqrt(2) - (C5dX+m_r/sqrt(2) - x);
@@ -779,7 +779,7 @@ void Boule::collTable()
         else if(m_x+m_r/sqrt(2)<C6bX and m_x+m_r/sqrt(2)>C6aX and m_y+m_r/sqrt(2) >= C6bY + (C6bX - (m_x+m_r/sqrt(2))))
         {//10
             vitesse.modifierY(270 - vitesse.y());
-            cout << "collision bord 10 " << m_x << ";" << m_y << endl;
+            cout << "Boule " << m_numero << " collision bord 10 " << m_x << ";" << m_y << endl;
             x = m_x;
             m_x = C6aX-m_r/sqrt(2) + C6aY-m_r/sqrt(2) - m_y; //replacement en x de la boule pour restituer l'énergie perdue lors de l'overshoot
             m_y = C6aY-m_r/sqrt(2) - (x - (C6aX-m_r/sqrt(2)));
@@ -788,7 +788,7 @@ void Boule::collTable()
         else if(m_x-m_r/sqrt(2)<C6dX and m_x-m_r/sqrt(2)>C6cX and m_y+m_r/sqrt(2) >= C6cY + (m_x-m_r/sqrt(2) - C6cX))
         {//11
             vitesse.modifierY(90 - vitesse.y());
-            cout << "collision bord 11 " << m_x << ";" << m_y << endl;
+            cout << "Boule " << m_numero << " collision bord 11 " << m_x << ";" << m_y << endl;
             x = m_x;
             m_x = C6dX+m_r/sqrt(2) - (C6dY-m_r/sqrt(2)) + m_y; //replacement en x de la boule pour restituer l'énergie perdue lors de l'overshoot
             m_y = C6dY-m_r/sqrt(2) - (C6dX+m_r/sqrt(2) - x);
@@ -797,7 +797,7 @@ void Boule::collTable()
         else if(m_y-m_r/sqrt(2)>C4cY and m_y-m_r/sqrt(2) <= C4dY - (C4dX - (m_x+m_r/sqrt(2))))
         {//12
             vitesse.modifierY(90 - vitesse.y());
-            cout << "collision bord 12 " << m_x << ";" << m_y << endl;
+            cout << "Boule " << m_numero << " collision bord 12 " << m_x << ";" << m_y << endl;
             x = m_x;
             m_x = C4dX-m_r/sqrt(2) - (C4dY+m_r/sqrt(2)) + m_y; //replacement en x de la boule pour restituer l'énergie perdue lors de l'overshoot
             m_y = C4dY+m_r/sqrt(2) - (C4dX-m_r/sqrt(2) - x);
@@ -811,7 +811,7 @@ void Boule::collTable()
             double a = tan(gamma)*tan(gamma) + 1; //coef de x^2 dans l'équation quadratique
             double b = 2*tan(gamma)*(m_y-(tan(gamma)*m_x)-C3bY)-2*C3bX; //coef de x dans l'équation quadratique
             double c = (m_y-(tan(gamma)*m_x)-C3bY)*(m_y-(tan(gamma)*m_x)-C3bY) - m_r*m_r + C3bX*C3bX;
-            cout << "collision coin 1 " << m_x << ";" << m_y << " " << vitesse.y() << endl;
+            cout << "Boule " << m_numero << " collision coin 1 " << m_x << ";" << m_y << " " << vitesse.y() << endl;
             double xb1 = (-b + sqrt(b*b - 4*a*c))/(2*a); // première coordonée x du point de sécance entre la trajectoire de la boule et le cercle de rayon m_x et de centre C3bX;C3bY
             double xb2 = (-b - sqrt(b*b - 4*a*c))/(2*a); // seconde coordonée x du point de sécance entre la trajectoire de la boule et le cercle de rayon m_x et de centre C3bX;C3bY
             double yb1 = tan(gamma)*xb1 + m_y -(tan(gamma)*m_x); // première coordonée y du point de sécance entre la trajectoire de la boule et le cercle de rayon m_x et de centre C3bX;C3bY
@@ -846,7 +846,7 @@ void Boule::collTable()
             double a = tan(gamma)*tan(gamma) + 1; //coef de x*x
             double b = 2*tan(gamma)*(m_y-(tan(gamma)*m_x)-y0)-2*x0; //coef de x
             double c = (m_y-(tan(gamma)*m_x)-y0)*(m_y-(tan(gamma)*m_x)-y0) - m_r*m_r + x0*x0;
-            cout << "collision coin 2 " << m_x << ";" << m_y << " " << vitesse.y() << endl;
+            cout << "Boule " << m_numero << " collision coin 2 " << m_x << ";" << m_y << " " << vitesse.y() << endl;
             double xb1 = (-b + sqrt(b*b - 4*a*c))/(2*a);
             double xb2 = (-b - sqrt(b*b - 4*a*c))/(2*a);
             double yb1 = tan(gamma)*xb1 + m_y -(tan(gamma)*m_x);
@@ -881,7 +881,7 @@ void Boule::collTable()
             double a = tan(gamma)*tan(gamma) + 1; //coef de x*x
             double b = 2*tan(gamma)*(m_y-(tan(gamma)*m_x)-y0)-2*x0; //coef de x
             double c = (m_y-(tan(gamma)*m_x)-y0)*(m_y-(tan(gamma)*m_x)-y0) - m_r*m_r + x0*x0;
-            cout << "collision coin 3 " << m_x << ";" << m_y << " " << vitesse.y() << endl;
+            cout << "Boule " << m_numero << " collision coin 3 " << m_x << ";" << m_y << " " << vitesse.y() << endl;
             double xb1 = (-b + sqrt(b*b - 4*a*c))/(2*a);
             double xb2 = (-b - sqrt(b*b - 4*a*c))/(2*a);
             double yb1 = tan(gamma)*xb1 + m_y -(tan(gamma)*m_x);
@@ -917,7 +917,7 @@ void Boule::collTable()
             double a = tan(gamma)*tan(gamma) + 1; //coef de x*x
             double b = 2*tan(gamma)*(m_y-(tan(gamma)*m_x)-y0)-2*x0; //coef de x
             double c = (m_y-(tan(gamma)*m_x)-y0)*(m_y-(tan(gamma)*m_x)-y0) - m_r*m_r + x0*x0;
-            cout << "collision coin 4 " << m_x << ";" << m_y << " " << vitesse.y() << endl;
+            cout << "Boule " << m_numero << " collision coin 4 " << m_x << ";" << m_y << " " << vitesse.y() << endl;
             double xb1 = (-b + sqrt(b*b - 4*a*c))/(2*a);
             double xb2 = (-b - sqrt(b*b - 4*a*c))/(2*a);
             double yb1 = tan(gamma)*xb1 + m_y -(tan(gamma)*m_x);
@@ -952,7 +952,7 @@ void Boule::collTable()
             double a = tan(gamma)*tan(gamma) + 1; //coef de x*x
             double b = 2*tan(gamma)*(m_y-(tan(gamma)*m_x)-y0)-2*x0; //coef de x
             double c = (m_y-(tan(gamma)*m_x)-y0)*(m_y-(tan(gamma)*m_x)-y0) - m_r*m_r + x0*x0;
-            cout << "collision coin 5 " << m_x << ";" << m_y << " " << vitesse.y() << endl;
+            cout << "Boule " << m_numero << " collision coin 5 " << m_x << ";" << m_y << " " << vitesse.y() << endl;
             double xb1 = (-b + sqrt(b*b - 4*a*c))/(2*a);
             double xb2 = (-b - sqrt(b*b - 4*a*c))/(2*a);
             double yb1 = tan(gamma)*xb1 + m_y -(tan(gamma)*m_x);
@@ -987,7 +987,7 @@ void Boule::collTable()
             double a = tan(gamma)*tan(gamma) + 1; //coef de x*x
             double b = 2*tan(gamma)*(m_y-(tan(gamma)*m_x)-y0)-2*x0; //coef de x
             double c = (m_y-(tan(gamma)*m_x)-y0)*(m_y-(tan(gamma)*m_x)-y0) - m_r*m_r + x0*x0;
-            cout << "collision coin 6 " << m_x << ";" << m_y << " " << vitesse.y() << endl;
+            cout << "Boule " << m_numero << " collision coin 6 " << m_x << ";" << m_y << " " << vitesse.y() << endl;
             double xb1 = (-b + sqrt(b*b - 4*a*c))/(2*a);
             double xb2 = (-b - sqrt(b*b - 4*a*c))/(2*a);
             double yb1 = tan(gamma)*xb1 + m_y -(tan(gamma)*m_x);
@@ -1022,7 +1022,7 @@ void Boule::collTable()
             double a = tan(gamma)*tan(gamma) + 1; //coef de x*x
             double b = 2*tan(gamma)*(m_y-(tan(gamma)*m_x)-y0)-2*x0; //coef de x
             double c = (m_y-(tan(gamma)*m_x)-y0)*(m_y-(tan(gamma)*m_x)-y0) - m_r*m_r + x0*x0;
-            cout << "collision coin 7 " << m_x << ";" << m_y << " " << vitesse.y() << endl;
+            cout << "Boule " << m_numero << " collision coin 7 " << m_x << ";" << m_y << " " << vitesse.y() << endl;
             double xb1 = (-b + sqrt(b*b - 4*a*c))/(2*a);
             double xb2 = (-b - sqrt(b*b - 4*a*c))/(2*a);
             double yb1 = tan(gamma)*xb1 + m_y -(tan(gamma)*m_x);
@@ -1057,7 +1057,7 @@ void Boule::collTable()
             double a = tan(gamma)*tan(gamma) + 1; //coef de x*x
             double b = 2*tan(gamma)*(m_y-(tan(gamma)*m_x)-y0)-2*x0; //coef de x
             double c = (m_y-(tan(gamma)*m_x)-y0)*(m_y-(tan(gamma)*m_x)-y0) - m_r*m_r + x0*x0;
-            cout << "collision coin 8 " << m_x << ";" << m_y << " " << vitesse.y() << endl;
+            cout << "Boule " << m_numero << " collision coin 8 " << m_x << ";" << m_y << " " << vitesse.y() << endl;
             double xb1 = (-b + sqrt(b*b - 4*a*c))/(2*a);
             double xb2 = (-b - sqrt(b*b - 4*a*c))/(2*a);
             double yb1 = tan(gamma)*xb1 + m_y -(tan(gamma)*m_x);
@@ -1092,7 +1092,7 @@ void Boule::collTable()
             double a = tan(gamma)*tan(gamma) + 1; //coef de x*x
             double b = 2*tan(gamma)*(m_y-(tan(gamma)*m_x)-y0)-2*x0; //coef de x
             double c = (m_y-(tan(gamma)*m_x)-y0)*(m_y-(tan(gamma)*m_x)-y0) - m_r*m_r + x0*x0;
-            cout << "collision coin 9 " << m_x << ";" << m_y << " " << vitesse.y() << endl;
+            cout << "Boule " << m_numero << " collision coin 9 " << m_x << ";" << m_y << " " << vitesse.y() << endl;
             double xb1 = (-b + sqrt(b*b - 4*a*c))/(2*a);
             double xb2 = (-b - sqrt(b*b - 4*a*c))/(2*a);
             double yb1 = tan(gamma)*xb1 + m_y -(tan(gamma)*m_x);
@@ -1128,7 +1128,7 @@ void Boule::collTable()
             double a = tan(gamma)*tan(gamma) + 1; //coef de x*x
             double b = 2*tan(gamma)*(m_y-(tan(gamma)*m_x)-y0)-2*x0; //coef de x
             double c = (m_y-(tan(gamma)*m_x)-y0)*(m_y-(tan(gamma)*m_x)-y0) - m_r*m_r + x0*x0;
-            cout << "collision coin 10 " << m_x << ";" << m_y << " " << vitesse.y() << endl;
+            cout << "Boule " << m_numero << " collision coin 10 " << m_x << ";" << m_y << " " << vitesse.y() << endl;
             double xb1 = (-b + sqrt(b*b - 4*a*c))/(2*a);
             double xb2 = (-b - sqrt(b*b - 4*a*c))/(2*a);
             double yb1 = tan(gamma)*xb1 + m_y -(tan(gamma)*m_x);
@@ -1163,7 +1163,7 @@ void Boule::collTable()
             double a = tan(gamma)*tan(gamma) + 1; //coef de x*x
             double b = 2*tan(gamma)*(m_y-(tan(gamma)*m_x)-y0)-2*x0; //coef de x
             double c = (m_y-(tan(gamma)*m_x)-y0)*(m_y-(tan(gamma)*m_x)-y0) - m_r*m_r + x0*x0;
-            cout << "collision coin 11  " << m_x << ";" << m_y << " " << vitesse.y() << endl;
+            cout << "Boule " << m_numero << " collision coin 11  " << m_x << ";" << m_y << " " << vitesse.y() << endl;
             double xb1 = (-b + sqrt(b*b - 4*a*c))/(2*a);
             double xb2 = (-b - sqrt(b*b - 4*a*c))/(2*a);
             double yb1 = tan(gamma)*xb1 + m_y -(tan(gamma)*m_x);
@@ -1198,7 +1198,7 @@ void Boule::collTable()
             double a = tan(gamma)*tan(gamma) + 1; //coef de x*x
             double b = 2*tan(gamma)*(m_y-(tan(gamma)*m_x)-y0)-2*x0; //coef de x
             double c = (m_y-(tan(gamma)*m_x)-y0)*(m_y-(tan(gamma)*m_x)-y0) - m_r*m_r + x0*x0;
-            cout << "collision coin 3 " << m_x << ";" << m_y << " " << vitesse.y() << endl;
+            cout << "Boule " << m_numero << " collision coin 12 " << m_x << ";" << m_y << " " << vitesse.y() << endl;
             double xb1 = (-b + sqrt(b*b - 4*a*c))/(2*a);
             double xb2 = (-b - sqrt(b*b - 4*a*c))/(2*a);
             double yb1 = tan(gamma)*xb1 + m_y -(tan(gamma)*m_x);
@@ -1233,14 +1233,14 @@ void Boule::collTable()
         {
             m_x = 2*0.04-m_x + 2*m_r;
             vitesse.modifierY(360 - vitesse.y());
-            cout << "TABLE 3 BOULE : " << m_numero << " " << m_x << " ; " << m_y << endl;
+            cout << "Boule " << m_numero << " collision TABLE 3 " << m_x << " ; " << m_y << endl;
         }
 
         else if(m_x+m_r >= LONGUEUR-0.04 and m_y <= 1.1865 and m_y >= 0.0835)
         {
             vitesse.modifierY(360 - vitesse.y());
             m_x = (LONGUEUR-0.04)*2 - m_x - 2*m_r;
-            cout << "TABLE 4 BOULE : " << m_numero << " " << m_x << " ; " << m_y << endl;
+            cout << "Boule " << m_numero << " collision TABLE 4 " << m_x << " ; " << m_y << endl;
         }
 
 
@@ -1248,28 +1248,28 @@ void Boule::collTable()
 
         else if(m_y+m_r >= LARGEUR-0.04 and m_x >= 0.0835 and m_x <= 1.1865)
         {
-            cout << "TABLE 5 BOULE : " << m_numero << " " << m_x << " ; " << m_y << endl;
+            cout << "Boule " << m_numero << " collision TABLE 5 " << m_x << " ; " << m_y << endl;
             vitesse.modifierY(180 - vitesse.y());
             m_y = (LARGEUR-0.04)*2 - m_y - 2*m_r;
         }
 
         else if(m_y+m_r >= LARGEUR-0.04 and m_x >= 1.3535 and m_x <= 2.4565)
         {
-            cout << "TABLE 6 BOULE " << m_numero << " " << m_x << " ; " << m_y << endl;
+            cout << "Boule " << m_numero << " collision TABLE 6 " << m_x << " ; " << m_y << endl;
             vitesse.modifierY(180 - vitesse.y());
             m_y = (LARGEUR-0.04)*2 - m_y - 2*m_r;
         }
 
         else if(m_y-m_r <= 0.04 and m_x >= 0.0835 and m_x <= 1.1865)
         {
-            cout << "TABLE 1 BOULE " << m_numero << " " << m_x << " ; " << m_y << endl;
+            cout << "Boule " << m_numero << " collision TABLE 1 " << m_x << " ; " << m_y << endl;
             vitesse.modifierY(180 - vitesse.y());
             m_y = 2*0.04-m_y + 2*m_r;
         }
 
         else if(m_y-m_r <= 0.04 and m_x >= 1.3535 and m_x <= 2.4565)
         {
-            cout << "TABLE 2 BOULE " << m_numero << " " << m_x << " ; " << m_y << endl;
+            cout << "Boule " << m_numero << " collision TABLE 2 " << m_x << " ; " << m_y << endl;
             vitesse.modifierY(180 - vitesse.y());
             m_y = 2*0.04-m_y + 2*m_r;
         }
