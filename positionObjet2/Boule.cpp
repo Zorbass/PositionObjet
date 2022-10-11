@@ -1236,7 +1236,7 @@ void Boule::collTable()
             cout << "Boule " << m_numero << " collision TABLE 3 " << m_x << " ; " << m_y << endl;
         }
 
-        else if(m_x+m_r >= LONGUEUR-0.04 and m_y <= 1.1865 and m_y >= 0.0835)
+        else if(m_x+m_r >= 2.5 and m_y <= 1.1865 and m_y >= 0.0835)
         {
             vitesse.modifierY(360 - vitesse.y());
             m_x = (LONGUEUR-0.04)*2 - m_x - 2*m_r;
