@@ -1316,7 +1316,7 @@ void Boule::shoot()
     {
         cin.clear();
         cin.ignore(INT_MAX, '\n');
-        cout << "Vitesse ?? (de 0 a 15/s)" << endl;
+        cout << "Vitesse ?? (de 0 a 15m/s)" << endl;
         cin >> v;
     }
 
