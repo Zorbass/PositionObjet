@@ -1312,11 +1312,11 @@ void Boule::shoot()
 {
     double v(1000), alpha(1000);
 
-    while(v<=0 or v>20 or !(cin.good()))
+    while(v<=0 or v>15 or !(cin.good()))
     {
         cin.clear();
         cin.ignore(INT_MAX, '\n');
-        cout << "Vitesse ?? (de 0 a 20m/s)" << endl;
+        cout << "Vitesse ?? (de 0 a 15/s)" << endl;
         cin >> v;
     }
 
