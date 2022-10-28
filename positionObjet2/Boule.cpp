@@ -236,6 +236,7 @@ void Boule::empochage()
         cout<<m_x<<" "<<m_y<<endl;
         m_x = 20;
         vitesse.modifierX(0);
+        vitesse.modifierY(0);
         cout << "la boule " << m_numero << " est empochee." << endl;
         m_empochee = true;
     }
