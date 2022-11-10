@@ -34,15 +34,11 @@
 		</Compiler>
 		<Unit filename="Boule.cpp" />
 		<Unit filename="Boule.hpp" />
-<<<<<<< Updated upstream
-=======
-		<Unit filename="Player.cpp" />
 		<Unit filename="Player.hpp" />
 		<Unit filename="Table.cpp" />
 		<Unit filename="Table.hpp" />
 		<Unit filename="Vecteur.cpp" />
 		<Unit filename="Vecteur.hpp" />
->>>>>>> Stashed changes
 		<Unit filename="main.cpp" />
 		<Extensions>
 			<lib_finder disable_auto="1" />

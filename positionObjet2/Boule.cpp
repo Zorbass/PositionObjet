@@ -2,6 +2,7 @@
 
 #include "Boule.hpp"
 #include "Vecteur.hpp"
+ #include <climits>
 
 #include <cmath>
 
@@ -27,6 +28,61 @@ using namespace std;
 
 #define R_TROU 0.0435
 
+#define C1aX 0.0435
+#define C1aY 0
+#define C1bX 0.0835
+#define C1bY 0.04
+#define C1cX 1.1865
+#define C1cY 0.04
+#define C1dX 1.2265
+#define C1dY 0
+
+#define C2aX 1.3135
+#define C2aY 0
+#define C2bX 1.3535
+#define C2bY 0.04
+#define C2cX 2.4565
+#define C2cY 0.04
+#define C2dX 2.4965
+#define C2dY 0
+
+#define C3aX 0
+#define C3aY 0.0435
+#define C3bX 0.04
+#define C3bY 0.0835
+#define C3cX 0.04
+#define C3cY 1.1865
+#define C3dX 0
+#define C3dY 1.2265
+
+#define C4aX 2.54
+#define C4aY 0.0435
+#define C4bX 2.5
+#define C4bY 0.0835
+#define C4cX 2.5
+#define C4cY 1.1865
+#define C4dX 2.54
+#define C4dY 1.2265
+
+#define C5aX 0.435
+#define C5aY 1.27
+#define C5bX 0.0835
+#define C5bY 1.23
+#define C5cX 1.1865
+#define C5cY 1.23
+#define C5dX 1.2265
+#define C5dY 1.27
+
+#define C6aX 1.3135
+#define C6aY 1.27
+#define C6bX 1.3535
+#define C6bY 1.23
+#define C6cX 2.4565
+#define C6cY 1.23
+#define C6dX 2.4965
+#define C6dY 1.27
+
+
 //constructeur basique
 Boule::Boule() : m_numero("0"), m_type("rayee"), m_x(20), m_y(0), vitesse(0, 0), acceleration(0, 0)
 {
@@ -37,35 +93,62 @@ Boule::Boule(string numero, string type, double x, double y) : m_numero(numero),
 {
 }
 
-void Boule::shoot()
-{
-    double v, alpha;
-    cout << "Vitesse ??" << endl;
-    cin >> v;
-    cout << "Angle par rapport a la verticale ?? (jusqu'a 359 dans le sens des aiguilles d'une montre)" << endl;
-    cin >> alpha;
-
-    vitesse.modifier(v, alpha);
-    acceleration.modifierX(2.943);
-    //cout << vitesse << endl;
-}
-
-
 //affiche le nom, la vitesse et la position de la bille.
 void Boule::afficher()
 {
     cout << "Boule : " << m_numero << " " << m_type << " (Position : " << m_x << ";" << m_y << ")" << endl << "vitesse : " << vitesse << endl;
 
 }
+
 //retourne la position de la bille en x
 double Boule::positionX()
 {
     return m_x;
 }
+
 //retourne la position de la bille en y
 double Boule::positionY()
 {
     return m_y;
+}
+
+bool Boule::boulband()
+{
+    return boulebande ;
+}
+
+bool Boule::empochee()
+{
+    return m_empochee;
+}
+
+bool Boule::bouledejaempochee()
+{
+
+    return m_dejaempochee;
+}
+
+void Boule::verificationbouledejaempochee()
+{
+    if(m_dejaempochee==false and m_empochee==true)
+    {
+        m_dejaempochee=true;
+    }
+}
+
+bool Boule::boulesempochees()
+{
+    return m_dejaempochee;
+}
+
+bool Boule::collisionBoule()
+{
+    return collboule;
+}
+
+string Boule::typeBoule()
+{
+    return m_type;
 }
 
 double Boule::intensiteeV()
@@ -83,70 +166,31 @@ double Boule::angle()
     return vitesse.y();
 }
 
-string Boule::typeBoule()
-{
-    return m_type;
-}
-
-bool Boule::boulband()
-{
-    return boulebande ;
-}
-
-bool Boule::empochee()
-{
-    return m_empochee;
-}
-
-bool Boule::boulesempochees()
-{
-    return m_dejaempochee;
-}
-
-bool Boule::bouledejaempochee()
-{
-
-    return m_dejaempochee;
-}
-
-bool Boule::collisionBoule()
-{
-    return collboule;
-}
-
-void Boule::verificationbouledejaempochee()
-{
-    if(m_dejaempochee==false and m_empochee==true)
-    {
-        m_dejaempochee=true;
-    }
-}
-
-
-//jw crois que on en a plus besoin
+//je crois que on en a plus besoin
 void Boule::changerVitesse(double x, double y)
 {
     vitesse.modifier(x, y);
 }
+
 void Boule::replacementblanche()
 {
     double positionx =0;
     double positiony=0;
-    cout<<"vous devez replacez la blanche derriere la ligne"<<endl;
-    while(positionx<0.0836 or positionx>0.635)
+    cout<<"Placez la blanche derriere la ligne"<<endl;
+    while(positionx<0.0287 or positionx>0.635)
     {
-        cout<<"position x (doit etre entre 0.0836 et 0.635"<<endl;
+        cout<<"Choisissez une position x (doit etre entre 0.0287 et 0.635)"<<endl;
         cin>>positionx;
     }
     m_x=positionx;
-    while(positiony<0.0836 or positionx>1.2413)
+    while(positiony<0.0287 or positionx>1.2413)
     {
-        cout<<"position y (doit etre entre 0.0836 et 1.2413"<<endl;
+        cout<<"Choisissez une position y (doit etre entre 0.0287 et 1.2413)"<<endl;
         cin>>positiony;
     }
     m_y=positiony;
     m_empochee =false;
-    cout<<positionx<<" "<<positiony<<endl;
+
 }
 
 void Boule::deplacemelent(double f)
@@ -158,12 +202,13 @@ void Boule::deplacemelent(double f)
 
     if(vitesse.x()>0)
     {
-
-        m_d = vitesse.x()*f/1000 /*- acceleration.x()*0.5*f*f/1000000*/;
-        vitesse.modifierX(vitesse.x() - acceleration.x()*f/1000); //est-ce juste??
+        m_d = vitesse.x()*f/1000 - acceleration.x()*0.5*f*f/1000000;
 
         m_x = m_x + sin(vitesse.y()*PI/180) * m_d;
         m_y = m_y + cos(vitesse.y()*PI/180) * m_d;
+
+        vitesse.modifierX(vitesse.x() - acceleration.x()*f/1000);
+
         if(vitesse.x()<0)
         {
             vitesse.modifierX(0);
@@ -207,7 +252,10 @@ void Boule::collBoule(Boule& cible)
 
             //informations tests
             cout << "BOULES " << m_numero << " : " << m_x << " ; " << m_y << endl;
+            cout<<"sa vittsee"<<cible.vitesse.x()<<endl;
+            cout<<"acc "<<acceleration.x()<<"vitesse "<<vitesse.x()<<endl;
             cout << "collision " << cible.m_numero << endl;
+            cout<<cible.positionX()<<"  "<<cible.positionY()<<endl;
 
             //on calcule phi, l'angle entre le centre des 2 boules lors de la collision
 
@@ -241,7 +289,12 @@ void Boule::collBoule(Boule& cible)
             cout<< "t :"<<t<<endl;
 
             vitesse.modifierX(vitesse.x()+t*0.5*acceleration.x());
-            cible.vitesse.modifierX(cible.vitesse.x()+t*0.5*acceleration.x());
+            if(cible.vitesse.x()!=0)
+            {cible.vitesse.modifierX(cible.vitesse.x()+t*0.5*acceleration.x());
+
+
+            }
+            cout<<"vitesse cible "<<cible.vitesse.x()<<endl;
 
 
             //if(deltaX * deltaY < 0)
@@ -295,8 +348,8 @@ void Boule::collBoule(Boule& cible)
 
             else if(deltaY > 0)
             {
-                m_x=m_x-d1*m_sin;
-                cible.m_x=cible.m_x+d1*m_sin2;
+                m_y=m_y-d1*m_cos;
+                cible.m_y=cible.m_y+d1*m_cos2;
             }
 
             else if(deltaX < 0)
@@ -307,13 +360,12 @@ void Boule::collBoule(Boule& cible)
 
             else if(deltaX > 0)
             {
-                m_y=m_y-d1*m_cos;
-                cible.m_y=cible.m_y+d1*m_cos2;
+                m_x=m_x-d1*m_sin;
+                cible.m_x=cible.m_x+d1*m_sin2;
             }
 
             /*double dc;
             double t; // temps de rectification
-
             dc= (px-m_x)/(m_xprime-m_x);
             t=sqrt(dc);//*table.temps();
             */
@@ -334,10 +386,8 @@ void Boule::collBoule(Boule& cible)
                 phi = 270 + abs(atan(deltaY / deltaX)) * 180 / PI; //en degres
 
             }
-            //}
 
-            //else if(deltaX * deltaY > 0)
-            //{
+
             else if(deltaX > 0 and deltaY > 0)
             {
                 phi = abs(atan(deltaX / deltaY)) * 180 / PI; //en degres
@@ -347,13 +397,6 @@ void Boule::collBoule(Boule& cible)
             {
                 phi = 180 + abs(atan(deltaX / deltaY)) * 180 / PI; //en degres
             }
-
-            //}
-
-            //else// if(deltaY * deltaX = 0)
-            //{
-
-            //est-ce que les else if qui suivent sont nécessaires??
 
             else if(deltaY < 0)
             {
@@ -378,20 +421,21 @@ void Boule::collBoule(Boule& cible)
             //faire varier les angles
             //deplacer la boule pendant "t" temps;
 
+            double v1x = vitesse.x() * sin(phi*PI/180 - vitesse.y()*PI/180) * sin((phi-90)*PI/180) + cible.vitesse.x() * cos(cible.vitesse.y()*PI/180 - (phi+180)*PI/180) * sin((phi+180)*PI/180);
 
-            //}
+            double v1y = vitesse.x() * sin(phi*PI/180 - vitesse.y()*PI/180) * cos((phi-90)*PI/180) + cible.vitesse.x() * cos(cible.vitesse.y()*PI/180 - (phi+180)*PI/180) * cos((phi+180)*PI/180);
 
+            double v2x = vitesse.x() * cos((phi-vitesse.y())*PI/180) * sin(phi*PI/180) + cible.vitesse.x() * sin((cible.vitesse.y()-(phi+180))*PI/180) * sin((phi+270)*PI/180);
+
+            double v2y = vitesse.x() * cos((phi-vitesse.y())*PI/180) * cos(phi*PI/180) + cible.vitesse.x() * sin((cible.vitesse.y()-(phi+180))*PI/180) * cos((phi+270)*PI/180);
+/*
             double v1x = cible.vitesse.x() * cos(-(cible.vitesse.y()-90)*PI/180 + (phi-90)*PI/180) * cos(-(phi-90)*PI/180) + vitesse.x() * sin(-(vitesse.y()-90)*PI/180 + (phi-90)*PI/180) * cos(-(phi-90)*PI/180 + PI/2);
-
             double v1y = cible.vitesse.x() * cos(-(cible.vitesse.y()-90)*PI/180 + (phi-90)*PI/180) * sin(-(phi-90)*PI/180) + vitesse.x() * sin(-(vitesse.y()-90)*PI/180 + (phi-90)*PI/180) * sin(-(phi-90)*PI/180 + PI/2);
-
             double v2x = vitesse.x() * cos(-(vitesse.y()-90)*PI/180 + (phi-90)*PI/180) * cos(-(phi-90)*PI/180) + cible.vitesse.x() * sin(-(cible.vitesse.y()-90)*PI/180 + (phi-90)*PI/180) * cos(-(phi-90)*PI/180 + PI/2);
-
             double v2y = vitesse.x() * cos(-(vitesse.y()-90)*PI/180 + (phi-90)*PI/180) * sin(-(phi-90)*PI/180) + cible.vitesse.x() * sin(-(cible.vitesse.y()-90)*PI/180 + (phi-90)*PI/180) * sin(-(phi-90)*PI/180 + PI/2);
-
+*/
             vitesse.modifierX(sqrt(v1x*v1x + v1y*v1y));
             cible.vitesse.modifierX(sqrt(v2x*v2x + v2y*v2y));
-
 
 
             if(v1x > 0 and v1y < 0)
@@ -474,7 +518,16 @@ void Boule::collBoule(Boule& cible)
             //{
 
             //est-ce que les else if qui suivent sont nécessaires??
+            else if(v2x < 0)
+            {
+                cible.vitesse.modifierY(270);
+            }
 
+            else if(v2x > 0)
+            {
+
+                cible.vitesse.modifierY(90);
+            }
             else if(v2y < 0)
             {
                 cible.vitesse.modifierY(180);
@@ -485,18 +538,10 @@ void Boule::collBoule(Boule& cible)
                 cible.vitesse.modifierY(0);
             }
 
-            else if(v2x < 0)
-            {
-                cible.vitesse.modifierY(270);
-            }
-
-            else if(v2x > 0)
-            {
-                cible.vitesse.modifierY(90);
-            }
             cible.acceleration.modifierX(2.943);
             this->deplacemelent(t);//deplace les boules
             cible.deplacemelent(t);
+            cout<<cible.positionX()<<endl;
 
 
 
@@ -504,22 +549,18 @@ void Boule::collBoule(Boule& cible)
             {
                 m_x = cible.m_x - 2*m_r - 0.00001;
             }
-
             else if(m_x-cible.m_x < 2*m_r and m_x-cible.m_x>0)
             {
                 m_x = cible.m_x + 2*m_r + 0.00001;
             }
-
             if(cible.m_y-m_y < 2*m_r and cible.m_y-m_y>0)
             {
                 m_y = cible.m_y - 2*m_r - 0.00001;
             }
-
             else if(m_y-cible.m_y< 2*m_r and m_y -cible.m_y>0)
             {
                 m_y = cible.m_y + 2*m_r + 0.00001;
             }
-
             cout << cible.vitesse << " " << vitesse << endl;*/
 
             //ces if ne sont pas correctes
@@ -636,10 +677,6 @@ void Boule::collBoule(Boule& cible)
             cible.changerVitesse(v2, gamma2);
 */
         }
-        else
-        {
-            collboule=false;
-        }
 }
 
 void Boule::collTable()
@@ -651,139 +688,137 @@ void Boule::collTable()
 
         double x;
 
-        if(m_y+m_r/sqrt(2)<0.0835 and m_y+m_r/sqrt(2) >= 0.0435 + (m_x-m_r/sqrt(2) - 0))
+        if(m_y+m_r/sqrt(2)<C3bY and m_y+m_r/sqrt(2) >= C3aY + (m_x-m_r/sqrt(2) - C3aX)) //vérification de la collision boule-bord
         {//1
-            vitesse.modifierY(90 - vitesse.y());
-            cout << "collision bord 1 " << m_x << ";" << m_y << endl;
+            vitesse.modifierY(90 - vitesse.y()); //sens de la vitesse finale de la boule
+            cout << "Boule " << m_numero << " collision bord 1 " << m_x << ";" << m_y << endl;
             x = m_x;
-            m_x = 0.04+m_r/sqrt(2) - (0.0835-m_r/sqrt(2)) + m_y;
-            m_y = 0.0835-m_r/sqrt(2) - (0.04+m_r/sqrt(2) - x);
+            m_x = C3bX+m_r/sqrt(2) - (C3bY-m_r/sqrt(2)) + m_y; //replacement en x de la boule pour restituer l'énergie perdue lors de l'overshoot
+            m_y = C3bY-m_r/sqrt(2) - (C3bX+m_r/sqrt(2) - x); //replacement en y de la boule pour restituer l'énergie perdue lors de l'overshoot
             cout << m_x << ";" << m_y << endl;
         }
 
-        else if(m_x+m_r/sqrt(2) < 0.0835 and m_y-m_r/sqrt(2) <= 0.04 - (0.0835 - (m_x+m_r/sqrt(2))))
+        else if(m_x+m_r/sqrt(2) < C1bX and m_y-m_r/sqrt(2) <= C1bY - (C1bX - (m_x+m_r/sqrt(2))))
         {//2
             vitesse.modifierY(90 - vitesse.y());
-            cout << "collision bord 2 " << m_x << ";" << m_y << endl;
+            cout << "Boule " << m_numero << " collision bord 2 " << m_x << ";" << m_y << endl;
             x = m_x;
-            m_x = 0.0835-m_r/sqrt(2) - (0.04+m_r/sqrt(2)) + m_y;
-            m_y = 0.04+m_r/sqrt(2) - (0.0835-m_r/sqrt(2) - x);
+            m_x = C1bX-m_r/sqrt(2) - (C1bY+m_r/sqrt(2)) + m_y; //replacement en x de la boule pour restituer l'énergie perdue lors de l'overshoot
+            m_y = C1bY+m_r/sqrt(2) - (C1bX-m_r/sqrt(2) - x);
             cout << m_x << ";" << m_y << endl;
         }
 
-        else if(m_x-m_r/sqrt(2)<1.2265 and m_x-m_r/sqrt(2) >= 1.1865 and m_y-m_r/sqrt(2) <= 0.04 - (m_x-m_r/sqrt(2) - 1.1865))
+        else if(m_x-m_r/sqrt(2)<C1dX and m_x-m_r/sqrt(2) >= C1cX and m_y-m_r/sqrt(2) <= C1cY - (m_x-m_r/sqrt(2) - C1cX))
         {//3
             vitesse.modifierY(270 - vitesse.y());
-            cout << "collision bord 3 " << m_x << ";" << m_y << endl;
+            cout << "Boule " << m_numero << " collision bord 3 " << m_x << ";" << m_y << endl;
             x = m_x;
-            m_x = 1.1865+m_r/sqrt(2) + 0.04 + m_r/sqrt(2) - m_y;
-            m_y = 0.04+m_r/sqrt(2) - (x - (1.1865+m_r/sqrt(2)));
+            m_x = C1cX+m_r/sqrt(2) + C1cY + m_r/sqrt(2) - m_y; //replacement en x de la boule pour restituer l'énergie perdue lors de l'overshoot
+            m_y = C1cY+m_r/sqrt(2) - (x - (C1cX+m_r/sqrt(2)));
             cout << m_x << ";" << m_y << endl;
         }
 
-        else if(m_x+m_r/sqrt(2) > 1.3135 and m_x+m_r/sqrt(2) < 1.3535 and m_y-m_r/sqrt(2) <= 0.04 - (1.3535 - (m_x+m_r/sqrt(2))))
+        else if(m_x+m_r/sqrt(2) > C2aX and m_x+m_r/sqrt(2) < C2bX and m_y-m_r/sqrt(2) <= C2bY - (C2bX - (m_x+m_r/sqrt(2))))
         {//4
             vitesse.modifierY(90 - vitesse.y());
-            cout << "collision bord 4 " << m_x << ";" << m_y << endl;
+            cout << "Boule " << m_numero << " collision bord 4 " << m_x << ";" << m_y << endl;
             x = m_x;
-            m_x = 1.3535-m_r/sqrt(2) - (0.04+m_r/sqrt(2)) + m_y;
-            m_y = 0.04+m_r/sqrt(2) - (1.3535-m_r/sqrt(2) - x);
+            m_x = C2bX-m_r/sqrt(2) - (C2bY+m_r/sqrt(2)) + m_y; //replacement en x de la boule pour restituer l'énergie perdue lors de l'overshoot
+            m_y = C2bY+m_r/sqrt(2) - (C2bX-m_r/sqrt(2) - x);
             cout << m_x << ";" << m_y << endl;
         }
 
-        else if(m_x-m_r/sqrt(2)<2.4965 and m_x-m_r/sqrt(2)>2.4565 and m_y-m_r/sqrt(2) <= 0.04 - (m_x-m_r/sqrt(2) - 2.4565))
+        else if(m_x-m_r/sqrt(2)<C2dX and m_x-m_r/sqrt(2)>C2cX and m_y-m_r/sqrt(2) <= C2cY - (m_x-m_r/sqrt(2) - C2cX))
         {//5
             vitesse.modifierY(270 - vitesse.y());
-            cout << "collision bord 5 " << m_x << ";" << m_y << endl;
+            cout << "Boule " << m_numero << " collision bord 5 " << m_x << ";" << m_y << endl;
             x = m_x;
-            m_x = 2.4565+m_r/sqrt(2) + 0.04 + m_r/sqrt(2) - m_y;
-            m_y = 0.04+m_r/sqrt(2) - (x - (2.4565+m_r/sqrt(2)));
+            m_x = C2cX+m_r/sqrt(2) + C2cY + m_r/sqrt(2) - m_y; //replacement en x de la boule pour restituer l'énergie perdue lors de l'overshoot
+            m_y = C2cY+m_r/sqrt(2) - (x - (C2cX+m_r/sqrt(2)));
             cout << m_x << ";" << m_y << endl;
         }
 
-        else if(m_y+m_r/sqrt(2)<0.0835 and m_y+m_r/sqrt(2) >= 0.0435 + (2.54 - (m_x+m_r/sqrt(2))))
+        else if(m_y+m_r/sqrt(2)<C4bY and m_y+m_r/sqrt(2) >= R_TROU + (C4aX - (m_x+m_r/sqrt(2))))
         {//6
             vitesse.modifierY(270 - vitesse.y());
-            cout << "collision bord 6 " << m_x << ";" << m_y << endl;
+            cout << "Boule " << m_numero << " collision bord 6 " << m_x << ";" << m_y << endl;
             x = m_x;
-            m_x = 2.5-m_r/sqrt(2) + 0.0835-m_r/sqrt(2) - m_y;
-            m_y = 0.0835-m_r/sqrt(2) - (x - (2.5-m_r/sqrt(2)));
+            m_x = C4bX-m_r/sqrt(2) + C4bY-m_r/sqrt(2) - m_y; //replacement en x de la boule pour restituer l'énergie perdue lors de l'overshoot
+            m_y = C4bY-m_r/sqrt(2) - (x - (C4bX-m_r/sqrt(2)));
             cout << m_x << ";" << m_y << endl;
         }
 
-        else if(m_y-m_r/sqrt(2)>1.27-0.0835 and m_y-m_r/sqrt(2) <= 1.27 - 0.0435 - (m_x-m_r/sqrt(2) - 0))
+        else if(m_y-m_r/sqrt(2)>C3cY and m_y-m_r/sqrt(2) <= C3dY - (m_x-m_r/sqrt(2) - C3dX))
         {//7
             vitesse.modifierY(270 - vitesse.y());
-            cout << "collision bord 7 " << m_x << ";" << m_y << endl;
+            cout << "Boule " << m_numero << " collision bord 7 " << m_x << ";" << m_y << endl; //replacement en x de la boule pour restituer l'énergie perdue lors de l'overshoot
             x = m_x;
-            m_x = 0+m_r/sqrt(2) + 1.2265+m_r/sqrt(2) - m_y;
-            m_y = 1.2265+m_r/sqrt(2) - (x - (0+m_r/sqrt(2)));
+            m_x = C3dX+m_r/sqrt(2) + C3dY+m_r/sqrt(2) - m_y;
+            m_y = C3dY+m_r/sqrt(2) - (x - (C3dX+m_r/sqrt(2)));
             cout << m_x << ";" << m_y << endl;
         }
 
-        else if(m_x+m_r/sqrt(2)<0.0835 and m_x+m_r/sqrt(2)>0.0435 and m_y+m_r/sqrt(2) >= 1.27 - 0.04 + (0.0835 - (m_x+m_r/sqrt(2))))
+        else if(m_x+m_r/sqrt(2)<C5bX and m_x+m_r/sqrt(2)>C5aX and m_y+m_r/sqrt(2) >= C5bY + (C5bX - (m_x+m_r/sqrt(2))))
         {//8
             vitesse.modifierY(270 - vitesse.y());
-            cout << "collision bord 8 " << m_x << ";" << m_y << endl;
+            cout << "Boule " << m_numero << " collision bord 8 " << m_x << ";" << m_y << endl;
             x = m_x;
-            m_x = 0.0435-m_r/sqrt(2) + 1.27-m_r/sqrt(2) - m_y;
-            m_y = 1.27-m_r/sqrt(2) - (x - (0.0435-m_r/sqrt(2)));
+            m_x = C5aX-m_r/sqrt(2) + C5aY-m_r/sqrt(2) - m_y; //replacement en x de la boule pour restituer l'énergie perdue lors de l'overshoot
+            m_y = C5aY-m_r/sqrt(2) - (x - (C5aX-m_r/sqrt(2)));
             cout << m_x << ";" << m_y << endl;
         }
-        else if(m_x-m_r/sqrt(2)<1.2265 and m_x-m_r/sqrt(2)>1.1865 and m_y+m_r/sqrt(2) >= 1.27 - 0.04 + (m_x-m_r/sqrt(2) - 1.1865))
+        else if(m_x-m_r/sqrt(2)<C5dX and m_x-m_r/sqrt(2)>C5cX and m_y+m_r/sqrt(2) >= C5cY + (m_x-m_r/sqrt(2) - C5cX))
         {//9
             vitesse.modifierY(90 - vitesse.y());
-            cout << "collision bord 9 " << m_x << ";" << m_y << endl;
+            cout << "Boule " << m_numero << " collision bord 9 " << m_x << ";" << m_y << endl;
             x = m_x;
-            m_x = 1.2265+m_r/sqrt(2) - (1.27-m_r/sqrt(2)) + m_y;
-            m_y = 1.27-m_r/sqrt(2) - (1.2265+m_r/sqrt(2) - x);
+            m_x = C5dX+m_r/sqrt(2) - (C5dY-m_r/sqrt(2)) + m_y; //replacement en x de la boule pour restituer l'énergie perdue lors de l'overshoot
+            m_y = C5dY-m_r/sqrt(2) - (C5dX+m_r/sqrt(2) - x);
             cout << m_x << ";" << m_y << endl;
         }
-        else if(m_x+m_r/sqrt(2)<1.3535 and m_x+m_r/sqrt(2)>1.3135 and m_y+m_r/sqrt(2) >= 1.27 - 0.04 + (1.3535 - (m_x+m_r/sqrt(2))))
+        else if(m_x+m_r/sqrt(2)<C6bX and m_x+m_r/sqrt(2)>C6aX and m_y+m_r/sqrt(2) >= C6bY + (C6bX - (m_x+m_r/sqrt(2))))
         {//10
             vitesse.modifierY(270 - vitesse.y());
-            cout << "collision bord 10 " << m_x << ";" << m_y << endl;
+            cout << "Boule " << m_numero << " collision bord 10 " << m_x << ";" << m_y << endl;
             x = m_x;
-            m_x = 1.3135-m_r/sqrt(2) + 1.27-m_r/sqrt(2) - m_y;
-            m_y = 1.27-m_r/sqrt(2) - (x - (1.3135-m_r/sqrt(2)));
+            m_x = C6aX-m_r/sqrt(2) + C6aY-m_r/sqrt(2) - m_y; //replacement en x de la boule pour restituer l'énergie perdue lors de l'overshoot
+            m_y = C6aY-m_r/sqrt(2) - (x - (C6aX-m_r/sqrt(2)));
             cout << m_x << ";" << m_y << endl;
         }
-        else if(m_x-m_r/sqrt(2)<2.4965 and m_x-m_r/sqrt(2)>2.4565 and m_y+m_r/sqrt(2) >= 1.27 - 0.04 + (m_x-m_r/sqrt(2) - 2.4565))
+        else if(m_x-m_r/sqrt(2)<C6dX and m_x-m_r/sqrt(2)>C6cX and m_y+m_r/sqrt(2) >= C6cY + (m_x-m_r/sqrt(2) - C6cX))
         {//11
             vitesse.modifierY(90 - vitesse.y());
-            cout << "collision bord 11 " << m_x << ";" << m_y << endl;
+            cout << "Boule " << m_numero << " collision bord 11 " << m_x << ";" << m_y << endl;
             x = m_x;
-            m_x = 2.4965+m_r/sqrt(2) - (1.27-m_r/sqrt(2)) + m_y;
-            m_y = 1.27-m_r/sqrt(2) - (2.4965+m_r/sqrt(2) - x);
+            m_x = C6dX+m_r/sqrt(2) - (C6dY-m_r/sqrt(2)) + m_y; //replacement en x de la boule pour restituer l'énergie perdue lors de l'overshoot
+            m_y = C6dY-m_r/sqrt(2) - (C6dX+m_r/sqrt(2) - x);
             cout << m_x << ";" << m_y << endl;
         }
-        else if(m_y-m_r/sqrt(2)>1.1865 and m_y-m_r/sqrt(2) <= 1.27 - 0.0435 - (2.54 - (m_x+m_r/sqrt(2))))
+        else if(m_y-m_r/sqrt(2)>C4cY and m_y-m_r/sqrt(2) <= C4dY - (C4dX - (m_x+m_r/sqrt(2))))
         {//12
             vitesse.modifierY(90 - vitesse.y());
-            cout << "collision bord 12 " << m_x << ";" << m_y << endl;
+            cout << "Boule " << m_numero << " collision bord 12 " << m_x << ";" << m_y << endl;
             x = m_x;
-            m_x = 2.54-m_r/sqrt(2) - (1.2265+m_r/sqrt(2)) + m_y;
-            m_y = 1.2265+m_r/sqrt(2) - (2.54-m_r/sqrt(2) - x);
+            m_x = C4dX-m_r/sqrt(2) - (C4dY+m_r/sqrt(2)) + m_y; //replacement en x de la boule pour restituer l'énergie perdue lors de l'overshoot
+            m_y = C4dY+m_r/sqrt(2) - (C4dX-m_r/sqrt(2) - x);
             cout << m_x << ";" << m_y << endl;
         }
 
 //collision avec les coins
-        else if(m_y > 0.0835-m_r/sqrt(2) and m_y < 0.0835 and m_r >= sqrt((m_x-0.04)*(m_x-0.04)+(m_y-0.0835)*(m_y-0.0835)))
+        else if(m_y > C3bY-m_r/sqrt(2) and m_y < C3bY and m_r >= sqrt((m_x-C3bX)*(m_x-C3bX)+(m_y-C3bY)*(m_y-C3bY))) //vérification de la collision avec le coin
         {//1b a revoir
-            double x0 = 0.04;
-            double y0 = 0.0835;
             double gamma = -(vitesse.y()-90)*PI/180; //sens de la vitesse par rapport au cercle trigonométrique en radian
-            double a = tan(gamma)*tan(gamma) + 1; //coef de x*x
-            double b = 2*tan(gamma)*(m_y-(tan(gamma)*m_x)-y0)-2*x0; //coef de x
-            double c = (m_y-(tan(gamma)*m_x)-y0)*(m_y-(tan(gamma)*m_x)-y0) - m_r*m_r + x0*x0;
-            cout << "collision coin 1 " << m_x << ";" << m_y << " " << vitesse.y() << endl;
-            double xb1 = (-b + sqrt(b*b - 4*a*c))/(2*a);
-            double xb2 = (-b - sqrt(b*b - 4*a*c))/(2*a);
-            double yb1 = tan(gamma)*xb1 + m_y -(tan(gamma)*m_x);
-            double yb2 = tan(gamma)*xb2 + m_y -(tan(gamma)*m_x);
+            double a = tan(gamma)*tan(gamma) + 1; //coef de x^2 dans l'équation quadratique
+            double b = 2*tan(gamma)*(m_y-(tan(gamma)*m_x)-C3bY)-2*C3bX; //coef de x dans l'équation quadratique
+            double c = (m_y-(tan(gamma)*m_x)-C3bY)*(m_y-(tan(gamma)*m_x)-C3bY) - m_r*m_r + C3bX*C3bX;
+            cout << "Boule " << m_numero << " collision coin 1 " << m_x << ";" << m_y << " " << vitesse.y() << endl;
+            double xb1 = (-b + sqrt(b*b - 4*a*c))/(2*a); // première coordonée x du point de sécance entre la trajectoire de la boule et le cercle de rayon m_x et de centre C3bX;C3bY
+            double xb2 = (-b - sqrt(b*b - 4*a*c))/(2*a); // seconde coordonée x du point de sécance entre la trajectoire de la boule et le cercle de rayon m_x et de centre C3bX;C3bY
+            double yb1 = tan(gamma)*xb1 + m_y -(tan(gamma)*m_x); // première coordonée y du point de sécance entre la trajectoire de la boule et le cercle de rayon m_x et de centre C3bX;C3bY
+            double yb2 = tan(gamma)*xb2 + m_y -(tan(gamma)*m_x); // seconde coordonée y du point de sécance entre la trajectoire de la boule et le cercle de rayon m_x et de centre C3bX;C3bY
             cout << xb1 << ";" << yb1 << " "<< xb2 << ";" << yb2 << endl;
             double yb=0, xb=0; //position parfaite de la boule lors de la collision
-            if(xb1 > x0+m_r/sqrt(2) and xb1 < x0+m_r and m_r <= sqrt((xb1-x0)*(xb1-x0)+(yb1-y0)*(yb1-y0))+0.000001 and m_r >= sqrt((xb1-x0)*(xb1-x0)+(yb1-y0)*(yb1-y0))-0.000001)
+            if(xb1 > C3bX+m_r/sqrt(2) and xb1 < C3bX+m_r and m_r <= sqrt((xb1-C3bX)*(xb1-C3bX)+(yb1-C3bY)*(yb1-C3bY))+0.000001 and m_r >= sqrt((xb1-C3bX)*(xb1-C3bX)+(yb1-C3bY)*(yb1-C3bY))-0.000001)
             {
                 xb = xb1;
                 yb = yb1;
@@ -794,12 +829,12 @@ void Boule::collTable()
                 yb = yb2;
             }
             cout << xb << ";" << yb << endl;
-            vitesse.modifierY(-2*(acos((y0-yb)/m_r)*180/PI)+180-vitesse.y());
-            double alpha = asin((y0-yb)/m_r)*180/PI;
+            vitesse.modifierY(-2*(acos((C3bY-yb)/m_r)*180/PI)+180-vitesse.y()); //sens de la vitesse finale de la boule
+            double alpha = asin((C3bY-yb)/m_r)*180/PI; //angle formé par la droite séante au centre de la boule ainsi que le coins et l'horizontale
             //cout << asin((yb-y0)/m_r)*180/PI << " " << acos((xb-x0)/m_r)*180/PI << endl;
             double x = m_x;
-            m_x = cos(alpha*PI/180) * 2*abs((xb-x0)/(y0-yb)*x - m_y + yb-(xb-x0)/(y0-yb)*xb)/sqrt(((xb-x0)/(y0-yb))*((xb-x0)/(y0-yb)) + 1) + m_x;
-            m_y = -(sin(alpha*PI/180)) * 2*abs((xb-x0)/(y0-yb)*x - m_y + yb-(xb-x0)/(y0-yb)*xb)/sqrt(((xb-x0)/(y0-yb))*((xb-x0)/(y0-yb)) + 1) + m_y;
+            m_x = cos(alpha*PI/180) * 2*abs((xb-C3bX)/(C3bY-yb)*x - m_y + yb-(xb-C3bX)/(C3bY-yb)*xb)/sqrt(((xb-C3bX)/(C3bY-yb))*((xb-C3bX)/(C3bY-yb)) + 1) + m_x; //position x de la boule après avoir restitué l'énergie perdu lors de l'overshoot
+            m_y = -(sin(alpha*PI/180)) * 2*abs((xb-C3bX)/(C3bY-yb)*x - m_y + yb-(xb-C3bX)/(C3bY-yb)*xb)/sqrt(((xb-C3bX)/(C3bY-yb))*((xb-C3bX)/(C3bY-yb)) + 1) + m_y; //position y de la boule après avoir restitué l'énergie perdu lors de l'overshoot
             cout << m_x << ";" << m_y << " ; " << vitesse.y() << endl;
         }
 
@@ -811,7 +846,7 @@ void Boule::collTable()
             double a = tan(gamma)*tan(gamma) + 1; //coef de x*x
             double b = 2*tan(gamma)*(m_y-(tan(gamma)*m_x)-y0)-2*x0; //coef de x
             double c = (m_y-(tan(gamma)*m_x)-y0)*(m_y-(tan(gamma)*m_x)-y0) - m_r*m_r + x0*x0;
-            cout << "collision coin 2 " << m_x << ";" << m_y << " " << vitesse.y() << endl;
+            cout << "Boule " << m_numero << " collision coin 2 " << m_x << ";" << m_y << " " << vitesse.y() << endl;
             double xb1 = (-b + sqrt(b*b - 4*a*c))/(2*a);
             double xb2 = (-b - sqrt(b*b - 4*a*c))/(2*a);
             double yb1 = tan(gamma)*xb1 + m_y -(tan(gamma)*m_x);
@@ -846,7 +881,7 @@ void Boule::collTable()
             double a = tan(gamma)*tan(gamma) + 1; //coef de x*x
             double b = 2*tan(gamma)*(m_y-(tan(gamma)*m_x)-y0)-2*x0; //coef de x
             double c = (m_y-(tan(gamma)*m_x)-y0)*(m_y-(tan(gamma)*m_x)-y0) - m_r*m_r + x0*x0;
-            cout << "collision coin 3 " << m_x << ";" << m_y << " " << vitesse.y() << endl;
+            cout << "Boule " << m_numero << " collision coin 3 " << m_x << ";" << m_y << " " << vitesse.y() << endl;
             double xb1 = (-b + sqrt(b*b - 4*a*c))/(2*a);
             double xb2 = (-b - sqrt(b*b - 4*a*c))/(2*a);
             double yb1 = tan(gamma)*xb1 + m_y -(tan(gamma)*m_x);
@@ -882,7 +917,7 @@ void Boule::collTable()
             double a = tan(gamma)*tan(gamma) + 1; //coef de x*x
             double b = 2*tan(gamma)*(m_y-(tan(gamma)*m_x)-y0)-2*x0; //coef de x
             double c = (m_y-(tan(gamma)*m_x)-y0)*(m_y-(tan(gamma)*m_x)-y0) - m_r*m_r + x0*x0;
-            cout << "collision coin 4 " << m_x << ";" << m_y << " " << vitesse.y() << endl;
+            cout << "Boule " << m_numero << " collision coin 4 " << m_x << ";" << m_y << " " << vitesse.y() << endl;
             double xb1 = (-b + sqrt(b*b - 4*a*c))/(2*a);
             double xb2 = (-b - sqrt(b*b - 4*a*c))/(2*a);
             double yb1 = tan(gamma)*xb1 + m_y -(tan(gamma)*m_x);
@@ -917,7 +952,7 @@ void Boule::collTable()
             double a = tan(gamma)*tan(gamma) + 1; //coef de x*x
             double b = 2*tan(gamma)*(m_y-(tan(gamma)*m_x)-y0)-2*x0; //coef de x
             double c = (m_y-(tan(gamma)*m_x)-y0)*(m_y-(tan(gamma)*m_x)-y0) - m_r*m_r + x0*x0;
-            cout << "collision coin 5 " << m_x << ";" << m_y << " " << vitesse.y() << endl;
+            cout << "Boule " << m_numero << " collision coin 5 " << m_x << ";" << m_y << " " << vitesse.y() << endl;
             double xb1 = (-b + sqrt(b*b - 4*a*c))/(2*a);
             double xb2 = (-b - sqrt(b*b - 4*a*c))/(2*a);
             double yb1 = tan(gamma)*xb1 + m_y -(tan(gamma)*m_x);
@@ -952,7 +987,7 @@ void Boule::collTable()
             double a = tan(gamma)*tan(gamma) + 1; //coef de x*x
             double b = 2*tan(gamma)*(m_y-(tan(gamma)*m_x)-y0)-2*x0; //coef de x
             double c = (m_y-(tan(gamma)*m_x)-y0)*(m_y-(tan(gamma)*m_x)-y0) - m_r*m_r + x0*x0;
-            cout << "collision coin 6 " << m_x << ";" << m_y << " " << vitesse.y() << endl;
+            cout << "Boule " << m_numero << " collision coin 6 " << m_x << ";" << m_y << " " << vitesse.y() << endl;
             double xb1 = (-b + sqrt(b*b - 4*a*c))/(2*a);
             double xb2 = (-b - sqrt(b*b - 4*a*c))/(2*a);
             double yb1 = tan(gamma)*xb1 + m_y -(tan(gamma)*m_x);
@@ -987,7 +1022,7 @@ void Boule::collTable()
             double a = tan(gamma)*tan(gamma) + 1; //coef de x*x
             double b = 2*tan(gamma)*(m_y-(tan(gamma)*m_x)-y0)-2*x0; //coef de x
             double c = (m_y-(tan(gamma)*m_x)-y0)*(m_y-(tan(gamma)*m_x)-y0) - m_r*m_r + x0*x0;
-            cout << "collision coin 7 " << m_x << ";" << m_y << " " << vitesse.y() << endl;
+            cout << "Boule " << m_numero << " collision coin 7 " << m_x << ";" << m_y << " " << vitesse.y() << endl;
             double xb1 = (-b + sqrt(b*b - 4*a*c))/(2*a);
             double xb2 = (-b - sqrt(b*b - 4*a*c))/(2*a);
             double yb1 = tan(gamma)*xb1 + m_y -(tan(gamma)*m_x);
@@ -1022,7 +1057,7 @@ void Boule::collTable()
             double a = tan(gamma)*tan(gamma) + 1; //coef de x*x
             double b = 2*tan(gamma)*(m_y-(tan(gamma)*m_x)-y0)-2*x0; //coef de x
             double c = (m_y-(tan(gamma)*m_x)-y0)*(m_y-(tan(gamma)*m_x)-y0) - m_r*m_r + x0*x0;
-            cout << "collision coin 8 " << m_x << ";" << m_y << " " << vitesse.y() << endl;
+            cout << "Boule " << m_numero << " collision coin 8 " << m_x << ";" << m_y << " " << vitesse.y() << endl;
             double xb1 = (-b + sqrt(b*b - 4*a*c))/(2*a);
             double xb2 = (-b - sqrt(b*b - 4*a*c))/(2*a);
             double yb1 = tan(gamma)*xb1 + m_y -(tan(gamma)*m_x);
@@ -1057,7 +1092,7 @@ void Boule::collTable()
             double a = tan(gamma)*tan(gamma) + 1; //coef de x*x
             double b = 2*tan(gamma)*(m_y-(tan(gamma)*m_x)-y0)-2*x0; //coef de x
             double c = (m_y-(tan(gamma)*m_x)-y0)*(m_y-(tan(gamma)*m_x)-y0) - m_r*m_r + x0*x0;
-            cout << "collision coin 9 " << m_x << ";" << m_y << " " << vitesse.y() << endl;
+            cout << "Boule " << m_numero << " collision coin 9 " << m_x << ";" << m_y << " " << vitesse.y() << endl;
             double xb1 = (-b + sqrt(b*b - 4*a*c))/(2*a);
             double xb2 = (-b - sqrt(b*b - 4*a*c))/(2*a);
             double yb1 = tan(gamma)*xb1 + m_y -(tan(gamma)*m_x);
@@ -1093,7 +1128,7 @@ void Boule::collTable()
             double a = tan(gamma)*tan(gamma) + 1; //coef de x*x
             double b = 2*tan(gamma)*(m_y-(tan(gamma)*m_x)-y0)-2*x0; //coef de x
             double c = (m_y-(tan(gamma)*m_x)-y0)*(m_y-(tan(gamma)*m_x)-y0) - m_r*m_r + x0*x0;
-            cout << "collision coin 10 " << m_x << ";" << m_y << " " << vitesse.y() << endl;
+            cout << "Boule " << m_numero << " collision coin 10 " << m_x << ";" << m_y << " " << vitesse.y() << endl;
             double xb1 = (-b + sqrt(b*b - 4*a*c))/(2*a);
             double xb2 = (-b - sqrt(b*b - 4*a*c))/(2*a);
             double yb1 = tan(gamma)*xb1 + m_y -(tan(gamma)*m_x);
@@ -1128,7 +1163,7 @@ void Boule::collTable()
             double a = tan(gamma)*tan(gamma) + 1; //coef de x*x
             double b = 2*tan(gamma)*(m_y-(tan(gamma)*m_x)-y0)-2*x0; //coef de x
             double c = (m_y-(tan(gamma)*m_x)-y0)*(m_y-(tan(gamma)*m_x)-y0) - m_r*m_r + x0*x0;
-            cout << "collision coin 11  " << m_x << ";" << m_y << " " << vitesse.y() << endl;
+            cout << "Boule " << m_numero << " collision coin 11  " << m_x << ";" << m_y << " " << vitesse.y() << endl;
             double xb1 = (-b + sqrt(b*b - 4*a*c))/(2*a);
             double xb2 = (-b - sqrt(b*b - 4*a*c))/(2*a);
             double yb1 = tan(gamma)*xb1 + m_y -(tan(gamma)*m_x);
@@ -1163,7 +1198,7 @@ void Boule::collTable()
             double a = tan(gamma)*tan(gamma) + 1; //coef de x*x
             double b = 2*tan(gamma)*(m_y-(tan(gamma)*m_x)-y0)-2*x0; //coef de x
             double c = (m_y-(tan(gamma)*m_x)-y0)*(m_y-(tan(gamma)*m_x)-y0) - m_r*m_r + x0*x0;
-            cout << "collision coin 3 " << m_x << ";" << m_y << " " << vitesse.y() << endl;
+            cout << "Boule " << m_numero << " collision coin 12 " << m_x << ";" << m_y << " " << vitesse.y() << endl;
             double xb1 = (-b + sqrt(b*b - 4*a*c))/(2*a);
             double xb2 = (-b - sqrt(b*b - 4*a*c))/(2*a);
             double yb1 = tan(gamma)*xb1 + m_y -(tan(gamma)*m_x);
@@ -1198,14 +1233,14 @@ void Boule::collTable()
         {
             m_x = 2*0.04-m_x + 2*m_r;
             vitesse.modifierY(360 - vitesse.y());
-            cout << "TABLE 3 BOULE : " << m_numero << " " << m_x << " ; " << m_y << endl;
+            cout << "Boule " << m_numero << " collision TABLE 3 " << m_x << " ; " << m_y << endl;
         }
 
-        else if(m_x+m_r >= LONGUEUR-0.04 and m_y <= 1.1865 and m_y >= 0.0835)
+        else if(m_x+m_r >= 2.5 and m_y <= 1.1865 and m_y >= 0.0835)
         {
             vitesse.modifierY(360 - vitesse.y());
             m_x = (LONGUEUR-0.04)*2 - m_x - 2*m_r;
-            cout << "TABLE 4 BOULE : " << m_numero << " " << m_x << " ; " << m_y << endl;
+            cout << "Boule " << m_numero << " collision TABLE 4 " << m_x << " ; " << m_y << endl;
         }
 
 
@@ -1213,28 +1248,28 @@ void Boule::collTable()
 
         else if(m_y+m_r >= LARGEUR-0.04 and m_x >= 0.0835 and m_x <= 1.1865)
         {
-            cout << "TABLE 5 BOULE : " << m_numero << " " << m_x << " ; " << m_y << endl;
+            cout << "Boule " << m_numero << " collision TABLE 5 " << m_x << " ; " << m_y << endl;
             vitesse.modifierY(180 - vitesse.y());
             m_y = (LARGEUR-0.04)*2 - m_y - 2*m_r;
         }
 
         else if(m_y+m_r >= LARGEUR-0.04 and m_x >= 1.3535 and m_x <= 2.4565)
         {
-            cout << "TABLE 6 BOULE " << m_numero << " " << m_x << " ; " << m_y << endl;
+            cout << "Boule " << m_numero << " collision TABLE 6 " << m_x << " ; " << m_y << endl;
             vitesse.modifierY(180 - vitesse.y());
             m_y = (LARGEUR-0.04)*2 - m_y - 2*m_r;
         }
 
         else if(m_y-m_r <= 0.04 and m_x >= 0.0835 and m_x <= 1.1865)
         {
-            cout << "TABLE 1 BOULE " << m_numero << " " << m_x << " ; " << m_y << endl;
+            cout << "Boule " << m_numero << " collision TABLE 1 " << m_x << " ; " << m_y << endl;
             vitesse.modifierY(180 - vitesse.y());
             m_y = 2*0.04-m_y + 2*m_r;
         }
 
         else if(m_y-m_r <= 0.04 and m_x >= 1.3535 and m_x <= 2.4565)
         {
-            cout << "TABLE 2 BOULE " << m_numero << " " << m_x << " ; " << m_y << endl;
+            cout << "Boule " << m_numero << " collision TABLE 2 " << m_x << " ; " << m_y << endl;
             vitesse.modifierY(180 - vitesse.y());
             m_y = 2*0.04-m_y + 2*m_r;
         }
@@ -1264,10 +1299,28 @@ void Boule::collTable()
             boulebande=true;
         }
     }
-    else
-    {
-        boulebande  = false;
-    }
 }
 
+void Boule::shoot()
+{
+    double v(1000), alpha(1000);
 
+    while(v<=0 or v>20 or !(cin.good()))
+    {
+        cin.clear();
+        cin.ignore(INT_MAX, '\n');
+        cout << "Vitesse ?? (de 0 a 20m/s)" << endl;
+        cin >> v;
+    }
+    while(alpha<=0 or alpha>360 or !(cin.good()))
+    {
+        cin.clear();
+        cin.ignore(INT_MAX, '\n');
+        cout << "Angle par rapport a la verticale ?? (de 0 (non compris) a 360 (compris) degres dans le sens des aiguilles d'une montre, le 0 etant en haut; rose des vents)" << endl;
+        cin >> alpha;
+    }
+
+    vitesse.modifier(v, alpha);
+    acceleration.modifierX(2.943);
+    //cout << vitesse << endl;
+}
