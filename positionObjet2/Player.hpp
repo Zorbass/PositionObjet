@@ -3,9 +3,7 @@
 
 #include <iostream>
 #include <string>
-//#include "Boule.hpp"
 #include <vector>
-//#include "Vecteur.hpp"
 
 using namespace std;
 
