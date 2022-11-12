@@ -192,7 +192,6 @@ void Table::afficher() //Affiche l'emplacement, le nom et la vitesse de chaque b
 void Table::casse() // La casse (première phase du jeu).
 {
     boules[15].replacementblanche(); // Place la blanche.
-    this->afficher(); // Affiche la position des boules.
     cout<< endl << "C'est au joueur "<<players[joueur].nomjoueur()<<" de jouer"<< endl << "le triangle de casse se situe a droite de la boule blanche" << endl;
     blancheempochee=false;
     this->reset(); // Remet à 0 certains paramètres (nombre de boules qui ont touché une bande par exemple).
@@ -219,12 +218,20 @@ void Table::casse() // La casse (première phase du jeu).
         cout<<"C'est au joueur "<< players[joueur].nomjoueur()<< " de jouer"<<endl;
         cassereussi =true;
     }
-    else if(boules[15].empochee()==true)//Change de joueur si la blanche empochée.
+    else if(boules[15].empochee()==true)//Change de joueur si la blanche empochée et la noire n'est pas empochée.
     {
-        joueur =players[0].finDeTour();
-        cout<<"C'est au joueur "<< players[joueur].nomjoueur()<< " de jouer"<<endl;
         blancheempochee=true;
         cassereussi =true;
+        if(boules[7].empochee()==true)
+        {
+            pertedepartie ==true;
+        }
+        else
+        {
+            joueur =players[0].finDeTour();
+            cout<<"C'est au joueur "<< players[joueur].nomjoueur()<< " de jouer"<<endl;
+        }
+
     }
     else
     {
@@ -258,9 +265,10 @@ bool Table::faute() //Conditions pour qu'il y ai une faute.
         fautes = true;
         cout<<"Faute: collision avec boule du joueur adverse"<<endl;
     }
-    else if(fautes==true and boules[7].empochee()==true)
+    if(fautes==true and boules[7].empochee()==true)
     {
         pertedepartie=true;
+        fautes =false;
     }
     return fautes;
 }
