@@ -15,19 +15,15 @@ public:
     Player(string nom, string typeBoule);
     int finDeTour();
     string nomjoueur();
-    //void shoot(Boule i);
 
     void choisir(string i);
     string choix();
 
 private:
 
-    string m_nom;
-    string m_typeBoule;
-//    int m_points;
-    int player =0;
-//    Boule i;
-
+    string m_nom; //Nom du joueur.
+    string m_typeBoule; //Type de boule du groupe du joueur.
+    int player =0; //Joueur i.
 };
 
 #endif

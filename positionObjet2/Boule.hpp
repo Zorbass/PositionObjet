@@ -11,16 +11,16 @@ class Boule
 {
     public:
 
-    Boule();  //ok
+    Boule();
     Boule(std::string numero, std::string type, double x, double y);  //ok
 
-    void shoot(); //ok
+    void shoot();
 
-    void afficher();  //ok
+    void afficher();
 
-    double positionX(); //ok
+    double positionX();
 
-    double positionY(); //ok
+    double positionY();
 
     double intensiteeV();
 
@@ -44,7 +44,7 @@ class Boule
 
     void replacementblanche();
 
-    void changerVitesse(double x, double y); //ok
+    void changerVitesse(double x, double y);
 
     void deplacemelent(double f);
 
@@ -59,17 +59,17 @@ class Boule
 
     std::string m_numero;
     std::string m_type;
-    double m_x; //Position de la bille sur l'axe x
-    double m_y; //Position de la bille sur l'axe y
-    double m_t; //temps de déplacement de la bille
+    double m_x; //Position de la boule sur l'axe x.
+    double m_y; //Position de la boule sur l'axe y.
+    double m_t; //Temps de déplacement de la boule.
     Vecteur acceleration;
-    double m_r = 0.0286; //rayon de la bille
-    double m_d; //deplacement de la resultante
+    double m_r = 0.0286; //Rayon d'une boule.
+    double m_d; //Déplacement de la résultante.
     Vecteur vitesse;
-    bool m_empochee = false; //si la boule est empochee
-    bool m_dejaempochee =false; //si la boule est dejaempoche
-    bool boulebande = false; //si la boule a touche une bande
-    bool collboule =false; //si la boule a touche une autre boule
+    bool m_empochee = false; //Si la boule est empochée, ça devient true.
+    bool m_dejaempochee =false; //Si la boule est deja empochée, ça devient true.
+    bool boulebande = false; //Si la boule a touché une bande, ça devient true.
+    bool collboule =false; //Si la boule a touché une autre boule, ça devient true.
 
 
 };

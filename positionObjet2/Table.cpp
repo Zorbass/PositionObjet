@@ -6,7 +6,7 @@
 #include <vector>
 #include "Player.cpp"
 
-#define position1x 1.986073306//1.984073306        Les positions parfaites des boules se trouvent en commentaire
+#define position1x 1.986073306//1.984073306        Les positions parfaites des boules se trouvent en commentaire.
 #define position2x 2.083546612//2.083146612
 #define position3x 2.033909959//2.033609959
 #define position4x 2.083546612//2.083146612
@@ -42,12 +42,13 @@
 
 using namespace std;
 
+//Constructeur basique.
 Table::Table()
 {
 
 }
 
-//destructeur
+//Destructeur.
 Table::~Table()
 {
 
@@ -56,7 +57,7 @@ Table::~Table()
 
 
 
-void Table::innitialisation() //permet aux joueurs de choisir leur nom, ainsi que placer les boules
+void Table::innitialisation() //Permet de positionner les boules sur la table ainsi que laisser aux joueurs choisir leur nom.
 {
     string nom;
     cout<<"joueur 1 choisisez un nom"<<endl;
@@ -67,41 +68,6 @@ void Table::innitialisation() //permet aux joueurs de choisir leur nom, ainsi qu
     players[1]=Player(nom,"aucaun");
 
     cout << "la table a une largeur de 1.27m et une longueur de 2.54m." << endl << "la table est orientee de cette maniere :  " << endl <<  " ___________" << endl << "|           |" << endl << "|           |" << endl << "|___________|" << endl;
-/*--
-    boules[0] = Boule("1", "pleine",2,0.25);
-    boules[1] = Boule("2", "pleine",1.27,1);
-    boules[2] = Boule("3", "pleine",0.19,1);
-    boules[3] = Boule("4", "pleine",0.25,1);
-    boules[4] = Boule("5", "pleine",0.31,1);
-    boules[5] = Boule("6", "pleine",0.37,1);
-    boules[6] = Boule("7", "pleine",0.43,1);
-    boules[7] = Boule("8", "noire",0.49,1);
-    boules[8] = Boule("9", "rayee",0.55,1);
-    boules[9] = Boule("10", "rayee",0.61,1);
-    boules[10] = Boule("11", "rayee",0.67,1);
-    boules[11] = Boule("12", "rayee",0.73,1);
-    boules[12] = Boule("13", "rayee",0.79,1);
-    boules[13] = Boule("14", "rayee",0.85,1);
-    boules[14] = Boule("15", "rayee",1.27,0.2);
-    boules[15] = Boule("16", "blanche",1.27,0.5);
-*/
-
-    /*boules[0] = Boule("1", "pleine",0.07,1.2);//0.07,1.2
-    boules[1] = Boule("2", "pleine",0.13,1.2);
-    boules[2] = Boule("3", "pleine",0.19,1.2);
-    boules[3] = Boule("4", "pleine",0.25,1.2);
-    boules[4] = Boule("5", "pleine",0.31,1.2);
-    boules[5] = Boule("6", "pleine",0.37,1.2);
-    boules[6] = Boule("7", "pleine",0.43,1.2);
-    boules[7] = Boule("8", "noire",0.49,1.2);
-    boules[8] = Boule("9", "rayee",0.55,1.2);
-    boules[9] = Boule("10", "rayee",0.61,1.2);
-    boules[10] = Boule("11", "rayee",0.67,1.2);
-    boules[11] = Boule("12", "rayee",0.73,1.2);
-    boules[12] = Boule("13", "rayee",0.79,1.2);
-    boules[13] = Boule("14", "rayee",0.85,1.2);
-    boules[14] = Boule("15", "rayee",0.91,1.2);
-    boules[15] = Boule("16", "blanche",2.2 ,1.0535);//2.2,1.0535*/
 
 
     boules[0] = Boule("1", "pleine",position1x,position1y);
@@ -121,24 +87,7 @@ void Table::innitialisation() //permet aux joueurs de choisir leur nom, ainsi qu
     boules[14] = Boule("15", "rayee",position15x,position15y);
     boules[15] = Boule("16", "blanche",position16x,position16y);
 
-/*
-    boules[0] = Boule("1", "pleine",6-0.020223254,3.020223254);
-    boules[1] = Boule("2", "pleine",2,1);
-    boules[2] = Boule("3", "pleine",3,1);
-    boules[3] = Boule("4", "pleine",4,1);
-    boules[4] = Boule("5", "pleine",5,1);
-    boules[5] = Boule("6", "pleine",6,1);
-    boules[6] = Boule("7", "pleine",7,1);
-    boules[7] = Boule("8", "noire",1,1);
-    boules[8] = Boule("9", "rayee",8,1);
-    boules[9] = Boule("10", "rayee",9,1);
-    boules[10] = Boule("11", "rayee",10,1);
-    boules[11] = Boule("12", "rayee",1,2);
-    boules[12] = Boule("13", "rayee",1,3);
-    boules[13] = Boule("14", "rayee",1,4);
-    boules[14] = Boule("15", "rayee",1,5);
-    boules[15] = Boule("16", "blanche",5.5,2);
-*/
+
 }
 void Table::replacementBoules()
 {
@@ -160,15 +109,15 @@ void Table::replacementBoules()
     boules[15] = Boule("16", "blanche",position16x,position16y);
 }
 
-void Table::mecanique() // regroupe toute la partie mecanique du billard. Execute donc les formules de cinétique et collisions pour toutes les boules à chaque rafraîchissement
+void Table::mecanique() // Regroupe toute la partie mécanique du billard. Exécute donc les formules de cinétique et collisions pour toutes les boules à chaque rafraîchissement.
 {
     double t = clock();
 
 
-    int i = 0; //itération pour les boucles
-    int z = 0; //itération pour les boucles
+    int i = 0; //Itération pour les boucles.
+    int z = 0; //Itération pour les boucles.
 
-    //le code ci-dessous s'exécute tant qu'une des boules est en mouvement
+    //Le code ci-dessous s'exécute tant qu'une des boules est en mouvement.
     while(boules[0].intensiteeV() > 0 or boules[1].intensiteeV() > 0 or boules[2].intensiteeV() > 0 or boules[3].intensiteeV() > 0 or boules[4].intensiteeV() > 0 or boules[5].intensiteeV() > 0 or boules[6].intensiteeV() > 0 or boules[7].intensiteeV() > 0 or boules[8].intensiteeV() > 0 or boules[9].intensiteeV() > 0 or boules[10].intensiteeV() > 0 or boules[11].intensiteeV() > 0 or boules[12].intensiteeV() > 0 or boules[13].intensiteeV() > 0 or boules[14].intensiteeV() > 0 or boules[15].intensiteeV() > 0)
     {
         double f=0;
@@ -180,12 +129,12 @@ void Table::mecanique() // regroupe toute la partie mecanique du billard. Execut
 
         while(i < nombreDeBoules)
         {
-            boules[i].empochage(); //on verifie si les boules sont empochees
+            boules[i].empochage(); //Vérifie si les boules sont empochées.
 
-            boules[i].collTable();  //on verfie les collisions entre la table et chaque boule
+            boules[i].collTable();  //Vérfie les collisions entre la table et chaque boule.
             if(boules[i].boulband()==true)
             {
-                boulebandes.push_back(i); //ajoute au tableau les boules qui ont touche une bande
+                boulebandes.push_back(i); //Ajoute au tableau les boules qui ont touché une bande.
 
             }
 
@@ -194,10 +143,10 @@ void Table::mecanique() // regroupe toute la partie mecanique du billard. Execut
             {
                 if(z != i)
                 {
-                    boules[i].collBoule(boules[z]); //verification des collisions entre chaque boule
+                    boules[i].collBoule(boules[z]); //Verification des collisions entre chaque boule.
                     if(boules[i].collisionBoule()==true)
                     {
-                        typeBoule.push_back(boules[z].typeBoule()); // ajoute au tableau le type de boule de la cible
+                        typeBoule.push_back(boules[z].typeBoule()); // Ajoute au tableau le type de boule de la cible.
 
                     }
 
@@ -215,7 +164,7 @@ void Table::mecanique() // regroupe toute la partie mecanique du billard. Execut
 
         while(i < nombreDeBoules)
         {
-            boules[i].deplacemelent(f); //on déplace chaque boule
+            boules[i].deplacemelent(f); //Déplace chaque boule.
             i++;
         }
 
@@ -229,7 +178,7 @@ void Table::mecanique() // regroupe toute la partie mecanique du billard. Execut
 }
 
 
-void Table::afficher() //affiche l'emplacement, le nom et la vitesse de chaque boule
+void Table::afficher() //Affiche l'emplacement, le nom et la vitesse de chaque boule.
 {
     int i = 0;
 
@@ -240,36 +189,37 @@ void Table::afficher() //affiche l'emplacement, le nom et la vitesse de chaque b
     }
 }
 
-void Table::casse() // la casse (1ere phase du jeu)
+void Table::casse() // La casse (première phase du jeu).
 {
-    boules[15].replacementblanche(); // place la blanche
-    this->afficher(); // affiche la position des boules
-    cout<< endl << "c'est au joueur "<<players[joueur].nomjoueur()<<" de jouer"<< endl << "le triangle de casse se situe a droite de la boule blanche" << endl;
+    boules[15].replacementblanche(); // Place la blanche.
+    this->afficher(); // Affiche la position des boules.
+    cout<< endl << "C'est au joueur "<<players[joueur].nomjoueur()<<" de jouer"<< endl << "le triangle de casse se situe a droite de la boule blanche" << endl;
     blancheempochee=false;
-    this->reset(); // remet a 0 certains parametres (nombre de boules qui ont touche une bande par exemple)
-    boules[15].shoot(); //shoot la boule
-    this->mecanique(); //partie mecanique du billard (collisions, deplacement...)
-    this->numeroBouleEmpochee(); //pour determiner le nombre de pleines ou rayees empochees
+    this->reset(); // Remet à 0 certains paramètres (nombre de boules qui ont touché une bande par exemple).
+    boules[15].shoot(); //Shoot la boule.
+    this->mecanique(); //Partie mécanique du billard (collisions, déplacement...).
+    this->numeroBouleEmpochee(); //Pour déterminer le nombre de pleines ou rayées empochées.
     sort( boulebandes.begin(), boulebandes.end() );
-    boulebandes.erase( unique( boulebandes.begin(), boulebandes.end() ), boulebandes.end() );//enlever les doublons
+    boulebandes.erase( unique( boulebandes.begin(), boulebandes.end() ), boulebandes.end() );//Enlève les doublons.
 
-    if(boules[7].empochee()==true){//si la noire est empochee la casse n'est pas valide
-        cout<<"Boule noire empochee"<<endl;
+    if(boules[7].empochee()==true){//Si la noire est empochée la casse n'est pas valide.
+        cout<<"Mauvaise casse: boule noire empochee "<<endl;
+        cout<<"C'est a l'autre joueur de casser"<<endl;
         cassereussi =false;
     }
-    else if(boulebandes.size()<4 and boulesempochee<1)//si moins de 4 boules touchent la bande et aucune boule empochee la casse n'est pas valide
+    else if(boulebandes.size()<4 and boulesempochee<1)//Si moins de 4 boules touchent au moins une bande et aucune boule n'est empochée, la casse n'est pas valide.
     {
-        cout<<"Mauvaise casse"<<endl;
+        cout<<"Mauvaise casse: moins de 4 boules ont touche une bande et aucune boule n'a ete empochee"<<endl;
         cout<<endl<<"C'est a l'autre joueur de casser"<<endl;
         cassereussi =false;
     }
-    else if(boulesempochee==0) //on change de joueur si aucune boule n'est empochee
+    else if(boulesempochee==0) //Change de joueur si aucune boule n'est empochée.
     {
         joueur = players[0].finDeTour();
-        cout<<"c'est au joueur "<< players[joueur].nomjoueur()<< " de jouer"<<endl;
+        cout<<"C'est au joueur "<< players[joueur].nomjoueur()<< " de jouer"<<endl;
         cassereussi =true;
     }
-    else if(boules[15].empochee()==true)//on change de joueur si la blanche empochee
+    else if(boules[15].empochee()==true)//Change de joueur si la blanche empochée.
     {
         joueur =players[0].finDeTour();
         cout<<"C'est au joueur "<< players[joueur].nomjoueur()<< " de jouer"<<endl;
@@ -283,35 +233,39 @@ void Table::casse() // la casse (1ere phase du jeu)
     }
     if(cassereussi==false)
     {
-        joueur =players[0].finDeTour();//on change de joueur
-        this->replacementBoules();//replace les boules a leur position innitiale
+        joueur =players[0].finDeTour();//Change de joueur.
+        this->replacementBoules();//Replace les boules à leurs positions innitiales.
 
     }
 
 }
-bool Table::faute() //conditions pour qu'il y a faute
+bool Table::faute() //Conditions pour qu'il y ai une faute.
 {
 
-    if(boules[15].empochee()==true) //blanche empochee
+    if(boules[15].empochee()==true) //Blanche empochée.
     {
         fautes = true;
         cout<<"Faute: Blanche empochee."<<endl;
         blancheempochee=true;
     }
-    else if(boulebandes.size()==0 and boulesempochee==0) //aucune boule n'a touche de bande (a part la blanche) et aucune boule n'est empochee
+    else if(boulebandes.size()==0 and boulesempochee==0) //Aucune boule n'a touché de bande (à part la blanche) et aucune boule n'est empochée.
     {
         cout<<"Faute: aucune boule n'a touche de raille ou a ete empoche."<<endl;
         fautes = true;
     }
-    else if(groupeChoisi==true and players[joueur].choix()!=typeBoule[0]) // la blanche a touche le type de boule du joueur adverse (rayee ou pleine)
+    else if(groupeChoisi==true and players[joueur].choix()!=typeBoule[0]) // La blanche a touché le type de boule du joueur adverse (rayée ou pleine).
     {
         fautes = true;
         cout<<"Faute: collision avec boule du joueur adverse"<<endl;
     }
+    else if(fautes==true and boules[7].empochee()==true)
+    {
+        pertedepartie=true;
+    }
     return fautes;
 }
 
-void Table::reset() // remet a 0 le nombre de boules qui ont touchee les bandes, qui ont ete empochees et les type de boules touchee.
+void Table::reset() // Remet à 0 le nombre de boules qui ont touché les bandes, qui ont été empochées et les type de boules touchées.
 {
     int i=0;
     while(i<boulebandes.size())
@@ -325,13 +279,13 @@ void Table::reset() // remet a 0 le nombre de boules qui ont touchee les bandes,
     }
     while(i<bouleEmpochee.size())
     {
-        bouleEmpochee.pop_back();//enleve les boules du tableau
+        bouleEmpochee.pop_back();
     }
     boulesempochee=0;
     blancheempochee=false;
 }
 
-void Table::choixGroupe() // determine le groupe de boule des joueurs (rayee ou pleine) si ce n'est pas deja fait
+void Table::choixGroupe() // Détermine le groupe de boule des joueurs (rayée ou pleine) si ce n'est pas déja fait.
 {
     if(groupeChoisi==false)
     {
@@ -345,8 +299,8 @@ void Table::choixGroupe() // determine le groupe de boule des joueurs (rayee ou 
             {
                 autrejoueur=0;
             }
-            int p=0; //les pleines
-            int r=0; //les rayees
+            int p=0; //Les pleines.
+            int r=0; //Les rayées.
             for(int i=0;i<bouleEmpochee.size();i++)
             {
                 if(boules[bouleEmpochee[i]].typeBoule()=="rayee")
@@ -358,24 +312,24 @@ void Table::choixGroupe() // determine le groupe de boule des joueurs (rayee ou 
                     p++;
                 }
             }
-            if(p>r) // si il y a plus de pleines empochees que de rayees
+            if(p>r) // S'il y a plus de pleines empochées que de rayées.
             {
                 cout<<"Joueur " <<players[joueur].nomjoueur()<<" a les pleine"<<endl;
                 players[joueur].choisir("pleine");
                 players[autrejoueur].choisir("rayee");
             }
-            else if(r>p) // si il y a plus de rayees empochees que de pleines
+            else if(r>p) // S'il y a plus de rayées empochées que de pleines.
             {
                 cout<<"Joueur a les rayees"<<endl;
                 players[joueur].choisir("rayee");
                 players[autrejoueur].choisir("pleine");
             }
-            else // dans le cas ou un nombre de rayees empochees est egale au nombre de pleines
+            else // Dans le cas où un nombre de rayées empochées est égale au nombre de pleines.
             {
                 string typeboule;
                 while (typeboule != "pleine" and typeboule !="rayee")
                 {
-                    cout<<"Quel groupe choisissez vous? (pleine ou rayee)"<<endl;//pas faire de faute d'orthographe
+                    cout<<"Quel groupe choisissez vous? (pleine ou rayee)"<<endl;
                     cin>>typeboule;
                 }
                 players[joueur].choisir(typeboule);
@@ -395,7 +349,7 @@ void Table::choixGroupe() // determine le groupe de boule des joueurs (rayee ou 
 }
 
 
-void Table::numeroBouleEmpochee() // incrementation du tableau si une boule a ete empochee pendant ce tour
+void Table::numeroBouleEmpochee() // Incrémentation du tableau si une boule a été empochée pendant ce tour.
 {
     for(int i=0;i<nombreDeBoules-1;i++)
     {
@@ -411,36 +365,47 @@ void Table::numeroBouleEmpochee() // incrementation du tableau si une boule a et
 
 
 
-void Table::jouer() // le deroulement de la partie. Regroupe toutes les fonctions
+void Table::jouer() // Le déroulement de la partie. Regroupe toutes les fonctions.
 {
-    this->innitialisation(); //innitialisation de la partie
+    this->innitialisation(); //Innitialisation de la partie.
 
-    while(cassereussi==false) // la casse
+    while(cassereussi==false) // La casse.
     {
         this->casse();
     }
 
-    while(boules[7].empochee()==false) // la deuxieme partie du jeu ou tant que la noire n'est pas empochee, on joue.
+    while(boules[7].empochee()==false) // La deuxième partie du jeu où tant que la noire n'est pas empochée, on joue.
     {
+        string reponse;
+        while (reponse != "y" and reponse != "n") // Pour laisser au joueur le choix d'afficher ses boules.
+        {
+            cout<<reponse<<endl;
+            cout<<"Voulez-vous afficher les positions des boules ? (y/n)"<<endl;
+            cin>>reponse;
+        }
+         if(reponse =="y")
+        {
+            this->afficher();
+        }
         if(blancheempochee==true)boules[15].replacementblanche();
 
 
         boules[15].shoot();
 
-        this->reset();//remet a 0 certains parametres
+        this->reset();//Remet à 0 certains paramètres.
 
-        this->mecanique(); // partie mecanique du billard
+        this->mecanique(); // Partie mécanique du billard.
         this->numeroBouleEmpochee();
-        if(faute()) //verifie si il y a faute, et si c'est le cas on change de joueur
+        if(faute()) //Vérifie s'il y a faute, et si c'est le cas cela change de joueur.
         {
             joueur =players[0].finDeTour();
             cout<<"C'est au joueur "<< players[joueur].nomjoueur()<< " de jouer"<<endl;
             fautes = false;
         }
-        else if(boulesempochee==0) //change de joueur si il n'a pas empochee de boule
+        else if(boulesempochee==0) //Change de joueur s'il n'a pas empoché de boule.
         {
             cout<<"Aucune boule n'est empochee"<<endl;
-            joueur =players[0].finDeTour();//on change de joueur
+            joueur =players[0].finDeTour();//Change de joueur
             cout<<"C'est au joueur "<< players[joueur].nomjoueur()<< " de jouer"<<endl;
         }
         else
@@ -448,24 +413,13 @@ void Table::jouer() // le deroulement de la partie. Regroupe toutes les fonction
             cout<<"C'est toujours au joueur "<< players[joueur].nomjoueur()<< " de jouer"<<endl;
             choixGroupe();
         }
-        string reponse;
-        cout<<"est"<<endl;
-        while (reponse != "y" and reponse != "n") // pour laisser au joueur le choix d'afficher ses boules
-        {
-            cout<<reponse<<endl;
-            cout<<"Voulez-vous afficher les positions des boules ? (y/n)"<<endl;
-            cin>>reponse;
-        }
-        if(reponse =="y")
-        {
-            this->afficher();
-        }
+
     }
 
-    //fin de la partie. Nous regardons quel joueur a gagne : si le joueur qui joue a empochee toutes les boules de son groupe, il a gagne sinon il a perdu
+    //Fin de la partie. Nous regardons quel joueur a gagné : si le joueur qui joue a empoché toutes les boules de son groupe et qu'il n'a pas commis de faute pendant le tour, il a gagné, sinon il a perdu.
     if(players[joueur].choix()== "pleine")
     {
-        if(boules[0].empochee()==true and boules[1].empochee()==true and boules[2].empochee()==true and boules[3].empochee()==true and boules[4].empochee()==true and boules[5].empochee()==true and boules[6].empochee()==true)
+        if(boules[0].empochee()==true and boules[1].empochee()==true and boules[2].empochee()==true and boules[3].empochee()==true and boules[4].empochee()==true and boules[5].empochee()==true and boules[6].empochee()==true and pertedepartie ==false)
         {
             cout<<"Winner winner chicken dinner"<<endl;
             cout<<"C'est "<<joueur<<" qui a gagne"<<endl;
@@ -478,10 +432,10 @@ void Table::jouer() // le deroulement de la partie. Regroupe toutes les fonction
     }
     else
     {
-        if(boules[8].empochee()==true and boules[9].empochee()==true and boules[10].empochee()==true and boules[11].empochee()==true and boules[12].empochee()==true and boules[13].empochee()==true and boules[14].empochee()==true)
+        if(boules[8].empochee()==true and boules[9].empochee()==true and boules[10].empochee()==true and boules[11].empochee()==true and boules[12].empochee()==true and boules[13].empochee()==true and boules[14].empochee()==true and pertedepartie ==false)
         {
             cout<<"Winner winner chicken dinner"<<endl;
-            cout<<"c'est "<<joueur<<" qui a gagne"<<endl;
+            cout<<"C'est "<<joueur<<" qui a gagne"<<endl;
         }
         else
         {

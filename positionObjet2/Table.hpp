@@ -37,33 +37,28 @@ public:
 
 private:
 
-    bool fautes= false;
-    int boulbande;
-    int boulesempochee=0;
+    bool fautes= false; // Fautes.
+    int boulbande; // Nombre de boules qui ont choqués avec la table.
+    int boulesempochee=0; //Nombre de boules empochées.
 
 
-    int joueur=0;
-    int autrejoueur;
+    int joueur=0; // Joueur "i".
+    int autrejoueur; // L'autre joueur.
 
-    bool groupeChoisi = false;
-    bool blancheempochee =false;
-    bool cassereussi = false;
-    double m_t;
+    bool groupeChoisi = false; //Permet de savoir si les groupes de boules des joueurs ont été déterminés.
+    bool blancheempochee =false; //Permet de savoir si la blanche est empochée.
+    bool cassereussi = false; //Pour savoir si la casse est valide ou pas.
+    bool pertedepartie =false; //Si le joueur commet une faute lorsqu'il empoche la noire, il a automatiquement perdu.
 
-    double m_f=0;//f retient le temps passé depuis le dernier rafraîchissment
-    double m_u=0;//temps du frame d'avant
-
-    int nombreDeBoules=16;
+    int nombreDeBoules=16;//Nombre de boules
 
 
-    Boule *boules = new Boule[16];
-    Player players[2];
+    Boule *boules = new Boule[16]; //Tableau des boules
+    Player players[2]; // Tableau des joueurs
 
-    vector <int> boulebandes;
-
-    vector <int> bouleEmpochee;
-
-    vector <string> typeBoule;
+    vector <int> boulebandes; //Tableau dynamique qui prend en compte les boules qui ont touchées une bande.
+    vector <int> bouleEmpochee; //Tableau dynamique qui prend en compte les boules qui ont été empochés pendant le tour actuel.
+    vector <string> typeBoule; //Tableau dynamique qui prend en compte le type de boule de la cible.
 
 };
 
