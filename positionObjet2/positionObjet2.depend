@@ -147,7 +147,7 @@
 	"Player.hpp"
 	"Table.hpp"
 
-1668264066 source:c:\users\ivanu\onedrive\documents\github\positionobjet\positionobjet2\table.cpp
+1668375673 source:c:\users\ivanu\onedrive\documents\github\positionobjet\positionobjet2\table.cpp
 	<iostream>
 	"Table.hpp"
 	<ctime>
@@ -156,7 +156,7 @@
 	<vector>
 	"Player.cpp"
 
-1668201033 c:\users\ivanu\onedrive\documents\github\positionobjet\positionobjet2\player.cpp
+1668374290 c:\users\ivanu\onedrive\documents\github\positionobjet\positionobjet2\player.cpp
 	<iostream>
 	<vector>
 	"Player.hpp"

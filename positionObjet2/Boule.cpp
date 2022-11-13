@@ -280,7 +280,8 @@ void Boule::collBoule(Boule& cible)
             d1= (-b+sqrt(discriminant))/(2*a);
 
             // Discriminant pour trouver le temps "t" pendant lequel on va devoir déplacer les boules plus tard.
-            double t =(-vitesse.x()+sqrt(pow(vitesse.x(),2)-2*acceleration.x()*-d1/coefficient1))/acceleration.x();
+            double t =(-vitesse.x()+sqrt(pow(vitesse.x(),2)-2*acceleration.x()*-d1*coefficient1))/acceleration.x();
+            cout<<t<<endl;
 
             // Change la norme des vitesses des deux boules pour qu'elles correspondent aux vitesses quand les deux boules se touchent parfaitement.
             vitesse.modifierX(vitesse.x()+t*0.5*acceleration.x());
