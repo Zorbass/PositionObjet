@@ -61,6 +61,7 @@ private:
     vector <int> boulebandes; //Tableau dynamique qui prend en compte les boules qui ont touchées une bande.
     vector <int> bouleEmpochee; //Tableau dynamique qui prend en compte les boules qui ont été empochés pendant le tour actuel.
     vector <string> typeBoule; //Tableau dynamique qui prend en compte le type de boule de la cible.
+    vector <int> empocheee; //tableau pour montrer quelles sont les boules empochées à la fin de chaque tour.
 
 };
 

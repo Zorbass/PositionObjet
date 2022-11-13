@@ -562,7 +562,7 @@ void Boule::collTable() //Détéction des collisions entre la boule et la table. L
         else if(m_y+m_r/sqrt(2)<C4bY and m_y+m_r/sqrt(2) >= R_TROU + (C4aX - (m_x+m_r/sqrt(2))))
         {//6
             vitesse.modifierY(270 - vitesse.y());
-            cout << "Collision entre la boule " << m_numero << "et la petite bande en bas tout a droite "<< endl<<endl;
+            cout << "Collision entre la boule " << m_numero << " et la petite bande en bas tout a droite "<< endl<<endl;
             x = m_x;
             m_x = C4bX-m_r/sqrt(2) + C4bY-m_r/sqrt(2) - m_y;
             m_y = C4bY-m_r/sqrt(2) - (x - (C4bX-m_r/sqrt(2)));
@@ -612,7 +612,7 @@ void Boule::collTable() //Détéction des collisions entre la boule et la table. L
         else if(m_y-m_r/sqrt(2)>C4cY and m_y-m_r/sqrt(2) <= C4dY - (C4dX - (m_x+m_r/sqrt(2))))
         {//12
             vitesse.modifierY(90 - vitesse.y());
-            cout << "Collision entre la boule " << m_numero << "et la petite bande en haut tout a droite "<< endl<<endl;
+            cout << "Collision entre la boule " << m_numero << " et la petite bande en haut tout a droite "<< endl<<endl;
             x = m_x;
             m_x = C4dX-m_r/sqrt(2) - (C4dY+m_r/sqrt(2)) + m_y;
             m_y = C4dY+m_r/sqrt(2) - (C4dX-m_r/sqrt(2) - x);
@@ -909,7 +909,7 @@ void Boule::collTable() //Détéction des collisions entre la boule et la table. L
             double a = tan(gamma)*tan(gamma) + 1;
             double b = 2*tan(gamma)*(m_y-(tan(gamma)*m_x)-y0)-2*x0;
             double c = (m_y-(tan(gamma)*m_x)-y0)*(m_y-(tan(gamma)*m_x)-y0) - m_r*m_r + x0*x0;
-            cout << "Collision entre la boule " << m_numero << "et le coin en haut au milieu droite" << endl<<endl;
+            cout << "Collision entre la boule " << m_numero << " et le coin en haut au milieu droite" << endl<<endl;
             double xb1 = (-b + sqrt(b*b - 4*a*c))/(2*a);
             double xb2 = (-b - sqrt(b*b - 4*a*c))/(2*a);
             double yb1 = tan(gamma)*xb1 + m_y -(tan(gamma)*m_x);

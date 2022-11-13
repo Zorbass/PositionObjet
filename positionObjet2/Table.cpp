@@ -136,7 +136,8 @@ void Table::mecanique() // Regroupe toute la partie mécanique du billard. Exécut
 
         while(i < nombreDeBoules)
         {
-            boules[i].empochage(); //Vérifie si les boules sont empochées.
+            boules[i].empochage();
+
 
             boules[i].collTable();  //Vérfie les collisions entre la table et chaque boule.
             if(boules[i].boulband()==true)
@@ -372,6 +373,7 @@ void Table::numeroBouleEmpochee() // Incrémentation du tableau si une boule a ét
         if(boules[i].empochee()==true and boules[i].bouledejaempochee()==false)
         {
             bouleEmpochee.push_back(i);
+            empocheee.push_back(i+1);
             boulesempochee++;
         }
         boules[i].verificationbouledejaempochee();
@@ -391,6 +393,12 @@ void Table::jouer() // Le déroulement de la partie. Regroupe toutes les fonction
 
     while(boules[7].empochee()==false) // La deuxième partie du jeu où tant que la noire n'est pas empochée, on joue.
     {
+
+        for (int i=0;i<empocheee.size();i++)
+        {
+            cout<< "La boule numero "<<empocheee[i]<<" est empochee"<<endl;
+
+        }
         string reponse;
         while (reponse != "y" and reponse != "n") // Pour laisser au joueur le choix d'afficher ses boules.
         {
