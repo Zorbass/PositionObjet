@@ -20,8 +20,8 @@ public:
     void modifierY(double y);
 
 private:
-    double m_x; //Composante x.
-    double m_y;//Composante x.
+    double m_x; //Composante de l'intensité du vecteur.
+    double m_y;//Composante de l'angle (par rapport à l'axe y dans le sens horaire) représentant la direction du vecteur.
 
 };
 

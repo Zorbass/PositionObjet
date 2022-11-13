@@ -1,3 +1,7 @@
+//Ce fichier est la classe Table.
+//Il inclut toutes les autres classes.
+//Dans ce fichier est détaillé le déroulement d'une partie.
+
 #include <iostream>
 #include "Table.hpp"
 #include <ctime>
@@ -6,7 +10,10 @@
 #include <vector>
 #include "Player.cpp"
 
-#define position1x 1.986073306//1.984073306        Les positions parfaites des boules se trouvent en commentaire.
+//Définition de la position de chaque boule sur les axes x et y.
+//Les positions attribués sont légèrement différentes des positions parfaites dans un soucis de réalisme.
+//Les positions parfaites des boules se trouvent en commentaire.
+#define position1x 1.986073306//1.984073306
 #define position2x 2.083546612//2.083146612
 #define position3x 2.033909959//2.033609959
 #define position4x 2.083546612//2.083146612
@@ -164,7 +171,7 @@ void Table::mecanique() // Regroupe toute la partie mécanique du billard. Exécut
 
         while(i < nombreDeBoules)
         {
-            boules[i].deplacemelent(f); //Déplace chaque boule.
+            boules[i].deplacemelent(f); //Déplace toutes les boules.
             i++;
         }
 
@@ -178,7 +185,7 @@ void Table::mecanique() // Regroupe toute la partie mécanique du billard. Exécut
 }
 
 
-void Table::afficher() //Affiche l'emplacement, le nom et la vitesse de chaque boule.
+void Table::afficher() //Affiche l'emplacement, le nom et les composantes du vecteur vitesse de chaque boule.
 {
     int i = 0;
 
@@ -189,7 +196,7 @@ void Table::afficher() //Affiche l'emplacement, le nom et la vitesse de chaque b
     }
 }
 
-void Table::casse() // La casse (première phase du jeu).
+void Table::casse() // Déroulement de la casse (première phase du jeu).
 {
     boules[15].replacementblanche(); // Place la blanche.
     cout<< endl << "C'est au joueur "<<players[joueur].nomjoueur()<<" de jouer"<< endl << "le triangle de casse se situe a droite de la boule blanche" << endl;

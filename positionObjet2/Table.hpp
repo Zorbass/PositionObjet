@@ -1,3 +1,5 @@
+//Dans ce fichier sont définis les méthodes et attributs de la classe Table.
+
 #ifndef TABLE_HPP_INCLUDED
 #define TABLE_HPP_INCLUDED
 
@@ -37,8 +39,8 @@ public:
 
 private:
 
-    bool fautes= false; // Fautes.
-    int boulbande; // Nombre de boules qui ont choqués avec la table.
+    bool fautes= false; //Prends la valeur true lorsqu'une faute est commise.
+    int boulbande; // Nombre de boules qui ont choqués avec la table durant le tour.
     int boulesempochee=0; //Nombre de boules empochées.
 
 
@@ -50,11 +52,11 @@ private:
     bool cassereussi = false; //Pour savoir si la casse est valide ou pas.
     bool pertedepartie =false; //Si le joueur commet une faute lorsqu'il empoche la noire, il a automatiquement perdu.
 
-    int nombreDeBoules=16;//Nombre de boules
+    int nombreDeBoules=16;//Nombre de boules.
 
 
-    Boule *boules = new Boule[16]; //Tableau des boules
-    Player players[2]; // Tableau des joueurs
+    Boule *boules = new Boule[16]; //Tableau des boules avec leur attributs.
+    Player players[2]; // Tableau des joueurs.
 
     vector <int> boulebandes; //Tableau dynamique qui prend en compte les boules qui ont touchées une bande.
     vector <int> bouleEmpochee; //Tableau dynamique qui prend en compte les boules qui ont été empochés pendant le tour actuel.

@@ -1,3 +1,5 @@
+//Dans ce fichier sont définis les méthodes et attributs de la classe player.
+
 #ifndef PLAYER_HPP_INCLUDED
 #define PLAYER_HPP_INCLUDED
 
@@ -22,8 +24,8 @@ public:
 private:
 
     string m_nom; //Nom du joueur.
-    string m_typeBoule; //Type de boule du groupe du joueur.
-    int player =0; //Joueur i.
+    string m_typeBoule; //Nom du groupe des boule du joueur (pleines ou rayées).
+    int player =0; //Détermine quel joueur est entrain de jouer.
 };
 
 #endif

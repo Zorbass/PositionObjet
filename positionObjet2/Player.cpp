@@ -1,3 +1,5 @@
+//La classe player nous permet de faire intéragir les joueurs avec la table ainsi que de déterminer le joueur ayant la main.
+
 #include <iostream>
 //#include "Boule.hpp"
 //#include "Vecteur.hpp"
@@ -8,12 +10,12 @@
 
 using namespace std;
 
-Player::Player()
+Player::Player() //Constructeur basique
 {
 
 }
 
-Player::Player(string nom, string typeBoule): m_nom(nom), m_typeBoule(typeBoule)
+Player::Player(string nom, string typeBoule): m_nom(nom), m_typeBoule(typeBoule) //Constructeur personnalisable.
 {
 
 }
@@ -21,7 +23,7 @@ string Player::nomjoueur() // retourne le nom du joueur
 {
     return m_nom;
 }
-int Player::finDeTour() // On change de joueur qui joue. Celui qui jouait avant ne joue plus et c'est au tour de l'autre
+int Player::finDeTour() // On change de joueur qui joue. Celui qui jouait avant ne joue plus et c'est au tour de l'autre.
 {
     if(player ==0)
     {
@@ -35,12 +37,12 @@ int Player::finDeTour() // On change de joueur qui joue. Celui qui jouait avant 
 }
 
 
-void Player::choisir(string i) //Permet de choisir le groupe de boule du joueur (rayee ou pleine)
+void Player::choisir(string i) //Permet d'attribuer un groupe de boule au joueur (rayée ou pleine).
 {
     m_typeBoule = i;
 }
 
-string Player::choix() // return le groupe de boule du joueur (rayee ou pleine)
+string Player::choix() // Retourne le groupe de boule du joueur (rayee ou pleine).
 {
     return m_typeBoule;
 }

@@ -1,3 +1,5 @@
+//Dans ce fichier sont détaillés les méthode de la classe boule.
+
 #include <iostream>
 #include "Boule.hpp"
 #include "Vecteur.hpp"
@@ -6,11 +8,13 @@
 
 using namespace std;
 
+//définission des dimensions de la table
 #define LARGEUR 1.27
 #define LONGUEUR 2.54
 
-#define PI 3.141592653589793238462643383279
+#define PI 3.141592653589793238462643383279 //pi
 
+//définission des coordonnées x et y des trous
 #define TROU_1X 0
 #define TROU_1Y 0
 #define TROU_2X 1.27
@@ -24,8 +28,9 @@ using namespace std;
 #define TROU_6X 2.54
 #define TROU_6Y 1.27
 
-#define R_TROU 0.0435
+#define R_TROU 0.0435 //rayon d'un trou
 
+//définission de la position x et y de chaque extremité de grande bande et petite bande
 #define C1aX 0.0435
 #define C1aY 0
 #define C1bX 0.0835
@@ -82,11 +87,11 @@ using namespace std;
 
 
 
-Boule::Boule() : m_numero("0"), m_type("rayee"), m_x(20), m_y(0), vitesse(0, 0), acceleration(0, 0)
+Boule::Boule() : m_numero("0"), m_type("rayee"), m_x(20), m_y(0), vitesse(0, 0), acceleration(0, 0) //Constructeur basique.
 {
 }
 
-Boule::Boule(string numero, string type, double x, double y) : m_numero(numero), m_type(type), m_x(x), m_y(y), vitesse(0, 0), acceleration(0, 0)
+Boule::Boule(string numero, string type, double x, double y) : m_numero(numero), m_type(type), m_x(x), m_y(y), vitesse(0, 0), acceleration(0, 0) //Constructeur personalisable.
 {
 }
 
@@ -120,21 +125,15 @@ bool Boule::empochee() // Retourne true si la boule est empochée.
 
 bool Boule::bouledejaempochee() //Retourne true si la boule a déja été empochée.
 {
-
     return m_dejaempochee;
 }
 
-void Boule::verificationbouledejaempochee() // Si la boule est empochée pendant ce tour, m_dejaempochee devient true. Au prochain tour on détectera que m_dejaempochee est true.
+void Boule::verificationbouledejaempochee() //Si la boule est empochée pendant ce tour, m_dejaempochee devient true. Au prochain tour on détectera que m_dejaempochee est true.
 {
     if(m_dejaempochee==false and m_empochee==true)
     {
         m_dejaempochee=true;
     }
-}
-
-bool Boule::boulesempochees()
-{
-    return m_dejaempochee;
 }
 
 bool Boule::collisionBoule() //Retourne true si la boule est entré en collision avec une autre boule.
@@ -152,7 +151,7 @@ double Boule::intensiteeV() //Retourne la norme du vecteur vitesse.
     return vitesse.x();
 }
 
-double Boule::intensiteeA() //Retourne l'accélération de la boule.
+double Boule::intensiteeA() //Retourne la norme du vecteur accélération de la boule.
 {
     return acceleration.x();
 }
@@ -168,7 +167,7 @@ void Boule::changerVitesse(double x, double y) //Permet de changer la norme et l
     vitesse.modifier(x, y);
 }
 
-void Boule::replacementblanche() //Permet au joueur de deéider où il veut placer la boule blanche.
+void Boule::replacementblanche() //Permet au joueur de décider où il veut placer la boule blanche.
 {
     double positionx =0;
     double positiony=0;
@@ -230,7 +229,7 @@ void Boule::deplacemelent(double f) // Permet de déplacer les boules pendant un 
 
 }
 
-void Boule::empochage() // Permet de savoir si une boule est "tombé dans une poche". Dans ce cas la boule est empochée et on la sort de la table en lui assignant une position x qui vaut 20.
+void Boule::empochage() // Permet de savoir si une boule est "tombée dans une poche". Dans ce cas la boule est empochée et on la sort de la table en lui assignant une position x qui vaut 20.
 {
     if(sqrt((m_x-TROU_1X) * (m_x-TROU_1X) + (m_y-TROU_1Y)*(m_y-TROU_1Y))<= R_TROU or sqrt((m_x-TROU_2X) * (m_x-TROU_2X) + (m_y-TROU_2Y)*(m_y-TROU_2Y))<= R_TROU or sqrt((m_x-TROU_3X) * (m_x-TROU_3X) + (m_y-TROU_3Y)*(m_y-TROU_3Y))<= R_TROU or sqrt((m_x-TROU_4X) * (m_x-TROU_4X) + (m_y-TROU_4Y)*(m_y-TROU_4Y))<= R_TROU or sqrt((m_x-TROU_5X) * (m_x-TROU_5X) + (m_y-TROU_5Y)*(m_y-TROU_5Y))<= R_TROU or sqrt((m_x-TROU_6X) * (m_x-TROU_6X) + (m_y-TROU_6Y)*(m_y-TROU_6Y))<= R_TROU)
     {
@@ -246,7 +245,7 @@ void Boule::collBoule(Boule& cible)
 {
 
 
-    if(sqrt((m_x-cible.m_x) * (m_x-cible.m_x) + (m_y-cible.m_y)*(m_y-cible.m_y))<= 2*m_r and vitesse.x() > 0) // La boule doit être en mouvement pour vérifié les collisions.
+    if(sqrt((m_x-cible.m_x) * (m_x-cible.m_x) + (m_y-cible.m_y)*(m_y-cible.m_y))<= 2*m_r and vitesse.x() > 0) // La boule doit être en mouvement et son centre doit être à une distance de moins de deux rayon du centre d'une autre boule pour vérifié les collisions.
         {
             collboule=true;
             cout<<"Collision entre la boule "<<m_numero<<" et la boule "<<cible.m_numero<<endl<<endl;
@@ -283,7 +282,7 @@ void Boule::collBoule(Boule& cible)
             // Discriminant pour trouver le temps "t" pendant lequel on va devoir déplacer les boules plus tard.
             double t =(-vitesse.x()+sqrt(pow(vitesse.x(),2)-2*acceleration.x()*-d1/coefficient1))/acceleration.x();
 
-            // Change la norme des vitesses des deux boules pour qu'ils correspondent au vitesses quand les deux boules se touchent parfaitement.
+            // Change la norme des vitesses des deux boules pour qu'elles correspondent aux vitesses quand les deux boules se touchent parfaitement.
             vitesse.modifierX(vitesse.x()+t*0.5*acceleration.x());
             if(cible.vitesse.x()!=0)
             {cible.vitesse.modifierX(cible.vitesse.x()+t*0.5*acceleration.x());
@@ -293,7 +292,7 @@ void Boule::collBoule(Boule& cible)
 
 
 
-            // Replacement des boules pour qu'ils se touchent parfaitement.
+            // Replacement des boules pour qu'elles se touchent parfaitement.
             if(deltaX > 0 and deltaY < 0)
             {
                 m_x=m_x-d1*m_sin2;
@@ -356,7 +355,7 @@ void Boule::collBoule(Boule& cible)
             deltaX= cible.m_x-m_x;
             deltaY = cible.m_y-m_y;
 
-            // Calcule l'angle phi.
+            // Calcul l'angle phi (défini dans le rapport).
             if(deltaX > 0 and deltaY < 0)
             {
                 phi = 90 + abs(atan(deltaY / deltaX)) * 180 / PI; //en degres
@@ -401,6 +400,7 @@ void Boule::collBoule(Boule& cible)
             }
 
 
+            //Calcul de la norme des vecteurs vitesse post collision des deux boules impliquées.
             double v1x = vitesse.x() * sin(phi*PI/180 - vitesse.y()*PI/180) * sin((phi-90)*PI/180) + cible.vitesse.x() * cos(cible.vitesse.y()*PI/180 - (phi+180)*PI/180) * sin((phi+180)*PI/180);
 
             double v1y = vitesse.x() * sin(phi*PI/180 - vitesse.y()*PI/180) * cos((phi-90)*PI/180) + cible.vitesse.x() * cos(cible.vitesse.y()*PI/180 - (phi+180)*PI/180) * cos((phi+180)*PI/180);
@@ -413,6 +413,7 @@ void Boule::collBoule(Boule& cible)
             cible.vitesse.modifierX(sqrt(v2x*v2x + v2y*v2y));
 
 
+            //Calcul de l'angle (direction) post collision des victeurs vitesse des deux boules impliquées dans la collision.
             if(v1x > 0 and v1y < 0)
             {
                 vitesse.modifierY(90 + abs(atan(v1y / v1x)) * 180 / PI);
@@ -495,8 +496,8 @@ void Boule::collBoule(Boule& cible)
             cible.acceleration.modifierX(2.943);
 
 
-
-            this->deplacemelent(t);//Déplace les boules pendant le temps "t" calculé précédemment.
+            //Déplacement des boules pendant le temps "t" calculé précédemment afin qu'elles ne subissent pas de perte d'énergie dû à l'overshoot.
+            this->deplacemelent(t);
             cible.deplacemelent(t);
 
         }
@@ -511,7 +512,8 @@ void Boule::collTable() //Détéction des collisions entre la boule et la table. L
 
         double x;
 
-        //Collisions avec les petites bandes
+        //Collisions avec les petites bandes :
+
         if(m_y+m_r/sqrt(2)<C3bY and m_y+m_r/sqrt(2) >= C3aY + (m_x-m_r/sqrt(2) - C3aX))
         {//1
             vitesse.modifierY(90 - vitesse.y()); //Sens de la vitesse finale de la boule.
@@ -619,7 +621,8 @@ void Boule::collTable() //Détéction des collisions entre la boule et la table. L
 
 
 
-        //collisions avec les coins
+        //collisions avec les coins :
+
         else if(m_y > C3bY-m_r/sqrt(2) and m_y < C3bY and m_r >= sqrt((m_x-C3bX)*(m_x-C3bX)+(m_y-C3bY)*(m_y-C3bY))) //vérification de la collision avec le coin.
         {//1
             double gamma = -(vitesse.y()-90)*PI/180; //Sens de la vitesse par rapport au cercle trigonométrique en radians.
@@ -643,10 +646,10 @@ void Boule::collTable() //Détéction des collisions entre la boule et la table. L
                 yb = yb2;
             }
             vitesse.modifierY(-2*(acos((C3bY-yb)/m_r)*180/PI)+180-vitesse.y()); //Sens de la vitesse finale de la boule.
-            double alpha = asin((C3bY-yb)/m_r)*180/PI; //Angle formé par la droite séante au centre de la boule ainsi que le coins et l'horizontale.
+            double alpha = asin((C3bY-yb)/m_r)*180/PI; //Angle formé par la droite sécante au centre de la boule ainsi que le coins et l'horizontale.
             double x = m_x;
-            m_x = cos(alpha*PI/180) * 2*abs((xb-C3bX)/(C3bY-yb)*x - m_y + yb-(xb-C3bX)/(C3bY-yb)*xb)/sqrt(((xb-C3bX)/(C3bY-yb))*((xb-C3bX)/(C3bY-yb)) + 1) + m_x; //Position x de la boule après avoir restitué l'énergie perdu lors de l'overshoot.
-            m_y = -(sin(alpha*PI/180)) * 2*abs((xb-C3bX)/(C3bY-yb)*x - m_y + yb-(xb-C3bX)/(C3bY-yb)*xb)/sqrt(((xb-C3bX)/(C3bY-yb))*((xb-C3bX)/(C3bY-yb)) + 1) + m_y; //Position y de la boule après avoir restitué l'énergie perdu lors de l'overshoot.
+            m_x = cos(alpha*PI/180) * 2*abs((xb-C3bX)/(C3bY-yb)*x - m_y + yb-(xb-C3bX)/(C3bY-yb)*xb)/sqrt(((xb-C3bX)/(C3bY-yb))*((xb-C3bX)/(C3bY-yb)) + 1) + m_x; //Position x de la boule après avoir restitué l'énergie perdu lors de l'overshoot (après ayant effectué la symétrie).
+            m_y = -(sin(alpha*PI/180)) * 2*abs((xb-C3bX)/(C3bY-yb)*x - m_y + yb-(xb-C3bX)/(C3bY-yb)*xb)/sqrt(((xb-C3bX)/(C3bY-yb))*((xb-C3bX)/(C3bY-yb)) + 1) + m_y; //Position y de la boule après avoir restitué l'énergie perdu lors de l'overshoot (après ayant effectué la symétrie).
         }
 
         else if(m_x < 0.0835 and m_x > 0.0835-m_r/sqrt(2) and m_r >= sqrt((m_x-0.0835)*(m_x-0.0835)+(m_y-0.04)*(m_y-0.04)))
@@ -994,11 +997,12 @@ void Boule::collTable() //Détéction des collisions entre la boule et la table. L
 
 
         //Collisions avec les grandes bandes.
+
         else if(m_y-m_r <= 0.04 and m_x >= 0.0835 and m_x <= 1.1865)
         {
             cout << "Collision entre la boule " << m_numero << " et la bande en bas a gauche " << endl<<endl;
-            vitesse.modifierY(180 - vitesse.y());
-            m_y = 2*0.04-m_y + 2*m_r;
+            vitesse.modifierY(180 - vitesse.y()); //modification de l'angle du vecteur vitesse.
+            m_y = 2*0.04-m_y + 2*m_r; //replacement de la boule afin de réstituer l'énergie consommée lors de l'overshoot.
         }
 
         else if(m_y-m_r <= 0.04 and m_x >= 1.3535 and m_x <= 2.4565)
@@ -1046,7 +1050,7 @@ void Boule::collTable() //Détéction des collisions entre la boule et la table. L
             vitesse.modifierY(vitesse.y()-360);
         }
 
-        //Pour savoir si la boule a choqué avec la table.
+        //Permet de déterminer si la boule est rentrée en collision avec la table lors de cette séquence.
         if(vy!=vitesse.y())
         {
             boulebande=true;
@@ -1058,6 +1062,7 @@ void Boule::shoot() // Permet de shooter la boule blanche en entrant un angle et
 {
     double v(1000), alpha(1000);
 
+    //le joueur détermine une norme
     while(v<=0 or v>20 or !(cin.good()))
     {
         cin.clear();
@@ -1065,6 +1070,8 @@ void Boule::shoot() // Permet de shooter la boule blanche en entrant un angle et
         cout << "Vitesse ?? (de 0 a 20m/s)" << endl;
         cin >> v;
     }
+
+    //le joueur détermine un angle
     while(alpha<=0 or alpha>360 or !(cin.good()))
     {
         cin.clear();
