@@ -172,19 +172,19 @@ void Boule::replacementblanche() //Permet au joueur de décider où il veut placer
     double positionx =0;
     double positiony=0;
     cout<<"Placez la blanche derriere la ligne"<<endl;
-    while(positionx<0.0287 or positionx>0.655 or !(cin.good()))
+    while(positionx<0.0687 or positionx>0.655 or !(cin.good()))
     {
         cin.clear();
         cin.ignore(INT_MAX, '\n');
-        cout<<"Choisissez une position x (doit etre entre 0.0287 et 0.655)"<<endl;
+        cout<<"Choisissez une position x (doit etre entre 0.0687 et 0.655)"<<endl;
         cin>>positionx;
     }
     m_x=positionx;
-    while(positiony<0.0287 or positionx>1.2413 or !(cin.good()))
+    while(positiony<0.0687 or positionx>1.2013 or !(cin.good()))
     {
         cin.clear();
         cin.ignore(INT_MAX, '\n');
-        cout<<"Choisissez une position y (doit etre entre 0.0287 et 1.2413)"<<endl;
+        cout<<"Choisissez une position y (doit etre entre 0.0687 et 1.2013)"<<endl;
         cin>>positiony;
     }
     m_y=positiony;
