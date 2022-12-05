@@ -1,13 +1,17 @@
 # depslib dependency file v1.0
-1653583752 source:c:\users\zorbas\documents\tm\apprentissage programme\testcode\positionobjet3\positionobjet\positionobjet2\boule.cpp
+1670278605 source:c:\users\zorbas\documents\tm\apprentissage programme\testcode\positionobjet3\positionobjet\positionobjet2\boule.cpp
+	<iostream>
 	"Boule.hpp"
+	"Vecteur.hpp"
+	<climits>
+	<cmath>
 
 1670252165 c:\users\zorbas\documents\tm\apprentissage programme\testcode\positionobjet3\positionobjet\positionobjet2\boule.hpp
 	<iostream>
 	<string>
 	"Vecteur.hpp"
 
-1670251933 source:c:\users\zorbas\documents\tm\apprentissage programme\testcode\positionobjet3\positionobjet\positionobjet2\main.cpp
+1670278605 source:c:\users\zorbas\documents\tm\apprentissage programme\testcode\positionobjet3\positionobjet\positionobjet2\main.cpp
 	<iostream>
 	<cmath>
 	"Boule.hpp"
@@ -177,4 +181,23 @@
 	<iostream>
 	<string>
 	<vector>
+
+1670252074 source:c:\users\zorbas\documents\tm\apprentissage programme\testcode\positionobjet3\positionobjet\positionobjet2\table.cpp
+	<iostream>
+	"Table.hpp"
+	<ctime>
+	<algorithm>
+	"Boule.hpp"
+	<vector>
+	"Player.cpp"
+
+1670252112 c:\users\zorbas\documents\tm\apprentissage programme\testcode\positionobjet3\positionobjet\positionobjet2\player.cpp
+	<iostream>
+	<vector>
+	"Player.hpp"
+	"Table.hpp"
+
+1670252179 source:c:\users\zorbas\documents\tm\apprentissage programme\testcode\positionobjet3\positionobjet\positionobjet2\vecteur.cpp
+	<iostream>
+	"Vecteur.hpp"
 
