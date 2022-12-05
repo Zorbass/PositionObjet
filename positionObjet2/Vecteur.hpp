@@ -12,7 +12,6 @@ public:
     Vecteur();
     Vecteur(double x, double y);
     Vecteur& operator+=(const Vecteur &vecteur);
-    //void afficher() const;
     double x();
     double y();
     void afficher(std::ostream &flux) const;
@@ -21,8 +20,8 @@ public:
     void modifierY(double y);
 
 private:
-    double m_x;
-    double m_y;
+    double m_x; //Composante de l'intensité du vecteur.
+    double m_y;//Composante de l'angle (par rapport à l'axe y dans le sens horaire) représentant la direction du vecteur.
 
 };
 

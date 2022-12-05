@@ -1,3 +1,7 @@
+//Ce fichier contient la déclaration des méthodes et attributs de la classe boule.
+//La classe boule nous est utile pour modifier les attributs des boules, notammentsa vitesse.
+//Dans cette classe sont aussi définis les méthodes relatives au moteur physique, notamment les méthodes de déplacement, collision boule-table, collision boule-boule.
+
 #ifndef BOULE_HPP_INCLUDED
 #define BOULE_HPP_INCLUDED
 
@@ -11,16 +15,16 @@ class Boule
 {
     public:
 
-    Boule();  //ok
-    Boule(std::string numero, std::string type, double x, double y);  //ok
+    Boule();
+    Boule(std::string numero, std::string type, double x, double y);
 
-    void shoot(); //ok
+    void shoot();
 
-    void afficher();  //ok
+    void afficher();
 
-    double positionX(); //ok
+    double positionX();
 
-    double positionY(); //ok
+    double positionY();
 
     double intensiteeV();
 
@@ -44,7 +48,7 @@ class Boule
 
     void replacementblanche();
 
-    void changerVitesse(double x, double y); //ok
+    void changerVitesse(double x, double y);
 
     void deplacemelent(double f);
 
@@ -59,17 +63,17 @@ class Boule
 
     std::string m_numero;
     std::string m_type;
-    double m_x; //Position de la bille sur l'axe x
-    double m_y; //Position de la bille sur l'axe y
-    double m_t; //temps de déplacement de la bille
-    Vecteur acceleration;
-    double m_r = 0.0286; //rayon de la bille
-    double m_d; //deplacement de la resultante
-    Vecteur vitesse;
-    bool m_empochee = false; //si la boule est empochee
-    bool m_dejaempochee =false; //si la boule est dejaempoche
-    bool boulebande = false; //si la boule a touche une bande
-    bool collboule =false; //si la boule a touche une autre boule
+    double m_x; //Position de la boule sur l'axe x.
+    double m_y; //Position de la boule sur l'axe y.
+    double m_t; //Temps de déplacement de la boule.
+    Vecteur acceleration; //Vecteur d'accélération subit par une boule.
+    double m_r = 0.0286; //Rayon d'une boule.
+    double m_d; //Déplacement de la résultante.
+    Vecteur vitesse; //Vecteur de la vitesse d'une boule:
+    bool m_empochee = false; //Définit si la boule est empochée.
+    bool m_dejaempochee =false; //Définit si la boule la boule est deja empochée.
+    bool boulebande = false; //Définit si la boule la boule a touché une bande lors du tour.
+    bool collboule =false; //Définit si la boule la boule a touché une autre boule.
 
 
 };

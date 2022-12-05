@@ -1,11 +1,11 @@
+//Dans ce fichier sont définis les méthodes et attributs de la classe player.
+
 #ifndef PLAYER_HPP_INCLUDED
 #define PLAYER_HPP_INCLUDED
 
 #include <iostream>
 #include <string>
-
 #include <vector>
-
 
 using namespace std;
 
@@ -23,10 +23,9 @@ public:
 
 private:
 
-    string m_nom;
-    string m_typeBoule;
-    int player =0;
-
+    string m_nom; //Nom du joueur.
+    string m_typeBoule; //Nom du groupe des boule du joueur (pleines ou rayées).
+    int player =0; //Détermine quel joueur est entrain de jouer.
 };
 
 #endif
