@@ -98,7 +98,7 @@ Boule::Boule(string numero, string type, double x, double y) : m_numero(numero),
 
 void Boule::afficher() //Affiche le nom, la vitesse et la position de la boule.
 {
-    cout << "Boule : " << m_numero << " " << m_type << " (Position : " << m_x << ";" << m_y << ")" << endl<< endl;
+    cout << "Boule : " << m_numero << " " << m_type << " Position : (" << m_x << ";" << m_y << ")" << endl<< endl;
 
 }
 
