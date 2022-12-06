@@ -1016,14 +1016,14 @@ void Boule::collTable() //Détéction des collisions entre la boule et la table. L
         {
             m_x = 2*0.04-m_x + 2*m_r;
             vitesse.modifierY(360 - vitesse.y());
-            cout << "Collision entre la boule " << m_numero << " et la bande verticale droite " << endl<<endl;
+            cout << "Collision entre la boule " << m_numero << " et la bande verticale gauche " << endl<<endl;
         }
 
         else if(m_x+m_r >= 2.5 and m_y <= 1.1865 and m_y >= 0.0835)
         {
             vitesse.modifierY(360 - vitesse.y());
             m_x = (LONGUEUR-0.04)*2 - m_x - 2*m_r;
-            cout << "Collision entre la boule " << m_numero << " et la bande verticale gauche " <<endl<<endl;
+            cout << "Collision entre la boule " << m_numero << " et la bande verticale droite " <<endl<<endl;
         }
 
         else if(m_y+m_r >= LARGEUR-0.04 and m_x >= 0.0835 and m_x <= 1.1865)
