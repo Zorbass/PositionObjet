@@ -98,7 +98,7 @@ Boule::Boule(string numero, string type, double x, double y) : m_numero(numero),
 
 void Boule::afficher() //Affiche le nom, la vitesse et la position de la boule.
 {
-    cout << "Boule : " << m_numero << " " << m_type << " Position : (" << m_x << ";" << m_y << ")" << endl<< endl;
+    cout << "Boule : " << m_numero << " " << m_type << " (Position : " << m_x << ";" << m_y << ")" << endl<< endl;
 
 }
 
@@ -172,19 +172,19 @@ void Boule::replacementblanche() //Permet au joueur de décider où il veut placer
     double positionx =0;
     double positiony=0;
     cout<<"Placez la blanche derriere la ligne"<<endl;
-    while(positionx<0.0687 or positionx>0.655 or !(cin.good()))
+    while(positionx<0.0287 or positionx>0.655 or !(cin.good()))
     {
         cin.clear();
         cin.ignore(INT_MAX, '\n');
-        cout<<"Choisissez une position x (doit etre entre 0.0687 et 0.655)"<<endl;
+        cout<<"Choisissez une position x (doit etre entre 0.0287 et 0.655)"<<endl;
         cin>>positionx;
     }
     m_x=positionx;
-    while(positiony<0.0687 or positionx>1.2013 or !(cin.good()))
+    while(positiony<0.0287 or positionx>1.2413 or !(cin.good()))
     {
         cin.clear();
         cin.ignore(INT_MAX, '\n');
-        cout<<"Choisissez une position y (doit etre entre 0.0687 et 1.2013)"<<endl;
+        cout<<"Choisissez une position y (doit etre entre 0.0287 et 1.2413)"<<endl;
         cin>>positiony;
     }
     m_y=positiony;
@@ -1016,14 +1016,14 @@ void Boule::collTable() //Détéction des collisions entre la boule et la table. L
         {
             m_x = 2*0.04-m_x + 2*m_r;
             vitesse.modifierY(360 - vitesse.y());
-            cout << "Collision entre la boule " << m_numero << " et la bande verticale gauche " << endl<<endl;
+            cout << "Collision entre la boule " << m_numero << " et la bande verticale droite " << endl<<endl;
         }
 
         else if(m_x+m_r >= 2.5 and m_y <= 1.1865 and m_y >= 0.0835)
         {
             vitesse.modifierY(360 - vitesse.y());
             m_x = (LONGUEUR-0.04)*2 - m_x - 2*m_r;
-            cout << "Collision entre la boule " << m_numero << " et la bande verticale droite " <<endl<<endl;
+            cout << "Collision entre la boule " << m_numero << " et la bande verticale gauche " <<endl<<endl;
         }
 
         else if(m_y+m_r >= LARGEUR-0.04 and m_x >= 0.0835 and m_x <= 1.1865)
