@@ -30,7 +30,7 @@
 #define position13x 20//2.083146612
 #define position14x 20//2.033609959
 #define position15x 20//1.984073306
-#define position16x 0.655//0.655
+#define position16x 0.635//0.655
 
 #define position1y 0.1//0.5778
 #define position2y 1.17//0.6922
