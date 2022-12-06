@@ -13,6 +13,7 @@
 //Définition de la position de chaque boule sur les axes x et y.
 //Les positions attribués sont légèrement différentes des positions parfaites dans un soucis de réalisme.
 //Les positions parfaites des boules se trouvent en commentaire.
+
 #define position1x 1.986073306//1.984073306
 #define position2x 2.083546612//2.083146612
 #define position3x 2.033909959//2.033609959
@@ -46,6 +47,43 @@
 #define position14y 0.5490//0.5492
 #define position15y 0.6922//0.6922
 #define position16y 0.635//0.635
+
+
+/*
+#define position1x 0.1//1.984073306
+#define position2x 0.1//2.083146612
+#define position3x 2.033909959//2.033609959
+#define position4x 2.083546612//2.083146612
+#define position5x 2.083546612//2.083146612
+#define position6x 2.033909959//2.033609959
+#define position7x 1.935536653//1.934536653
+#define position8x 1.986073306//1.984073306
+#define position9x 1.885//1.885
+#define position10x 2.033909959//2.033609959
+#define position11x 2.083546612//2.083146612
+#define position12x 1.935536653//1.934536653
+#define position13x 2.083546612//2.083146612
+#define position14x 2.033909959//2.033609959
+#define position15x 1.986073306//1.984073306
+#define position16x 0.635//0.655
+
+#define position1y 0.1//0.5778
+#define position2y 1.17//0.6922
+#define position3y 0.6063//0.6064
+#define position4y 0.5777//0.5778
+#define position5y 0.5203//0.5206
+#define position6y 0.7210//0.7208
+#define position7y 0.6637//0.6636
+#define position8y 0.635//0.635
+#define position9y 0.635//0.635
+#define position10y 0.6636//0.6636
+#define position11y 0.7496//0.7494
+#define position12y 0.6064//0.6064
+#define position13y 0.635//0.635
+#define position14y 0.5490//0.5492
+#define position15y 0.6922//0.6922
+#define position16y 0.635//0.635
+*/
 
 using namespace std;
 
