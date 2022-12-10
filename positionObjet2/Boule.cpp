@@ -272,8 +272,8 @@ void Boule::collBoule(Boule& cible)
             double m_cos2= coefficient2*cos(cible.vitesse.y()*PI/180);
 
             //Discriminant pour trouver d1.
-            double a= pow(m_sin+m_sin2,2)+pow(m_cos+m_cos2,2);
-            double b= 2*(-m_x+cible.m_x)*(m_sin+m_sin2) + 2*(-m_y+cible.m_y)*(m_cos+m_cos2);
+            double a= pow(m_sin+m_sin2,2)+pow(m_cos+m_cos2,2); // des moins ?
+            double b= 2*(-m_x+cible.m_x)*(m_sin+m_sin2) + 2*(-m_y+cible.m_y)*(m_cos+m_cos2);  //moins dans la parenthèses avec trigo?
             double c= pow(m_x,2)+pow(cible.m_x,2)+pow(m_y,2)+pow(cible.m_y,2)-2*m_x*cible.m_x+-2*m_y*cible.m_y -4*pow(m_r,2);
             discriminant = pow(b,2)-4*a*c;
 

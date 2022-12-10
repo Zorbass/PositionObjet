@@ -50,7 +50,8 @@
 #define position16y 0.635//0.635
 
 
-/* normale
+/*
+// normale
 #define position1x 1.986073306//1.984073306
 #define position2x 2.083546612//2.083146612
 #define position3x 2.033909959//2.033609959
@@ -84,6 +85,7 @@
 #define position15y 0.6922//0.6922
 #define position16y 0.635//0.635
 */
+
 using namespace std;
 
 //Constructeur basique.
